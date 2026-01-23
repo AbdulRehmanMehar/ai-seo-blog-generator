@@ -5,7 +5,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: primestrides/seo-blog-generator:latest
     container_name: seo-blog-generator
     restart: unless-stopped
     
@@ -79,4 +78,6 @@ services:
 networks:
   default:
     name: primestrides-network
-    external: true
+    # Set external: true if you want to use an existing network
+    # Create it first with: docker network create primestrides-network
+    external: false
