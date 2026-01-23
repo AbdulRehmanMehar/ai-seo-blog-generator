@@ -26,7 +26,14 @@ const sectionSchema = z.object({
   content: z.string(),
   keyTakeaway: z.string().nullable(),
   // Accept string, object, or null for CTA (LLM sometimes returns objects)
-  cta: z.union([z.string(), z.record(z.any())]).nullable().optional().transform(v => v ?? null)
+  // Transform objects to string (use .text property if available, otherwise stringify)
+  cta: z.union([z.string(), z.record(z.any())]).nullable().optional().transform(v => {
+    if (v === null || v === undefined) return null;
+    if (typeof v === 'string') return v;
+    // If object, try to extract text or stringify
+    if (typeof v === 'object' && v.text) return String(v.text);
+    return null;
+  })
 });
 
 const faqSchema = z.object({
