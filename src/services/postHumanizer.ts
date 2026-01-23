@@ -4,8 +4,9 @@
  * This runs AFTER the main generation to:
  * 1. Replace forbidden AI vocabulary with natural alternatives
  * 2. Add contractions where missing
- * 3. Fix title format issues (remove colons)
- * 4. Clean up forbidden patterns
+ * 3. Fix title format issues (remove colons and em dashes)
+ * 4. Remove all markdown formatting
+ * 5. Clean up forbidden patterns
  * 
  * By doing this as a separate pass, we reduce cognitive load on the generation model.
  */
@@ -140,6 +141,9 @@ export class PostHumanizer {
   private replacementCount = 0;
   private contractionCount = 0;
   private titleFixed = false;
+  private colonCount = 0;
+  private emDashCount = 0;
+  private markdownCount = 0;
 
   /**
    * Humanize a blog post by cleaning AI patterns
@@ -148,6 +152,9 @@ export class PostHumanizer {
     this.replacementCount = 0;
     this.contractionCount = 0;
     this.titleFixed = false;
+    this.colonCount = 0;
+    this.emDashCount = 0;
+    this.markdownCount = 0;
     const changes: string[] = [];
 
     // Deep clone to avoid mutating original
@@ -203,41 +210,69 @@ export class PostHumanizer {
     if (this.contractionCount > 0) {
       changes.push(`Added ${this.contractionCount} contractions`);
     }
+    if (this.colonCount > 0) {
+      changes.push(`Removed ${this.colonCount} colons`);
+    }
+    if (this.emDashCount > 0) {
+      changes.push(`Removed ${this.emDashCount} em dashes`);
+    }
+    if (this.markdownCount > 0) {
+      changes.push(`Removed ${this.markdownCount} markdown formatting instances`);
+    }
 
     return { post: humanized, changes };
   }
 
   /**
-   * Fix title by removing colons and reformatting
+   * Fix title by removing colons and em dashes, restructuring naturally
    */
   private fixTitle(title: string): string {
-    if (!title.includes(':')) return title;
+    let result = title;
+    let changed = false;
     
-    this.titleFixed = true;
-    
-    // Common patterns: "Topic: Subtitle" → "Topic - Subtitle" or just "Subtitle"
-    const parts = title.split(':').map(p => p.trim());
-    const firstPart = parts[0] ?? '';
-    const secondPart = parts[1] ?? '';
-    
-    if (parts.length === 2 && firstPart && secondPart) {
-      // If second part is more descriptive, use it
-      if (secondPart.length > firstPart.length) {
-        return secondPart;
+    // Remove colons and restructure
+    if (result.includes(':')) {
+      const parts = result.split(':').map(p => p.trim());
+      const firstPart = parts[0] ?? '';
+      const secondPart = parts[1] ?? '';
+      
+      if (parts.length === 2 && firstPart && secondPart) {
+        // If second part is more descriptive, use it
+        if (secondPart.length > firstPart.length) {
+          result = secondPart;
+        } else if (firstPart.length + secondPart.length < 60) {
+          // Combine with "and" or just concatenate naturally
+          result = `${firstPart} and ${secondPart}`;
+        } else {
+          result = firstPart;
+        }
+      } else {
+        // Multiple colons - join with "and"
+        result = parts.filter(p => p.length > 0).join(' and ');
       }
-      // Otherwise combine with dash or use first part
-      if (firstPart.length + secondPart.length < 60) {
-        return `${firstPart} — ${secondPart}`;
-      }
-      return firstPart;
+      this.colonCount++;
+      changed = true;
     }
     
-    // Multiple colons - just remove them
-    return title.replace(/:/g, ' —');
+    // Remove em dashes and replace with "and" or comma
+    if (result.includes('—')) {
+      result = result.replace(/\s*—\s*/g, ' and ');
+      this.emDashCount++;
+      changed = true;
+    }
+    
+    // Remove regular dashes used as separators (but keep hyphens in words)
+    result = result.replace(/\s+-\s+/g, ' and ');
+    
+    if (changed) {
+      this.titleFixed = true;
+    }
+    
+    return result;
   }
 
   /**
-   * Process text to replace AI vocabulary and add contractions
+   * Process text to replace AI vocabulary, add contractions, and remove forbidden formatting
    */
   private processText(text: string): string {
     let result = text;
@@ -269,8 +304,42 @@ export class PostHumanizer {
       }
     }
 
-    // Fix "**Bold:** text" pattern → "**Bold.** text"
-    result = result.replace(/\*\*([^*]+):\*\*/g, '**$1.**');
+    // Remove markdown bold formatting (**text** → text)
+    const boldMatches = result.match(/\*\*[^*]+\*\*/g);
+    if (boldMatches) {
+      this.markdownCount += boldMatches.length;
+      result = result.replace(/\*\*([^*]+)\*\*/g, '$1');
+    }
+
+    // Remove markdown italic formatting (*text* or _text_ → text)
+    const italicMatches = result.match(/(?<!\*)\*([^*]+)\*(?!\*)|_([^_]+)_/g);
+    if (italicMatches) {
+      this.markdownCount += italicMatches.length;
+      result = result.replace(/(?<!\*)\*([^*]+)\*(?!\*)/g, '$1');
+      result = result.replace(/_([^_]+)_/g, '$1');
+    }
+
+    // Remove markdown headers (# text → text)
+    const headerMatches = result.match(/^#{1,6}\s+/gm);
+    if (headerMatches) {
+      this.markdownCount += headerMatches.length;
+      result = result.replace(/^#{1,6}\s+/gm, '');
+    }
+
+    // Remove colons used as separators (but keep time formats like 2:30)
+    // Pattern: word: followed by space and another word
+    const colonMatches = result.match(/(\w):\s+(?=[A-Z])/g);
+    if (colonMatches) {
+      this.colonCount += colonMatches.length;
+      result = result.replace(/(\w):\s+(?=[A-Z])/g, '$1. ');
+    }
+
+    // Remove em dashes and replace with commas or "and"
+    const emDashMatches = result.match(/\s*—\s*/g);
+    if (emDashMatches) {
+      this.emDashCount += emDashMatches.length;
+      result = result.replace(/\s*—\s*/g, ', ');
+    }
 
     // Remove forbidden transitions at start of sentences
     for (const transition of FORBIDDEN_TRANSITIONS) {
@@ -278,7 +347,13 @@ export class PostHumanizer {
       result = result.replace(regex, '$1');
     }
 
-    return result;
+    // Clean up any double spaces or punctuation issues
+    result = result.replace(/\s+/g, ' ');
+    result = result.replace(/,\s*,/g, ',');
+    result = result.replace(/\.\s*\./g, '.');
+    result = result.replace(/,\s*\./g, '.');
+
+    return result.trim();
   }
 
   /**

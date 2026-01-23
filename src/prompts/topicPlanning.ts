@@ -11,21 +11,24 @@ export function topicPlanningPrompt(args: {
   return {
     system: `You are a senior software consulting content strategist who writes high-converting B2B content. 
 Your topics must be specific, outcome-focused, and use proven headline formulas that drive clicks and conversions.
-Avoid generic, hype-filled, or overly broad topics. Every topic must have a clear pain point or transformation.`,
+Avoid generic, hype-filled, or overly broad topics. Every topic must have a clear pain point or transformation.
+
+CRITICAL: Never use colons in headlines or titles. Write naturally flowing titles without colons or em dashes.`,
     user: `AUTHOR KNOWLEDGE (must reflect in output):
 
 ${formattedKnowledge}
 
 ${headlineGuidelines}
 
-CANDIDATE KEYWORDS (pick ${args.selectCount}):
+CANDIDATE KEYWORDS to pick ${args.selectCount} from:
 ${JSON.stringify(args.candidateKeywords, null, 2)}
 
 TASK:
-- Choose ${args.selectCount} keywords with the highest commercial + founder/CTO intent.
-- For each, create a headline using ONE of the headline formulas (Numbers, How-To, Curiosity Gap, Direct Benefit, or Contrarian).
-- Outline MUST start with a HOOK section (not definitions or intros).
-- Include a "Common Mistakes" or "What Most Get Wrong" section.
+- Choose ${args.selectCount} keywords with the highest commercial plus founder or CTO intent.
+- For each, create a headline using ONE of the headline formulas being Numbers, How-To, Curiosity Gap, Direct Benefit, or Contrarian.
+- CRITICAL: No colons in headlines. Write flowing titles like \"How to Build a Dev Team That Ships\" not \"Building Teams. A Complete Guide\"
+- Outline MUST start with a HOOK section, not definitions or intros.
+- Include a \"Common Mistakes\" or \"What Most Get Wrong\" section.
 - End outline with actionable next steps section.
 
 OUTPUT STRICT JSON ONLY with shape:
@@ -33,18 +36,19 @@ OUTPUT STRICT JSON ONLY with shape:
   "selected": [
     {
       "keyword": string,
-      "topic": string,
+      "topic": string that is the full headline with no colons,
       "headline_formula_used": string,
-      "outline": [ { "heading": string, "level": 2|3, "notes": string } ]
+      "outline": [ { "heading": string with no colons, "level": 2 or 3, "notes": string } ]
     }
   ]
 }
 
 CRITICAL OUTPUT RULES:
-- Output must be a single JSON object (not an array).
+- Output must be a single JSON object not an array.
 - Do not wrap the JSON in Markdown fences.
-- The first character must be '{' and the last character must be '}'.
+- The first character must be curly brace and the last character must be curly brace.
 - No trailing commas, no comments, no extra keys.
+- No colons in any headline or heading text.
 `
   };
 }
