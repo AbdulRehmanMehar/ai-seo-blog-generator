@@ -1,0 +1,174 @@
+{
+  "identity": {
+    "name": "Abdul Rehman",
+    "location": "Pakistan",
+    "role": "Senior Full-Stack Developer / AI Engineer",
+    "experience_years": 5,
+    "projects_delivered": 30,
+    "website": "https://theabdulrehman.com",
+    "positioning": "Product-focused senior engineer who builds scalable SaaS, AI-powered systems, and modernizes complex legacy platforms end-to-end."
+  },
+
+  "core_skills": {
+    "frontend": ["React", "Next.js"],
+    "backend": ["Node.js", "Laravel", "Flask"],
+    "desktop": ["Electron.js"],
+    "databases": ["PostgreSQL", "Redis", "SQLite"],
+    "realtime_streaming": ["WebSockets", "Socket.io", "Audio streaming", "Video streaming"],
+    "ai": ["OpenAI / GPT-4 integrations", "AI automation", "LLM workflows", "Onboarding & report generation"],
+    "cloud_infra": ["AWS", "Reverse proxy", "Content Security Policy", "Performance optimization"],
+    "testing": ["Cypress", "Laravel feature testing"]
+  },
+
+  "strength_areas": [
+    "Legacy system migrations (especially .NET MVC to Next.js)",
+    "Performance optimization (Core Web Vitals, LCP, caching)",
+    "Complex database design (recursive CTEs, partitioning, indexing)",
+    "Desktop + web + AI hybrid systems",
+    "End-to-end product ownership"
+  ],
+
+  "career_highlights": [
+    {
+      "company": "SmashCloud",
+      "role": "MERN / Full-Stack Developer",
+      "summary": "Led migration of a large legacy .NET MVC e-commerce platform to Next.js with reverse proxy setup and analytics continuity.",
+      "achievements": [
+        "Migrated legacy .NET MVC to Next.js",
+        "Improved SEO, performance, and user experience",
+        "Integrated Google, Facebook, TikTok analytics and tracking",
+        "Handled authentication via legacy APIs",
+        "Migrated CMS data from Exigo to Strapi",
+        "Designed and implemented complex recursive commissioning system"
+      ],
+      "tech_stack": ["Next.js", "Node.js", "PostgreSQL", "Strapi", "Reverse Proxy", "Analytics"]
+    },
+    {
+      "company": "DashCam.io",
+      "role": "Electron / Vue Developer",
+      "summary": "Built and optimized a desktop replay and video streaming system with cloud sync and Jira integrations.",
+      "achievements": [
+        "Built automatic replay capture system",
+        "Implemented cloud sync and storage cleanup",
+        "Developed Jira plugin for replay previews",
+        "Streamed video from local machine to server",
+        "Debugged CPU usage and performance bottlenecks"
+      ],
+      "tech_stack": ["Electron.js", "Vue", "Video Streaming", "Cloud Sync"]
+    },
+    {
+      "company": "CarefordCorp",
+      "role": "Laravel Contractor",
+      "summary": "Built a COD-based e-commerce store for surgical instruments.",
+      "tech_stack": ["Laravel", "JavaScript", "E-commerce"]
+    },
+    {
+      "company": "Sermask Inc",
+      "role": "Laravel QA Engineer",
+      "summary": "Wrote feature tests and mocked third-party services.",
+      "tech_stack": ["Laravel 7.x", "PHPUnit", "Zendesk", "Stripe"]
+    }
+  ],
+
+  "ai_projects": [
+    {
+      "name": "AI Onboarding Video Generator",
+      "type": "MVP / Client Project",
+      "description": "Generated onboarding scripts with OpenAI and converted them to avatar videos using D-ID, HeyGen, and Captions.",
+      "status": "Client rejected early providers as not human-like; exploring Higgsfield",
+      "tech_stack": ["OpenAI", "Video generation APIs", "Automation"]
+    },
+    {
+      "name": "Personalized Health Report Generator",
+      "type": "Micro-SaaS",
+      "description": "Automated generation of personalized health reports using GPT-4.",
+      "tech_stack": ["OpenAI GPT-4", "Backend automation"]
+    },
+    {
+      "name": "Audio Streaming & Transcription POCs",
+      "type": "Proof of Concept",
+      "description": "Built streaming pipelines for audio arrays and voice-to-text transcription using WebSockets.",
+      "tech_stack": ["WebSockets", "Streaming", "Speech-to-text"]
+    }
+  ],
+
+  "open_source": {
+    "contributions": [
+      {
+        "project": "Microsoft Fluent UI",
+        "type": "Bug fixes",
+        "prs_merged": 2
+      },
+      {
+        "project": "Expensify",
+        "type": "Issue contribution"
+      }
+    ]
+  },
+
+  "product_ideas_and_mvp_interests": [
+    "AI-powered onboarding generator",
+    "SaaS for tile distributors in the USA",
+    "SaaS for consultants",
+    "AI SEO content automation engine",
+    "Headless commerce contributions (Medusa)"
+  ],
+
+  "business_interests": {
+    "food": "Owner of Mehar Fast Food",
+    "fashion": {
+      "brand": "PrimeStrides",
+      "focus": "Premium Chelsea shoes",
+      "status": "Waitlist UI ready, not launched"
+    },
+    "sports": "Snooker tournament hosting platform idea"
+  },
+
+  "target_audience": [
+    "Startup founders",
+    "CTOs",
+    "Product managers",
+    "SaaS companies",
+    "Agencies needing senior engineers"
+  ],
+
+  "services_offered": [
+    "Full-stack web development",
+    "SaaS MVP development",
+    "AI-powered applications and automation",
+    "Legacy system migration and modernization",
+    "Electron desktop application development",
+    "Performance optimization and scalability consulting"
+  ],
+
+  "writing_tone": {
+    "style": "Professional, senior-level, practical",
+    "voice": "Engineering-focused with business impact",
+    "avoid": ["Buzzwords", "Generic marketing fluff"],
+    "focus": ["Outcomes", "Architecture decisions", "Performance", "Reliability"]
+  },
+
+  "seo_focus_keywords": [
+    "Senior full-stack developer",
+    "Next.js developer",
+    "Electron app developer",
+    "AI SaaS developer",
+    "Legacy system migration",
+    "MVP developer for startups",
+    "OpenAI integration developer"
+  ],
+
+  "current_goals": [
+    "Build a high-converting personal portfolio",
+    "Create an AI-powered automated SEO blogging engine",
+    "Generate inbound leads via content marketing",
+    "Position as premium senior consultant / engineer"
+  ],
+
+  "conversion_strategy": {
+    "primary_cta": "Book a Free Strategy Call",
+    "secondary_ctas": ["View Case Studies", "Contact Me"],
+    "lead_magnet": "Free Project Roadmap Session",
+    "positioning": "Fast, reliable senior engineer who ships complex products without excuses"
+  }
+}

@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+
+# Build outputs (we build inside Docker)
+dist/
+out/
+
+# Development files
+.git/
+.github/
+.gitignore
+.DS_Store
+*.md
+docs/
+
+# Environment files (mount as secrets or configure in Portainer)
+.env
+.env.*
+!.env.example
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Test files
+*.test.ts
+*.spec.ts
+__tests__/
+coverage/
+.test
+
+# Scripts not needed in production
+scripts/
+
+# Temporary files
+tmp/
+*.log
