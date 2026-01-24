@@ -68,24 +68,257 @@ export class KeywordService {
   }
 
   private passesFilters(k: DiscoveredKeyword): boolean {
-    const volumeOk = (k.volume ?? 0) > 100;
-    const difficultyOk = k.difficulty == null || k.difficulty < 40;
-    const cpcOk = (k.cpc ?? 0) > 2.0;
+    const volumeOk = (k.volume ?? 0) > 50; // Lowered from 100
+    const difficultyOk = k.difficulty == null || k.difficulty < 50; // Raised from 40
+    const cpcOk = (k.cpc ?? 0) > 1.0; // Lowered from 2.0
 
     const intent = (k.intent ?? '').toLowerCase();
-    const intentOk = intent.includes('commercial') || intent.includes('founder') || intent.includes('cto');
+    const intentOk = 
+      intent.includes('commercial') || 
+      intent.includes('founder') || 
+      intent.includes('cto') ||
+      intent.includes('transactional') ||
+      intent.includes('service') ||
+      intent.includes('hire') ||
+      intent.includes('consulting');
 
     return volumeOk && difficultyOk && cpcOk && intentOk;
   }
 
   private async discoverKeywords(): Promise<DiscoveredKeyword[]> {
     const seeds = [
-      'software development consulting',
-      'hire a software development team',
-      'cto consulting',
-      'ai consulting',
-      'mvp development',
-      'startup backend architecture'
+      // ===== PAIN POINT KEYWORDS (Problem-aware, high intent) =====
+      'technical debt solutions',
+      'failed software project recovery',
+      'why do software projects fail',
+      'software project rescue services',
+      'legacy system modernization',
+      'fix slow software application',
+      'software security audit services',
+      'technical due diligence checklist',
+      
+      // ===== COST/PRICING KEYWORDS (Decision stage, very high intent) =====
+      'software development cost estimate',
+      'how much does custom software cost',
+      'mvp development cost breakdown',
+      'cto consulting rates per hour',
+      'app development pricing guide',
+      'software consultant hourly rate',
+      'cost to build a saas product',
+      'offshore development rates 2024',
+      
+      // ===== COMPARISON KEYWORDS (Evaluating options) =====
+      'toptal alternatives for startups',
+      'upwork vs development agency',
+      'in-house vs outsourced development',
+      'fractional cto vs full-time cto',
+      'offshore vs nearshore development',
+      'agency vs freelance developers',
+      'staff augmentation vs dedicated team',
+      
+      // ===== URGENCY/TIMELINE KEYWORDS (Hot leads) =====
+      'fast mvp development',
+      'rapid prototyping services',
+      'quick software development',
+      'emergency software developer',
+      'launch product in 3 months',
+      'accelerate software development',
+      
+      // ===== INDUSTRY VERTICAL KEYWORDS (Niche, high conversion) =====
+      'fintech software development',
+      'healthcare app development hipaa',
+      'real estate software solutions',
+      'logistics software development',
+      'ecommerce platform development',
+      'edtech software development',
+      'legaltech software solutions',
+      
+      // ===== OUTCOME-BASED KEYWORDS (Results-focused) =====
+      'scale startup engineering team',
+      'reduce software development costs',
+      'improve app performance',
+      'automate business processes',
+      'build investor-ready mvp',
+      'prepare startup for acquisition tech',
+      
+      // ===== ROLE-BASED KEYWORDS (Target decision makers) =====
+      'cto services for non-technical founders',
+      'technical advisor for startups',
+      'interim cto for hire',
+      'virtual cto services',
+      'startup technical leadership',
+      'technology strategy consultant',
+      
+      // ===== AI/ML SPECIFIC (Hot market) =====
+      'integrate chatgpt into business',
+      'custom ai solution development',
+      'ai automation for small business',
+      'machine learning consulting services',
+      'build ai powered application',
+      'llm fine tuning services',
+      'ai implementation roadmap',
+      
+      // ===== LONG-TAIL TRANSACTIONAL (Ready to buy) =====
+      'hire senior software developers',
+      'find technical co-founder',
+      'software development rfp template',
+      'development team for equity startup',
+      'white label software development',
+      'software development partnership',
+      
+      // ===== TRUST/CREDIBILITY KEYWORDS =====
+      'vetted software developers',
+      'top rated software consultants',
+      'proven mvp development company',
+      'experienced startup developers',
+      'enterprise grade development team',
+
+      // ===== TECH STACK SPECIFIC (Developers searching) =====
+      'node.js development company',
+      'react native app development',
+      'python development services',
+      'typescript consulting',
+      'aws architecture consulting',
+      'kubernetes consulting services',
+      'microservices architecture consultant',
+      'graphql api development',
+      'postgresql database consulting',
+      'redis implementation services',
+      'docker consulting services',
+      'terraform infrastructure consulting',
+
+      // ===== BUSINESS MODEL KEYWORDS =====
+      'saas product development',
+      'marketplace platform development',
+      'subscription app development',
+      'b2b software development',
+      'enterprise software consulting',
+      'mobile app development for startups',
+      'web application development services',
+      'api first development',
+      'headless commerce development',
+      'multi-tenant saas architecture',
+
+      // ===== FUNDING STAGE KEYWORDS (Target by company stage) =====
+      'pre-seed startup tech partner',
+      'series a technical due diligence',
+      'post-funding software development',
+      'bootstrapped startup development',
+      'venture backed startup cto',
+      'investor ready product development',
+      'startup runway optimization tech',
+
+      // ===== QUESTION KEYWORDS (Top of funnel, builds authority) =====
+      'how to find a technical cofounder',
+      'how to hire developers for startup',
+      'how to build an mvp',
+      'how to choose a development partner',
+      'what to look for in a cto',
+      'when to hire a fractional cto',
+      'how to manage offshore developers',
+      'how to reduce development costs',
+      'how to validate startup idea technically',
+      'how to prepare for technical interview as founder',
+
+      // ===== PROBLEM/MISTAKE KEYWORDS =====
+      'software development red flags',
+      'signs of bad software architecture',
+      'common mvp development mistakes',
+      'why startups fail technically',
+      'software project management issues',
+      'development team communication problems',
+      'technical debt warning signs',
+      'offshore development horror stories',
+      'failed app development recovery',
+
+      // ===== BEST/TOP/REVIEW KEYWORDS =====
+      'best mvp development companies',
+      'top software consulting firms',
+      'best fractional cto services',
+      'best ai development companies',
+      'top startup development agencies',
+      'best practices software development',
+      'best tech stack for startups 2024',
+      'best countries for outsourcing development',
+
+      // ===== COMPETITOR ALTERNATIVE KEYWORDS =====
+      'turing.com alternatives',
+      'andela alternatives',
+      'toptal competitors',
+      'clutch.co top developers',
+      'fiverr pro alternatives for startups',
+      'gigster alternatives',
+      'software development companies like thoughtbot',
+
+      // ===== LOCATION-BASED KEYWORDS =====
+      'software development usa',
+      'european software developers',
+      'nearshore development latin america',
+      'eastern europe developers',
+      'software development australia',
+      'uk software consulting',
+      'remote software development team',
+      'timezone friendly developers',
+
+      // ===== USE CASE SPECIFIC =====
+      'crm custom development',
+      'inventory management software custom',
+      'booking system development',
+      'payment integration development',
+      'dashboard development services',
+      'data analytics platform development',
+      'workflow automation development',
+      'customer portal development',
+      'admin panel development',
+      'reporting system development',
+
+      // ===== CONTRACT/ENGAGEMENT KEYWORDS =====
+      'time and materials development',
+      'fixed price software development',
+      'retainer software development',
+      'project based development team',
+      'dedicated development team model',
+      'software development sla',
+      'development team augmentation',
+      'managed development services',
+
+      // ===== SECURITY/COMPLIANCE KEYWORDS (High-value clients) =====
+      'soc 2 compliant development',
+      'gdpr compliant software development',
+      'pci dss development services',
+      'hipaa compliant app development',
+      'secure software development practices',
+      'penetration testing services',
+      'security code review services',
+      'compliance software consulting',
+
+      // ===== SCALING KEYWORDS =====
+      'scale application performance',
+      'handle high traffic application',
+      'database optimization consulting',
+      'application scalability audit',
+      'cloud migration services',
+      'serverless architecture consulting',
+      'performance optimization services',
+      'load testing services',
+
+      // ===== PROCESS/METHODOLOGY KEYWORDS =====
+      'agile development consulting',
+      'devops implementation services',
+      'ci cd pipeline setup',
+      'code review services',
+      'technical documentation services',
+      'software architecture review',
+      'development process audit',
+      'engineering team assessment',
+
+      // ===== EXIT/ACQUISITION KEYWORDS (High-value) =====
+      'technical due diligence for acquisition',
+      'prepare codebase for acquisition',
+      'software asset valuation',
+      'tech stack assessment for investors',
+      'clean up technical debt for exit',
+      'startup acquisition technical review'
     ];
 
     // Preferred: SERP providers (Serpstack / Zenserp) for keyword expansion.
