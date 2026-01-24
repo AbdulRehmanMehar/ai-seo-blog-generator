@@ -321,34 +321,80 @@ export class KeywordService {
       'startup acquisition technical review'
     ];
 
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 📋 Static seeds: ${seeds.length}`);
+
+    // ===== AI-POWERED SEED EXPANSION =====
+    // Only generate AI seeds once per day to conserve API quota
+    const aiGeneratedSeeds = await this.generateAiSeedsWithCache(seeds);
+    const allSeeds = [...seeds, ...aiGeneratedSeeds];
+    
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 🤖 AI seeds: ${aiGeneratedSeeds.length} | Total: ${allSeeds.length}`);
+
     // Preferred: SERP providers (Serpstack / Zenserp) for keyword expansion.
     // Note: SERP APIs generally don't provide volume/CPC; we enrich those via Gemini.
     const candidates: Array<{ keyword: string; commercialSerpSignal: boolean }> = [];
 
-    for (const seed of seeds) {
+    // Shuffle and limit seeds to avoid hitting rate limits on every seed
+    const shuffledSeeds = shuffleArray(allSeeds).slice(0, 30);
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 🎲 Selected ${shuffledSeeds.length} random seeds for this run`);
+
+    let serpstackHits = 0, zenserpHits = 0, scraperxHits = 0, googleSuggestHits = 0;
+
+    for (const seed of shuffledSeeds) {
       const fromSerpstack = await this.serpstackRelatedQueries(seed);
+      if (fromSerpstack.length > 0) serpstackHits++;
       candidates.push(...fromSerpstack);
 
       const fromZenserp = await this.zenserpRelatedQueries(seed);
+      if (fromZenserp.length > 0) zenserpHits++;
       candidates.push(...fromZenserp);
 
       if (fromSerpstack.length === 0 && fromZenserp.length === 0) {
         const fromScraperX = await this.scraperxKeywordIdeasFromSerp(seed);
         if (fromScraperX.length > 0) {
+          scraperxHits++;
           candidates.push(...fromScraperX.map((s) => ({ keyword: s, commercialSerpSignal: false })));
           continue;
         }
 
         // Last fallback: Google Suggest
         const suggestions = await this.googleSuggest(seed);
+        if (suggestions.length > 0) googleSuggestHits++;
         candidates.push(...suggestions.map((s) => ({ keyword: s, commercialSerpSignal: false })));
       }
     }
 
-    const unique = dedupeStrings(candidates.map((c) => c.keyword)).slice(0, 40);
-    if (unique.length === 0) return [];
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 📊 SERP Provider Results:`);
+    // eslint-disable-next-line no-console
+    console.log(`   Serpstack: ${serpstackHits} seeds returned results (quota may be exhausted if 0)`);
+    // eslint-disable-next-line no-console
+    console.log(`   Zenserp: ${zenserpHits} seeds returned results (quota may be exhausted if 0)`);
+    // eslint-disable-next-line no-console
+    console.log(`   ScraperX: ${scraperxHits} seeds returned results`);
+    // eslint-disable-next-line no-console
+    console.log(`   Google Suggest: ${googleSuggestHits} seeds returned results`);
+    // eslint-disable-next-line no-console
+    console.log(`   Total raw candidates: ${candidates.length}`);
 
+    const unique = dedupeStrings(candidates.map((c) => c.keyword)).slice(0, 40);
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 🔄 After dedup: ${unique.length} unique keywords`);
+    
+    if (unique.length === 0) {
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] ⚠️ No keywords found from any provider!`);
+      return [];
+    }
+
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 🤖 Enriching ${unique.length} keywords with Gemini...`);
     const enriched = await this.enrichWithGemini(unique);
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] ✅ Enrichment complete: ${enriched.length} keywords`);
 
     // If SERP indicates ads, bias intent toward commercial.
     const commercialSignalSet = new Set(
@@ -661,6 +707,227 @@ export class KeywordService {
     const data = (await res.json()) as [string, string[]];
     return Array.isArray(data?.[1]) ? data[1] : [];
   }
+
+  /**
+   * AI-powered seed keyword generation with caching.
+   * Only generates new seeds once per day to conserve API quota.
+   * Uses 1 Gemini API call per day (not per pipeline run).
+   */
+  private async generateAiSeedsWithCache(existingSeeds: string[]): Promise<string[]> {
+    const cacheKey = 'ai_seed_cache';
+    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
+    try {
+      // Check if we already generated seeds today (using UTC for consistency)
+      const [cacheRows] = await this.deps.pool.query<import('mysql2/promise').RowDataPacket[]>(
+        `SELECT seeds, generated_at FROM keyword_seed_cache WHERE cache_key = ? LIMIT 1`,
+        [cacheKey]
+      );
+
+      const cached = cacheRows[0] as { seeds: string; generated_at: Date } | undefined;
+      
+      if (cached) {
+        // Compare dates in UTC
+        const cachedDate = cached.generated_at.toISOString().slice(0, 10);
+        if (cachedDate === today) {
+          const seeds = JSON.parse(cached.seeds) as string[];
+          // eslint-disable-next-line no-console
+          console.log(`[KeywordService] 💾 Using cached AI seeds from today (${seeds.length} seeds)`);
+          return seeds;
+        }
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] 📅 Cache expired (from ${cachedDate}, today is ${today}), generating new AI seeds...`);
+      } else {
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] 🆕 No cache found, generating AI seeds for first time...`);
+      }
+
+      // Generate new seeds
+      const newSeeds = await this.generateAiSeeds(existingSeeds);
+
+      // Save to cache
+      if (newSeeds.length > 0) {
+        await this.deps.pool.query(
+          `INSERT INTO keyword_seed_cache (cache_key, seeds, generated_at) 
+           VALUES (?, ?, NOW())
+           ON DUPLICATE KEY UPDATE seeds = VALUES(seeds), generated_at = NOW()`,
+          [cacheKey, JSON.stringify(newSeeds)]
+        );
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] 💾 Cached ${newSeeds.length} AI seeds for today`);
+      }
+
+      return newSeeds;
+    } catch (err) {
+      // If cache table doesn't exist or other error, just generate without caching
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] ⚠️ Cache unavailable, generating AI seeds directly:`, err);
+      return this.generateAiSeeds(existingSeeds);
+    }
+  }
+
+  /**
+   * AI-powered seed keyword generation.
+   * Uses multiple strategies to generate fresh keyword ideas:
+   * 1. Analyze successful keywords from DB
+   * 2. Generate variations based on patterns
+   * 3. Explore trending topics in the niche
+   * 4. Cross-pollinate ideas from different categories
+   */
+  private async generateAiSeeds(existingSeeds: string[]): Promise<string[]> {
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 🤖 Starting AI seed generation...`);
+    
+    try {
+      // Get insights from existing keywords in DB
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService]    → Fetching successful keywords from DB...`);
+      const [usedKeywords] = await this.deps.pool.query<import('mysql2/promise').RowDataPacket[]>(
+        `SELECT keyword, volume, cpc, intent FROM keywords 
+         WHERE status IN ('used', 'new') 
+         ORDER BY COALESCE(cpc, 0) DESC, COALESCE(volume, 0) DESC 
+         LIMIT 20`
+      );
+
+      const successfulKeywords = (usedKeywords as any[]).map(k => k.keyword);
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService]    → Found ${successfulKeywords.length} keywords in DB`);
+      
+      // Get posts that have been successfully created with their titles
+      const [successfulPosts] = await this.deps.pool.query<import('mysql2/promise').RowDataPacket[]>(
+        `SELECT p.title, p.primary_keyword 
+         FROM posts p 
+         WHERE p.status IN ('published', 'draft')
+         ORDER BY p.created_at DESC
+         LIMIT 10`
+      );
+
+      const postTitles = (successfulPosts as any[]).map(p => p.title);
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService]    → Found ${postTitles.length} successful post titles`);
+
+      const prompt = this.buildAiSeedPrompt(existingSeeds, successfulKeywords, postTitles);
+      
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService]    → Calling Gemini for seed generation (1 API call)...`);
+      const raw = await this.deps.gemini.generateText({
+        systemInstruction: prompt.system,
+        userPrompt: prompt.user + '\n\nCRITICAL: Return ONLY raw JSON, no markdown fences, no explanation.',
+        temperature: 0.7, // Higher creativity
+        // maxOutputTokens: 2048
+      });
+
+      const schema = z.object({
+        keywords: z.array(z.string().min(3).max(100)).min(1).max(50)
+      });
+
+      try {
+        const parsed = safeJsonParse(raw);
+        const validated = schema.parse(parsed);
+        const newSeeds = validated.keywords.filter(
+          k => !existingSeeds.some(s => s.toLowerCase() === k.toLowerCase())
+        );
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ✅ AI generated ${validated.keywords.length} seeds, ${newSeeds.length} are new`);
+        if (newSeeds.length > 0) {
+          // eslint-disable-next-line no-console
+          console.log(`[KeywordService]    Sample: ${newSeeds.slice(0, 5).join(', ')}...`);
+        }
+        return newSeeds;
+      } catch (parseErr) {
+        // eslint-disable-next-line no-console
+        console.log('[KeywordService] ⚠️ AI seed parse failed, trying fallback extraction...');
+        // Try to extract keywords from the response even if JSON is malformed
+        const keywordMatches = raw.match(/"([^"]{3,80})"/g);
+        if (keywordMatches && keywordMatches.length > 5) {
+          const extracted = keywordMatches
+            .map(m => m.replace(/"/g, '').trim())
+            .filter(k => k.length > 3 && k.length < 80 && !k.includes(':') && !k.includes('{'))
+            .filter(k => !existingSeeds.some(s => s.toLowerCase() === k.toLowerCase()))
+            .slice(0, 40);
+          if (extracted.length > 0) {
+            // eslint-disable-next-line no-console
+            console.log(`[KeywordService] ✅ Fallback extracted ${extracted.length} keywords`);
+            return extracted;
+          }
+        }
+        // eslint-disable-next-line no-console
+        console.log('[KeywordService] ❌ AI seed generation failed to parse response');
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService]    Raw response (first 300 chars): ${raw.slice(0, 300)}`);
+        return [];
+      }
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log('[KeywordService] ❌ AI seed generation error:', err);
+      return [];
+    }
+  }
+
+  private buildAiSeedPrompt(
+    existingSeeds: string[],
+    successfulKeywords: string[],
+    postTitles: string[]
+  ): { system: string; user: string } {
+    const system = `You are an expert SEO strategist and B2B marketing specialist for a software development consulting business.
+
+Your task is to generate NEW seed keywords that will help discover high-converting blog topics.
+
+The business offers:
+- Fractional/Virtual CTO services
+- AI/ML consulting and implementation
+- Custom software development
+- MVP development for startups
+- Technical due diligence
+- Team augmentation
+
+Target audience:
+- Non-technical startup founders
+- CTOs scaling their teams
+- VPs of Engineering
+- Product managers
+- Investors doing due diligence
+
+Focus on keywords that indicate:
+- Commercial/transactional intent (ready to buy)
+- Problem-aware searchers (have a pain point)
+- Decision-stage research (comparing options)
+- High-value clients (enterprise, funded startups)`;
+
+    const user = `Generate 40 NEW and UNIQUE seed keywords for SEO content.
+
+SUCCESSFUL PATTERNS FROM OUR DATA:
+${successfulKeywords.length > 0 ? `- Keywords that worked: ${successfulKeywords.slice(0, 10).join(', ')}` : '- No data yet'}
+${postTitles.length > 0 ? `- Post titles that converted: ${postTitles.slice(0, 5).join(', ')}` : ''}
+
+AVOID DUPLICATING THESE EXISTING SEEDS (sample):
+${existingSeeds.slice(0, 30).join(', ')}
+
+GENERATE KEYWORDS IN THESE CATEGORIES:
+1. **Pain points** - Problems people search when frustrated
+2. **Cost/ROI** - Budget and pricing related searches
+3. **Comparisons** - "X vs Y", "alternatives to X"
+4. **How-to** - Educational but with commercial intent
+5. **Industry-specific** - Vertical markets (fintech, healthcare, etc.)
+6. **Tech stack** - Specific technologies (React, Node, AWS, etc.)
+7. **Trending** - Current tech trends (AI agents, RAG, etc.)
+8. **Long-tail transactional** - Very specific buyer searches
+9. **Competitor alternatives** - Named competitor keywords
+10. **Emerging niches** - New areas with low competition
+
+IMPORTANT GUIDELINES:
+- Make keywords 3-7 words (long-tail)
+- Focus on B2B software development niche
+- Include buyer-intent modifiers (services, company, agency, hire, cost, etc.)
+- Think about what a buyer types just BEFORE making a purchase decision
+- Include some question-based keywords
+- Consider voice search patterns
+
+Return JSON only:
+{"keywords": ["keyword 1", "keyword 2", ...]}`;
+
+    return { system, user };
+  }
 }
 
 function dedupe(items: DiscoveredKeyword[]): DiscoveredKeyword[] {
@@ -760,4 +1027,16 @@ function recoverTruncatedItemsArray(raw: string): { items: unknown[] } | null {
   }
 
   return items.length > 0 ? { items } : null;
+}
+
+/**
+ * Fisher-Yates shuffle for random seed selection
+ */
+function shuffleArray<T>(array: T[]): T[] {
+  const result = [...array];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j]!, result[i]!];
+  }
+  return result;
 }

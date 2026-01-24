@@ -1,5 +1,6 @@
 /**
  * Safely parse JSON, handling common LLM output issues like markdown fences
+ * and trailing content after valid JSON.
  */
 export function safeJsonParse(raw: string): unknown {
   let cleaned = raw.trim();
@@ -20,21 +21,59 @@ export function safeJsonParse(raw: string): unknown {
   const firstBracket = cleaned.indexOf('[');
   
   let start = -1;
-  let end = -1;
   let isObject = false;
   
   if (firstBrace !== -1 && (firstBracket === -1 || firstBrace < firstBracket)) {
     start = firstBrace;
-    end = cleaned.lastIndexOf('}');
     isObject = true;
   } else if (firstBracket !== -1) {
     start = firstBracket;
-    end = cleaned.lastIndexOf(']');
     isObject = false;
   }
   
-  if (start !== -1 && end !== -1 && end > start) {
-    cleaned = cleaned.slice(start, end + 1);
+  if (start !== -1) {
+    // Find matching closing bracket by counting nesting
+    const openChar = isObject ? '{' : '[';
+    const closeChar = isObject ? '}' : ']';
+    let depth = 0;
+    let inString = false;
+    let escape = false;
+    let end = -1;
+    
+    for (let i = start; i < cleaned.length; i++) {
+      const char = cleaned[i];
+      
+      if (escape) {
+        escape = false;
+        continue;
+      }
+      
+      if (char === '\\' && inString) {
+        escape = true;
+        continue;
+      }
+      
+      if (char === '"' && !escape) {
+        inString = !inString;
+        continue;
+      }
+      
+      if (!inString) {
+        if (char === openChar) {
+          depth++;
+        } else if (char === closeChar) {
+          depth--;
+          if (depth === 0) {
+            end = i;
+            break;
+          }
+        }
+      }
+    }
+    
+    if (end !== -1) {
+      cleaned = cleaned.slice(start, end + 1);
+    }
   }
   
   return JSON.parse(cleaned);
