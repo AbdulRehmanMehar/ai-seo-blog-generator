@@ -35,9 +35,13 @@ export async function runPipelineOnce() {
   log(`   ✓ Author knowledge loaded (${knowledge.raw.length} chars)`);
 
   log('🔧 Initializing services...');
+  log('   → Creating rate limiter...');
 
   // Initialize the comprehensive rate limiter
   const rateLimiter = new GeminiRateLimiter(mysqlPool, apiKeys);
+  log('   ✓ Rate limiter created');
+
+  log('   → Creating Gemini client...');
 
   const gemini = new GeminiClient({
     rateLimiter,

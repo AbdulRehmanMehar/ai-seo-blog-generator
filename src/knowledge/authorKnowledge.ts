@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 export interface AuthorIdentity {
@@ -59,15 +60,55 @@ export async function loadAuthorKnowledge(): Promise<AuthorKnowledge> {
   const mdPath = path.resolve(process.cwd(), MARKDOWN_PATH);
   const jsonPath = path.resolve(process.cwd(), JSON_PATH);
 
-  // Load markdown (required)
-  const raw = await fs.readFile(mdPath, 'utf8');
+  // eslint-disable-next-line no-console
+  console.log(`[loadAuthorKnowledge] CWD: ${process.cwd()}`);
+  // eslint-disable-next-line no-console
+  console.log(`[loadAuthorKnowledge] Resolved paths: MD=${mdPath}, JSON=${jsonPath}`);
+
+  // Check if files exist before attempting to read (prevents hanging on missing mounts)
+  const mdExists = existsSync(mdPath);
+  // eslint-disable-next-line no-console
+  console.log(`[loadAuthorKnowledge] MD file exists: ${mdExists}`);
+  
+  if (!mdExists) {
+    throw new Error(
+      `Author knowledge file not found: ${mdPath}. ` +
+      `Make sure the data/ directory is included in your Docker image or properly mounted.`
+    );
+  }
+
+  // Load markdown (required) with timeout
+  let raw: string;
+  try {
+    // eslint-disable-next-line no-console
+    console.log('[loadAuthorKnowledge] Starting MD file read...');
+    const rawPromise = fs.readFile(mdPath, 'utf8');
+    const timeoutPromise = new Promise<never>((_, reject) => 
+      setTimeout(() => reject(new Error(`Timeout loading markdown knowledge file: ${mdPath}`)), 10000)
+    );
+    raw = await Promise.race([rawPromise, timeoutPromise]);
+    // eslint-disable-next-line no-console
+    console.log(`[loadAuthorKnowledge] MD file read complete (${raw.length} chars)`);
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error('[loadAuthorKnowledge] Failed to load markdown:', err);
+    throw err;
+  }
 
   // Load JSON (optional but recommended)
   let structured: AuthorKnowledgeJson | undefined;
   try {
-    const jsonContent = await fs.readFile(jsonPath, 'utf8');
-    structured = JSON.parse(jsonContent) as AuthorKnowledgeJson;
-  } catch {
+    if (existsSync(jsonPath)) {
+      // eslint-disable-next-line no-console
+      console.log('[loadAuthorKnowledge] Starting JSON file read...');
+      const jsonContent = await fs.readFile(jsonPath, 'utf8');
+      structured = JSON.parse(jsonContent) as AuthorKnowledgeJson;
+      // eslint-disable-next-line no-console
+      console.log('[loadAuthorKnowledge] JSON file read complete');
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log('[loadAuthorKnowledge] JSON file read failed (optional):', err);
     // JSON file doesn't exist or is invalid - continue without it
   }
 

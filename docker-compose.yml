@@ -37,8 +37,9 @@ services:
       - DEBUG_GEMINI=${DEBUG_GEMINI:-0}
     
     # Optional: mount volumes for persistent data
-    volumes:
-      - ./data:/app/data:ro  # Author knowledge files (read-only)
+    # Only use this if running locally with the data directory present
+    # volumes:
+    #   - ./data:/app/data:ro  # Author knowledge files (read-only)
     
     # No ports needed - this is a background scheduler
     # Uncomment if you add an API endpoint later
