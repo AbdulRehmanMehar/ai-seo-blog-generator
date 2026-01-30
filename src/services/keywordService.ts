@@ -47,7 +47,39 @@ export class KeywordService {
     this.serpUsage = new MysqlSerpUsageStore(deps.pool);
   }
 
+  /**
+   * Recycle old 'used' keywords that haven't been used for a post in 30+ days.
+   * This allows re-targeting popular keywords with fresh content.
+   */
+  async recycleOldKeywords(): Promise<number> {
+    // Reset keywords that:
+    // 1. Were created more than 14 days ago (older keywords)
+    // 2. Don't have a post created in the last 30 days
+    const [result] = await this.deps.pool.query<ResultSetHeader>(`
+      UPDATE keywords k
+      SET k.status = 'new'
+      WHERE k.status = 'used'
+        AND k.created_at < DATE_SUB(NOW(), INTERVAL 14 DAY)
+        AND NOT EXISTS (
+          SELECT 1 FROM posts p 
+          WHERE p.primary_keyword = k.keyword 
+            AND p.created_at > DATE_SUB(NOW(), INTERVAL 30 DAY)
+        )
+      LIMIT 10
+    `);
+    
+    const recycled = result.affectedRows ?? 0;
+    if (recycled > 0) {
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] ♻️ Recycled ${recycled} old keywords back to 'new' status`);
+    }
+    return recycled;
+  }
+
   async discoverAndStoreKeywords(): Promise<KeywordDiscoveryResult> {
+    // First, try to recycle old keywords
+    await this.recycleOldKeywords();
+    
     const discovered = await this.discoverKeywords();
     const filtered = discovered.filter((k) => this.passesFilters(k));
 
@@ -64,7 +96,115 @@ export class KeywordService {
       inserted += res.affectedRows ?? 0;
     }
 
+    // If no new keywords were inserted, try to generate AI-only keywords
+    if (inserted === 0) {
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] ⚠️ No new keywords from SERP, generating AI-only keywords...`);
+      const aiInserted = await this.generateAndInsertAiOnlyKeywords();
+      inserted += aiInserted;
+    }
+
     return { discovered: discovered.length, filtered: filtered.length, inserted };
+  }
+
+  /**
+   * Generate keywords purely from AI when SERP providers are exhausted.
+   * Uses Gemini to generate fresh, commercially-relevant keywords.
+   */
+  private async generateAndInsertAiOnlyKeywords(): Promise<number> {
+    try {
+      // Force clear the cache to get fresh AI ideas
+      await this.deps.pool.query(
+        `DELETE FROM keyword_seed_cache WHERE cache_key = 'ai_seed_cache'`
+      );
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] 🗑️ Cleared AI seed cache to force fresh generation`);
+
+      // Get current used keywords to avoid duplicates
+      const [usedRows] = await this.deps.pool.query<import('mysql2/promise').RowDataPacket[]>(
+        `SELECT keyword FROM keywords WHERE status IN ('used', 'new') LIMIT 100`
+      );
+      const usedKeywords = (usedRows as any[]).map(r => r.keyword.toLowerCase());
+
+      // Generate fresh AI keywords
+      const prompt = this.buildDirectKeywordPrompt(usedKeywords);
+      
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] 🤖 Generating AI-only keywords (1 API call)...`);
+      const raw = await this.deps.gemini.generateText({
+        systemInstruction: prompt.system,
+        userPrompt: prompt.user,
+        temperature: 0.8, // Higher creativity for diversity
+      });
+
+      const schema = z.object({
+        keywords: z.array(z.object({
+          keyword: z.string().min(3).max(100),
+          volume: z.number().int().nonnegative(),
+          cpc: z.number().nonnegative(),
+          intent: z.string().min(1)
+        })).min(1).max(20)
+      });
+
+      const parsed = safeJsonParse(raw);
+      const validated = schema.parse(parsed);
+
+      let inserted = 0;
+      for (const k of validated.keywords) {
+        if (usedKeywords.includes(k.keyword.toLowerCase())) continue;
+        
+        const id = crypto.randomUUID();
+        const [res] = await this.deps.pool.query<ResultSetHeader>(
+          `INSERT IGNORE INTO keywords(id, keyword, volume, difficulty, cpc, intent, status)
+           VALUES (?, ?, ?, 30, ?, ?, 'new')`,
+          [id, k.keyword, k.volume, k.cpc, k.intent]
+        );
+        inserted += res.affectedRows ?? 0;
+      }
+
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] ✅ AI-only generation inserted ${inserted} new keywords`);
+      return inserted;
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] ⚠️ AI-only keyword generation failed:`, err);
+      return 0;
+    }
+  }
+
+  private buildDirectKeywordPrompt(usedKeywords: string[]): { system: string; user: string } {
+    const usedList = usedKeywords.slice(0, 30).join(', ');
+    return {
+      system: `You are an SEO expert specializing in B2B software development and CTO consulting keywords.
+Generate high-converting, commercially-focused keywords that target:
+- Non-technical founders looking to hire developers/CTOs
+- Startups needing software development services
+- Companies seeking technical consulting
+- Decision-makers evaluating tech partnerships
+
+Return ONLY valid JSON, no markdown.`,
+      user: `Generate 15-20 NEW commercial keywords for a software consulting/CTO services business.
+
+ALREADY USED (DO NOT REPEAT): ${usedList}
+
+Requirements:
+1. High commercial intent (people ready to buy/hire)
+2. Mix of:
+   - Problem-aware ("fix slow application", "rescue failed project")
+   - Cost/pricing ("cto consulting rates", "software development cost")
+   - Comparison ("agency vs freelancer", "toptal alternatives")
+   - Solution-seeking ("hire technical cofounder", "fractional cto services")
+3. Estimated volume > 50, CPC > $1.50
+4. Include intent classification
+
+Return JSON:
+{
+  "keywords": [
+    {"keyword": "example keyword phrase", "volume": 200, "cpc": 5.50, "intent": "commercial"},
+    ...
+  ]
+}`
+    };
   }
 
   private passesFilters(k: DiscoveredKeyword): boolean {

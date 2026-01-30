@@ -84,6 +84,21 @@ export class TopicPlanner {
       console.log(`TopicPlanner: targeting website ${targetWebsite.domain}`);
     }
 
+    // Fetch existing posts for this website to avoid duplicate content angles
+    let existingPosts: Array<{ title: string; keyword: string }> = [];
+    if (targetWebsite) {
+      const [existingRows] = await this.deps.pool.query<RowDataPacket[]>(
+        `SELECT title, primary_keyword FROM posts WHERE website_id = ? ORDER BY created_at DESC LIMIT 50`,
+        [targetWebsite.id]
+      );
+      existingPosts = (existingRows as any[]).map(r => ({
+        title: String(r.title),
+        keyword: String(r.primary_keyword)
+      }));
+      // eslint-disable-next-line no-console
+      console.log(`TopicPlanner: found ${existingPosts.length} existing posts for ${targetWebsite.domain}`);
+    }
+
     const [rows] = await this.deps.pool.query<RowDataPacket[]>(
       `
       SELECT id, keyword, volume, difficulty, cpc, intent
@@ -109,7 +124,9 @@ export class TopicPlanner {
     const prompt = topicPlanningPrompt({
       knowledge: this.deps.knowledge,
       candidateKeywords: candidates,
-      selectCount: args.selectCount
+      selectCount: args.selectCount,
+      targetWebsite: targetWebsite?.domain,
+      existingPosts: existingPosts.length > 0 ? existingPosts : undefined
     });
 
     const raw = await this.deps.gemini.generateText({
