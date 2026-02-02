@@ -70,6 +70,24 @@ export function blogGenerationPrompt(args: {
 
 BEFORE generating content, you MUST follow these rules. Content that violates ANY rule will be REJECTED and DELETED.
 
+RULE 0: NO FABRICATION (Instant rejection if violated)
+
+NEVER make up:
+- Client stories or customer testimonials
+- Company names you "helped" or "worked with"
+- Specific results for unnamed clients ("I helped a startup increase revenue by 50%")
+- Case studies that don't exist
+
+ONLY reference:
+- Your own direct experience from real projects (SmashCloud, DashCam.io, etc.)
+- General technical knowledge and best practices
+- Educational examples that don't claim to be real clients
+
+Good: "In my experience building production APIs..."
+Good: "When I migrated the SmashCloud platform..."
+Bad: "I helped a client reduce costs by 60%..." (fabrication)
+Bad: "My clients consistently see..." (fabrication)
+
 RULE 1: FORMATTING RESTRICTIONS (Instant rejection if violated)
 
 NEVER use these characters or patterns anywhere in your output:

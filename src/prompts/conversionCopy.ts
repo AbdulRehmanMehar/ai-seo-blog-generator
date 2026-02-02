@@ -60,25 +60,36 @@ NEVER use colons or em dashes in your content. Write naturally flowing prose.
 export const PERSUASION_TRIGGERS = `
 Persuasion Triggers (Integrate Naturally)
 
-1. Social Proof. Mention specific companies, user counts, results.
-   Example is "This approach helped Company reduce metric by percentage"
-   
-2. Authority Signals. Reference experience naturally.
-   Example is "After building X systems over Y years..."
-   Example is "Having worked with type of clients..."
+CRITICAL AUTHENTICITY RULE:
+NEVER fabricate client stories, company names, or specific results you didn't achieve.
+Only reference your own direct experience from the author knowledge.
+Do NOT make up clients, customers, or companies you "helped".
 
-3. Specificity. Vague fails. Specific converts.
-   Bad example is "Improve performance significantly"
-   Good example is "Reduce API latency from 800ms to 120ms"
+1. First-Person Experience. Share YOUR direct experience, not invented client stories.
+   Good: "After building 5 production APIs, I've found that..."
+   Good: "In my SmashCloud migration project, we reduced load time from 4.2s to 0.8s"
+   BAD: "I helped a client reduce their load time..." (unless specifically mentioned in author knowledge)
+   BAD: "My clients see 50% improvement..." (fabrication)
+   
+2. Authority from Real Projects. Reference actual projects from author knowledge.
+   Good: "After migrating a legacy .NET MVC platform to Next.js..."
+   Good: "While building the DashCam.io desktop app..."
+   BAD: "I worked with 3 Series A startups..." (unless true and documented)
+
+3. Specificity. Vague fails. Specific converts. But be truthful.
+   Bad: "Improve performance significantly"
+   Good: "Reduce API latency from 800ms to 120ms" (only if you actually did this)
+   Good: "Use pagination to handle 10k+ records efficiently"
 
 4. Transformation over Features.
-   Bad example is "AI-powered code analysis"
-   Good example is "Ship confident code without 2-hour PR review cycles"
+   Bad: "AI-powered code analysis"
+   Good: "Ship confident code without 2-hour PR review cycles"
 
 5. Risk Reversal. Address objections proactively.
-   Example is "You might be thinking objection. Here's why that's not the case..."
+   Good: "You might be thinking this adds complexity. Here's why it actually simplifies things..."
 
 NEVER use colons for labels. Write flowing sentences instead.
+Do NOT invent success metrics, client names, or case studies.
 `;
 
 export const CTA_GUIDELINES = `
@@ -96,8 +107,8 @@ Placement:
 B2B CTAs that work:
 - "Book a Free Specific Review"
 - "Get the Resource Checklist"
-- "See This in Action in the Case Study"
 - "Schedule a Technical Discovery Call"
+- "Let's Discuss Your Project"
 
 Tone. CTA should feel like the natural next step, not a sales pitch.
 
@@ -286,9 +297,10 @@ VOICE TRANSFORMATION RULES
    - \"can be achieved through\" becomes \"achieve this through\"
 
 3. Replace vague with specific.
-   - \"significantly improved\" becomes \"improved by 67%\"
-   - \"many companies\" becomes \"3 Series A startups I've worked with\"
-   - \"various options\" becomes \"three options which are X, Y, Z\"
+   - "significantly improved" becomes "improved by 67%" (only if true)
+   - "many developers" becomes "developers I've mentored"
+   - "various options" becomes "three options which are X, Y, Z"
+   - NEVER make up client numbers or companies you haven't worked with
 
 4. Add contractions (mandatory).
    - \"do not\" becomes \"don't\"
@@ -309,11 +321,8 @@ Add these naturally throughout:
 - Enthusiasm like \"This is where it gets good\" or \"Here's the elegant part\"
 - Honest uncertainty like \"I might be wrong, but\" or \"The data isn't clear on\"
 
-AUTHORITY SIGNALS TO WEAVE IN
-- Specific years or project counts like \"After 8 years building...\"
-- Named companies or types like \"At a Series B fintech...\"
-- Concrete results like \"which cut our deploy time from 4 hours to 12 minutes\"
-- Lessons from failure like \"I learned this the hard way when...\"
+AUTHORITY SIGNALS TO WEAVE IN (MUST BE AUTHENTIC)
+- Specific years or project counts like \"After 5 years building full-stack systems...\"\n- Named companies from YOUR actual experience like \"At SmashCloud, we migrated...\" or \"While building DashCam.io...\"\n- Concrete results from YOUR real projects, not fabricated client stories\n- Lessons from YOUR actual failures, not made-up scenarios\n- NEVER claim to have \"clients\" unless the author knowledge explicitly lists them\n- NEVER make up company names or specific metrics for unnamed clients
 
 TRANSITION PHRASES THAT FEEL HUMAN
 - \"Here's where it gets interesting...\"
