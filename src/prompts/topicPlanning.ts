@@ -1,4 +1,5 @@
 import { type AuthorKnowledge, formatKnowledgeForPrompt } from '../knowledge/authorKnowledge.js';
+import { type IcpPersona, formatIcpForPrompt } from '../knowledge/icpKnowledge.js';
 import { getHeadlineGuidelines } from './conversionCopy.js';
 
 export function topicPlanningPrompt(args: {
@@ -7,9 +8,16 @@ export function topicPlanningPrompt(args: {
   selectCount: number;
   targetWebsite?: string;
   existingPosts?: Array<{ title: string; keyword: string }>;
+  /** ICP persona to target. When provided, topics will be designed to attract this specific person. */
+  targetIcp?: IcpPersona;
 }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const headlineGuidelines = getHeadlineGuidelines();
+
+  // Build ICP section if we have a persona
+  const icpSection = args.targetIcp
+    ? `\n${formatIcpForPrompt(args.targetIcp)}\n`
+    : '';
   
   // Build existing posts section if we have any
   let existingPostsSection = '';
@@ -38,11 +46,13 @@ Your topics must be specific, outcome-focused, and use proven headline formulas 
 Avoid generic, hype-filled, or overly broad topics. Every topic must have a clear pain point or transformation.
 
 CRITICAL: Never use colons in headlines or titles. Write naturally flowing titles without colons or em dashes.
-CRITICAL: If given existing posts, you MUST create completely different content angles - never repeat similar topics.`,
+CRITICAL: If given existing posts, you MUST create completely different content angles - never repeat similar topics.
+CRITICAL: Target BUSINESS PROBLEMS, not services. The client's deliverable is the answer inside the post, never the topic itself.
+CRITICAL: "Size of problem = size of budget." Pick problems that high-budget clients feel urgently. Generic small-business problems attract broke clients.${args.targetIcp ? `\nCRITICAL: Every topic MUST be designed so "${args.targetIcp.persona_name}" reads the headline and immediately thinks "that's me." The pain point, language, and outcome must resonate with their profile.` : ''}`,
     user: `AUTHOR KNOWLEDGE (must reflect in output):
 
 ${formattedKnowledge}
-
+${icpSection}
 ${headlineGuidelines}${existingPostsSection}
 
 CANDIDATE KEYWORDS to pick ${args.selectCount} from:
@@ -52,9 +62,22 @@ TASK:
 - Choose ${args.selectCount} keywords with the highest commercial plus founder or CTO intent.
 - For each, create a headline using ONE of the headline formulas being Numbers, How-To, Curiosity Gap, Direct Benefit, or Contrarian.
 - CRITICAL: No colons in headlines. Write flowing titles like \"How to Build a Dev Team That Ships\" not \"Building Teams. A Complete Guide\"
-- Outline MUST start with a HOOK section, not definitions or intros.
+- Outline MUST start with a HOOK section that describes the TARGET READER'S stuck moment${args.targetIcp ? ` (write it for ${args.targetIcp.persona_name} - their frustration: "${args.targetIcp.the_crap_he_deals_with.substring(0, 80)}...")` : ''}, not definitions or intros.
 - Include a \"Common Mistakes\" or \"What Most Get Wrong\" section.
-- End outline with actionable next steps section.
+- End outline with actionable next steps section.${args.targetIcp ? `
+- ICP ALIGNMENT CHECK: Before finalizing each topic, ask "Would ${args.targetIcp.persona_name} (${args.targetIcp.biographics.title}) say 'that's me' reading this headline?" If not, rewrite it.
+- The outline notes should reference specific pain points and language from the TARGET READER PROFILE above.` : ''}
+
+SELL MONEY, NOT SERVICES (Critical topic framing rule):
+- Headlines must target BUSINESS PROBLEMS, not services.
+  Wrong: "How to Migrate from .NET to Next.js"  (describes a service)
+  Right: "Why Your Engineering Team Keeps Missing Deadlines"  (describes a business problem; migration is the answer inside)
+  Wrong: "Building Real-Time Dashboards"  (describes a deliverable)
+  Right: "Why Your Ops Team Is Always the Last to Know"  (describes a business pain; the dashboard is the answer)
+- At least ONE outline section must address the COST OF INACTION with a specific dollar or time consequence.
+  This surfaces the "size of problem = size of budget" logic and attracts high-ticket clients.${args.targetIcp ? `
+- For ${args.targetIcp.persona_name}: cost of inaction context is "${args.targetIcp.cost_of_inaction.substring(0, 120)}..."
+  Use this to frame the outline's hook section and at least one middle section.` : ''}
 
 OUTPUT STRICT JSON ONLY with shape:
 {

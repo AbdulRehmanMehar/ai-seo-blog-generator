@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import type { Pool as MysqlPool, RowDataPacket } from 'mysql2/promise';
 import { z } from 'zod';
 import type { AuthorKnowledge } from '../knowledge/authorKnowledge.js';
+import { getIcpByName } from '../knowledge/icpKnowledge.js';
 import type { GeminiClient } from '../llm/geminiClient.js';
 import { blogGenerationPrompt, type BlogPostStructure } from '../prompts/blogGeneration.js';
 import { toSlug } from '../utils/slug.js';
@@ -79,7 +80,7 @@ export class BlogGenerator {
   async generateDraftPost(topicId: string, websiteId?: string): Promise<string> {
     const [rows] = await this.deps.pool.query<RowDataPacket[]>(
       `
-      SELECT t.id, t.topic, t.outline_json as outline, t.website_id, k.keyword
+      SELECT t.id, t.topic, t.outline_json as outline, t.website_id, t.target_icp, k.keyword
       FROM topics t
       JOIN keywords k ON k.id = t.keyword_id
       WHERE t.id = ?
@@ -125,13 +126,27 @@ export class BlogGenerator {
       ? this.websiteService.getVoiceInstructions(website)
       : undefined;
 
+    // Load ICP persona from the topic's target_icp field
+    let targetIcp = undefined;
+    if (row.target_icp) {
+      try {
+        targetIcp = await getIcpByName(String(row.target_icp));
+        if (targetIcp) {
+          console.log(`   🎯 Writing for ICP: "${targetIcp.persona_name}"`);
+        }
+      } catch (err) {
+        console.warn('BlogGenerator: could not load ICP, proceeding without ICP targeting', err);
+      }
+    }
+
     const prompt = blogGenerationPrompt({
       knowledge: this.deps.knowledge,
       keyword: String(row.keyword),
       topic: String(row.topic),
       outline,
       learnedRules,
-      websiteVoice
+      websiteVoice,
+      targetIcp
     });
 
     const raw = await this.deps.gemini.generateText({
@@ -180,7 +195,10 @@ export class BlogGenerator {
     const wordCount = allContent.split(/\s+/).filter(Boolean).length;
     if (wordCount < this.deps.minWords) {
       // eslint-disable-next-line no-console
-      console.log(`BlogGenerator: warning wordCount=${wordCount} < minWords=${this.deps.minWords}`);
+      console.log(`   ⚠️  Word count: ${wordCount} (below min: ${this.deps.minWords})`);
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(`   📝 Word count: ${wordCount}`);
     }
 
     const postId = crypto.randomUUID();
@@ -189,8 +207,8 @@ export class BlogGenerator {
     await this.deps.pool.query(
       `
       INSERT INTO posts(
-        id, website_id, topic_id, title, slug, primary_keyword, meta_title, meta_description, content_json, status
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft')
+        id, website_id, topic_id, title, slug, primary_keyword, meta_title, meta_description, content_json, target_icp, status
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'draft')
       `,
       [
         postId,
@@ -201,14 +219,13 @@ export class BlogGenerator {
         String(row.keyword), 
         blog.meta.title, 
         blog.meta.description, 
-        JSON.stringify(blog)
+        JSON.stringify(blog),
+        targetIcp?.persona_name ?? null
       ]
     );
 
     const embedding = await this.deps.gemini.embedText(`${blog.title}\n${blog.meta.description}\n${blog.hero.hook}`);
     await this.deps.embeddings.upsert({ entityType: 'post', entityId: postId, embedding });
-    // eslint-disable-next-line no-console
-    console.log(`BlogGenerator: created draft post id=${postId} slug=${finalSlug}`);
     return postId;
   }
 }

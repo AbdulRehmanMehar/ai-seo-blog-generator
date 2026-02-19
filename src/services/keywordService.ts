@@ -7,6 +7,7 @@ import { serpKeywordExtractionPrompt } from '../prompts/serpKeywordExtraction.js
 import { sleep } from '../utils/sleep.js';
 import { z } from 'zod';
 import { MysqlSerpUsageStore } from './serpUsageStore.js';
+import { loadIcps } from '../knowledge/icpKnowledge.js';
 
 export interface KeywordServiceDeps {
   pool: MysqlPool;
@@ -126,8 +127,19 @@ export class KeywordService {
       );
       const usedKeywords = (usedRows as any[]).map(r => r.keyword.toLowerCase());
 
+      // Load ICP business problems for problem-first framing
+      let icpProblems: string[] = [];
+      try {
+        const icps = await loadIcps();
+        icpProblems = icps.flatMap(icp => [
+          icp.the_crap_he_deals_with,
+          icp.the_hunger,
+          `Cost of inaction: ${icp.cost_of_inaction}`,
+        ]);
+      } catch { /* non-fatal */ }
+
       // Generate fresh AI keywords
-      const prompt = this.buildDirectKeywordPrompt(usedKeywords);
+      const prompt = this.buildDirectKeywordPrompt(usedKeywords, icpProblems);
       
       // eslint-disable-next-line no-console
       console.log(`[KeywordService] 🤖 Generating AI-only keywords (1 API call)...`);
@@ -172,10 +184,21 @@ export class KeywordService {
     }
   }
 
-  private buildDirectKeywordPrompt(usedKeywords: string[]): { system: string; user: string } {
+  private buildDirectKeywordPrompt(usedKeywords: string[], icpProblems: string[] = []): { system: string; user: string } {
     const usedList = usedKeywords.slice(0, 30).join(', ');
+
+    const icpSection = icpProblems.length > 0
+      ? `\nREAL ICP BUSINESS PROBLEMS — generate keywords targeting these exact pains:\n${icpProblems.slice(0, 15).map(p => `- ${p}`).join('\n')}\n`
+      : '';
+
     return {
       system: `You are an SEO expert specializing in B2B software development and CTO consulting keywords.
+
+CORE PRINCIPLE: Be a PROBLEM SEEKER, not a service vendor.
+- "Size of problem = size of budget" — find keywords that signal LARGE, COSTLY business problems
+- Target business problems that happen to be solved by software, not just software products
+- Every keyword should represent a real business pain, not a service category
+
 Generate high-converting, commercially-focused keywords that target:
 - Non-technical founders looking to hire developers/CTOs
 - Startups needing software development services
@@ -186,14 +209,15 @@ Return ONLY valid JSON, no markdown.`,
       user: `Generate 15-20 NEW commercial keywords for a software consulting/CTO services business.
 
 ALREADY USED (DO NOT REPEAT): ${usedList}
-
+${icpSection}
 Requirements:
 1. High commercial intent (people ready to buy/hire)
 2. Mix of:
-   - Problem-aware ("fix slow application", "rescue failed project")
+   - Business problem-first ("legacy software holding back growth", "engineering team can't scale")
    - Cost/pricing ("cto consulting rates", "software development cost")
    - Comparison ("agency vs freelancer", "toptal alternatives")
-   - Solution-seeking ("hire technical cofounder", "fractional cto services")
+   - Cost of inaction ("cost of delaying software modernization")
+   - Acquisition/exit prep ("technical debt before acquisition")
 3. Estimated volume > 50, CPC > $1.50
 4. Include intent classification
 
@@ -458,7 +482,66 @@ Return JSON:
       'software asset valuation',
       'tech stack assessment for investors',
       'clean up technical debt for exit',
-      'startup acquisition technical review'
+      'startup acquisition technical review',
+
+      // ===== ICP-DERIVED BUSINESS PROBLEM KEYWORDS =====
+      // Modernizing Michael (CTO, legacy .NET modernization)
+      'net to nextjs migration services',
+      'legacy net monolith modernization',
+      'ai integration legacy software',
+      'enterprise software modernization cost',
+      'net codebase ai integration',
+      'legacy system holding back ai',
+      // Compliance-Driven Clara (banking/fintech, KYC/AML)
+      'automate kyc aml processes software',
+      'banking ai compliance automation',
+      'financial services workflow automation',
+      'manual compliance process cost reduction',
+      'high security banking software development',
+      'nodjs postgresql fintech development',
+      // SaaS Founder Sarah (pre-exit, .NET to Next.js)
+      'prepare saas for acquisition technical',
+      'series b technical due diligence',
+      'net frontend to nextjs migration',
+      'acquisition ready codebase cleanup',
+      'boost saas valuation tech stack',
+      // Operation-Ops Owen (supply chain, real-time ops)
+      'real time inventory management software',
+      'warehouse operations ai prediction',
+      'supply chain software integration',
+      'operations dashboard development',
+      'websocket real time dashboard development',
+      // Innovating Isabella (pharma, clinical trial AI)
+      'clinical trial data ai tool',
+      'pharma research software development',
+      'rag implementation custom data',
+      'scientific data visualization software',
+      'custom ai for internal research data',
+      // Retaining Robert (enterprise support, AI voice)
+      'ai customer support voice integration',
+      'enterprise tier one support automation',
+      'ai voice assistant for support teams',
+      'reduce customer support costs ai',
+      // Visionary Victor (luxury brand, headless commerce)
+      'headless nextjs ecommerce development',
+      'laravel to nextjs migration',
+      'ai personalized shopping experience',
+      'luxury brand digital experience development',
+      // Secure Samuel (defense/gov, on-prem AI)
+      'on premise ai deployment secure',
+      'vpc isolated llm implementation',
+      'secure ai no cloud data',
+      'government compliant ai software',
+      // Director David (commercial real estate, AI tenant mgmt)
+      'tenant management ai software',
+      'commercial real estate software custom',
+      'property management ai automation',
+      'building management software integration',
+      // Architectural Arthur (enterprise architecture)
+      'enterprise software architecture consulting',
+      'domain driven design consulting',
+      'microservices migration consulting',
+      'software architecture modernization'
     ];
 
     // eslint-disable-next-line no-console
@@ -701,8 +784,10 @@ Return JSON:
 
     let json: Resp | null = null;
     try {
-      const res = await fetch(url);
+      const res = await fetch(url, { signal: AbortSignal.timeout(15_000) });
       if (res.ok) json = (await res.json()) as Resp;
+    } catch {
+      // timeout or network error — treat as no results
     } finally {
       await this.serpUsage.increment('serpstack', picked.apiKeyHash);
     }
@@ -748,8 +833,10 @@ Return JSON:
 
     let json: Resp | null = null;
     try {
-      const res = await fetch(url, { headers: { apikey: apiKey } });
+      const res = await fetch(url, { headers: { apikey: apiKey }, signal: AbortSignal.timeout(15_000) });
       if (res.ok) json = (await res.json()) as Resp;
+    } catch {
+      // timeout or network error — treat as no results
     } finally {
       await this.serpUsage.increment('zenserp', picked.apiKeyHash);
     }
@@ -842,10 +929,14 @@ Return JSON:
 
   private async googleSuggest(seed: string): Promise<string[]> {
     const url = `https://suggestqueries.google.com/complete/search?client=firefox&q=${encodeURIComponent(seed)}`;
-    const res = await fetch(url);
-    if (!res.ok) return [];
-    const data = (await res.json()) as [string, string[]];
-    return Array.isArray(data?.[1]) ? data[1] : [];
+    try {
+      const res = await fetch(url, { signal: AbortSignal.timeout(10_000) });
+      if (!res.ok) return [];
+      const data = (await res.json()) as [string, string[]];
+      return Array.isArray(data?.[1]) ? data[1] : [];
+    } catch {
+      return [];
+    }
   }
 
   /**
@@ -946,7 +1037,18 @@ Return JSON:
       // eslint-disable-next-line no-console
       console.log(`[KeywordService]    → Found ${postTitles.length} successful post titles`);
 
-      const prompt = this.buildAiSeedPrompt(existingSeeds, successfulKeywords, postTitles);
+      // Load ICP business problems to ground seeds in real buyer pain
+      let icpProblems: string[] = [];
+      try {
+        const icps = await loadIcps();
+        icpProblems = icps.flatMap(icp => [
+          icp.the_crap_he_deals_with,
+          icp.the_hunger,
+          `Cost of inaction: ${icp.cost_of_inaction}`,
+        ]);
+      } catch { /* non-fatal */ }
+
+      const prompt = this.buildAiSeedPrompt(existingSeeds, successfulKeywords, postTitles, icpProblems);
       
       // eslint-disable-next-line no-console
       console.log(`[KeywordService]    → Calling Gemini for seed generation (1 API call)...`);
@@ -1007,11 +1109,18 @@ Return JSON:
   private buildAiSeedPrompt(
     existingSeeds: string[],
     successfulKeywords: string[],
-    postTitles: string[]
+    postTitles: string[],
+    icpProblems: string[] = []
   ): { system: string; user: string } {
     const system = `You are an expert SEO strategist and B2B marketing specialist for a software development consulting business.
 
 Your task is to generate NEW seed keywords that will help discover high-converting blog topics.
+
+CORE PRINCIPLE (from "Sell Money, Not Services"):
+- Be a PROBLEM SEEKER, not a service vendor
+- "Size of problem = size of budget" — target large, costly business problems
+- Every keyword should imply a business problem, not just a service category
+- People with bigger problems have bigger budgets. Target the pain first.
 
 The business offers:
 - Fractional/Virtual CTO services
@@ -1034,26 +1143,30 @@ Focus on keywords that indicate:
 - Decision-stage research (comparing options)
 - High-value clients (enterprise, funded startups)`;
 
+    const icpSection = icpProblems.length > 0
+      ? `\nREAL ICP BUSINESS PROBLEMS (generate seeds targeting these exact pain points):\n${icpProblems.slice(0, 18).map(p => `- ${p}`).join('\n')}\n`
+      : '';
+
     const user = `Generate 40 NEW and UNIQUE seed keywords for SEO content.
 
 SUCCESSFUL PATTERNS FROM OUR DATA:
 ${successfulKeywords.length > 0 ? `- Keywords that worked: ${successfulKeywords.slice(0, 10).join(', ')}` : '- No data yet'}
 ${postTitles.length > 0 ? `- Post titles that converted: ${postTitles.slice(0, 5).join(', ')}` : ''}
-
+${icpSection}
 AVOID DUPLICATING THESE EXISTING SEEDS (sample):
 ${existingSeeds.slice(0, 30).join(', ')}
 
 GENERATE KEYWORDS IN THESE CATEGORIES:
-1. **Pain points** - Problems people search when frustrated
-2. **Cost/ROI** - Budget and pricing related searches
+1. **Business problems** - The COSTLY PROBLEMS your ICPs face (not the service you sell)
+2. **Cost/ROI** - Budget and pricing related searches, cost of inaction
 3. **Comparisons** - "X vs Y", "alternatives to X"
 4. **How-to** - Educational but with commercial intent
-5. **Industry-specific** - Vertical markets (fintech, healthcare, etc.)
-6. **Tech stack** - Specific technologies (React, Node, AWS, etc.)
-7. **Trending** - Current tech trends (AI agents, RAG, etc.)
+5. **Industry-specific** - Vertical markets (fintech, healthcare, real estate, pharma, logistics, etc.)
+6. **Tech stack** - Specific technologies people are struggling with (legacy .NET, Next.js, Node, Postgres, etc.)
+7. **Trending** - Current tech trends (AI agents, RAG, on-prem LLM, etc.)
 8. **Long-tail transactional** - Very specific buyer searches
 9. **Competitor alternatives** - Named competitor keywords
-10. **Emerging niches** - New areas with low competition
+10. **Acquisition/exit prep** - Investors, technical due diligence, exit-ready code
 
 IMPORTANT GUIDELINES:
 - Make keywords 3-7 words (long-tail)
@@ -1062,6 +1175,7 @@ IMPORTANT GUIDELINES:
 - Think about what a buyer types just BEFORE making a purchase decision
 - Include some question-based keywords
 - Consider voice search patterns
+- PRIORITIZE business problem framing over service offering framing
 
 Return JSON only:
 {"keywords": ["keyword 1", "keyword 2", ...]}`;

@@ -76,6 +76,8 @@ export class PostReviewer {
     const post = rows[0];
     if (!post) throw new Error(`Post not found: ${postId}`);
 
+    console.log(`   🔍 Reviewing: "${post.title}"`);
+
     let contentJson: BlogPostStructure;
     if (typeof post.content_json === 'string') {
       contentJson = safeJsonParse(post.content_json) as BlogPostStructure;
@@ -108,7 +110,7 @@ export class PostReviewer {
     await this.saveReview(postId, post.rewrite_count + 1, result);
 
     // Update post status based on result
-    await this.updatePostStatus(postId, result, post.rewrite_count);
+    await this.updatePostStatus(postId, post.title, result, post.rewrite_count);
 
     return result;
   }
@@ -289,7 +291,8 @@ export class PostReviewer {
         rewriteInstructions: validated.rewriteInstructions,
       };
     } catch (err) {
-      console.error('LLM review failed, using automated checks only:', err);
+      const errMsg = (err instanceof Error ? err.message : String(err)).replace(/\s+/g, ' ').slice(0, 150);
+      console.warn(`   ⚠️  LLM reviewer invalid response (automated checks only): ${errMsg}`);
       return { issues: [], rewriteInstructions: null };
     }
   }
@@ -384,28 +387,30 @@ export class PostReviewer {
   /**
    * Update post status based on review result
    */
-  private async updatePostStatus(postId: string, result: ReviewResult, currentRewriteCount: number): Promise<void> {
+  private async updatePostStatus(postId: string, title: string, result: ReviewResult, currentRewriteCount: number): Promise<void> {
     if (result.passed) {
       // Passed! Mark as published
       await this.deps.pool.query<ResultSetHeader>(
         `UPDATE posts SET status = 'published', updated_at = NOW() WHERE id = ?`,
         [postId]
       );
-      console.log(`✅ Post ${postId} PASSED review (score: ${result.score}) → published`);
+      console.log(`✅ Post "${title}" PASSED review (score: ${result.score}) → published`);
     } else if (currentRewriteCount >= 2) {
       // Failed after 2 rewrites → mark for deletion
       await this.deps.pool.query<ResultSetHeader>(
         `UPDATE posts SET status = 'to_be_deleted', updated_at = NOW() WHERE id = ?`,
         [postId]
       );
-      console.log(`❌ Post ${postId} FAILED after 2 rewrites (score: ${result.score}) → to_be_deleted`);
+      console.log(`❌ Post "${title}" FAILED after 2 rewrites (score: ${result.score}) → to_be_deleted`);
     } else {
       // Failed but has retries left → mark for rewrite
       await this.deps.pool.query<ResultSetHeader>(
         `UPDATE posts SET status = 'rewrite', rewrite_count = rewrite_count + 1, updated_at = NOW() WHERE id = ?`,
         [postId]
       );
-      console.log(`🔄 Post ${postId} FAILED review (score: ${result.score}) → rewrite (attempt ${currentRewriteCount + 1}/2)`);
+      const topIssues = result.issues.slice(0, 3).map(i => i.code).join(', ');
+      const extras = result.issues.length > 3 ? ` +${result.issues.length - 3} more` : '';
+      console.log(`🔄 Post "${title}" FAILED review (score: ${result.score}) → rewrite (attempt ${currentRewriteCount + 1}/2) [${topIssues}${extras}]`);
     }
   }
 }

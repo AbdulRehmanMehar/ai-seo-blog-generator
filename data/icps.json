@@ -1,0 +1,252 @@
+[
+  {
+    "persona_name": "Modernizing Michael",
+    "biographics": {
+      "age": 48,
+      "title": "VP of Engineering at a Global Logistics Firm",
+      "status": "First marriage (stable), 2 kids (12 and 15)",
+      "location": "Primary home in Greenwich, CT; Summer home in Aspen",
+      "education": "BS in Computer Science, MBA from Wharton",
+      "personal_income": "$450k + $200k performance bonus"
+    },
+    "psychographics": {
+      "values": "Integrity and 'Measuring 100 times before cutting.'",
+      "belief_system": "Believes that technical debt is a silent killer of legacy businesses.",
+      "fears": "Public failure of a migration that halts the global supply chain.",
+      "spending_logic": "Spends $250k on a consultant to avoid a $2M internal dev mistake."
+    },
+    "the_crap_he_deals_with": "Has been burned by 'AI wrapper' agencies that didn't understand his .NET monolith. He is tired of vendors who over-promise and under-deliver.",
+    "the_hunger": "He is starving for velocity. His board wants 'AI integration' now, but his legacy stack is a 'black box' holding him back.",
+    "trifecta_alignment": {
+      "joy": "Modernizing a massive global engine using Next.js 15.",
+      "money": "A $300k project is less than 2% of his annual infrastructure budget.",
+      "mission": "Turning a legacy dinosaur into a modern, real-time tech leader."
+    },
+    "cost_of_inaction": "Every month the .NET monolith stays in place costs roughly 2 sprints of velocity (~$30k in engineering time) and delays the board-mandated AI integration that competitors are already shipping. A failed migration 12 months from now costs 4x more to fix plus the reputational damage of missing market windows."
+  },
+  {
+    "persona_name": "Compliance-Driven Clara",
+    "biographics": {
+      "age": 52,
+      "title": "CTO of a Mid-Tier Regional Bank",
+      "status": "Married, kids in Ivy League colleges",
+      "location": "Upper East Side, NYC; Weekend retreat in the Hamptons",
+      "education": "MS in Cybersecurity",
+      "personal_income": "$550k total comp"
+    },
+    "psychographics": {
+      "values": "Precision and Security. She hates 'move fast and break things.'",
+      "belief_system": "AI is a tool for efficiency, not a replacement for human judgment.",
+      "fears": "Data leaks through unvetted LLM integrations.",
+      "spending_logic": "Happily pays a premium for 'Engineering-First' partners who prioritize security over buzzwords."
+    },
+    "the_crap_he_deals_with": "Dealing with internal IT teams that are resistant to change and 'security consultants' who only offer generic checklists.",
+    "the_hunger": "Automating manual KYC/AML processes that are currently costing the bank $10M/year in wasted labor.",
+    "trifecta_alignment": {
+      "joy": "Building high-security, high-performance Node.js/PostgreSQL pipelines.",
+      "money": "Budget is high-ticket because the ROI on compliance automation is immediate.",
+      "mission": "Proving that traditional banking can lead in AI safety."
+    },
+    "cost_of_inaction": "Manual KYC/AML costs the bank $10M/year in wasted labor. Each month without automation adds $833k in preventable overhead. A single compliance failure from an unvetted AI tool costs an average of $4.5M in regulatory fines plus reputational damage the bank may never fully recover from."
+  },
+  {
+    "persona_name": "Director David",
+    "biographics": {
+      "age": 45,
+      "title": "Director of Property Development (Commercial Real Estate)",
+      "status": "Married (15 years), 3 kids",
+      "location": "Dallas, TX; Condo in Miami",
+      "education": "Business Administration & Marketing",
+      "personal_income": "$400k + significant equity"
+    },
+    "psychographics": {
+      "values": "Visual beauty and operational efficiency. He likes 'bespoke' solutions.",
+      "belief_system": "Successful people own their time.",
+      "fears": "Looking 'outdated' compared to competitors using smart-building AI.",
+      "spending_logic": "Views $150k for a custom tenant-management AI as an investment in asset value."
+    },
+    "the_crap_he_deals_with": "Salespeople selling him 'off-the-shelf' CRMs that don't talk to his legacy building-management software.",
+    "the_hunger": "A seamless, AI-driven interface that predicts tenant churn and automates facility maintenance requests.",
+    "trifecta_alignment": {
+      "joy": "Merging high-end UI/UX (Next.js) with deep hardware/IoT integration.",
+      "money": "High-ticket project with recurring maintenance retainer.",
+      "mission": "Redefining the 'Living Space' through intelligent software."
+    },
+    "cost_of_inaction": "Every quarter without AI-driven tenant management means roughly 5-8% higher churn on commercial leases. On a $50M property portfolio, that's $300k-$500k in preventable vacancy costs per year. Competitors adopting smart-building AI are already commanding a 12-15% premium on lease rates."
+  },
+  {
+    "persona_name": "SaaS Founder Sarah",
+    "biographics": {
+      "age": 39,
+      "title": "Founder of an Exit-Ready HealthTech SaaS",
+      "status": "Divorced (focus on stability now), 1 child",
+      "location": "Palo Alto, CA",
+      "education": "Stanford Graduate",
+      "personal_income": "$300k salary + $20M in paper wealth"
+    },
+    "psychographics": {
+      "values": "Velocity and Cleanliness. She wants her code to be 'acquisition-ready.'",
+      "belief_system": "You are only as good as your domain boundaries.",
+      "fears": "Due diligence failing because of 'spaghetti code' in the legacy backend.",
+      "spending_logic": "Spends money to 'buy back' her exit timeline."
+    },
+    "the_crap_he_deals_with": "Junior-heavy dev shops that 'hack' features together without considering Core Web Vitals or SEO continuity.",
+    "the_hunger": "A top-to-bottom modernization of her .NET frontend to Next.js 15 to boost valuation before a series B or Exit.",
+    "trifecta_alignment": {
+      "joy": "Refactoring complex systems into clean, domain-driven architectures.",
+      "money": "The project is funded by VC capital; price is secondary to speed/quality.",
+      "mission": "Finalizing a world-class product for acquisition."
+    },
+    "cost_of_inaction": "Spaghetti code depresses acquisition valuation by 20-40% when buyers run technical due diligence. On her $20M paper valuation, that's $4M-$8M left on the table. Every month the codebase stays messy also burns $40k-$60k in junior dev time fighting fires instead of shipping features that boost the Series B."
+  },
+  {
+    "persona_name": "Operation-Ops Owen",
+    "biographics": {
+      "age": 50,
+      "title": "Head of Ops at a Fortune 500 Retailer",
+      "status": "Married, kids in college",
+      "location": "Chicago, IL; Lake house in Michigan",
+      "education": "Industrial Engineering",
+      "personal_income": "$480k"
+    },
+    "psychographics": {
+      "values": "Reliability. He hates the phrase 'AI will change the world' and wants to know 'How does it help me ship?'",
+      "belief_system": "Systems run the business, people run the systems.",
+      "fears": "Losing seasonal peak revenue due to system lag.",
+      "spending_logic": "Pays $200k for a WebSocket-based real-time dashboard that 'just works' 100% of the time."
+    },
+    "the_crap_he_deals_with": "Marketing teams giving him 'blurry' requirements and developers who don't understand the physical logistics of a warehouse.",
+    "the_hunger": "Integrating AI to predict inventory shortages before they happen, displayed in a low-latency UI.",
+    "trifecta_alignment": {
+      "joy": "Building the 'Mission Control' for a massive retail operation.",
+      "money": "Huge corporate budget with high-ticket modernization needs.",
+      "mission": "Eliminating waste in the global supply chain through smarter software."
+    },
+    "cost_of_inaction": "A single missed inventory signal during peak season can cost a Fortune 500 retailer $500k-$2M in lost sales and emergency logistics costs. System lag during Black Friday-level traffic historically causes 3-7% revenue loss on peak days. Without real-time tooling, these losses repeat every quarter indefinitely."
+  },
+  {
+    "persona_name": "Innovating Isabella",
+    "biographics": {
+      "age": 42,
+      "title": "Chief Innovation Officer at a Pharma Giant",
+      "status": "Married, 2 kids",
+      "location": "Basel, Switzerland / Boston, MA",
+      "education": "PhD in Biochemistry + MBA",
+      "personal_income": "$600k+"
+    },
+    "psychographics": {
+      "values": "Innovation that solves human problems.",
+      "belief_system": "AI should augment human scientists, not replace them.",
+      "fears": "Missing a breakthrough because the data was siloed in an old system.",
+      "spending_logic": "Will pay whatever it takes to hire a partner who understands 'RAG' and 'Next.js' for data visualization."
+    },
+    "the_crap_he_deals_with": "Agencies that can't speak 'Science.' They know React but don't know how to visualize complex chemical data.",
+    "the_hunger": "A custom internal AI tool that lets researchers 'talk' to their proprietary clinical trial data.",
+    "trifecta_alignment": {
+      "joy": "High-complexity AI integration involving deep RAG and data science.",
+      "money": "Pharma budgets are among the highest in the world.",
+      "mission": "Helping accelerate life-saving drug discoveries."
+    },
+    "cost_of_inaction": "Siloed clinical trial data delays drug discovery by 6-18 months per compound. In pharma, each month of delay costs $500k-$1M in time-to-market losses. A competitor reaching FDA approval 6 months earlier on a blockbuster drug can mean a $500M+ first-mover advantage that cannot be recaptured."
+  },
+  {
+    "persona_name": "Retaining Robert",
+    "biographics": {
+      "age": 55,
+      "title": "Director of Customer Success (Enterprise Telecom)",
+      "status": "Stable marriage, grandchildren",
+      "location": "Atlanta, GA",
+      "education": "Communications & Business",
+      "personal_income": "$350k"
+    },
+    "psychographics": {
+      "values": "Stability and Human Connection.",
+      "belief_system": "Customer retention is the only metric that matters.",
+      "fears": "Churn skyrocketing because their support tech feels '1990s.'",
+      "spending_logic": "Wants to 'trade up' to a world-class engineering partner to save his department's reputation."
+    },
+    "the_crap_he_deals_with": "Internal 'hobbyist' dev teams that build internal tools that are hard to use and constantly break.",
+    "the_hunger": "A custom AI voice/video assistant (Voxaro-style) for tier-1 support that actually sounds human and empathetic.",
+    "trifecta_alignment": {
+      "joy": "Implementing audio/video streaming pipelines for high-volume users.",
+      "money": "A $150k project is small compared to the $2M in churn he's trying to stop.",
+      "mission": "Making enterprise support actually helpful for once."
+    },
+    "cost_of_inaction": "Support tech that feels '1990s' drives 8-12% annual churn in enterprise telecom. On a $25M ARR book, that's $2M-$3M in preventable revenue loss per year. A $150k AI support upgrade pays for itself in under 3 months. Every quarter without it burns $500k in avoidable churn and erodes Robert's standing with the executive team."
+  },
+  {
+    "persona_name": "Visionary Victor",
+    "biographics": {
+      "age": 47,
+      "title": "Head of Digital at a Luxury Fashion Brand",
+      "status": "Married, no kids",
+      "location": "Paris; Loft in SoHo, NYC",
+      "education": "Design & Fine Arts",
+      "personal_income": "$500k"
+    },
+    "psychographics": {
+      "values": "Aesthetics and Brand Continuity.",
+      "belief_system": "The website is the digital flagship store; it must be perfect.",
+      "fears": "Slow page loads (LCP) hurting the 'luxury' feel of the brand.",
+      "spending_logic": "Spends money on Next.js 15 expertise to ensure the 'digital fabric' matches the physical one."
+    },
+    "the_crap_he_deals_with": "Devs who focus only on functionality and ruin the 'vibe' of the design with clunky transitions.",
+    "the_hunger": "Modernizing a legacy Laravel/E-commerce backend to a headless Next.js setup with AI-driven personalized shopping.",
+    "trifecta_alignment": {
+      "joy": "Building beautiful, high-performance, design-heavy interfaces.",
+      "money": "High-margin luxury industry pays well for 'perfect' execution.",
+      "mission": "Setting the gold standard for luxury in the digital age."
+    },
+    "cost_of_inaction": "A 1-second delay in Largest Contentful Paint reduces luxury e-commerce conversions by 7%. On $20M in annual online revenue, that is $1.4M lost per second of slowness. A clunky checkout from a legacy Laravel backend costs an estimated $800k-$1.5M/year in abandoned carts from high-net-worth buyers who have zero tolerance for friction."
+  },
+  {
+    "persona_name": "Secure Samuel",
+    "biographics": {
+      "age": 49,
+      "title": "CISO of a Defense Tech Subcontractor",
+      "status": "Married, 2 kids",
+      "location": "Washington D.C.; House in Virginia",
+      "education": "Electrical Engineering",
+      "personal_income": "$500k"
+    },
+    "psychographics": {
+      "values": "Confidentiality. He is a 'Hostile Witness' to most cloud-first pitches.",
+      "belief_system": "If it's on the open web, it's vulnerable.",
+      "fears": "National security breaches originating from a poorly secured web dashboard.",
+      "spending_logic": "Spends money on 'Senior Full-Stack Consultants' who understand domain-driven security and PostgreSQL hardening."
+    },
+    "the_crap_he_deals_with": "AI hype-men who try to sell him 'cloud-only' LLM solutions that violate his security protocols.",
+    "the_hunger": "A secure, on-prem or VPC-isolated AI assistant for analyzing intelligence reports.",
+    "trifecta_alignment": {
+      "joy": "Building high-stakes, secure, and architecturally sound systems.",
+      "money": "Government/Defense contracts have massive, reliable budgets.",
+      "mission": "Supporting the safety and security of the nation through tech."
+    },
+    "cost_of_inaction": "A poorly secured AI web dashboard in a defense context risks contract termination worth $10M-$50M and potential criminal liability. A single breach traced back to an off-the-shelf cloud LLM integration can end the company's eligibility for government contracts permanently. There is no recovery from that conversation."
+  },
+  {
+    "persona_name": "Architectural Arthur",
+    "biographics": {
+      "age": 53,
+      "title": "Principal Architect at a Top-Tier Insurance Company",
+      "status": "Married, 3 kids",
+      "location": "Des Moines, IA; Condo in Scottsdale, AZ",
+      "education": "PhD in Computer Science",
+      "personal_income": "$450k"
+    },
+    "psychographics": {
+      "values": "Legacy and Longevity. He builds things to last 20 years.",
+      "belief_system": "A system is only as good as its documentation and boundaries.",
+      "fears": "Retiring and leaving behind a 'mess' that no one can maintain.",
+      "spending_logic": "Spends $200k+ on a partner who will 'do it right' (Node.js/TypeScript/PostgreSQL) instead of 'doing it fast.'"
+    },
+    "the_crap_he_deals_with": "Offshore teams that write unreadable code and internal managers who push for 'features over foundation.'",
+    "the_hunger": "A full-scale migration plan to 'strangle' their 30-year-old COBOL/VB6 system with a modern Next.js/Node.js API layer.",
+    "trifecta_alignment": {
+      "joy": "Strategic 'thinking work' designing the roadmap for a 10-year transformation.",
+      "money": "Huge project scope with long-term consulting potential.",
+      "mission": "Safeguarding the data of millions of families for the next generation."
+    },
+    "cost_of_inaction": "A 30-year COBOL system costs $400k-$800k/year in specialist maintenance contracts for engineers who are retiring. Each year without a migration plan means fewer qualified people exist who can touch the system. A single production incident on legacy infrastructure can cost $2M-$5M in claims payouts, regulatory scrutiny, and emergency response."
+  }
+]

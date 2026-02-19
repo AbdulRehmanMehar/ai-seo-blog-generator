@@ -1,3 +1,4 @@
+import type { RowDataPacket } from 'mysql2/promise';
 import { env } from '../config/env.js';
 import { mysqlPool } from '../db/mysqlPool.js';
 import { postgresPool } from '../db/postgresPool.js';
@@ -17,6 +18,11 @@ function log(message: string) {
   const ts = new Date().toISOString();
   // eslint-disable-next-line no-console
   console.log(`[${ts}] ${message}`);
+}
+
+function elapsed(startMs: number): string {
+  const ms = Date.now() - startMs;
+  return ms >= 1000 ? `${(ms / 1000).toFixed(1)}s` : `${ms}ms`;
 }
 
 export async function runPipelineOnce() {
@@ -119,20 +125,28 @@ export async function runPipelineOnce() {
       log('   ✓ No duplicate found');
 
       log('   ✍️  Generating blog post draft...');
+      const genStart = Date.now();
       const postId = await blogGenerator.generateDraftPost(topicId);
-      log(`   ✓ Draft created (id: ${postId.slice(0, 8)}...)`);
+      const [[postTitleRow]] = await mysqlPool.query<RowDataPacket[]>('SELECT title FROM posts WHERE id = ?', [postId]);
+      const postTitle = (postTitleRow as any)?.title ?? `id:${postId.slice(0, 8)}`;
+      log(`   ✓ Draft created: "${postTitle}" (${elapsed(genStart)})`);
 
       log('   🧹 Humanizing content...');
+      const humanStart = Date.now();
       await humanizer.humanizePost(postId);
-      log('   ✓ Humanization complete');
+      log(`   ✓ Humanization complete (${elapsed(humanStart)})`);
 
       log('   📋 Running quality review...');
+      const reviewStart = Date.now();
       const reviewResult = await postReviewer.reviewPost(postId);
+      const reviewTime = elapsed(reviewStart);
       if (reviewResult.passed) {
-        log(`   ✓ Review PASSED (score: ${reviewResult.score}/100) → published`);
+        log(`   ✓ Review PASSED (score: ${reviewResult.score}/100) → published (${reviewTime})`);
       } else {
-        log(`   ⚠️  Review FAILED (score: ${reviewResult.score}/100) → queued for rewrite`);
-        log(`      Issues: ${reviewResult.issues.length} found`);
+        const topIssues = reviewResult.issues.slice(0, 3).map(i => i.code).join(', ');
+        const extras = reviewResult.issues.length > 3 ? ` +${reviewResult.issues.length - 3} more` : '';
+        log(`   ⚠️  Review FAILED (score: ${reviewResult.score}/100) → queued for rewrite (${reviewTime})`);
+        log(`      Failing checks: ${topIssues}${extras}`);
       }
 
       created += 1;

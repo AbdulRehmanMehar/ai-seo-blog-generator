@@ -16,11 +16,14 @@ export class Humanizer {
 
   async humanizePost(postId: string): Promise<void> {
     const [rows] = await this.deps.pool.query<RowDataPacket[]>(
-      'SELECT content_json, primary_keyword FROM posts WHERE id = ?',
+      'SELECT title, content_json, primary_keyword FROM posts WHERE id = ?',
       [postId]
     );
     const row = rows[0] as any;
     if (!row) return;
+
+    // eslint-disable-next-line no-console
+    console.log(`   📝 Humanizing: "${row.title}"`);
 
     // Parse the stored JSON content
     let contentJson: BlogPostStructure;
@@ -75,15 +78,16 @@ export class Humanizer {
     const wordCount = allContent.split(/\s+/).filter(Boolean).length;
     if (wordCount < this.deps.minWords) {
       // eslint-disable-next-line no-console
-      console.log(`Humanizer: warning wordCount=${wordCount} < minWords=${this.deps.minWords}`);
+      console.log(`   ⚠️  Word count after humanization: ${wordCount} (below min: ${this.deps.minWords})`);
+    } else {
+      // eslint-disable-next-line no-console
+      console.log(`   📝 Word count after humanization: ${wordCount}`);
     }
 
     await this.deps.pool.query(
       'UPDATE posts SET content_json = ? WHERE id = ?', 
       [JSON.stringify(humanizedContent), postId]
     );
-    // eslint-disable-next-line no-console
-    console.log(`Humanizer: updated post id=${postId}`);
   }
 }
 

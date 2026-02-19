@@ -3,6 +3,66 @@
  * Based on proven conversion principles and frameworks.
  */
 
+/**
+ * Sell Money, Not Services.
+ * From the "Content to Win High-Paying Clients" framework (Chris Do):
+ *
+ * "Your client desires something beyond the thing that you make."
+ * "You need to sell money. You're selling services. You're selling time."
+ * "Every time you can dollarize the value, it's an easy sale."
+ * "There is a direct correlation to size of problem to size of budget."
+ * "Motivation = degree of pain felt + how clear the outcome is."
+ * "We need to be problem seekers, not just problem solvers."
+ */
+export const SELL_MONEY_NOT_SERVICES = `
+Sell Money, Not Services (Core Framework)
+
+PRINCIPLE: Your client doesn't want a website, an API, or an AI integration.
+They want revenue, risk reduction, or time they can't get back.
+Every piece of content must frame your work in the client's desired outcome, not your deliverable.
+
+WRONG: "I build Next.js applications."
+RIGHT: "I help logistics firms cut dashboard load time from 8 seconds to 400ms — before their peak season costs them $2M in abandoned carts."
+
+THE DOLLARIZATION FORMULA:
+To make any benefit feel real, run it through this formula:
+  [Your Work] → [Specific Outcome] → [Dollar Value to the Client]
+
+Examples (derive from author knowledge and ICP context):
+- "Migrating from .NET to Next.js" → "developers ship features 3x faster" → "saves ~$180k in engineering time per year"
+- "A real-time inventory dashboard" → "catches shortages before peak season" → "prevents $500k in lost sales"
+- "Cleaning up legacy auth code" → "removes a critical security gap" → "avoids a $2M compliance fine"
+
+SIZE OF PROBLEM = SIZE OF BUDGET:
+Target BUSINESS problems, not service problems.
+A client with a $200k/year "technical debt" problem has budget for a $50k engagement.
+A client with a "$10M revenue at risk" problem has budget for a $300k engagement.
+
+CONTENT MUST ADDRESS THE COST OF INACTION:
+Every post should answer the question "Why not just do nothing?"
+If the reader can't feel the cost of inaction, they have no urgency.
+Frame the cost of inaction as a specific dollar figure, time loss, or competitive disadvantage.
+
+Cost of Inaction formula:
+  "If you don't solve [specific problem], you face [specific consequence] which costs [dollar figure or time/risk]."
+
+Real examples of cost-of-inaction framing:
+- "Every month you keep the .NET monolith, you lose 2 sprints of velocity — roughly $30k of engineering time."
+- "A single data breach from an unvetted LLM integration costs an average of $4.5M in regulatory fines."
+- "Each week a slow checkout page costs a $10M e-commerce company roughly $50k in abandoned revenue."
+
+PROBLEM SEEKER, NOT JUST PROBLEM SOLVER:
+Don't write about "how to build a better API."
+Write about "why your Series B is delayed" — where the answer happens to be a better API.
+The topic must be the BUSINESS PROBLEM. The content reveals your service as the logical answer.
+
+Wrong topic angle: "How to Migrate from .NET to Next.js"
+Right topic angle: "Why Your Engineering Team Keeps Missing Deadlines" (answer is the legacy stack)
+
+Wrong topic angle: "Building Real-Time Dashboards"
+Right topic angle: "Why Your Ops Team Is Always the Last to Know" (answer is real-time tooling)
+`;
+
 export const HEADLINE_FORMULAS = `
 Headline Formulas (Use ONE)
 
@@ -172,6 +232,8 @@ CRITICAL FORMATTING RULES:
 - Never use markdown formatting like asterisks or hashtags
 - Write plain, natural-sounding prose throughout
 
+${SELL_MONEY_NOT_SERVICES}
+
 ${HEADLINE_FORMULAS}
 
 ${OPENING_HOOK_STRATEGIES}
@@ -194,6 +256,8 @@ ${B2B_SPECIFIC}
 export function getHeadlineGuidelines(): string {
   return `
 HEADLINE AND TOPIC GUIDELINES
+
+${SELL_MONEY_NOT_SERVICES}
 
 ${HEADLINE_FORMULAS}
 

@@ -2,6 +2,7 @@ import crypto from 'node:crypto';
 import type { Pool as MysqlPool, RowDataPacket } from 'mysql2/promise';
 import { z } from 'zod';
 import type { AuthorKnowledge } from '../knowledge/authorKnowledge.js';
+import { getIcpByIndex, type IcpPersona } from '../knowledge/icpKnowledge.js';
 import type { GeminiClient } from '../llm/geminiClient.js';
 import { topicPlanningPrompt } from '../prompts/topicPlanning.js';
 import type { EmbeddingStore } from '../embeddings/embeddingStore.js';
@@ -84,6 +85,19 @@ export class TopicPlanner {
       console.log(`TopicPlanner: targeting website ${targetWebsite.domain}`);
     }
 
+    // Pick an ICP using round-robin cycling based on total topics created so far
+    const [[countRow]] = await this.deps.pool.query<RowDataPacket[]>(`SELECT COUNT(*) as cnt FROM topics`);
+    const topicCount = Number((countRow as any)?.cnt ?? 0);
+    let targetIcp: IcpPersona | undefined;
+    try {
+      targetIcp = await getIcpByIndex(topicCount);
+      // eslint-disable-next-line no-console
+      console.log(`TopicPlanner: targeting ICP "${targetIcp.persona_name}" (index ${topicCount % 10})`);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.warn('TopicPlanner: could not load ICP, proceeding without ICP targeting', err);
+    }
+
     // Fetch existing posts for this website to avoid duplicate content angles
     let existingPosts: Array<{ title: string; keyword: string }> = [];
     if (targetWebsite) {
@@ -126,7 +140,8 @@ export class TopicPlanner {
       candidateKeywords: candidates,
       selectCount: args.selectCount,
       targetWebsite: targetWebsite?.domain,
-      existingPosts: existingPosts.length > 0 ? existingPosts : undefined
+      existingPosts: existingPosts.length > 0 ? existingPosts : undefined,
+      targetIcp
     });
 
     const raw = await this.deps.gemini.generateText({
@@ -152,6 +167,7 @@ export class TopicPlanner {
     }
 
     const topicIds: string[] = [];
+    const savedTopics: Array<{ topic: string; keyword: string }> = [];
 
     const candidateByLower = new Map(candidates.map((k) => [k.keyword.toLowerCase(), k] as const));
 
@@ -165,8 +181,8 @@ export class TopicPlanner {
 
       const topicId = crypto.randomUUID();
       await this.deps.pool.query(
-        `INSERT INTO topics(id, keyword_id, topic, outline_json, website_id) VALUES (?, ?, ?, ?, ?)`,
-        [topicId, keywordRow.id, item.topic, JSON.stringify(item.outline), targetWebsite?.id ?? null]
+        `INSERT INTO topics(id, keyword_id, topic, outline_json, website_id, target_icp) VALUES (?, ?, ?, ?, ?, ?)`,
+        [topicId, keywordRow.id, item.topic, JSON.stringify(item.outline), targetWebsite?.id ?? null, targetIcp?.persona_name ?? null]
       );
 
       await this.deps.pool.query(`UPDATE keywords SET status = 'used' WHERE id = ?`, [keywordRow.id]);
@@ -174,10 +190,15 @@ export class TopicPlanner {
       const embedding = await this.deps.gemini.embedText(`${item.topic}`);
       await this.deps.embeddings.upsert({ entityType: 'topic', entityId: topicId, embedding });
       topicIds.push(topicId);
+      savedTopics.push({ topic: item.topic, keyword: item.keyword });
     }
 
     // eslint-disable-next-line no-console
-    console.log(`TopicPlanner: planned topics=${topicIds.length}`);
+    console.log(`TopicPlanner: planned ${topicIds.length} topic(s):`);
+    for (const t of savedTopics) {
+      // eslint-disable-next-line no-console
+      console.log(`   • "${t.topic}" [${t.keyword}]`);
+    }
 
     return topicIds;
   }

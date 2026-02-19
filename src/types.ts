@@ -17,6 +17,8 @@ export interface TopicRow {
   keyword_id: string;
   topic: string;
   outline: unknown;
+  /** The ICP persona name this topic is written to attract (e.g. "Modernizing Michael") */
+  target_icp: string | null;
   created_at: string;
 }
 
@@ -30,6 +32,8 @@ export interface PostRow {
   meta_description: string;
   content_markdown: string;
   status: PostStatus;
+  /** The ICP persona name this post is written to attract */
+  target_icp: string | null;
   published_at: string | null;
   created_at: string;
 }

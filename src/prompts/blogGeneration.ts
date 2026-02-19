@@ -1,4 +1,5 @@
 import { type AuthorKnowledge, formatKnowledgeForPrompt } from '../knowledge/authorKnowledge.js';
+import { type IcpPersona, formatIcpForPrompt } from '../knowledge/icpKnowledge.js';
 import { getConversionGuidelines, getHumanizationGuidelines } from './conversionCopy.js';
 
 /**
@@ -47,10 +48,17 @@ export function blogGenerationPrompt(args: {
   outline: unknown;
   learnedRules?: string;  // Rules learned from past review failures
   websiteVoice?: string;  // Website-specific voice instructions
+  /** ICP persona to write for. Activates "That's Me" framework from ContentWriting playbook. */
+  targetIcp?: IcpPersona;
 }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const conversionGuidelines = getConversionGuidelines();
   const humanizationGuidelines = getHumanizationGuidelines();
+
+  // Build ICP section if we have a persona
+  const icpSection = args.targetIcp
+    ? `${formatIcpForPrompt(args.targetIcp)}`
+    : '';
   
   // Build dynamic forbidden words list from learned rules + base list
   const baseForbiddenWords = ['leverage', 'utilize', 'robust', 'seamless', 'cutting-edge', 'delve', 
@@ -122,8 +130,13 @@ These words are AI-detection markers. Use natural alternatives:
 
 RULE 3: OPENING HOOK (Instant rejection if violated)
 
-NEVER start with: "In today's...", "Let's dive...", "In this article...", "You see..."
-START with: A shocking stat, a bold claim, a personal story, or a direct challenge
+NEVER start with: "In today's...", "Let's dive...", "In this article...", "You see..."${args.targetIcp ? `
+TARGET READER for this post: ${args.targetIcp.persona_name} (${args.targetIcp.biographics.title})
+The hook MUST make them say "that's me" in the first 2 sentences.
+Their stuck scenario: "${args.targetIcp.the_crap_he_deals_with}"
+Their deepest fear: "${args.targetIcp.psychographics.fears}"
+Use the EMPATHY-BASED HOOK formula from the TARGET READER PROFILE below.` : ''}
+START with: A shocking stat, a bold claim, a personal story, or a direct challenge${args.targetIcp ? ` ROOTED IN THE TARGET READER'S REALITY` : ''}
 Example: "I lost $50k last year because I didn't know this."
 Example: "Most consultants will never break $150k. Here is why."
 
@@ -155,6 +168,26 @@ Use periods and commas for punctuation.
 Use "and" or "but" instead of dashes for contrast.
 Write complete sentences that flow naturally when read aloud.
 
+RULE 8: SELL MONEY, NOT SERVICES (Required in every post)
+
+Your reader doesn't want a developer. They want revenue, risk reduction, or time they can't get back.
+Every post MUST include:
+
+1. AT LEAST ONE cost-of-inaction statement.
+   Frame it as: "Every [time unit] you don't solve [problem] costs [dollar amount or specific loss]."
+   This makes the reader feel the pain of doing nothing. Without this, there is no urgency.
+   ${args.targetIcp ? `For ${args.targetIcp.persona_name} specifically: ${args.targetIcp.cost_of_inaction}` : 'Derive a realistic dollar figure from the business context of the topic.'}
+
+2. AT LEAST ONE dollarized value statement.
+   Run every benefit through: [Your Work] → [Specific Outcome] → [Dollar Value]
+   Bad: "Improves performance."
+   Good: "Cuts API response time from 800ms to 120ms, which on a 50k/day user base prevents roughly $40k/month in abandoned sessions."
+   ${args.targetIcp ? `Their spending logic confirms this framing works: "${args.targetIcp.psychographics.spending_logic}"` : ''}
+
+3. TOPIC MUST BE A BUSINESS PROBLEM, NOT A SERVICE.
+   The headline targets a business outcome. Your deliverable is the answer inside the content.
+   Never write "how to build X." Write "why your Y is failing" where X is the answer.
+
 ${args.websiteVoice ? `
 ${args.websiteVoice}
 ` : ''}
@@ -164,11 +197,19 @@ VOICE:
 - Write like explaining to a smart colleague over coffee
 - Be direct, opinionated, specific without fence-sitting
 - Vary sentence length with 5-word punches mixed with longer flows
-- Include personal experience like "In my experience" or "What I've found" or "I've seen this fail when"`,
+- Include personal experience like "In my experience" or "What I've found" or "I've seen this fail when"${args.targetIcp ? `
+
+ICP-SPECIFIC VOICE CALIBRATION for ${args.targetIcp.persona_name}:
+- This reader is a ${args.targetIcp.biographics.title}. Write at their level.
+- They value: ${args.targetIcp.psychographics.values}
+- Do NOT talk down to them. They've seen every vendor pitch.
+- Their spending logic: ${args.targetIcp.psychographics.spending_logic}
+- Address their fear proactively in at least one section: "${args.targetIcp.psychographics.fears}"
+- CTAs must promise their transformation: "${args.targetIcp.the_hunger}"` : ''}`,
     user: `AUTHOR KNOWLEDGE (embody this voice):
 
 ${formattedKnowledge}
-
+${icpSection}
 ${conversionGuidelines}
 
 ${humanizationGuidelines}
@@ -226,7 +267,11 @@ CONTENT REQUIREMENTS:
 - 8-10 sections for numbered posts, 6-8 for guides
 - STRICT 120-150 WORDS per section (count them)
 - 3-5 FAQ items, each answer MAX 25 WORDS (one sentence)
-- Mid-article CTAs in sections 3, 5, and 7 (not null)
+- Mid-article CTAs in sections 3, 5, and 7 (not null)${args.targetIcp ? `
+- CTAs must speak to ${args.targetIcp.persona_name}'s hunger: "${args.targetIcp.the_hunger.substring(0, 80)}..."
+- Address their fear in at least one section: "${args.targetIcp.psychographics.fears.substring(0, 80)}..."` : ''}
+- REQUIRED: at least one "cost of inaction" statement with a specific dollar figure or business consequence${args.targetIcp ? ` (context: ${args.targetIcp.cost_of_inaction.substring(0, 120)}...)` : ''}
+- REQUIRED: at least one dollarized value statement ([Your Work] → [Outcome] → [Dollar Value])
 - At least one contrarian take about what most people get wrong
 - PLAIN TEXT ONLY throughout. No colons, no em dashes, no markdown formatting
 - Write naturally flowing sentences that sound human when read aloud
