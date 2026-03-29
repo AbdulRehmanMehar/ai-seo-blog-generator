@@ -100,6 +100,22 @@ export class WebsiteService {
 
     const p = perspectiveMap[website.voicePerspective];
     const style = website.styleConfig;
+    
+    // Domain-specific positioning from feedback section 8
+    const isPersonalBrand = website.domain.includes('abdulrehman') || website.domain.includes('personal');
+    const positioningGuidance = isPersonalBrand 
+      ? `DOMAIN-SPECIFIC POSITIONING (theabdulrehman.com style):
+- Personal brand - add more direct experience
+- More opinionated and contrarian takes
+- More aggressive/natural CTAs
+- "I" focused writing with real project examples
+- Position: "the smartest developer you can actually hire"`
+      : `DOMAIN-SPECIFIC POSITIONING (PrimeStrides style):
+- Brand building - slightly more polished
+- Still avoid enterprise/consultant tone
+- Approachable but professional
+- Focus on practical outcomes over theory
+- Position: Helpful engineering partner, not "high-end consultancy"`;
 
     return `
 WEBSITE-SPECIFIC VOICE RULES FOR ${website.domain}:
@@ -107,6 +123,8 @@ WEBSITE-SPECIFIC VOICE RULES FOR ${website.domain}:
 
 Brand: ${website.brandName}
 ${website.tagline ? `Tagline: ${website.tagline}` : ''}
+
+${positioningGuidance}
 
 PERSPECTIVE: Use ${website.voicePerspective.replace(/_/g, ' ')} (${p.pronouns})
 Examples: ${p.example}

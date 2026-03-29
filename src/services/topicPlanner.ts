@@ -41,6 +41,56 @@ export class TopicPlanner {
   }
 
   /**
+   * Calculate intent score for prioritizing high-intent keywords
+   * Higher score = higher priority for content generation
+   * 
+   * Search Intent Priority (from feedback):
+   * 1. Transactional (HIGHEST) - "cost to build", "hire developer"
+   * 2. Commercial Investigation - "firebase vs supabase"
+   * 3. Problem-aware - "why my app is slow"
+   * 4. Informational (LOWEST) - "what is AI"
+   */
+  private calculateIntentScore(k: { keyword: string; intent: string | null; cpc: number | null; volume: number | null }): number {
+    const keyword = k.keyword.toLowerCase();
+    const intent = (k.intent ?? '').toLowerCase();
+    let score = 0;
+
+    // TRANSACTIONAL indicators (highest priority)
+    if (keyword.includes('cost') || keyword.includes('price') || keyword.includes('rates')) score += 40;
+    if (keyword.includes('hire') || keyword.includes('find')) score += 40;
+    if (keyword.includes('buy') || keyword.includes('purchase')) score += 40;
+    if (keyword.includes('best') && (keyword.includes('company') || keyword.includes('developer') || keyword.includes('agency'))) score += 35;
+    
+    // COMMERCIAL INVESTIGATION indicators
+    if (keyword.includes(' vs ') || keyword.includes(' vs. ') || keyword.includes('versus')) score += 30;
+    if (keyword.includes('alternatives') || keyword.includes('competitors')) score += 30;
+    if (keyword.includes('comparison') || keyword.includes('compare')) score += 25;
+    
+    // PROBLEM-AWARE indicators
+    if (keyword.includes('mistakes') || keyword.includes('failing') || keyword.includes('wrong')) score += 25;
+    if (keyword.includes('why') && (keyword.includes('fail') || keyword.includes('slow') || keyword.includes('break'))) score += 20;
+    if (keyword.includes('problems') || keyword.includes('issues')) score += 20;
+    if (keyword.includes('debt') || keyword.includes('legacy') || keyword.includes('modernization')) score += 20;
+    
+    // Intent field boosters
+    if (intent.includes('transactional')) score += 25;
+    if (intent.includes('commercial')) score += 20;
+    if (intent.includes('hire')) score += 15;
+    if (intent.includes('service')) score += 10;
+    
+    // CPC boost (higher CPC = more commercial intent)
+    if ((k.cpc ?? 0) > 5) score += 15;
+    else if ((k.cpc ?? 0) > 3) score += 10;
+    else if ((k.cpc ?? 0) > 2) score += 5;
+
+    // Volume boost (moderate - we want volume but not at expense of intent)
+    if ((k.volume ?? 0) > 500) score += 10;
+    else if ((k.volume ?? 0) > 200) score += 5;
+
+    return score;
+  }
+
+  /**
    * Get the next website to assign based on round-robin distribution.
    * Picks the website with the fewest recent posts.
    */
@@ -121,10 +171,10 @@ export class TopicPlanner {
       ORDER BY COALESCE(cpc, 0) DESC, COALESCE(volume, 0) DESC
       LIMIT ?
       `,
-      [args.candidateCount]
+      [args.candidateCount * 2]  // Fetch more to allow intent-based filtering
     );
 
-    const candidates = (rows as any[]).map((r) => ({
+    let candidates = (rows as any[]).map((r) => ({
       id: String(r.id),
       keyword: String(r.keyword),
       volume: r.volume == null ? null : Number(r.volume),
@@ -132,6 +182,13 @@ export class TopicPlanner {
       cpc: r.cpc == null ? null : Number(r.cpc),
       intent: r.intent == null ? null : String(r.intent)
     }));
+
+    // Sort by intent score (high-intent keywords first)
+    candidates = candidates
+      .map(k => ({ ...k, score: this.calculateIntentScore(k) }))
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+      .slice(0, args.candidateCount)
+      .map(({ score, ...k }) => k);  // Remove score field before sending to prompt
 
     if (candidates.length === 0) return [];
 

@@ -45,10 +45,49 @@ EXAMPLES OF GOOD DIFFERENTIATION:
 Your topics must be specific, outcome-focused, and use proven headline formulas that drive clicks and conversions.
 Avoid generic, hype-filled, or overly broad topics. Every topic must have a clear pain point or transformation.
 
+CORE PRINCIPLE: Write to get hired, not to rank.
+Target persona: Startup founders, SMB owners, mid-level CTOs who are confused, budget-conscious, and searching with problem language.
+
+SEARCH INTENT PRIORITY (highest to lowest):
+1. TRANSACTIONAL (HIGHEST PRIORITY) - "cost to build [X]", "hire developer for [X]", "best tech stack for [X]"
+2. COMMERCIAL INVESTIGATION - "firebase vs supabase", "custom software vs SaaS"
+3. PROBLEM-AWARE - "why my app is slow", "why projects fail"
+4. AVOID: Pure informational like "what is AI"
+
+CRITICAL: Prioritize keywords that signal LARGE, COSTLY business problems.
+"Size of problem = size of budget" - a client with a $200k/year technical debt problem has budget for $50k engagement.
+
 CRITICAL: Never use colons in headlines or titles. Write naturally flowing titles without colons or em dashes.
 CRITICAL: If given existing posts, you MUST create completely different content angles - never repeat similar topics.
 CRITICAL: Target BUSINESS PROBLEMS, not services. The client's deliverable is the answer inside the post, never the topic itself.
-CRITICAL: "Size of problem = size of budget." Pick problems that high-budget clients feel urgently. Generic small-business problems attract broke clients.${args.targetIcp ? `\nCRITICAL: Every topic MUST be designed so "${args.targetIcp.persona_name}" reads the headline and immediately thinks "that's me." The pain point, language, and outcome must resonate with their profile.` : ''}`,
+
+HEADLINE FORMULA (Pain + Outcome + Curiosity):
+Every headline MUST include all 3 elements. Then optimize for CTR.
+
+CTR-OPTIMIZED TITLE PATTERNS (use these):
+1. Warning + Specific Number: "Your Software Budget Will Blow Up — Unless You Fix These 3 Things"
+2. Pain + Control Promise: "Why Your Budget Keeps Exploding (And How to Actually Control It)"
+3. Stakes + Curiosity: "The $200K Mistake Most Founders Make When Hiring Developers"
+4. Direct Challenge: "Stop Trying to Build the Perfect Product (Here's What Actually Works)"
+5. Insider Secret: "The Hidden Reason Your Engineering Team Is Missing Deadlines"
+
+REQUIRED: Every title must have:
+- SPECIFIC PAIN (budget exploding, team missing deadlines)
+- CLEAR OUTCOME (control it, fix it, avoid it)
+- CURIOSITY GAP (number, secret, hidden reason, unless you...)
+
+GOOD examples (CTR-optimized):
+- "Your Software Budget Will Blow Up — Unless You Fix These 3 Things"
+- "Why Your Budget Keeps Exploding (And How to Actually Control It)"
+- "7 Database Mistakes That Cost Startups $100K+"
+- "The Hidden Reasons Your Enterprise AI Project Is Stalled"
+
+BAD examples (boring/generic):
+- "Technical Debt in Software" (no pain, no outcome, no curiosity)
+- "Building Teams: A Complete Guide" (colon, generic, no emotional hook)
+- "Software Development Best Practices" (no stakes, no urgency)${args.targetIcp ? `
+CRITICAL: Every topic MUST be designed so "${args.targetIcp.persona_name}" reads the headline and immediately thinks "that's me."
+The pain point, language, and outcome must resonate with their profile.` : ''}`,
     user: `AUTHOR KNOWLEDGE (must reflect in output):
 
 ${formattedKnowledge}
@@ -59,25 +98,25 @@ CANDIDATE KEYWORDS to pick ${args.selectCount} from:
 ${JSON.stringify(args.candidateKeywords, null, 2)}
 
 TASK:
-- Choose ${args.selectCount} keywords with the highest commercial plus founder or CTO intent.
-- For each, create a headline using ONE of the headline formulas being Numbers, How-To, Curiosity Gap, Direct Benefit, or Contrarian.
-- CRITICAL: No colons in headlines. Write flowing titles like \"How to Build a Dev Team That Ships\" not \"Building Teams. A Complete Guide\"
-- Outline MUST start with a HOOK section that describes the TARGET READER'S stuck moment${args.targetIcp ? ` (write it for ${args.targetIcp.persona_name} - their frustration: "${args.targetIcp.the_crap_he_deals_with.substring(0, 80)}...")` : ''}, not definitions or intros.
-- Include a \"Common Mistakes\" or \"What Most Get Wrong\" section.
-- End outline with actionable next steps section.${args.targetIcp ? `
+- Choose ${args.selectCount} keywords with HIGHEST commercial intent following the Search Intent Priority above.
+- Prefer keywords containing: "cost", "hire", "vs", "alternatives", "best", "mistakes", "failing"
+- For each, create a headline using the Pain + Outcome + Curiosity formula.
+- CRITICAL: No colons in headlines. Write flowing titles like "How to Build a Dev Team That Ships" not "Building Teams. A Complete Guide"
+- Outline MUST follow the 6-step structure: Hook → Problem Breakdown → Why It Fails → Better Approach → Actionable Steps → Soft CTA
+- Include a "Common Mistakes" or "What Most Get Wrong" section.
+- At least ONE outline section must address the COST OF INACTION with a specific dollar consequence.${args.targetIcp ? `
 - ICP ALIGNMENT CHECK: Before finalizing each topic, ask "Would ${args.targetIcp.persona_name} (${args.targetIcp.biographics.title}) say 'that's me' reading this headline?" If not, rewrite it.
 - The outline notes should reference specific pain points and language from the TARGET READER PROFILE above.` : ''}
 
-SELL MONEY, NOT SERVICES (Critical topic framing rule):
-- Headlines must target BUSINESS PROBLEMS, not services.
-  Wrong: "How to Migrate from .NET to Next.js"  (describes a service)
-  Right: "Why Your Engineering Team Keeps Missing Deadlines"  (describes a business problem; migration is the answer inside)
-  Wrong: "Building Real-Time Dashboards"  (describes a deliverable)
-  Right: "Why Your Ops Team Is Always the Last to Know"  (describes a business pain; the dashboard is the answer)
-- At least ONE outline section must address the COST OF INACTION with a specific dollar or time consequence.
-  This surfaces the "size of problem = size of budget" logic and attracts high-ticket clients.${args.targetIcp ? `
-- For ${args.targetIcp.persona_name}: cost of inaction context is "${args.targetIcp.cost_of_inaction.substring(0, 120)}..."
-  Use this to frame the outline's hook section and at least one middle section.` : ''}
+APPROVED TOPIC TYPES (prioritize these):
+💰 Money Topics: Cost, hiring, tools comparison, build vs buy
+🧠 Authority Topics: Case studies (from author knowledge), failures, lessons learned
+
+⚠️ AVOID:
+- Abstract strategy
+- Industry-specific jargon (pharma AI, etc.) unless necessary
+- Generic definitions
+- Writing like a consultancy report
 
 OUTPUT STRICT JSON ONLY with shape:
 {

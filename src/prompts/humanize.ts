@@ -195,15 +195,110 @@ If no then rewrite to be more natural.
 - Remove ALL markdown formatting like asterisks and hashtags
 - The output must read as natural flowing prose
 
-17. FINAL CHECKLIST (must pass all):
+17. BUYER JOURNEY CONVERSION CHECK (From simulation feedback)
+Verify the content passes these conversion-critical tests:
+
+a) "THIS IS EXACTLY YOU" PUNCH CHECK (BRUTAL FORMAT REQUIRED)
+- Is there a section that lists 3-4 highly specific symptoms in the exact format:
+  "If your [symptom 1], your [symptom 2], and [symptom 3] — your [X] is not helping, it's hurting."
+- Must end with "not helping, it's hurting" or "system is already broken" punch
+- Symptoms must be granular (not generic like "you have problems")
+- If weak or missing, rewrite using the brutal format from blogGeneration Rule 5
+- This is the PRIMARY conversion trigger — it must hurt
+
+b) REAL SCENARIO CHECK (SPECIFIC NUMBERS REQUIRED)
+- Is there ONE story with concrete numbers/percentages?
+- Must include: business type, broken metric WITH NUMBER (60% escalation, 5-min delay), fix, exact outcome WITH NUMBER
+- NOT: "I helped many clients reduce escalations significantly"
+- YES: "I worked on a support system where 60% of AI responses were escalated. Fixed tone and reduced to 15% in 2 weeks."
+- If numbers are vague ("many", "significantly"), replace with specific percentages
+
+18. CTA QUALITY CHECK (CRITICAL — this is where conversion fails)
+The conclusion.cta.buttonText and mid-article CTAs must:
+- NEVER use: "Let's talk", "I can help", "Stop your churn", "Contact us", "Book a consultation"
+- MUST be specific diagnostic offers: "Send me your [thing] — I'll [show exactly what's wrong]"
+- Example GOOD: "Send me a few chatbot conversations — I'll show you exactly where it's breaking"
+- Example GOOD: "Send me your last 10 support tickets — I'll spot the patterns costing you customers"
+- Must feel like free insight, not sales pitch
+- Test: Would a stressed founder at 11pm find this useful? If sales-y → rewrite
+
+19. BRUTAL FINANCIAL PAIN CHECK
+- Replace vague pain like "losing loyal customers" with specific percentages
+- Replace "millions in lost revenue" with believable scale: "10% churn = thousands monthly"
+- Frame as ACTIVE DAMAGE: "Every bad interaction trains customers not to trust you"
+- Use urgency phrases: "stop the bleeding", "you're losing money every day"
+- Must create "This is costing me NOW" not "This would be nice to fix"
+
+20. URGENCY FRAME CHECK
+- Position as DAMAGE CONTROL not improvement
+- ❌ Remove: "Improve your AI", "Make your chatbot better"
+- ✅ Use: "Stop your AI from driving customers away", "Fix what's actively breaking"
+- Include at least one phrase: "This isn't about being better — it's about stopping the bleeding"
+
+21. CONVERSION LEAK FIXES CHECK (Rule 15 from blogGeneration)
+Verify these 7 gaps are fixed:
+
+a) SHARPER "THIS IS EXACTLY YOU" DIAGNOSIS
+- Must use brutal bullet format: "If your [symptom 1], your [symptom 2], and [symptom 3] — your [X] is not helping, it's hurting."
+- 3-4 highly specific symptoms (not generic)
+- Must create "Oh shit, this is literally me" moment
+
+b) CONCRETE PROOF CHECK
+- Must include "I fixed this exact situation" story
+- Must have exact metrics: "features took 6 weeks → shipping in 4 days"
+- NOT: "I've helped many clients reduce delays"
+- YES: "I worked with a team where features took 6 weeks. Fixed bottleneck, now 4 days."
+
+c) READER-SCALE NUMBERS CHECK
+- Replace "$2M annual cost" with reader-scale numbers
+- Small business: hundreds or low thousands
+- Mid-size: tens of thousands
+- NEVER millions unless truly enterprise
+- Example: "A 2-week delay costs roughly $15K in lost momentum"
+
+d) IMMEDIATE-VALUE CTA CHECK
+- NO "Let's talk" / "I can help" / "Find a partner"
+- MUST offer specific diagnostic value
+- Example: "Send me your last sprint retrospectives — I'll spot exactly where time is leaking"
+
+22. REFRAME SOLUTIONS AS WARNINGS CHECK
+- "Finding a partner who delivers" → "What I've learned watching teams try to fix this"
+- "How to choose a vendor" → "The warning signs I've seen that a fix makes it worse"
+- Position as "person warning you" not "person selling you"
+
+23. SPECIFIC GRANULAR PAIN POINTS CHECK
+- Replace broad: "Your team is slow"
+- With sharp: "Your standups take 45 minutes but nothing changes after"
+- Replace broad: "You have quality issues"
+- With sharp: "You find critical bugs only after customers report them"
+- Each pain point must be specific, small, immediate, sharp
+
+24. URGENCY TRIGGER CHECK
+- Must include at least ONE urgency phrase:
+- "Every week you ship late, you're burning runway you can't get back"
+- "Every bug that reaches customers trains them not to trust you"
+- "This isn't about being better next quarter — it's about surviving this one"
+- Creates "This is costing me NOW" not "important to fix someday"
+
+25. FINAL CHECKLIST (must pass all):
 - No colons anywhere in the content
 - No em dashes anywhere in the content
 - No markdown formatting anywhere in the content
 - No banned vocabulary like arguably, paramount, boasts
 - All FAQ answers under 25 words
 - All sections under 150 words
-- Mid-article CTAs in sections 3, 5, 7
+- Mid-article CTAs in sections 3, 5, 7 with specific diagnostic offers (NOT generic CTAs)
 - If numbered title like "7 mistakes", exactly that many numbered sections
+- "This is exactly you" punch section present with brutal format and "not helping, it's hurting" ending
+- One real scenario with SPECIFIC NUMBERS (60% → 15%, not "many" → "significantly")
+- Brutal financial pain with specific percentages (10% = thousands)
+- Damage control framing (not "improvement")
+- NO generic CTAs like "Let's talk" / "I can help" / "Stop your churn"
+- CONCRETE PROOF: "I fixed this exact situation" story with exact metrics
+- READER-SCALE NUMBERS: hundreds/thousands, not millions
+- REFRAMED SOLUTIONS: warnings not sales pitches
+- SPECIFIC GRANULAR PAIN POINTS: sharp small pains
+- URGENCY TRIGGER: "costing you NOW" phrase present
 
 OUTPUT: Return the SAME JSON structure with humanized content.
 Preserve all field names and structure exactly.

@@ -64,15 +64,31 @@ Right topic angle: "Why Your Ops Team Is Always the Last to Know" (answer is rea
 `;
 
 export const HEADLINE_FORMULAS = `
-Headline Formulas (Use ONE)
+Headline Formula (REQUIRED: Pain + Outcome + Curiosity)
 
-1. Numbers Formula like "7 Database Mistakes That Cost Startups $100K+"
-2. How-To Formula like "How to Achieve Outcome Without Pain Point"
-3. Curiosity Gap like "Why Your Topic Is Problem and It Is Not What You Think"
-4. Direct Benefit like "Cut Your Metric by Percentage"
-5. Contrarian Take like "Why I Stopped Using Popular Thing and What I Use Instead"
+Every headline MUST include:
+1. SPECIFIC PAIN POINT the reader feels right now
+2. CLEAR OUTCOME or benefit they'll get  
+3. CURIOSITY gap or specific number
 
-Power Words to use are Hidden, Proven, Secret, Ultimate, Insider, Guaranteed, Surprising
+FORMULA: [Pain] + [Outcome] + [Curiosity]
+
+GOOD examples:
+- "Technical Debt Is Costing You Thousands (Here's How to Fix It)"
+  (Pain: losing money, Outcome: fix it, Curiosity: how?)
+- "7 Database Mistakes That Cost Startups $100K+"
+  (Pain: mistakes, Outcome: avoid $100K loss, Curiosity: 7 mistakes)
+- "Why Your Engineering Team Keeps Missing Deadlines"
+  (Pain: missed deadlines, Outcome: understand why, Curiosity: the real reason)
+- "I Lost $50K on Bad Hires (Here's the System That Fixed It)"
+  (Pain: lost $50K, Outcome: fixed system, Curiosity: what system?)
+
+BAD examples:
+- "Technical Debt in Software" (no pain, no outcome, no curiosity)
+- "Building Teams: A Complete Guide" (colon, generic, no emotional hook)
+- "Software Development Best Practices" (boring, no stakes)
+
+Power words to use: Hidden, Proven, Secret, Ultimate, Insider, Surprising, Cost, Mistakes, Fix
 
 IMPORTANT: Never use colons in titles. Write flowing titles without colons or em dashes.
 `;

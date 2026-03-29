@@ -249,6 +249,56 @@ Return JSON:
     return volumeOk && difficultyOk && cpcOk && intentOk;
   }
 
+  /**
+   * Calculate intent score for prioritizing high-intent keywords
+   * Higher score = higher priority for content generation
+   * 
+   * Search Intent Priority (from feedback):
+   * 1. Transactional (HIGHEST) - "cost to build", "hire developer"
+   * 2. Commercial Investigation - "firebase vs supabase"
+   * 3. Problem-aware - "why my app is slow"
+   * 4. Informational (LOWEST) - "what is AI"
+   */
+  private calculateIntentScore(k: DiscoveredKeyword): number {
+    const keyword = k.keyword.toLowerCase();
+    const intent = (k.intent ?? '').toLowerCase();
+    let score = 0;
+
+    // TRANSACTIONAL indicators (highest priority)
+    if (keyword.includes('cost') || keyword.includes('price') || keyword.includes('rates')) score += 40;
+    if (keyword.includes('hire') || keyword.includes('find')) score += 40;
+    if (keyword.includes('buy') || keyword.includes('purchase')) score += 40;
+    if (keyword.includes('best') && (keyword.includes('company') || keyword.includes('developer') || keyword.includes('agency'))) score += 35;
+    
+    // COMMERCIAL INVESTIGATION indicators
+    if (keyword.includes(' vs ') || keyword.includes(' vs. ') || keyword.includes('versus')) score += 30;
+    if (keyword.includes('alternatives') || keyword.includes('competitors')) score += 30;
+    if (keyword.includes('comparison') || keyword.includes('compare')) score += 25;
+    
+    // PROBLEM-AWARE indicators
+    if (keyword.includes('mistakes') || keyword.includes('failing') || keyword.includes('wrong')) score += 25;
+    if (keyword.includes('why') && (keyword.includes('fail') || keyword.includes('slow') || keyword.includes('break'))) score += 20;
+    if (keyword.includes('problems') || keyword.includes('issues')) score += 20;
+    if (keyword.includes('debt') || keyword.includes('legacy') || keyword.includes('modernization')) score += 20;
+    
+    // Intent field boosters
+    if (intent.includes('transactional')) score += 25;
+    if (intent.includes('commercial')) score += 20;
+    if (intent.includes('hire')) score += 15;
+    if (intent.includes('service')) score += 10;
+    
+    // CPC boost (higher CPC = more commercial intent)
+    if ((k.cpc ?? 0) > 5) score += 15;
+    else if ((k.cpc ?? 0) > 3) score += 10;
+    else if ((k.cpc ?? 0) > 2) score += 5;
+
+    // Volume boost (moderate - we want volume but not at expense of intent)
+    if ((k.volume ?? 0) > 500) score += 10;
+    else if ((k.volume ?? 0) > 200) score += 5;
+
+    return score;
+  }
+
   private async discoverKeywords(): Promise<DiscoveredKeyword[]> {
     const seeds = [
       // ===== PAIN POINT KEYWORDS (Problem-aware, high intent) =====
@@ -630,7 +680,16 @@ Return JSON:
       }
     }
 
-    return dedupe(enriched).slice(0, 50);
+    // Sort by intent score to prioritize high-intent keywords (transactional > commercial > problem-aware)
+    const scored = enriched
+      .map(k => ({ ...k, intentScore: this.calculateIntentScore(k) }))
+      .sort((a, b) => b.intentScore - a.intentScore);
+    
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 📊 Intent scores: avg=${Math.round(scored.reduce((s, k) => s + k.intentScore, 0) / scored.length)}, max=${scored[0]?.intentScore ?? 0}, top keyword: "${scored[0]?.keyword}"`);
+
+    // Remove score field before returning
+    return dedupe(scored.map(({ intentScore, ...k }) => k)).slice(0, 50);
   }
 
   private async enrichWithGemini(keywords: string[]): Promise<DiscoveredKeyword[]> {
