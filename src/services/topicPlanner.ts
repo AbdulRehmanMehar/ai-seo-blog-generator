@@ -7,6 +7,9 @@ import type { GeminiClient } from '../llm/geminiClient.js';
 import { topicPlanningPrompt } from '../prompts/topicPlanning.js';
 import type { EmbeddingStore } from '../embeddings/embeddingStore.js';
 import { WebsiteService, type Website } from './websiteService.js';
+import { GscFeedbackAggregator } from './gscFeedbackAggregator.js';
+import { ContentBriefService } from './contentBriefService.js';
+import { env } from '../config/env.js';
 
 export interface TopicPlannerDeps {
   pool: MysqlPool;
@@ -35,9 +38,27 @@ const topicPlanSchema = z.object({
 
 export class TopicPlanner {
   private readonly websiteService: WebsiteService;
+  private readonly gscAggregator: GscFeedbackAggregator;
+  private readonly contentBrief: ContentBriefService;
 
   constructor(private readonly deps: TopicPlannerDeps) {
     this.websiteService = new WebsiteService(deps.pool);
+    this.gscAggregator = new GscFeedbackAggregator(deps.pool);
+    this.contentBrief = new ContentBriefService();
+  }
+
+  private resolveGa4PropertyId(website: Website): string | null {
+    if (website.ga4PropertyId && website.ga4PropertyId.trim()) return website.ga4PropertyId.trim();
+    const domain = (website.domain ?? '').toLowerCase();
+    if (domain.includes('primestrides')) {
+      const v = env.GA4_PROPERTY_ID_PRIMESTRIDES ?? env.PRIMESTRIDES_GA4_PROPERTY_ID;
+      if (v) return v.trim();
+    }
+    if (domain.includes('theabdulrehman')) {
+      const v = env.GA4_PROPERTY_ID_ABDULREHMAN ?? env.ABDULREHMAN_GA4_PROPERTY_ID;
+      if (v) return v.trim();
+    }
+    return env.GA4_PROPERTY_ID?.trim() || null;
   }
 
   /**
@@ -50,7 +71,7 @@ export class TopicPlanner {
    * 3. Problem-aware - "why my app is slow"
    * 4. Informational (LOWEST) - "what is AI"
    */
-  private calculateIntentScore(k: { keyword: string; intent: string | null; cpc: number | null; volume: number | null }): number {
+  private calculateIntentScore(k: { keyword: string; intent: string | null; cpc: number | null; volume: number | null; gscSourced?: number; gscImpressions?: number | null }): number {
     const keyword = k.keyword.toLowerCase();
     const intent = (k.intent ?? '').toLowerCase();
     let score = 0;
@@ -86,6 +107,14 @@ export class TopicPlanner {
     // Volume boost (moderate - we want volume but not at expense of intent)
     if ((k.volume ?? 0) > 500) score += 10;
     else if ((k.volume ?? 0) > 200) score += 5;
+
+    // GSC near-miss boost — proven real search demand (+60 is higher than any single intent signal)
+    if (k.gscSourced === 1) {
+      score += 60;
+      // Extra boost for higher-impression near misses
+      if ((k.gscImpressions ?? 0) > 500) score += 15;
+      else if ((k.gscImpressions ?? 0) > 200) score += 8;
+    }
 
     return score;
   }
@@ -165,10 +194,10 @@ export class TopicPlanner {
 
     const [rows] = await this.deps.pool.query<RowDataPacket[]>(
       `
-      SELECT id, keyword, volume, difficulty, cpc, intent
+      SELECT id, keyword, volume, difficulty, cpc, intent, gsc_sourced, gsc_impressions
       FROM keywords
       WHERE status = 'new'
-      ORDER BY COALESCE(cpc, 0) DESC, COALESCE(volume, 0) DESC
+      ORDER BY COALESCE(gsc_sourced, 0) DESC, COALESCE(cpc, 0) DESC, COALESCE(volume, 0) DESC
       LIMIT ?
       `,
       [args.candidateCount * 2]  // Fetch more to allow intent-based filtering
@@ -180,25 +209,68 @@ export class TopicPlanner {
       volume: r.volume == null ? null : Number(r.volume),
       difficulty: r.difficulty == null ? null : Number(r.difficulty),
       cpc: r.cpc == null ? null : Number(r.cpc),
-      intent: r.intent == null ? null : String(r.intent)
+      intent: r.intent == null ? null : String(r.intent),
+      gscSourced: Number(r.gsc_sourced ?? 0),
+      gscImpressions: r.gsc_impressions == null ? null : Number(r.gsc_impressions)
     }));
 
-    // Sort by intent score (high-intent keywords first)
-    candidates = candidates
+    // Sort by intent score (high-intent keywords first; GSC-sourced get +60 boost)
+    const rankedCandidates = candidates
       .map(k => ({ ...k, score: this.calculateIntentScore(k) }))
       .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
       .slice(0, args.candidateCount)
-      .map(({ score, ...k }) => k);  // Remove score field before sending to prompt
+      .map(({ score: _score, gscSourced: _gs, gscImpressions: _gi, ...k }) => k); // Strip scoring metadata before prompt
 
-    if (candidates.length === 0) return [];
+    if (rankedCandidates.length === 0) return [];
+
+    // Fetch GSC context for this website (best-effort — non-fatal if unavailable)
+    let gscInsights: string | undefined;
+    if (targetWebsite) {
+      try {
+        const ctx = await this.gscAggregator.buildGscPromptContext(targetWebsite.id);
+        if (ctx) {
+          gscInsights = ctx;
+          // eslint-disable-next-line no-console
+          console.log(`TopicPlanner: GSC context injected for ${targetWebsite.domain}`);
+        }
+      } catch { /* non-fatal: GSC data may not exist yet */ }
+    }
+
+    // Fetch GA4+GSC "content intelligence brief" (best-effort — non-fatal if unavailable)
+    let contentIntelligenceBrief: string | undefined;
+    if (targetWebsite?.gscPropertyUri || targetWebsite) {
+      try {
+        // We prefer a per-website GSC property uri if present; otherwise fall back to sc-domain:{domain}
+        const siteUrl =
+          targetWebsite.gscPropertyUri ??
+          (targetWebsite?.domain ? `sc-domain:${targetWebsite.domain}` : undefined);
+
+        if (siteUrl) {
+          const brief = await this.contentBrief.generateContentBrief({
+            siteUrl,
+            ga4PropertyId: this.resolveGa4PropertyId(targetWebsite),
+            daysBack: 90,
+          });
+          if (brief) {
+            contentIntelligenceBrief = brief;
+            // eslint-disable-next-line no-console
+            console.log(`TopicPlanner: content intelligence brief injected for ${targetWebsite.domain}`);
+          }
+        }
+      } catch {
+        // Non-fatal; credentials or GA4 property may not be ready yet.
+      }
+    }
 
     const prompt = topicPlanningPrompt({
       knowledge: this.deps.knowledge,
-      candidateKeywords: candidates,
+      candidateKeywords: rankedCandidates,
       selectCount: args.selectCount,
       targetWebsite: targetWebsite?.domain,
       existingPosts: existingPosts.length > 0 ? existingPosts : undefined,
-      targetIcp
+      targetIcp,
+      gscInsights,
+      contentIntelligenceBrief
     });
 
     const raw = await this.deps.gemini.generateText({
@@ -226,7 +298,7 @@ export class TopicPlanner {
     const topicIds: string[] = [];
     const savedTopics: Array<{ topic: string; keyword: string }> = [];
 
-    const candidateByLower = new Map(candidates.map((k) => [k.keyword.toLowerCase(), k] as const));
+    const candidateByLower = new Map(rankedCandidates.map((k) => [k.keyword.toLowerCase(), k] as const));
 
     for (const item of plan.selected) {
       const keywordRow = candidateByLower.get(item.keyword.toLowerCase());

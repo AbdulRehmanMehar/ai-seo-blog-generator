@@ -13,6 +13,10 @@ import { DuplicateChecker } from '../services/duplicateChecker.js';
 import { BlogGenerator } from '../services/blogGenerator.js';
 import { Humanizer } from '../services/humanizer.js';
 import { PostReviewer } from '../services/postReviewer.js';
+import { GscSyncService } from '../services/gscSyncService.js';
+import { GscOpportunityDetector } from '../services/gscOpportunityDetector.js';
+import { Ga4EngagementRefreshDetector } from '../services/ga4EngagementRefreshDetector.js';
+import { ContentRefreshService } from '../services/contentRefreshService.js';
 
 function log(message: string) {
   const ts = new Date().toISOString();
@@ -73,6 +77,70 @@ export async function runPipelineOnce() {
   const humanizer = new Humanizer({ pool: mysqlPool, gemini, knowledge, minWords: env.POST_MIN_WORDS });
   const postReviewer = new PostReviewer({ pool: mysqlPool, gemini });
   log('   ✓ All services initialized');
+
+  // ──────────────────────────────────────────────────────────────────────────
+  // PRE-STEP: DATA INTELLIGENCE & REFRESH OPS (aligns runOnce with scheduler)
+  // ──────────────────────────────────────────────────────────────────────────
+  log('');
+  log('──────────────────────────────────────────────────────────────────────────');
+  log('PRE-STEP: GSC/GA4 SYNC + OPPORTUNITIES + REFRESH QUEUE (best-effort)');
+  log('──────────────────────────────────────────────────────────────────────────');
+
+  // 1) Pull latest GSC performance into DB (best-effort)
+  try {
+    const syncer = new GscSyncService(mysqlPool);
+    const results = await syncer.syncAll();
+    if (results.length > 0) {
+      const ok = results.filter((r) => !r.error).length;
+      const err = results.filter((r) => r.error).length;
+      log(`📡 GSC sync complete: websites=${results.length} ok=${ok} failed=${err}`);
+    } else {
+      log('📡 GSC sync skipped (not configured or no websites)');
+    }
+  } catch (err) {
+    log(`⚠️  GSC sync failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // 2) Detect GSC opportunities and write queue items / near-miss keywords (best-effort)
+  try {
+    const detector = new GscOpportunityDetector(mysqlPool);
+    const results = await detector.detectAll();
+    if (results.length > 0) {
+      const total = results.reduce((sum, r) => sum + r.lowCtr + r.nearMiss + r.declining, 0);
+      log(`🔍 GSC opportunity detection complete: websites=${results.length} total_opps=${total}`);
+    } else {
+      log('🔍 GSC opportunity detection skipped (no websites configured)');
+    }
+  } catch (err) {
+    log(`⚠️  GSC opportunity detection failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // 3) Detect GA4 low-engagement pages and queue refreshes (best-effort)
+  try {
+    const ga4Detector = new Ga4EngagementRefreshDetector(mysqlPool);
+    const results = await ga4Detector.detectAndQueueAll();
+    const queuedTotal = results.reduce((sum, r) => sum + r.queued, 0);
+    const skipped = results.filter((r) => r.skipped).length;
+    log(`📉 GA4 engagement detection complete: websites=${results.length} queued=${queuedTotal} skipped=${skipped}`);
+    for (const r of results) {
+      if (r.skipped) log(`   ↳ GA4 skipped website=${r.websiteId}: ${r.skipped}`);
+    }
+  } catch (err) {
+    log(`⚠️  GA4 engagement detection failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // 4) Process one queued refresh item (best-effort)
+  try {
+    const refresher = new ContentRefreshService(mysqlPool, gemini);
+    const result = await refresher.processRefreshQueue();
+    if (result.processed > 0) {
+      log(`🔄 Refresh queue processed: ok=${result.succeeded} failed=${result.failed}`);
+    } else {
+      log('🔄 Refresh queue: nothing to process');
+    }
+  } catch (err) {
+    log(`⚠️  Refresh queue processing failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
 
   log('');
   log('──────────────────────────────────────────────────────────────────────────');

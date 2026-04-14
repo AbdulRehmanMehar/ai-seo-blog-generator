@@ -4,14 +4,15 @@ import { randomUUID } from 'crypto';
 /**
  * Learning categories for organizing rules
  */
-export type LearningCategory = 
+export type LearningCategory =
   | 'vocabulary'      // Forbidden words/phrases
   | 'structure'       // Section limits, FAQ length, etc.
   | 'formatting'      // Bold patterns, list formatting
   | 'tone'            // Voice, contractions, hedging
   | 'seo'             // Title patterns, keyword usage
   | 'cta'             // Call-to-action placement
-  | 'content';        // Topic coverage, depth
+  | 'content'         // Topic coverage, depth
+  | 'ranking';        // Positive patterns from high-ranking posts (GSC feedback)
 
 export type RuleType =
   | 'forbidden_word'
@@ -19,7 +20,9 @@ export type RuleType =
   | 'max_length'
   | 'min_count'
   | 'required_pattern'
-  | 'forbidden_pattern';
+  | 'forbidden_pattern'
+  | 'observed_pattern'    // Positive signal: structural pattern seen in top-ranking posts
+  | 'high_ctr_title_format'; // Positive signal: title format with high CTR
 
 export interface PromptLearning {
   id: string;
@@ -478,6 +481,9 @@ ${rules.join('\n')}`);
       return '';
     }
 
+    // Also include positive ranking patterns if any exist
+    const rankingSection = await this.generateRankingPatternSection();
+
     return `
 ═══════════════════════════════════════════════════════════════
 LEARNED RULES FROM PAST FAILURES (${learnings.length} rules, ${learnings.reduce((s, l) => s + l.failureCount, 0)} total violations)
@@ -487,7 +493,108 @@ These rules were learned from content that failed review. FOLLOW THEM STRICTLY.
 ${sections.join('\n\n')}
 
 ═══════════════════════════════════════════════════════════════
-`;
+${rankingSection}`;
+  }
+
+  /**
+   * Record a positive ranking pattern from a high-performing post.
+   * Called when a post reaches average position < 10 in GSC.
+   *
+   * Unlike failure-based learning, these are stored with failure_count=0
+   * and a special 'observed_pattern' or 'high_ctr_title_format' rule_type.
+   */
+  async learnFromRankingSuccess(args: {
+    postId: string;
+    patternType: 'observed_pattern' | 'high_ctr_title_format';
+    ruleValue: string;
+    reason: string;
+  }): Promise<boolean> {
+    const conn = await this.pool.getConnection();
+    try {
+      const [existing] = await conn.query<LearningRow[]>(
+        `SELECT id FROM prompt_learnings
+         WHERE category = 'ranking' AND rule_type = ? AND rule_value = ?`,
+        [args.patternType, args.ruleValue]
+      );
+
+      if (existing.length > 0) {
+        // Pattern already recorded — just bump a counter so we know it recurs
+        await conn.query(
+          `UPDATE prompt_learnings
+           SET failure_count = failure_count + 1, last_failure_at = NOW()
+           WHERE id = ?`,
+          [existing[0]!.id]
+        );
+        return false;
+      }
+
+      const id = randomUUID();
+      await conn.query(
+        `INSERT INTO prompt_learnings (id, category, rule_type, rule_value, reason, failure_count, last_failure_at)
+         VALUES (?, 'ranking', ?, ?, ?, 1, NOW())`,
+        [id, args.patternType, args.ruleValue, args.reason]
+      );
+
+      // Record source post (best-effort — no review_id for positive signals)
+      try {
+        await conn.query(
+          `INSERT INTO learning_sources (id, learning_id, post_id, review_id, issue_code)
+           VALUES (?, ?, ?, '', 'GSC_RANKING_SUCCESS')`,
+          [randomUUID(), id, args.postId]
+        );
+      } catch { /* duplicate or missing FK — non-fatal */ }
+
+      return true;
+    } finally {
+      conn.release();
+    }
+  }
+
+  /**
+   * Build the "what's working in Google" section for injection into prompts.
+   * Returns an empty string if no ranking patterns exist yet.
+   */
+  private async generateRankingPatternSection(): Promise<string> {
+    const [rows] = await this.pool.query<LearningRow[]>(
+      `SELECT * FROM prompt_learnings
+       WHERE category = 'ranking' AND is_active = TRUE
+       ORDER BY failure_count DESC
+       LIMIT 10`
+    );
+
+    if (rows.length === 0) return '';
+
+    const observedPatterns = rows.filter(r => r.rule_type === 'observed_pattern');
+    const ctrPatterns = rows.filter(r => r.rule_type === 'high_ctr_title_format');
+
+    const lines: string[] = [
+      '═══════════════════════════════════════════════════════════════',
+      `WHAT GOOGLE IS REWARDING (${rows.length} patterns from top-ranking posts)`,
+      'These patterns appear in posts that reached position < 10. Emulate them.',
+      '═══════════════════════════════════════════════════════════════',
+      '',
+    ];
+
+    if (observedPatterns.length > 0) {
+      lines.push('STRUCTURAL PATTERNS IN TOP-RANKED POSTS:');
+      for (const p of observedPatterns) {
+        lines.push(`  • ${p.rule_value} (seen in ${p.failure_count} high-ranking posts)`);
+      }
+      lines.push('');
+    }
+
+    if (ctrPatterns.length > 0) {
+      lines.push('HIGH-CTR TITLE FORMATS (generate more clicks in search results):');
+      for (const p of ctrPatterns) {
+        lines.push(`  • "${p.rule_value}" — ${p.reason}`);
+      }
+      lines.push('');
+    }
+
+    lines.push('═══════════════════════════════════════════════════════════════');
+    lines.push('');
+
+    return lines.join('\n');
   }
 
   /**

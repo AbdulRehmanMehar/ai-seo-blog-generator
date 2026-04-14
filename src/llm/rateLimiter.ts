@@ -61,6 +61,9 @@ export class GeminiRateLimiter {
   private readonly pool: MysqlPool;
   private readonly apiKeys: string[];
   private readonly keyHashes: Map<string, string>;
+  private readonly disabledKeysUntil = new Map<string, { untilMs: number; reason: string }>();
+  private disabledCacheLoadedAt = 0;
+  private readonly disabledCacheTtlMs = 60_000;
   
   // Cache rate limits (refresh every 5 minutes)
   private limitsCache: Map<string, RateLimits> = new Map();
@@ -89,6 +92,82 @@ export class GeminiRateLimiter {
 
   private hashKey(apiKey: string): string {
     return crypto.createHash('sha256').update(apiKey).digest('hex').slice(0, 8);
+  }
+
+  private async refreshDisabledKeysFromDb(): Promise<void> {
+    const now = Date.now();
+    if (now - this.disabledCacheLoadedAt < this.disabledCacheTtlMs) return;
+    this.disabledCacheLoadedAt = now;
+
+    const hashes = Array.from(this.keyHashes.keys());
+    if (hashes.length === 0) return;
+    const placeholders = hashes.map(() => '?').join(',');
+
+    try {
+      const [rows] = await this.pool.query<RowDataPacket[]>(
+        `SELECT api_key_hash, disabled_until, reason
+         FROM llm_api_key_blocks
+         WHERE api_key_hash IN (${placeholders})
+           AND disabled_until > NOW()`,
+        hashes
+      );
+
+      for (const row of rows as any[]) {
+        const apiKeyHash = String(row.api_key_hash);
+        const apiKey = this.keyHashes.get(apiKeyHash);
+        if (!apiKey) continue;
+        const untilMs = new Date(row.disabled_until).getTime();
+        if (Number.isFinite(untilMs) && untilMs > Date.now()) {
+          this.disabledKeysUntil.set(apiKey, { untilMs, reason: String(row.reason ?? 'blocked') });
+        }
+      }
+    } catch {
+      // Best-effort: if the table doesn't exist yet or DB is flaky, don't block execution.
+    }
+  }
+
+  /**
+   * Temporarily disable a key for selection.
+   * Used when a key is revoked/blocked (403) so the pipeline can fall back to other keys.
+   */
+  disableKey(apiKey: string, args: { reason: string; ttlMs?: number }) {
+    const ttlMs = args.ttlMs ?? 6 * 60 * 60 * 1000; // default: 6 hours
+    const untilMs = Date.now() + ttlMs;
+    this.disabledKeysUntil.set(apiKey, { untilMs, reason: args.reason });
+
+    // Persist to DB (best-effort) so blocks survive process restarts.
+    const hash = this.hashKey(apiKey);
+    const disabledUntil = new Date(untilMs);
+    void this.pool
+      .query(
+        `INSERT INTO llm_api_key_blocks (api_key_hash, disabled_until, reason)
+         VALUES (?, ?, ?)
+         ON DUPLICATE KEY UPDATE disabled_until = VALUES(disabled_until), reason = VALUES(reason), updated_at = CURRENT_TIMESTAMP`,
+        [hash, disabledUntil, args.reason]
+      )
+      .catch(() => {
+        // ignore
+      });
+  }
+
+  isKeyDisabled(apiKey: string): boolean {
+    const entry = this.disabledKeysUntil.get(apiKey);
+    if (!entry) return false;
+    if (Date.now() >= entry.untilMs) {
+      this.disabledKeysUntil.delete(apiKey);
+      return false;
+    }
+    return true;
+  }
+
+  getDisabledReason(apiKey: string): string | null {
+    const entry = this.disabledKeysUntil.get(apiKey);
+    if (!entry) return null;
+    if (Date.now() >= entry.untilMs) {
+      this.disabledKeysUntil.delete(apiKey);
+      return null;
+    }
+    return entry.reason;
   }
 
   private minuteBucket(now = new Date()): string {
@@ -265,9 +344,11 @@ export class GeminiRateLimiter {
     modelType: ModelType,
     estimatedTokens = 0
   ): Promise<KeyRateLimitInfo | null> {
+    await this.refreshDisabledKeysFromDb();
     const candidates: KeyRateLimitInfo[] = [];
 
     for (const [hash, apiKey] of this.keyHashes) {
+      if (this.isKeyDisabled(apiKey)) continue;
       const status = await this.checkRateLimit(apiKey, modelName, modelType, estimatedTokens);
       if (status.canProceed) {
         candidates.push({ apiKey, keyHash: hash, status });
@@ -303,6 +384,7 @@ export class GeminiRateLimiter {
     const startTime = Date.now();
 
     while (true) {
+      await this.refreshDisabledKeysFromDb();
       const keyInfo = await this.selectBestKey(modelName, modelType, estimatedTokens);
       
       if (keyInfo) {
@@ -312,6 +394,7 @@ export class GeminiRateLimiter {
       // No keys available, find shortest wait time
       let minWait = Infinity;
       for (const apiKey of this.apiKeys) {
+        if (this.isKeyDisabled(apiKey)) continue;
         const status = await this.checkRateLimit(apiKey, modelName, modelType, estimatedTokens);
         if (status.waitMs < minWait && status.limitReason !== 'rpd') {
           minWait = status.waitMs;
@@ -321,8 +404,9 @@ export class GeminiRateLimiter {
       // Check if all keys hit daily cap
       if (minWait === Infinity) {
         throw new Error(
-          `All ${this.apiKeys.length} API keys have hit their daily limit (RPD). ` +
-          `Try again tomorrow or add more API keys.`
+          `No usable API keys available. ` +
+          `Either all keys hit their daily limit (RPD) or keys are disabled due to errors. ` +
+          `Try again later or rotate API keys.`
         );
       }
 

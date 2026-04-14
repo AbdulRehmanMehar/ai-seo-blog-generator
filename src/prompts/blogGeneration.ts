@@ -50,6 +50,11 @@ export function blogGenerationPrompt(args: {
   websiteVoice?: string;  // Website-specific voice instructions
   /** ICP persona to write for. Activates "That's Me" framework from ContentWriting playbook. */
   targetIcp?: IcpPersona;
+  /**
+   * Pre-formatted GSC context string from GscFeedbackAggregator.formatKeywordContextForPrompt().
+   * Shows real queries driving impressions, their positions, and what this means for the content.
+   */
+  gscKeywordContext?: string;
 }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const conversionGuidelines = getConversionGuidelines();
@@ -557,7 +562,7 @@ ${formattedKnowledge}
 ${icpSection}
 ${conversionGuidelines}
 
-${humanizationGuidelines}
+${humanizationGuidelines}${args.gscKeywordContext ? `\n\n${args.gscKeywordContext}` : ''}
 
 PRIMARY KEYWORD: ${args.keyword}
 

@@ -1241,6 +1241,63 @@ Return JSON only:
 
     return { system, user };
   }
+
+  /**
+   * Import near-miss keywords from gsc_opportunities into the keywords table.
+   * These keywords have proven search demand and get a +60 score boost in topic planning.
+   * Returns the number of new keywords inserted.
+   */
+  async importNearMissKeywords(): Promise<number> {
+    // Load pending near-miss opportunities that don't have a dedicated post
+    const [opps] = await this.deps.pool.query<import('mysql2/promise').RowDataPacket[]>(
+      `SELECT o.query, o.website_id, o.metrics_json, w.domain
+       FROM gsc_opportunities o
+       JOIN websites w ON w.id = o.website_id
+       WHERE o.opportunity_type = 'near_miss'
+         AND o.status = 'pending'
+         AND o.post_id IS NULL
+         AND o.query IS NOT NULL
+       ORDER BY o.priority ASC
+       LIMIT 20`
+    );
+
+    if (opps.length === 0) return 0;
+
+    // Avoid importing keywords already in the table
+    const [existingRows] = await this.deps.pool.query<import('mysql2/promise').RowDataPacket[]>(
+      `SELECT keyword FROM keywords`
+    );
+    const existingSet = new Set((existingRows as { keyword: string }[]).map(r => r.keyword.toLowerCase()));
+
+    let inserted = 0;
+    for (const opp of opps as Array<{ query: string; metrics_json: string }>) {
+      const keyword = opp.query.trim().toLowerCase();
+      if (existingSet.has(keyword)) continue;
+
+      let impressions: number | null = null;
+      try {
+        const metrics = JSON.parse(opp.metrics_json) as { impressions?: number };
+        impressions = metrics.impressions ?? null;
+      } catch { /* non-fatal */ }
+
+      const id = crypto.randomUUID();
+      const [res] = await this.deps.pool.query<import('mysql2/promise').ResultSetHeader>(
+        `INSERT IGNORE INTO keywords
+           (id, keyword, volume, difficulty, cpc, intent, status, gsc_sourced, gsc_impressions)
+         VALUES (?, ?, ?, 25, ?, 'commercial', 'new', 1, ?)`,
+        [id, keyword, impressions ?? 100, 1.5, impressions]
+      );
+      inserted += res.affectedRows ?? 0;
+      existingSet.add(keyword);
+    }
+
+    if (inserted > 0) {
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] 📡 Imported ${inserted} near-miss keywords from GSC`);
+    }
+
+    return inserted;
+  }
 }
 
 function dedupe(items: DiscoveredKeyword[]): DiscoveredKeyword[] {

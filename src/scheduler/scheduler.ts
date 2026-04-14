@@ -8,6 +8,10 @@ import { PostReviewer } from '../services/postReviewer.js';
 import { PostRewriter } from '../services/postRewriter.js';
 import { GeminiRateLimiter } from '../llm/rateLimiter.js';
 import { GeminiClient } from '../llm/geminiClient.js';
+import { GscSyncService } from '../services/gscSyncService.js';
+import { GscOpportunityDetector } from '../services/gscOpportunityDetector.js';
+import { ContentRefreshService } from '../services/contentRefreshService.js';
+import { Ga4EngagementRefreshDetector } from '../services/ga4EngagementRefreshDetector.js';
 import type { RowDataPacket, ResultSetHeader } from 'mysql2/promise';
 
 /**
@@ -22,15 +26,30 @@ async function logDatabaseStats() {
       'SELECT COUNT(*) as count FROM posts'
     );
     const postsCount = mysqlRows[0]?.count ?? 0;
-    
+
     // PostgreSQL: embeddings count
     const pgResult = await postgresPool.query(
       'SELECT COUNT(*) as count FROM embeddings'
     );
     const embeddingsCount = pgResult.rows[0]?.count ?? 0;
-    
+
+    // GSC stats (best-effort — tables may not exist yet)
+    let gscStats = '';
+    try {
+      const [gscRows] = await mysqlPool.query<RowDataPacket[]>(
+        `SELECT
+           (SELECT COUNT(*) FROM gsc_performance) as perf_rows,
+           (SELECT COUNT(*) FROM gsc_opportunities WHERE status = 'pending') as pending_opps,
+           (SELECT COUNT(*) FROM content_refresh_queue WHERE status = 'queued') as refresh_queued`
+      );
+      const g = gscRows[0] as { perf_rows: number; pending_opps: number; refresh_queued: number } | undefined;
+      if (g) {
+        gscStats = ` | GSC rows: ${g.perf_rows} | Opps: ${g.pending_opps} | Refresh queue: ${g.refresh_queued}`;
+      }
+    } catch { /* GSC tables not migrated yet — skip */ }
+
     // eslint-disable-next-line no-console
-    console.log(`[${timestamp}] 📊 Stats | Posts: ${postsCount} | Embeddings: ${embeddingsCount}`);
+    console.log(`[${timestamp}] 📊 Stats | Posts: ${postsCount} | Embeddings: ${embeddingsCount}${gscStats}`);
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(`[${timestamp}] Stats query failed:`, err);
@@ -293,6 +312,140 @@ async function deleteMarkedPosts(): Promise<void> {
   }
 }
 
+/**
+ * Pull the last 28 days of GSC performance data for all configured websites.
+ * Runs at 6 AM, before the 9:15 AM content pipeline.
+ */
+async function runGscSync(): Promise<void> {
+  const timestamp = new Date().toISOString();
+  try {
+    const syncer = new GscSyncService(mysqlPool);
+    const results = await syncer.syncAll();
+    for (const r of results) {
+      if (r.error) {
+        console.warn(`[${timestamp}] GSC Sync | ${r.siteDomain}: ${r.error}`);
+      } else {
+        console.log(
+          `[${timestamp}] 📡 GSC Sync | ${r.siteDomain} | Perf rows: ${r.rowsUpserted} | Page metrics: ${r.pageMetricsUpserted}`
+        );
+      }
+    }
+  } catch (err) {
+    console.error(`[${timestamp}] GSC sync failed:`, err);
+  }
+}
+
+/**
+ * Detect low-CTR pages, near-miss keywords, and declining content.
+ * Writes to gsc_opportunities and inserts near-miss keywords into the keywords table.
+ * Runs at 7 AM, after GSC sync.
+ */
+async function runOpportunityDetection(): Promise<void> {
+  const timestamp = new Date().toISOString();
+  try {
+    const detector = new GscOpportunityDetector(mysqlPool);
+    const results = await detector.detectAll();
+    for (const r of results) {
+      const total = r.lowCtr + r.nearMiss + r.declining;
+      if (total > 0) {
+        console.log(
+          `[${timestamp}] 🔍 GSC Opportunities | website: ${r.websiteId} | low_ctr: ${r.lowCtr} | near_miss: ${r.nearMiss} | declining: ${r.declining}`
+        );
+      }
+    }
+
+    // Import near-miss keywords into the keywords table so the pipeline can pick them up
+    const { KeywordService } = await import('../services/keywordService.js');
+    const apiKeys = env.GEMINI_API_KEYS?.split(',').map(k => k.trim()).filter(Boolean) ?? [];
+    if (apiKeys.length === 0 && env.GEMINI_API_KEY) apiKeys.push(env.GEMINI_API_KEY);
+    if (apiKeys.length > 0) {
+      const rateLimiter = new GeminiRateLimiter(mysqlPool, apiKeys);
+      const gemini = new GeminiClient({
+        rateLimiter,
+        generationModel: env.GEMINI_GENERATION_MODEL,
+        embeddingModel: env.GEMINI_EMBEDDING_MODEL,
+        minSecondsBetweenRequests: env.LLM_MIN_SECONDS_BETWEEN_REQUESTS,
+      });
+      const kwService = new KeywordService({ pool: mysqlPool, gemini });
+      const imported = await kwService.importNearMissKeywords();
+      if (imported > 0) {
+        console.log(`[${timestamp}] 📡 GSC Near-Miss | Imported ${imported} new keywords`);
+      }
+    }
+  } catch (err) {
+    console.error(`[${timestamp}] Opportunity detection failed:`, err);
+  }
+}
+
+/**
+ * GA4 engagement-based refresh detection.
+ * Queues full_refresh for posts that get Organic traffic but have high bounce + low engagement.
+ * Runs daily after GSC opportunity detection.
+ */
+async function runGa4EngagementDetection(): Promise<void> {
+  const timestamp = new Date().toISOString();
+  try {
+    const detector = new Ga4EngagementRefreshDetector(mysqlPool);
+    const results = await detector.detectAndQueueAll({
+      daysBack: 90,
+      maxPerWebsite: 3,
+      minSessions: 20,
+      minBounceRate: 0.75,
+      maxAvgEngagementSec: 30,
+    });
+
+    for (const r of results) {
+      if (r.skipped) {
+        console.log(`[${timestamp}] GA4 Engagement | website: ${r.websiteId} | skipped: ${r.skipped}`);
+      } else if (r.queued > 0) {
+        console.log(`[${timestamp}] 📉 GA4 Engagement | website: ${r.websiteId} | queued refreshes: ${r.queued}`);
+      }
+    }
+  } catch (err) {
+    console.error(`[${timestamp}] GA4 engagement detection failed:`, err);
+  }
+}
+
+/**
+ * Process one post from the content_refresh_queue.
+ * Runs every 6 hours — caps at 1 post per run to stay within LLM rate limits.
+ */
+async function runContentRefresh(): Promise<void> {
+  const timestamp = new Date().toISOString();
+  try {
+    const gemini = createSchedulerGeminiClient();
+    const refresher = new ContentRefreshService(mysqlPool, gemini);
+    const result = await refresher.processRefreshQueue();
+    if (result.processed > 0) {
+      console.log(
+        `[${timestamp}] 🔄 Content Refresh | Processed: ${result.processed} | OK: ${result.succeeded} | Failed: ${result.failed}`
+      );
+    }
+  } catch (err) {
+    console.error(`[${timestamp}] Content refresh failed:`, err);
+  }
+}
+
+/**
+ * Rewrite titles and meta descriptions for the top low-CTR pages.
+ * Runs weekly on Monday — title changes need ~1 week to show CTR impact in GSC.
+ */
+async function runCtrOptimization(): Promise<void> {
+  const timestamp = new Date().toISOString();
+  try {
+    const gemini = createSchedulerGeminiClient();
+    const refresher = new ContentRefreshService(mysqlPool, gemini);
+    const result = await refresher.runCtrOptimizations(3);
+    if (result.optimized > 0) {
+      console.log(
+        `[${timestamp}] 📈 CTR Optimize | Optimized: ${result.optimized} | Failed: ${result.failed}`
+      );
+    }
+  } catch (err) {
+    console.error(`[${timestamp}] CTR optimization failed:`, err);
+  }
+}
+
 export function startScheduler() {
   // eslint-disable-next-line no-console
   console.log('Scheduler starting...');
@@ -356,6 +509,43 @@ export function startScheduler() {
   });
   // eslint-disable-next-line no-console
   console.log('Post deletion scheduled: daily at 4 AM (0 4 * * *)');
+
+  // ── GSC Integration ────────────────────────────────────────────────────────
+
+  // GSC data sync - daily at 6 AM (before 9:15 AM pipeline)
+  cron.schedule('0 6 * * *', async () => {
+    await runGscSync();
+  });
+  // eslint-disable-next-line no-console
+  console.log('GSC sync scheduled: daily at 6 AM (0 6 * * *)');
+
+  // Opportunity detection - daily at 7 AM (after GSC sync)
+  cron.schedule('0 7 * * *', async () => {
+    await runOpportunityDetection();
+  });
+  // eslint-disable-next-line no-console
+  console.log('GSC opportunity detection scheduled: daily at 7 AM (0 7 * * *)');
+
+  // GA4 engagement refresh detection - daily at 7:30 AM
+  cron.schedule('30 7 * * *', async () => {
+    await runGa4EngagementDetection();
+  });
+  // eslint-disable-next-line no-console
+  console.log('GA4 engagement detection scheduled: daily at 7:30 AM (30 7 * * *)');
+
+  // Content refresh processing - every 6 hours (1 post per run)
+  cron.schedule('0 */6 * * *', async () => {
+    await runContentRefresh();
+  });
+  // eslint-disable-next-line no-console
+  console.log('Content refresh scheduled: every 6 hours (0 */6 * * *)');
+
+  // CTR title/meta optimization - weekly on Monday at 8 AM
+  cron.schedule('0 8 * * 1', async () => {
+    await runCtrOptimization();
+  });
+  // eslint-disable-next-line no-console
+  console.log('CTR optimization scheduled: weekly Monday 8 AM (0 8 * * 1)');
 
   // Log stats immediately on startup
   logDatabaseStats();

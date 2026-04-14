@@ -96,11 +96,24 @@ async function runMigrations(engine: MigrationEngine) {
 }
 
 async function main() {
-  await runMigrations('postgres');
+  // Apply MySQL migrations even if Postgres is temporarily unreachable.
+  // This keeps headless setups unblocked (e.g. DNS hiccups on managed PG).
+  let pgFailed = false;
+
   await runMigrations('mysql');
 
-  await postgresPool.end();
-  await mysqlPool.end();
+  try {
+    await runMigrations('postgres');
+  } catch (err) {
+    pgFailed = true;
+    // eslint-disable-next-line no-console
+    console.error('Postgres migrations failed (MySQL migrations were applied):', err);
+  } finally {
+    await mysqlPool.end();
+    await postgresPool.end();
+  }
+
+  if (pgFailed) process.exitCode = 1;
 }
 
 main().catch(async (err) => {

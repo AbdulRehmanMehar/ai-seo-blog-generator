@@ -25,6 +25,8 @@ export interface Website {
   styleConfig: WebsiteStyleConfig | null;
   defaultCtaText: string | null;
   defaultCtaUrl: string | null;
+  gscPropertyUri: string | null;
+  ga4PropertyId: string | null;
   isActive: boolean;
 }
 
@@ -38,6 +40,8 @@ interface WebsiteRow extends RowDataPacket {
   style_config: string | WebsiteStyleConfig | null;
   default_cta_text: string | null;
   default_cta_url: string | null;
+  gsc_property_uri: string | null;
+  ga4_property_id: string | null;
   is_active: number;
 }
 
@@ -164,6 +168,8 @@ ${website.defaultCtaUrl ? `CTA URL: ${website.defaultCtaUrl}` : ''}
       styleConfig: styleConfig as WebsiteStyleConfig | null,
       defaultCtaText: row.default_cta_text,
       defaultCtaUrl: row.default_cta_url,
+      gscPropertyUri: row.gsc_property_uri ?? null,
+      ga4PropertyId: row.ga4_property_id ?? null,
       isActive: row.is_active === 1
     };
   }

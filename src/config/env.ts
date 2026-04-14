@@ -79,7 +79,39 @@ const envSchema = z.object({
   // Max repos to fetch (default: 100, set 0 for unlimited)
   GITHUB_MAX_REPOS: z.coerce.number().int().nonnegative().default(150),
   // Cron schedule for knowledge sync (default: daily at 3 AM)
-  CRON_KNOWLEDGE_SYNC: z.string().default('0 3 * * *')
+  CRON_KNOWLEDGE_SYNC: z.string().default('0 3 * * *'),
+
+  // Google Search Console integration — OAuth2 credentials
+  GSC_CLIENT_ID: z.string().optional(),
+  GSC_CLIENT_SECRET: z.string().optional(),
+  GSC_REDIRECT_URI: z.string().optional(),
+  GSC_ACCESS_TOKEN: z.string().optional(),
+  GSC_REFRESH_TOKEN: z.string().optional(),
+  // Milliseconds since epoch (matches what Google returns)
+  GSC_TOKEN_EXPIRY: z.coerce.number().optional(),
+
+  // Google Analytics 4 (GA4) integration
+  // Optional global fallback. Prefer per-website `websites.ga4_property_id` when set.
+  GA4_PROPERTY_ID: z.string().optional(),
+  // Optional per-site env vars (useful when you don't want to store ids in DB)
+  GA4_PROPERTY_ID_PRIMESTRIDES: z.string().optional(),
+  GA4_PROPERTY_ID_ABDULREHMAN: z.string().optional(),
+  // Back-compat aliases (older naming)
+  PRIMESTRIDES_GA4_PROPERTY_ID: z.string().optional(),
+  ABDULREHMAN_GA4_PROPERTY_ID: z.string().optional(),
+
+  // GSC behaviour thresholds
+  // How many days back to pull GSC data per sync (default: 28)
+  GSC_SYNC_DAYS_BACK: z.coerce.number().int().positive().default(28),
+  // CTR below this fraction triggers title/meta optimization (default: 2%)
+  GSC_CTR_THRESHOLD: z.coerce.number().min(0).max(1).default(0.02),
+  // Minimum monthly impressions before we act on a page (default: 200)
+  GSC_IMPRESSION_MIN: z.coerce.number().int().positive().default(200),
+  // Position range defining a "near miss" keyword (default: 5–20)
+  GSC_NEAR_MISS_MIN_POSITION: z.coerce.number().positive().default(5),
+  GSC_NEAR_MISS_MAX_POSITION: z.coerce.number().positive().default(20),
+  // How many positions a page must drop before a refresh is queued (default: 3)
+  GSC_DECLINE_POSITION_DELTA: z.coerce.number().positive().default(3)
 });
 
 export const env = envSchema.parse(process.env);

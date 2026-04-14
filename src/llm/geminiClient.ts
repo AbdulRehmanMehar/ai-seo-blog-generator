@@ -70,6 +70,18 @@ export class GeminiClient {
     return keyInfo;
   }
 
+  private shouldDisableKeyOnError(err: any): { disable: boolean; reason: string } {
+    const status = err?.status;
+    const msg = String(err?.message ?? '');
+    // Typical revoked/blocked cases:
+    // - 403 PERMISSION_DENIED (project denied / key revoked)
+    // - 401 UNAUTHENTICATED (invalid key)
+    if (status === 403 && msg.includes('PERMISSION_DENIED')) return { disable: true, reason: 'permission_denied' };
+    if (status === 401) return { disable: true, reason: 'unauthenticated' };
+    if (status === 403) return { disable: true, reason: 'forbidden' };
+    return { disable: false, reason: '' };
+  }
+
   async generateText(input: GenerateTextInput): Promise<string> {
     const effectiveUserPrompt = input.systemInstruction
       ? `${input.systemInstruction}\n\n${input.userPrompt}`
@@ -111,6 +123,12 @@ export class GeminiClient {
 
           return result;
         } catch (error: any) {
+          const maybe = this.shouldDisableKeyOnError(error);
+          if (maybe.disable) {
+            this.rateLimiter.disableKey(keyInfo.apiKey, { reason: maybe.reason });
+            // eslint-disable-next-line no-console
+            console.warn(`[GeminiClient] Disabled API key [${keyInfo.apiKey.slice(0, 10)}...] ${keyInfo.keyHash} (${maybe.reason}) after ${error?.status ?? 'err'}`);
+          }
           // Still record on rate limit errors (request was attempted)
           if (error?.status === 429) {
             await this.rateLimiter.recordUsage(keyInfo.apiKey, 'generation', estimatedInputTokens);
@@ -158,6 +176,12 @@ export class GeminiClient {
 
           return result;
         } catch (error: any) {
+          const maybe = this.shouldDisableKeyOnError(error);
+          if (maybe.disable) {
+            this.rateLimiter.disableKey(keyInfo.apiKey, { reason: maybe.reason });
+            // eslint-disable-next-line no-console
+            console.warn(`[GeminiClient] Disabled API key [${keyInfo.apiKey.slice(0, 10)}...] ${keyInfo.keyHash} (${maybe.reason}) after ${error?.status ?? 'err'}`);
+          }
           if (error?.status === 429) {
             await this.rateLimiter.recordUsage(keyInfo.apiKey, 'embedding', estimatedTokens);
           }

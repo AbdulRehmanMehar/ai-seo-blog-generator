@@ -10,6 +10,14 @@ export function topicPlanningPrompt(args: {
   existingPosts?: Array<{ title: string; keyword: string }>;
   /** ICP persona to target. When provided, topics will be designed to attract this specific person. */
   targetIcp?: IcpPersona;
+  /** Optional GA4+GSC "content intelligence brief" string. */
+  contentIntelligenceBrief?: string;
+  /**
+   * Pre-formatted GSC insights block from GscFeedbackAggregator.buildGscPromptContext().
+   * Shows top-performing pages, near-miss queries, and proven demand signals.
+   * When present, injected before the candidate keyword list.
+   */
+  gscInsights?: string;
 }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const headlineGuidelines = getHeadlineGuidelines();
@@ -92,7 +100,7 @@ The pain point, language, and outcome must resonate with their profile.` : ''}`,
 
 ${formattedKnowledge}
 ${icpSection}
-${headlineGuidelines}${existingPostsSection}
+${headlineGuidelines}${existingPostsSection}${args.gscInsights ? `\n\n${args.gscInsights}` : ''}${args.contentIntelligenceBrief ? `\n\n${args.contentIntelligenceBrief}` : ''}
 
 CANDIDATE KEYWORDS to pick ${args.selectCount} from:
 ${JSON.stringify(args.candidateKeywords, null, 2)}

@@ -10,6 +10,7 @@ import type { EmbeddingStore } from '../embeddings/embeddingStore.js';
 import { PromptLearner } from './promptLearner.js';
 import { postHumanizer } from './postHumanizer.js';
 import { WebsiteService, type Website } from './websiteService.js';
+import { GscFeedbackAggregator } from './gscFeedbackAggregator.js';
 
 export interface BlogGeneratorDeps {
   pool: MysqlPool;
@@ -71,10 +72,12 @@ const blogJsonSchema = z.object({
 export class BlogGenerator {
   private readonly promptLearner: PromptLearner;
   private readonly websiteService: WebsiteService;
+  private readonly gscAggregator: GscFeedbackAggregator;
 
   constructor(private readonly deps: BlogGeneratorDeps) {
     this.promptLearner = new PromptLearner(deps.pool);
     this.websiteService = new WebsiteService(deps.pool);
+    this.gscAggregator = new GscFeedbackAggregator(deps.pool);
   }
 
   async generateDraftPost(topicId: string, websiteId?: string): Promise<string> {
@@ -139,6 +142,24 @@ export class BlogGenerator {
       }
     }
 
+    // Fetch GSC keyword context (best-effort — non-fatal if no data exists)
+    let gscKeywordContext: string | undefined;
+    if (website) {
+      try {
+        const gscCtx = await this.gscAggregator.getKeywordOpportunityContext(
+          String(row.keyword),
+          website.id
+        );
+        if (gscCtx) {
+          gscKeywordContext = this.gscAggregator.formatKeywordContextForPrompt(
+            String(row.keyword),
+            gscCtx
+          );
+          console.log(`   📡 GSC keyword context injected for "${row.keyword}"`);
+        }
+      } catch { /* non-fatal: GSC data may not exist yet */ }
+    }
+
     const prompt = blogGenerationPrompt({
       knowledge: this.deps.knowledge,
       keyword: String(row.keyword),
@@ -146,7 +167,8 @@ export class BlogGenerator {
       outline,
       learnedRules,
       websiteVoice,
-      targetIcp
+      targetIcp,
+      gscKeywordContext
     });
 
     const raw = await this.deps.gemini.generateText({
