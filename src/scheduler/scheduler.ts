@@ -94,19 +94,24 @@ async function cleanupOldUsageData() {
     );
     results['serp_monthly'] = serpResult.affectedRows;
     
-    // 4. Delete rejected keywords older than 90 days
-    const [keywordsResult] = await mysqlPool.query<ResultSetHeader>(
-      `DELETE FROM keywords WHERE status = 'rejected' AND created_at < DATE_SUB(NOW(), INTERVAL 90 DAY)`
-    );
-    results['keywords_rejected'] = keywordsResult.affectedRows;
-    
-    // 5. Delete orphaned topics (no posts) older than 30 days
+    // 4. Delete orphaned topics (no posts) older than 30 days — must run before keyword cleanup
+    //    so that orphaned topics don't block the FK-constrained keyword delete below.
     const [topicsResult] = await mysqlPool.query<ResultSetHeader>(
-      `DELETE t FROM topics t 
-       LEFT JOIN posts p ON p.topic_id = t.id 
+      `DELETE t FROM topics t
+       LEFT JOIN posts p ON p.topic_id = t.id
        WHERE p.id IS NULL AND t.created_at < DATE_SUB(NOW(), INTERVAL 30 DAY)`
     );
     results['topics_orphaned'] = topicsResult.affectedRows;
+
+    // 5. Delete rejected keywords older than 90 days.
+    //    Exclude any still referenced by a topic (e.g. topics that have posts and can't be deleted above).
+    const [keywordsResult] = await mysqlPool.query<ResultSetHeader>(
+      `DELETE FROM keywords
+       WHERE status = 'rejected'
+         AND created_at < DATE_SUB(NOW(), INTERVAL 90 DAY)
+         AND id NOT IN (SELECT keyword_id FROM topics WHERE keyword_id IS NOT NULL)`
+    );
+    results['keywords_rejected'] = keywordsResult.affectedRows;
     
     // PostgreSQL Cleanup - Delete orphaned embeddings
     
