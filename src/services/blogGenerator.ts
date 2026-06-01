@@ -25,7 +25,7 @@ const sectionSchema = z.object({
   id: z.string(),
   heading: z.string(),
   level: z.union([z.literal(2), z.literal(3)]),
-  content: z.string(),
+  content: z.string().min(150, 'Section content is too thin — minimum 150 characters'),
   keyTakeaway: z.string().nullable(),
   // Accept string, object, or null for CTA (LLM sometimes returns objects)
   // Transform objects to string (use .text property if available, otherwise stringify)
@@ -105,11 +105,21 @@ export class BlogGenerator {
     }
 
     let outline: unknown = row.outline;
+    let buyerJourneyStage: string | undefined;
     if (typeof outline === 'string') {
       try {
         outline = JSON.parse(outline);
       } catch {
         // ignore
+      }
+    }
+    // Extract buyer_journey_stage if stored as metadata wrapper { buyer_journey_stage, sections }
+    if (outline && typeof outline === 'object' && !Array.isArray(outline)) {
+      const o = outline as Record<string, unknown>;
+      if (o.buyer_journey_stage && Array.isArray(o.sections)) {
+        buyerJourneyStage = String(o.buyer_journey_stage);
+        outline = o.sections;
+        console.log(`   🗺️  Buyer journey stage: ${buyerJourneyStage}`);
       }
     }
 
@@ -168,7 +178,8 @@ export class BlogGenerator {
       learnedRules,
       websiteVoice,
       targetIcp,
-      gscKeywordContext
+      gscKeywordContext,
+      buyerJourneyStage
     });
 
     const raw = await this.deps.gemini.generateText({
@@ -216,12 +227,14 @@ export class BlogGenerator {
     
     const wordCount = allContent.split(/\s+/).filter(Boolean).length;
     if (wordCount < this.deps.minWords) {
-      // eslint-disable-next-line no-console
-      console.log(`   ⚠️  Word count: ${wordCount} (below min: ${this.deps.minWords})`);
-    } else {
-      // eslint-disable-next-line no-console
-      console.log(`   📝 Word count: ${wordCount}`);
+      throw new Error(
+        `Thin content rejected: ${wordCount} words (minimum is ${this.deps.minWords}). ` +
+        `Sections averaged ${Math.round(wordCount / blog.sections.length)} words each — ` +
+        `Google will not index posts below this threshold.`
+      );
     }
+    // eslint-disable-next-line no-console
+    console.log(`   📝 Word count: ${wordCount}`);
 
     const postId = crypto.randomUUID();
     

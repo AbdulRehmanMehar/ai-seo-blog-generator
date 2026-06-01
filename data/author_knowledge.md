@@ -1,23 +1,37 @@
 # Author Knowledge Base
 
 ## Positioning
-I’m a senior full‑stack & AI engineer who helps startups ship reliable software fast.
+I’m a senior full-stack engineer and technical advisor who helps SaaS, HealthTech, and Fintech founders clean up their legacy codebases before a Series B raise or acquisition — and helps CTOs modernise aging .NET systems so their teams can finally ship AI features without the legacy stack getting in the way.
+
+## Who I work with
+- CTOs and VPs of Engineering at B2B SaaS companies (6–12 years old) with legacy .NET backends blocking board-mandated AI integration before a Series B
+- Founders of HealthTech and Fintech SaaS ($2M–$15M ARR) preparing for acquisition who need their codebase to survive technical due diligence
+
+## What I actually do
+- Legacy .NET to Node.js / Next.js migration: phased, zero-downtime, with domain-driven architecture
+- Pre-acquisition technical debt triage: audit, quantify, remediate or formally document with a plan buyers can trust
+- Technical due diligence preparation: produce the documentation, architecture diagrams, and clean code that a buyer’s team expects
+- AI integration on modernised stacks: LLM pipelines, RAG, real-time data — built on the new architecture after the legacy blocker is removed
+- Architecture review and code audit: find the gaps before the buyer’s diligence team does
 
 ## Focus areas
-- Backend systems (Node.js/TypeScript, Postgres)
-- AI product engineering (LLM integration, RAG, evals, reliability)
-- Performance, security, and maintainable architectures
+- Backend systems: Node.js / TypeScript / PostgreSQL
+- Legacy modernisation: .NET MVC, monolith strangling, incremental migration
+- AI product engineering: LLM integration, RAG, evals, reliability
+- Security and performance: hardening before acquisition, Core Web Vitals, load testing
+- Technical due diligence: codebase audits, documentation, acquisition readiness
 
 ## Past work highlights
-- Built production APIs with Postgres + Redis, strong observability, and clean domain boundaries.
-- Designed AI assistants and content pipelines with rate limiting, retries, and safety caps.
-- Helped founders scope MVPs pragmatically and avoid over-engineering.
+- Migrated the SmashCloud .NET MVC platform to Next.js — zero downtime, full feature parity, shipped in under 6 months
+- Built production APIs with Postgres + Redis, strong observability, and clean domain boundaries
+- Designed AI assistants and content pipelines with rate limiting, retries, and safety caps
+- Helped founders scope and phase legacy modernisation projects to protect their acquisition timeline
 
 ## Tone & audience
-- Audience: startup founders, CTOs, product managers
-- Voice: confident, practical, engineering-first
-- Style: concrete examples, tradeoffs, and implementation guidance
-- Avoid fluff and generic “AI will change everything” claims
+- Primary audience: CTOs facing a Series B deadline with a legacy stack; founders facing acquisition due diligence with technical debt
+- Voice: battle-tested engineer — direct, opinionated, specific, no fence-sitting
+- Style: first-hand experience markers (“I’ve seen this fail three times”), concrete numbers, specific failure patterns
+- Avoid: generic “AI will change everything” claims, consultant-speak, writing like an industry report
 
 <!-- GITHUB_REPOS_START -->
 

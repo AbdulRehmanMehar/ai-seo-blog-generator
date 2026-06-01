@@ -2,32 +2,43 @@ import { type AuthorKnowledge, formatKnowledgeForPrompt } from '../knowledge/aut
 import { type IcpPersona, formatIcpForPrompt } from '../knowledge/icpKnowledge.js';
 import { getHeadlineGuidelines } from './conversionCopy.js';
 
+// ─── NICHE DEFINITION ────────────────────────────────────────────────────────
+//
+// SINGLE TARGET NICHE:
+//   SaaS / HealthTech / Fintech founders, CTOs, and VPs of Engineering
+//   who have a legacy .NET or aging codebase and are 6–18 months from
+//   a Series B raise or acquisition — and whose technical debt is the
+//   primary risk to their valuation or fundraising close.
+//
+// TWO BUYER PROFILES:
+//   1. Modernizing Michael — CTO/VP Eng at B2B SaaS, Series B window
+//   2. Exit-Ready Sarah   — Founder preparing for acquisition / sale
+//
+// FOUR BUYER JOURNEY STAGES (with target content distribution):
+//   Stage 1 — AWARENESS     (40%): Problem-framing, diagnostic, "you might have this"
+//   Stage 2 — CONSIDERATION (30%): Checklists, comparisons, cost breakdowns, how-to
+//   Stage 3 — DECISION      (20%): Emergency playbooks, trigger-event content, calculators
+//   Stage 4 — VALIDATION    (10%): Case studies, methodology explainers, process posts
+//
+// ─────────────────────────────────────────────────────────────────────────────
+
 export function topicPlanningPrompt(args: {
   knowledge: AuthorKnowledge;
   candidateKeywords: Array<{ keyword: string; volume: number | null; difficulty: number | null; cpc: number | null; intent: string | null }>;
   selectCount: number;
   targetWebsite?: string;
   existingPosts?: Array<{ title: string; keyword: string }>;
-  /** ICP persona to target. When provided, topics will be designed to attract this specific person. */
   targetIcp?: IcpPersona;
-  /** Optional GA4+GSC "content intelligence brief" string. */
   contentIntelligenceBrief?: string;
-  /**
-   * Pre-formatted GSC insights block from GscFeedbackAggregator.buildGscPromptContext().
-   * Shows top-performing pages, near-miss queries, and proven demand signals.
-   * When present, injected before the candidate keyword list.
-   */
   gscInsights?: string;
 }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const headlineGuidelines = getHeadlineGuidelines();
 
-  // Build ICP section if we have a persona
   const icpSection = args.targetIcp
     ? `\n${formatIcpForPrompt(args.targetIcp)}\n`
     : '';
-  
-  // Build existing posts section if we have any
+
   let existingPostsSection = '';
   if (args.existingPosts && args.existingPosts.length > 0) {
     const postsList = args.existingPosts
@@ -35,115 +46,148 @@ export function topicPlanningPrompt(args: {
       .join('\n');
     existingPostsSection = `
 
-⚠️ EXISTING CONTENT FOR ${args.targetWebsite?.toUpperCase() || 'THIS WEBSITE'} - DO NOT DUPLICATE:
-The following posts already exist. You MUST create DIFFERENT angles, perspectives, or focus areas.
-If reusing a keyword, take a completely fresh approach (different audience, different problem, different solution angle).
+⚠️ EXISTING CONTENT FOR ${args.targetWebsite?.toUpperCase() || 'THIS WEBSITE'} — DO NOT DUPLICATE:
+The following posts already exist. Create DIFFERENT angles, sub-problems, or buyer journey stages.
 
 ${postsList}
-
-EXAMPLES OF GOOD DIFFERENTIATION:
-- Existing: "How to Hire a CTO" → New: "5 Signs You Need a Fractional CTO Instead of Full-Time"
-- Existing: "MVP Development Cost" → New: "Why Your MVP Budget Is Wrong and How to Fix It"
-- Existing: "Software Development Team" → New: "Remote vs In-House Dev Teams - What Founders Get Wrong"
 `;
   }
 
+  // Calculate the distribution targets for this batch
+  const total = args.selectCount;
+  const awarenessTarget    = Math.round(total * 0.4);
+  const considerationTarget = Math.round(total * 0.3);
+  const decisionTarget     = Math.round(total * 0.2);
+  const validationTarget   = Math.max(0, total - awarenessTarget - considerationTarget - decisionTarget);
+
   return {
-    system: `You are a senior software consulting content strategist who writes high-converting B2B content. 
-Your topics must be specific, outcome-focused, and use proven headline formulas that drive clicks and conversions.
-Avoid generic, hype-filled, or overly broad topics. Every topic must have a clear pain point or transformation.
+    system: `You are a senior B2B content strategist specialising in ONE niche only:
 
-CORE PRINCIPLE: Write to get hired, not to rank.
-Target persona: Startup founders, SMB owners, mid-level CTOs who are confused, budget-conscious, and searching with problem language.
+NICHE: Legacy software modernization and pre-acquisition / pre-Series-B technical debt cleanup
+for SaaS, HealthTech, and Fintech companies with .NET or aging codebases.
 
-SEARCH INTENT PRIORITY (highest to lowest):
-1. TRANSACTIONAL (HIGHEST PRIORITY) - "cost to build [X]", "hire developer for [X]", "best tech stack for [X]"
-2. COMMERCIAL INVESTIGATION - "firebase vs supabase", "custom software vs SaaS"
-3. PROBLEM-AWARE - "why my app is slow", "why projects fail"
-4. AVOID: Pure informational like "what is AI"
+TARGET BUYERS:
+- CTOs and VPs of Engineering at B2B SaaS companies 6–12 years old, facing a Series B raise in 12 months.
+- Founders of HealthTech / Fintech SaaS ($2M–$15M ARR) preparing for acquisition or sale.
 
-CRITICAL: Prioritize keywords that signal LARGE, COSTLY business problems.
-"Size of problem = size of budget" - a client with a $200k/year technical debt problem has budget for $50k engagement.
+HARD RULE — NICHE LOCK:
+Every topic you generate MUST be relevant to at least one of these two buyers in this niche.
+You MUST REJECT any keyword or topic that does not clearly serve:
+- Legacy .NET or aging codebase modernization
+- Technical debt before a Series B raise or acquisition
+- Pre-acquisition technical due diligence preparation
+- Valuation impact of technical debt
+- AI integration blocked by legacy systems
+- Code quality, architecture review, or security gaps pre-exit
 
-CRITICAL: Never use colons in headlines or titles. Write naturally flowing titles without colons or em dashes.
-CRITICAL: If given existing posts, you MUST create completely different content angles - never repeat similar topics.
-CRITICAL: Target BUSINESS PROBLEMS, not services. The client's deliverable is the answer inside the post, never the topic itself.
+Do NOT generate topics about: generic hiring, general software development, logistics, pharma, real estate, defense, retail, luxury, telecom, or any other niche. Those audiences are out of scope.
 
-HEADLINE FORMULA (Pain + Outcome + Curiosity):
-Every headline MUST include all 3 elements. Then optimize for CTR.
+EXPLICITLY EXCLUDED — reject even if the keyword sounds adjacent:
+- KYC/AML compliance for banks (this is a banking operations topic, not a software modernization topic)
+- Cryptocurrency or blockchain development
+- Healthcare compliance (HIPAA) as a standalone topic — only include if it is about codebase modernization before acquisition
+- General AI consulting or AI strategy — only include if directly connected to legacy stack modernization blocking AI adoption
 
-CTR-OPTIMIZED TITLE PATTERNS (use these):
-1. Warning + Specific Number: "Your Software Budget Will Blow Up — Unless You Fix These 3 Things"
-2. Pain + Control Promise: "Why Your Budget Keeps Exploding (And How to Actually Control It)"
-3. Stakes + Curiosity: "The $200K Mistake Most Founders Make When Hiring Developers"
-4. Direct Challenge: "Stop Trying to Build the Perfect Product (Here's What Actually Works)"
-5. Insider Secret: "The Hidden Reason Your Engineering Team Is Missing Deadlines"
+BUYER JOURNEY STAGES — You MUST distribute topics across all four stages:
+Each topic must be tagged with its buyer journey stage in the output JSON.
 
-REQUIRED: Every title must have:
-- SPECIFIC PAIN (budget exploding, team missing deadlines)
-- CLEAR OUTCOME (control it, fix it, avoid it)
-- CURIOSITY GAP (number, secret, hidden reason, unless you...)
+STAGE 1 — AWARENESS (reader thinks "I have this problem but it's not urgent yet")
+- Content type: diagnostic posts, problem-framing, "7 signs your codebase..." articles
+- Tone: educational, observational, no hard sell
+- Keywords signal: "what is technical debt", "legacy system risks", "signs your codebase is aging"
+- CTA style: soft offer, email capture, checklist download
 
-GOOD examples (CTR-optimized):
-- "Your Software Budget Will Blow Up — Unless You Fix These 3 Things"
-- "Why Your Budget Keeps Exploding (And How to Actually Control It)"
-- "7 Database Mistakes That Cost Startups $100K+"
-- "The Hidden Reasons Your Enterprise AI Project Is Stalled"
+STAGE 2 — CONSIDERATION (reader thinks "I need to fix this in the next 6 months")
+- Content type: checklists, comparison posts (options A vs B), cost breakdowns, 90-day plans
+- Tone: practical, framework-driven, positions the author as the expert guide
+- Keywords signal: "how to fix technical debt", "legacy modernization checklist", "technical due diligence prep"
+- CTA style: specific diagnostic offer ("send me your codebase situation, I'll tell you what's at risk")
 
-BAD examples (boring/generic):
-- "Technical Debt in Software" (no pain, no outcome, no curiosity)
-- "Building Teams: A Complete Guide" (colon, generic, no emotional hook)
-- "Software Development Best Practices" (no stakes, no urgency)${args.targetIcp ? `
-CRITICAL: Every topic MUST be designed so "${args.targetIcp.persona_name}" reads the headline and immediately thinks "that's me."
-The pain point, language, and outcome must resonate with their profile.` : ''}`,
+STAGE 3 — DECISION (reader thinks "something just happened and I need help NOW")
+- Content type: emergency playbooks, trigger-event posts, "what to do when you receive an LOI"
+- Tone: urgent, specific, written for someone with a live deadline
+- Keywords signal: "technical debt before acquisition", "LOI due diligence timeline", "pre-exit code cleanup"
+- CTA style: immediate value offer ("I can run your technical audit in 2 weeks")
+
+STAGE 4 — VALIDATION (reader thinks "I've decided to hire someone — is it this person?")
+- Content type: methodology explainers, case studies, process walkthroughs
+- Tone: confident, proof-driven, shows the specific work and outcomes
+- Keywords signal: "how technical due diligence works", "legacy modernization case study"
+- CTA style: zero-friction entry point ("start with a 30-minute architecture call")
+
+REQUIRED DISTRIBUTION for this batch of ${total} topics:
+- Stage 1 AWARENESS:     ${awarenessTarget} topic(s)
+- Stage 2 CONSIDERATION: ${considerationTarget} topic(s)
+- Stage 3 DECISION:      ${decisionTarget} topic(s)
+- Stage 4 VALIDATION:    ${validationTarget} topic(s)
+
+HEADLINE RULES — INSTANT REJECTION if violated:
+- NO colons anywhere in titles or headings
+- NO em dashes (— or –) anywhere — use "and" or "but" or a period instead
+- NO asterisks, hashtags, or markdown formatting
+- Must include: specific pain + clear outcome + curiosity gap
+- Must make either "Modernizing Michael" or "Exit-Ready Sarah" say "that's me" in 2 seconds
+
+BAD: "Your Legacy Codebase — Here's Why It Kills Valuation" (has em dash)
+GOOD: "Your Legacy Codebase Is Quietly Killing Your Valuation. Here Is What to Do First."
+
+HIGH-CONVERTING TITLE PATTERNS:
+1. "Your [X] Will Kill Your Series B — Unless You Fix This First"
+2. "What Happens to Your Valuation When Technical Due Diligence Finds Your Legacy .NET Code"
+3. "The 11-Week Code Cleanup That Saved a HealthTech Acquisition"
+4. "7 Signs Your Codebase Will Fail Acquisition Due Diligence"
+5. "What to Do When You Receive an LOI and Your Backend Is a Mess"
+
+CRITICAL: Target BUSINESS PROBLEMS, not services. "How technical debt destroyed a $4M acquisition" not "Technical debt consulting services."`,
+
     user: `AUTHOR KNOWLEDGE (must reflect in output):
 
 ${formattedKnowledge}
 ${icpSection}
 ${headlineGuidelines}${existingPostsSection}${args.gscInsights ? `\n\n${args.gscInsights}` : ''}${args.contentIntelligenceBrief ? `\n\n${args.contentIntelligenceBrief}` : ''}
 
-CANDIDATE KEYWORDS to pick ${args.selectCount} from:
+CANDIDATE KEYWORDS to select from (choose only niche-relevant ones):
 ${JSON.stringify(args.candidateKeywords, null, 2)}
 
 TASK:
-- Choose ${args.selectCount} keywords with HIGHEST commercial intent following the Search Intent Priority above.
-- Prefer keywords containing: "cost", "hire", "vs", "alternatives", "best", "mistakes", "failing"
-- For each, create a headline using the Pain + Outcome + Curiosity formula.
-- CRITICAL: No colons in headlines. Write flowing titles like "How to Build a Dev Team That Ships" not "Building Teams. A Complete Guide"
-- Outline MUST follow the 6-step structure: Hook → Problem Breakdown → Why It Fails → Better Approach → Actionable Steps → Soft CTA
-- Include a "Common Mistakes" or "What Most Get Wrong" section.
-- At least ONE outline section must address the COST OF INACTION with a specific dollar consequence.${args.targetIcp ? `
-- ICP ALIGNMENT CHECK: Before finalizing each topic, ask "Would ${args.targetIcp.persona_name} (${args.targetIcp.biographics.title}) say 'that's me' reading this headline?" If not, rewrite it.
-- The outline notes should reference specific pain points and language from the TARGET READER PROFILE above.` : ''}
+Select exactly ${args.selectCount} keywords that are relevant to the niche.
+If fewer than ${args.selectCount} niche-relevant keywords exist in the list, select as many as possible.
+REJECT any keyword not directly related to legacy modernization, technical debt, pre-acquisition, or pre-Series-B preparation for SaaS/HealthTech/Fintech.
 
-APPROVED TOPIC TYPES (prioritize these):
-💰 Money Topics: Cost, hiring, tools comparison, build vs buy
-🧠 Authority Topics: Case studies (from author knowledge), failures, lessons learned
+For each selected keyword:
+1. Assign a buyer_journey_stage: "awareness" | "consideration" | "decision" | "validation"
+2. Write a headline using the Pain + Outcome + Curiosity formula — no colons, no em dashes
+3. Write a 6-section outline following: Hook → Problem Breakdown → Why It Fails → Better Approach → Actionable Steps → Soft CTA
+4. Include at least one section that addresses the COST OF INACTION with a specific dollar consequence
+5. For Stage 3 (decision) topics: include a section written specifically for someone with an active LOI or imminent due diligence
 
-⚠️ AVOID:
-- Abstract strategy
-- Industry-specific jargon (pharma AI, etc.) unless necessary
-- Generic definitions
-- Writing like a consultancy report
+REQUIRED DISTRIBUTION:
+- ${awarenessTarget} topic(s) tagged "awareness"
+- ${considerationTarget} topic(s) tagged "consideration"
+- ${decisionTarget} topic(s) tagged "decision"
+- ${validationTarget} topic(s) tagged "validation"
 
-OUTPUT STRICT JSON ONLY with shape:
+${args.targetIcp ? `ICP CHECK: Before finalising each topic, ask: would "${args.targetIcp.persona_name}" (${args.targetIcp.biographics.title}) read this headline and say "that's me"? If not, rewrite it.` : ''}
+
+OUTPUT STRICT JSON ONLY:
 {
   "selected": [
     {
       "keyword": string,
-      "topic": string that is the full headline with no colons,
+      "topic": string,
+      "buyer_journey_stage": "awareness" | "consideration" | "decision" | "validation",
       "headline_formula_used": string,
-      "outline": [ { "heading": string with no colons, "level": 2 or 3, "notes": string } ]
+      "outline": [ { "heading": string, "level": 2 | 3, "notes": string } ]
     }
   ]
 }
 
 CRITICAL OUTPUT RULES:
-- Output must be a single JSON object not an array.
-- Do not wrap the JSON in Markdown fences.
-- The first character must be curly brace and the last character must be curly brace.
-- No trailing commas, no comments, no extra keys.
-- No colons in any headline or heading text.
+- Single JSON object, not an array
+- No markdown fences
+- First character must be { and last must be }
+- No trailing commas, no comments
+- No colons in any headline or heading
 `
   };
 }

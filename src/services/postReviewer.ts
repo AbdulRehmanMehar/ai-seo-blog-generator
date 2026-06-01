@@ -203,10 +203,10 @@ export class PostReviewer {
     // Check section lengths
     content.sections?.forEach((section, idx) => {
       const wordCount = section.content.split(/\s+/).length;
-      if (wordCount > 150) {
+      if (wordCount > 300) {
         issues.push({
           code: 'SECTION_TOO_LONG',
-          message: `Section "${section.heading}" is ${wordCount} words (max 150)`,
+          message: `Section "${section.heading}" is ${wordCount} words (max 300)`,
           penalty: -5,
           location: `section:${section.id}`,
           suggestion: 'Split into two sections or cut ruthlessly.',
@@ -338,7 +338,7 @@ export class PostReviewer {
       '- Add specific numbers and examples',
       '- Include at least one contrarian take',
       '- Keep FAQ answers under 25 words',
-      '- Keep sections under 150 words',
+      '- Write sections at 200-300 words minimum for Google quality signals',
     );
 
     return sections.join('\n');

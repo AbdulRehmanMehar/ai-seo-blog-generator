@@ -89,10 +89,34 @@ export class ContentRefreshService {
   }
 
   /**
-   * Process one item from the refresh queue.
-   * Cap: 1 post per call (full refreshes are expensive LLM calls).
+   * Return the number of posts currently waiting in the refresh queue.
    */
-  async processRefreshQueue(): Promise<RefreshResult> {
+  async getPendingQueueCount(): Promise<number> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT COUNT(*) AS cnt FROM content_refresh_queue WHERE status = 'queued' AND attempts < 3`
+    );
+    return Number((rows[0] as any)?.cnt ?? 0);
+  }
+
+  /**
+   * Process up to `limit` items from the refresh queue sequentially.
+   * Returns aggregated results across all processed items.
+   */
+  async processRefreshQueue(limit = 1): Promise<RefreshResult> {
+    const totals: RefreshResult = { processed: 0, succeeded: 0, failed: 0 };
+
+    for (let i = 0; i < limit; i++) {
+      const result = await this.processOneQueueItem();
+      totals.processed += result.processed;
+      totals.succeeded += result.succeeded;
+      totals.failed += result.failed;
+      if (result.processed === 0) break; // queue is empty
+    }
+
+    return totals;
+  }
+
+  private async processOneQueueItem(): Promise<RefreshResult> {
     const [rows] = await this.pool.query<RefreshQueueRow[]>(
       `SELECT * FROM content_refresh_queue
        WHERE status = 'queued' AND attempts < 3
@@ -124,7 +148,9 @@ export class ContentRefreshService {
       const post = postRows[0]!;
       let currentContent: BlogPostStructure;
       try {
-        currentContent = JSON.parse(post.content_json) as BlogPostStructure;
+        currentContent = (typeof post.content_json === 'string'
+          ? JSON.parse(post.content_json)
+          : post.content_json) as BlogPostStructure;
       } catch {
         throw new Error(`Post ${item.post_id} has invalid content_json`);
       }
@@ -149,7 +175,6 @@ export class ContentRefreshService {
         [item.id]
       );
 
-      // Mark opportunity resolved if linked
       if (item.opportunity_id) {
         await this.pool.query<ResultSetHeader>(
           `UPDATE gsc_opportunities SET status = 'resolved', resolved_at = NOW(),
@@ -201,7 +226,9 @@ export class ContentRefreshService {
         if (postRows.length === 0) continue;
 
         const post = postRows[0]!;
-        const currentContent = JSON.parse(post.content_json) as BlogPostStructure;
+        const currentContent = (typeof post.content_json === 'string'
+          ? JSON.parse(post.content_json)
+          : post.content_json) as BlogPostStructure;
         const metrics = JSON.parse(opp.metrics_json) as {
           impressions?: number;
           ctr?: number;

@@ -129,18 +129,46 @@ export async function runPipelineOnce() {
     log(`⚠️  GA4 engagement detection failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // 4) Process one queued refresh item (best-effort)
+  // 4) Drain the refresh queue before generating new posts.
+  //    Fixing existing thin posts restores domain quality signals faster
+  //    than adding new posts Google won't index anyway.
+  const refresher = new ContentRefreshService(mysqlPool, gemini);
+  let pendingRefreshes = 0;
   try {
-    const refresher = new ContentRefreshService(mysqlPool, gemini);
-    const result = await refresher.processRefreshQueue();
-    if (result.processed > 0) {
-      log(`🔄 Refresh queue processed: ok=${result.succeeded} failed=${result.failed}`);
-    } else {
-      log('🔄 Refresh queue: nothing to process');
-    }
+    pendingRefreshes = await refresher.getPendingQueueCount();
+    log(`🔄 Refresh queue: ${pendingRefreshes} item(s) pending`);
   } catch (err) {
-    log(`⚠️  Refresh queue processing failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+    log(`⚠️  Could not read refresh queue count: ${err instanceof Error ? err.message : String(err)}`);
   }
+
+  const REFRESH_BATCH_SIZE = 5;
+
+  if (pendingRefreshes > 0) {
+    log('');
+    log('──────────────────────────────────────────────────────────────────────────');
+    log(`STEP 1: REFRESH QUEUE (${pendingRefreshes} pending — new posts paused until queue clears)`);
+    log('──────────────────────────────────────────────────────────────────────────');
+    try {
+      const refreshResult = await refresher.processRefreshQueue(REFRESH_BATCH_SIZE);
+      log(`✅ Refresh run complete: processed=${refreshResult.processed} ok=${refreshResult.succeeded} failed=${refreshResult.failed}`);
+      const remaining = Math.max(0, pendingRefreshes - refreshResult.processed);
+      if (remaining > 0) {
+        const runsLeft = Math.ceil(remaining / REFRESH_BATCH_SIZE);
+        log(`   ⏳ ${remaining} posts still queued (~${runsLeft} more run(s) to clear the backlog)`);
+      } else {
+        log('   🎉 Refresh queue fully cleared — new post generation resumes next run');
+      }
+    } catch (err) {
+      log(`⚠️  Refresh queue processing failed: ${err instanceof Error ? err.message : String(err)}`);
+    }
+    log('');
+    log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    log('✅ PIPELINE RUN FINISHED (refresh-priority mode)');
+    log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    return;
+  }
+
+  log('🔄 Refresh queue empty — proceeding to new post generation');
 
   log('');
   log('──────────────────────────────────────────────────────────────────────────');
@@ -194,7 +222,14 @@ export async function runPipelineOnce() {
 
       log('   ✍️  Generating blog post draft...');
       const genStart = Date.now();
-      const postId = await blogGenerator.generateDraftPost(topicId);
+      let postId: string;
+      try {
+        postId = await blogGenerator.generateDraftPost(topicId);
+      } catch (genErr) {
+        const msg = genErr instanceof Error ? genErr.message : String(genErr);
+        log(`   ✗ Generation failed (skipping topic): ${msg}`);
+        continue;
+      }
       const [[postTitleRow]] = await mysqlPool.query<RowDataPacket[]>('SELECT title FROM posts WHERE id = ?', [postId]);
       const postTitle = (postTitleRow as any)?.title ?? `id:${postId.slice(0, 8)}`;
       log(`   ✓ Draft created: "${postTitle}" (${elapsed(genStart)})`);

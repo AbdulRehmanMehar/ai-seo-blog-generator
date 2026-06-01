@@ -34,6 +34,18 @@ export interface IcpPersona {
    * "Why not do nothing?" — make the client feel the real dollar cost of inaction.
    */
   cost_of_inaction: string;
+
+  /**
+   * The specific real-world events that push this person from "reading about it" to "hiring someone."
+   * These are deadline-driven moments, not vague discomfort.
+   */
+  trigger_events?: string[];
+
+  /**
+   * The three conditions that must ALL be true simultaneously before they write a check.
+   * Pain must be dollarized, deadline must be real, proof must exist.
+   */
+  hiring_threshold?: string;
 }
 
 const ICP_PATH = './data/icps.json';
@@ -180,6 +192,14 @@ Your work must be framed in this client's currency, not yours.
 Run every benefit through: [Your Work] → [Specific Outcome] → [Dollar Value]
 Their spending logic already confirms they think this way: "${icp.psychographics.spending_logic}"
 In at least ONE section, frame a point as: "Every [time unit] you don't solve this costs [dollar amount]."
-============================================================
+${icp.trigger_events && icp.trigger_events.length > 0 ? `
+TRIGGER EVENTS THAT PUSH THEM TO HIRE (write content for these moments):
+${icp.trigger_events.map((e, i) => `${i + 1}. ${e}`).join('\n')}
+At least ONE section must directly address a person in one of these triggered states — NOT someone calmly researching.
+` : ''}${icp.hiring_threshold ? `
+HIRING THRESHOLD (all three must be true before they sign):
+${icp.hiring_threshold}
+Every CTA must acknowledge that they are likely already past the awareness stage and need immediate, specific help.
+` : ''}============================================================
 `;
 }

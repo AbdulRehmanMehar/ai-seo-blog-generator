@@ -24,6 +24,10 @@ const topicPlanSchema = z.object({
       z.object({
         keyword: z.string().min(1),
         topic: z.string().min(1),
+        buyer_journey_stage: z
+          .enum(['awareness', 'consideration', 'decision', 'validation'])
+          .optional()
+          .default('awareness'),
         outline: z.array(
           z.object({
             heading: z.string().min(1),
@@ -171,7 +175,7 @@ export class TopicPlanner {
     try {
       targetIcp = await getIcpByIndex(topicCount);
       // eslint-disable-next-line no-console
-      console.log(`TopicPlanner: targeting ICP "${targetIcp.persona_name}" (index ${topicCount % 10})`);
+      console.log(`TopicPlanner: targeting ICP "${targetIcp.persona_name}" (index ${topicCount % 2})`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.warn('TopicPlanner: could not load ICP, proceeding without ICP targeting', err);
@@ -309,9 +313,11 @@ export class TopicPlanner {
       }
 
       const topicId = crypto.randomUUID();
+      // Store stage as metadata alongside the outline sections so the blog generator can use it
+      const outlineWithMeta = { buyer_journey_stage: item.buyer_journey_stage ?? 'awareness', sections: item.outline };
       await this.deps.pool.query(
         `INSERT INTO topics(id, keyword_id, topic, outline_json, website_id, target_icp) VALUES (?, ?, ?, ?, ?, ?)`,
-        [topicId, keywordRow.id, item.topic, JSON.stringify(item.outline), targetWebsite?.id ?? null, targetIcp?.persona_name ?? null]
+        [topicId, keywordRow.id, item.topic, JSON.stringify(outlineWithMeta), targetWebsite?.id ?? null, targetIcp?.persona_name ?? null]
       );
 
       await this.deps.pool.query(`UPDATE keywords SET status = 'used' WHERE id = ?`, [keywordRow.id]);

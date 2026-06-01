@@ -141,10 +141,13 @@ Your job is NOT to rewrite for style — the voice and tone are already correct.
 Your job is to refresh this post to rank better and capture more search traffic.
 
 REFRESH PRINCIPLES:
-1. FRESHNESS: Add current-year context (2025). Replace outdated examples with recent ones.
-2. COMPREHENSIVENESS: Expand thin sections (under 80 words). Add depth where Google expects more.
-3. QUERY ALIGNMENT: Add content that directly answers near-miss queries.
-4. FAQ EXPANSION: Add 2-3 new FAQ items targeting specific queries from the real search data.
+1. DEPTH FIRST: Every section must reach 200-300 words. Sections under 200 words are a Google quality failure — expand them with specific examples, real scenarios, and practical detail. This is the primary fix.
+2. INFORMATION GAIN: Each section must add something not found in generic articles — a real number, a specific failure pattern, a counterintuitive insight, or a concrete step.
+3. FRESHNESS: Add current-year context (2026). Replace outdated examples with recent ones.
+4. QUERY ALIGNMENT: Add content that directly answers near-miss queries.
+5. FAQ EXPANSION: Add 2-3 new FAQ items targeting specific queries from the real search data.
+
+MINIMUM WORD COUNT: The refreshed post MUST be at least 1,800 words total. Google will not index posts below this threshold for competitive B2B topics.
 
 PRESERVE EXACTLY:
 - The post's voice, tone, and personality
@@ -173,10 +176,11 @@ ${JSON.stringify(currentPost, null, 2)}
 
 TASK:
 ${args.refreshType === 'full_refresh' ? `Do a FULL REFRESH:
-1. Scan each section — expand any under 80 words with specific, practical depth
+1. Expand EVERY section under 200 words — add concrete examples, specific numbers, real failure patterns, and practical steps until each section is 200-300 words
 2. Add 2-3 FAQ items targeting the near-miss and real queries above
-3. Inject freshness signals (mention 2025, "as of this year", recent industry data)
-4. Ensure the top real queries are answered explicitly somewhere in the content` : ''}
+3. Inject freshness signals (mention 2026, "as of this year", recent industry patterns)
+4. Ensure the top real queries are answered explicitly somewhere in the content
+5. Total post word count MUST be at least 1,800 words — this is non-negotiable for Google indexing` : ''}
 ${args.refreshType === 'section_expand' ? `SECTION EXPAND:
 1. Add ONE new H3 section or FAQ item that directly answers the near-miss query: "${gscContext.nearMissQuery}"
 2. The new section should be 150–200 words, specific, and practical

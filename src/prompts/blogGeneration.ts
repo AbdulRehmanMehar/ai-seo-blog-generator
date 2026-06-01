@@ -55,6 +55,11 @@ export function blogGenerationPrompt(args: {
    * Shows real queries driving impressions, their positions, and what this means for the content.
    */
   gscKeywordContext?: string;
+  /**
+   * Buyer journey stage for this post: awareness | consideration | decision | validation.
+   * Controls tone, CTA urgency, and content depth expectations.
+   */
+  buyerJourneyStage?: string;
 }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const conversionGuidelines = getConversionGuidelines();
@@ -78,8 +83,45 @@ export function blogGenerationPrompt(args: {
   const allForbiddenWords = [...new Set([...baseForbiddenWords, ...learnedWords])];
   const forbiddenWordsList = allForbiddenWords.map(w => `"${w}"`).join(', ');
 
+  const stageGuidance: Record<string, string> = {
+    awareness: `BUYER JOURNEY STAGE: AWARENESS
+This reader knows they have a problem but has no urgency yet. They are researching broadly.
+- Tone: educational, observational — do NOT hard-sell
+- Hook: "You might have this problem if..." diagnostic framing
+- CTA: soft, low-friction — checklist download, email capture, or "if this sounds familiar, here's the next step"
+- Goal: make them feel understood and bookmark you for when urgency arrives`,
+
+    consideration: `BUYER JOURNEY STAGE: CONSIDERATION
+This reader has accepted the problem and is evaluating options. They have a rough 6-month horizon.
+- Tone: practical, framework-driven — position yourself as the expert guide
+- Hook: open with a framework, checklist, or comparison that gives them a concrete plan
+- CTA: specific diagnostic offer — "send me your situation and I'll tell you exactly what's at risk"
+- Goal: become the trusted source they return to when the trigger event hits`,
+
+    decision: `BUYER JOURNEY STAGE: DECISION — WRITE FOR URGENCY
+This reader has a LIVE deadline. An LOI just arrived. An investor just asked for technical due diligence.
+A valuation gap was just revealed. They need help NOW, not someday.
+- Tone: urgent, specific, direct — no fluff, no preamble
+- Hook: open with the exact triggered scenario ("Your LOI just arrived. Due diligence starts in 30 days.")
+- Include at least ONE section written for someone with an active deadline in the next 30–60 days
+- CTA: immediate value, zero friction — "I can run your technical audit in 2 weeks. Here is how it works."
+- Goal: convert on this visit — this reader is ready to hire today`,
+
+    validation: `BUYER JOURNEY STAGE: VALIDATION
+This reader has decided to hire a consultant and is evaluating whether you specifically are the right fit.
+- Tone: confident, proof-driven — show the work, the process, and the specific outcomes
+- Hook: open with a concrete result from a real engagement ("11 weeks. HealthTech SaaS. $3.2M acquisition closed.")
+- Include your exact methodology or process — what week 1 looks like, what they get at the end
+- CTA: zero-risk entry point — "Start with a 30-minute architecture call. No commitment."
+- Goal: eliminate the final objection and get the discovery call booked`,
+  };
+
+  const stageBanner = args.buyerJourneyStage
+    ? `\n\n${stageGuidance[args.buyerJourneyStage] ?? ''}\n`
+    : '';
+
   return {
-    system: `CRITICAL PRE-GENERATION CHECKLIST - READ FIRST
+    system: `CRITICAL PRE-GENERATION CHECKLIST - READ FIRST${stageBanner}
 
 BEFORE generating content, you MUST follow these rules. Content that violates ANY rule will be REJECTED and DELETED.
 
@@ -249,7 +291,7 @@ ALWAYS use contractions: don't, won't, can't, it's, you'll, I've, we're, that's
 
 RULE 8: SECTION LENGTH & STRUCTURAL VARIATION
 
-Each section content: MAX 150 words
+Each section content: 200-300 WORDS MINIMUM. Thin sections are a Google quality signal failure.
 Each FAQ answer: MAX 25 words
 
 STRUCTURAL VARIATION (Don't be predictable):
@@ -452,6 +494,49 @@ CRITICAL: Your content must make the buyer think "This is exactly my problem —
    - Not "This would be nice to fix"
    - But "This is costing me money every day I don't fix it"
 
+RULE 16: GOOGLE E-E-A-T + TOPICAL AUTHORITY (March 2026 Core Update Requirements)
+
+Google's March 2026 update made E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) a hard measurable ranking factor — not a guideline. Posts that fail these signals are not indexed.
+
+1. EXPERIENCE IS NOW THE PRIMARY DIFFERENTIATOR
+   Google weights first-hand interaction above comprehensive coverage.
+   REQUIRED in every post:
+   - At least ONE story that shows you personally encountered this exact problem
+   - Specific project names (SmashCloud, DashCam.io) or general business types ("a mid-size SaaS")
+   - "I learned this when..." OR "I've seen this happen at..." in at least 3 sections
+   - Your personal opinion stated directly: "I think...", "In my view...", "I'd never..."
+   FORBIDDEN: Writing like an observer. Never use "organizations find" or "teams typically experience".
+
+2. INFORMATION GAIN — THE NEW RANKING SIGNAL
+   Google measures how much genuinely NEW knowledge your post adds vs what already ranks.
+   REQUIRED: Every post must include at least ONE of:
+   - A counterintuitive insight that contradicts conventional advice
+   - A specific failure pattern with root cause most articles miss
+   - A concrete number or ratio from real project experience (not fabricated)
+   - A step-by-step that is more specific than any top-10 result
+   FORBIDDEN: Writing what every other article already says. "Best practices include..." is a signal failure.
+
+3. TOPICAL AUTHORITY — ONE NICHE, ONE PROBLEM, FULL DEPTH
+   Google in 2026 rewards sites that dominate ONE vertical with genuine depth over broad sites.
+   REQUIRED:
+   - Stay laser-focused on ONE specific problem per post (not "software consulting" broadly)
+   - Cover the problem's subtopics: causes, symptoms, failure patterns, solutions, common mistakes, FAQs
+   - Each post should feel like the DEFINITIVE resource on that specific problem
+   FORBIDDEN: Covering multiple unrelated problems in one post. Breadth without depth gets ignored.
+
+4. TRUST SIGNALS — NO FABRICATED DATA
+   Google's HCC (Helpful Content Classifier) flags unverifiable specific claims.
+   REQUIRED:
+   - If you cite a dollar figure, frame it as an estimate: "roughly $X", "in my experience, around $X"
+   - Use ranges not single numbers for industry estimates: "$10k–$50k" not "$28,400"
+   - Source any stat that isn't from your own experience: "according to [source]"
+   FORBIDDEN: Presenting fabricated statistics as industry facts. "$500M first-mover advantage" without a source is a trust killer.
+
+5. DEPTH OVER DENSITY — 1,800 WORD MINIMUM
+   Google does not index thin content on competitive B2B topics.
+   REQUIRED: Minimum 1,800 words total, with each section at 200-300 words.
+   Depth means: covering WHY, not just WHAT. Every claim needs a reason. Every tip needs a failure story.
+
 RULE 15: CONVERSION LEAK FIXES (From latest buyer simulation)
 
 CRITICAL: Fix these 7 gaps that prevent "must contact now" conversion:
@@ -592,7 +677,7 @@ JSON SCHEMA (output must match this exactly):
       "id": "unique-section-id",
       "heading": "Section heading with NO colons. If numbered post use format like 1. First Mistake",
       "level": 2,
-      "content": "STRICT 120-150 WORDS MAX. Plain text. Must use 2+ mandatory sentence starters from Rule 13. Include personal experience markers.",
+      "content": "200-300 WORDS MINIMUM. Plain text. Must use 2+ mandatory sentence starters from Rule 13. Include personal experience markers. Depth and specificity are required — thin sections will be rejected by Google.",
       "keyTakeaway": "One-sentence summary or null. Plain text.",
       "cta": "REQUIRED in sections 3, 5, 7. NOT generic like 'Let's talk'. Use specific value offer like 'Send me your X and I'll spot the Y'"
     }

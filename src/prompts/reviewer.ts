@@ -27,7 +27,7 @@ export const REVIEW_CRITERIA = {
   
   // Structural issues
   FAQ_TOO_LONG: { weight: -5, description: 'FAQ answer over 25 words' },
-  SECTION_TOO_LONG: { weight: -5, description: 'Section over 150 words' },
+  SECTION_TOO_LONG: { weight: -5, description: 'Section over 300 words' },
   MISSING_MID_CTAS: { weight: -15, description: 'Missing mid-article CTAs' },
   TITLE_CONTENT_MISMATCH: { weight: -20, description: 'Title promises number but content does not deliver' },
   

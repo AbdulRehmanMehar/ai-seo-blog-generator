@@ -8,6 +8,8 @@
     "build": "tsc -p tsconfig.json",
     "start": "node dist/index.js",
     "runOnce": "tsx src/runOnce.ts",
+    "testRefresh": "tsx scripts/testRefresh.ts",
+    "testTopicPlanning": "tsx scripts/testTopicPlanning.ts",
     "syncKnowledge": "tsx src/syncKnowledge.ts",
     "migrate": "tsx src/db/migrate.ts",
     "export": "tsx src/publishers/export.ts",
