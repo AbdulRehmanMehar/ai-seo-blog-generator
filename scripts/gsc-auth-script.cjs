@@ -7,8 +7,10 @@
 const { google } = require('googleapis');
 const http = require('http');
 const url = require('url');
-const open = require('open');
 const dotenv = require('dotenv');
+// NOTE: `open` v11 is ESM-only, so `require('open')` throws ERR_REQUIRE_ESM and would
+// crash this script on launch. We load it lazily via dynamic import and fall back to
+// just printing the URL — auto-opening the browser is only a convenience.
 
 dotenv.config();
 
@@ -72,9 +74,10 @@ const server = http.createServer(async (req, res) => {
 });
 
 server.listen(3000, () => {
-  try {
-    open(authUrl); // opens browser automatically 
-  } catch (error) {
-    console.log('Please open this URL in your browser:', authUrl);
-  }
+  console.log('👉 If a browser does not open, paste this URL manually:\n');
+  console.log(authUrl + '\n');
+  // Best-effort auto-open (open v11 is ESM-only, so use dynamic import).
+  import('open')
+    .then((mod) => (mod.default || mod)(authUrl))
+    .catch(() => { /* URL already printed above */ });
 });

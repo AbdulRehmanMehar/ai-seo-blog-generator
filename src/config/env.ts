@@ -47,6 +47,16 @@ const envSchema = z.object({
   GEMINI_GENERATION_MODEL: z.string().default('gemini-2.5-flash'),
   GEMINI_EMBEDDING_MODEL: z.string().default('gemini-embedding-001'),
 
+  // ── Generation provider ──────────────────────────────────────────────
+  // Which provider serves text GENERATION. EMBEDDINGS always stay on Gemini
+  // (OpenRouter/DeepSeek don't offer embeddings, and Gemini's embedding quota is
+  // separate + plentiful). Set LLM_PROVIDER=openrouter (with a key) to escape the
+  // Gemini free-tier 20-generations/day cap.
+  LLM_PROVIDER: z.enum(['gemini', 'openrouter']).default('gemini'),
+  OPENROUTER_API_KEY: z.string().optional(),
+  OPENROUTER_MODEL: z.string().default('deepseek/deepseek-v4-flash'),
+  OPENROUTER_BASE_URL: z.string().default('https://openrouter.ai/api/v1'),
+
   CRON_SCHEDULE_1: z.string().default('15 9 * * *'),
   CRON_SCHEDULE_2: z.string().optional(),
 
@@ -70,9 +80,67 @@ const envSchema = z.object({
   // How many posts to generate per pipeline run (default: 2)
   POSTS_PER_RUN: z.coerce.number().int().positive().default(2),
 
+  // Pause NEW article generation while keeping the GSC/GA4 review + refresh/optimization
+  // loop running. Set 'true' to freeze new posts (e.g. for a couple of weeks to let the
+  // existing library settle / measure an indexing change). Default: off.
+  PAUSE_NEW_POSTS: z
+    .string()
+    .optional()
+    .transform((v) => {
+      if (v == null) return false;
+      const s = v.trim().toLowerCase();
+      return s === '1' || s === 'true' || s === 'yes';
+    }),
+
+  // Force outbound DNS to IPv4 (default on). Prevents ETIMEDOUT hangs on hosts with broken
+  // IPv6 egress, since Google/OpenRouter resolve IPv6-first. Set 'false' only on IPv6-only hosts.
+  FORCE_IPV4: z
+    .string()
+    .optional()
+    .transform((v) => {
+      if (v == null) return true;
+      const s = v.trim().toLowerCase();
+      return !(s === '0' || s === 'false' || s === 'no');
+    }),
+
+  // Keyword discovery is GSC-first: import proven-demand near-miss queries first, and only
+  // expand via SERP providers when the unused-keyword pool falls below this target.
+  KEYWORD_POOL_TARGET: z.coerce.number().int().positive().default(15),
+
   EXPORT_DIR: z.string().default('./out/posts'),
   POST_MIN_WORDS: z.coerce.number().int().positive().default(1200),
   DUPLICATE_SIMILARITY_THRESHOLD: z.coerce.number().min(0).max(1).default(0.85),
+
+  // Target CEFR reading level for generated content. 'A2' (elementary, simple short
+  // sentences, ~1500-word vocabulary) is enforced via prompt guidance + deterministic
+  // post-processing + a review check. Set to 'none' to disable level enforcement.
+  CONTENT_READING_LEVEL: z.enum(['A2', 'B1', 'B2', 'none']).default('A2'),
+  // Sentences longer than this many words are flagged as too complex for the target level.
+  READING_MAX_SENTENCE_WORDS: z.coerce.number().int().positive().default(22),
+
+  // ── Indexing mechanics ──────────────────────────────────────────────
+  // How a post's public URL is built from its website domain + slug.
+  // Placeholders: {domain} and {slug}. Override if your blog lives at a
+  // different path (e.g. https://{domain}/articles/{slug}).
+  BLOG_URL_PATTERN: z.string().default('https://{domain}/blog/{slug}'),
+  // Hub-page URL patterns. Placeholders: {domain} and {slug}.
+  CATEGORY_URL_PATTERN: z.string().default('https://{domain}/blog/category/{slug}'),
+  TAG_URL_PATTERN: z.string().default('https://{domain}/blog/tag/{slug}'),
+  // A tag page only becomes indexable / enters the sitemap once it has this many
+  // published posts (prevents thin 1-post archive pages). Default: 3.
+  TAG_INDEX_MIN_POSTS: z.coerce.number().int().positive().default(3),
+  // Max category/tag hub pages to (re)generate unique content for per run (LLM cost cap).
+  TAXONOMY_PAGE_CONTENT_PER_RUN: z.coerce.number().int().nonnegative().default(3),
+  // Where generated sitemap.xml files are written (one per website).
+  // Defaults to EXPORT_DIR when unset.
+  SITEMAP_DIR: z.string().optional(),
+  // IndexNow key (an 8–128 char hex string). When set, newly published/refreshed
+  // URLs are submitted to IndexNow (Bing/Yandex/Seznam — note: Google does NOT
+  // consume IndexNow). Leave empty to skip. The matching key file must be hosted
+  // at https://{domain}/{key}.txt — we write it into SITEMAP_DIR for deployment.
+  INDEXNOW_KEY: z.string().optional(),
+  // Submit URLs published/updated within this many days on each run (default: 2).
+  INDEXING_LOOKBACK_DAYS: z.coerce.number().int().positive().default(2),
 
   // GitHub integration for knowledge sync
   GITHUB_PAT: z.string().optional(),
@@ -81,7 +149,22 @@ const envSchema = z.object({
   // Cron schedule for knowledge sync (default: daily at 3 AM)
   CRON_KNOWLEDGE_SYNC: z.string().default('0 3 * * *'),
 
-  // Google Search Console integration — OAuth2 credentials
+  // Postgres keep-alive heartbeat schedule (default: hourly). Lower it (e.g. '*/30 * * * *')
+  // if the provider suspends the DB on a shorter inactivity window.
+  CRON_PG_KEEPALIVE: z.string().default('0 * * * *'),
+
+  // Google service account (PREFERRED for GSC + GA4 — headless, never expires).
+  // Three ways to provide it (first one found wins):
+  //  (1) Discrete fields from the JSON key — only email + private_key are required:
+  GS_client_email: z.string().optional(),
+  GS_private_key: z.string().optional(),
+  GS_project_id: z.string().optional(),
+  //  (2) the full JSON key inline (best for Docker/Portainer)...
+  GSC_SERVICE_ACCOUNT_JSON: z.string().optional(),
+  //  (3) ...or a path to the JSON key file (best for local dev).
+  GOOGLE_APPLICATION_CREDENTIALS: z.string().optional(),
+
+  // Google Search Console integration — OAuth2 credentials (legacy fallback if no service account)
   GSC_CLIENT_ID: z.string().optional(),
   GSC_CLIENT_SECRET: z.string().optional(),
   GSC_REDIRECT_URI: z.string().optional(),

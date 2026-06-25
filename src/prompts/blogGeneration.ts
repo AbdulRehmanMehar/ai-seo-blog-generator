@@ -1,6 +1,7 @@
 import { type AuthorKnowledge, formatKnowledgeForPrompt } from '../knowledge/authorKnowledge.js';
 import { type IcpPersona, formatIcpForPrompt } from '../knowledge/icpKnowledge.js';
 import { getConversionGuidelines, getHumanizationGuidelines } from './conversionCopy.js';
+import { getReadingLevelGuidelines } from './readingLevel.js';
 
 /**
  * Structured blog post output schema for embedding in websites
@@ -64,6 +65,7 @@ export function blogGenerationPrompt(args: {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const conversionGuidelines = getConversionGuidelines();
   const humanizationGuidelines = getHumanizationGuidelines();
+  const readingLevelGuidelines = getReadingLevelGuidelines();
 
   // Build ICP section if we have a persona
   const icpSection = args.targetIcp
@@ -122,6 +124,7 @@ This reader has decided to hire a consultant and is evaluating whether you speci
 
   return {
     system: `CRITICAL PRE-GENERATION CHECKLIST - READ FIRST${stageBanner}
+${readingLevelGuidelines}
 
 BEFORE generating content, you MUST follow these rules. Content that violates ANY rule will be REJECTED and DELETED.
 

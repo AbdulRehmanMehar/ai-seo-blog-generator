@@ -9,3 +9,10 @@ referenceDocs
 *env*
 !.env.example
 logs
+
+# Google service-account keys (secrets — never commit)
+walkheaven-*.json
+*service-account*.json
+*-sa.json
+gcp-*.json
+out/

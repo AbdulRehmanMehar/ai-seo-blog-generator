@@ -12,6 +12,7 @@
     "testTopicPlanning": "tsx scripts/testTopicPlanning.ts",
     "syncKnowledge": "tsx src/syncKnowledge.ts",
     "migrate": "tsx src/db/migrate.ts",
+    "keepalive": "tsx scripts/pg-keepalive.ts",
     "export": "tsx src/publishers/export.ts",
     "healthcheck": "tsx src/healthcheck.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit"

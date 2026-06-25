@@ -1,14 +1,17 @@
 import { type AuthorKnowledge, formatKnowledgeForPrompt } from '../knowledge/authorKnowledge.js';
 import { getHumanizationGuidelines } from './conversionCopy.js';
+import { getReadingLevelGuidelines } from './readingLevel.js';
 import type { BlogPostStructure } from './blogGeneration.js';
 
 export function humanizePrompt(args: { knowledge: AuthorKnowledge; keyword: string; contentJson: BlogPostStructure }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const humanizationGuidelines = getHumanizationGuidelines();
+  const readingLevelGuidelines = getReadingLevelGuidelines();
   return {
     system: `You are a ruthless editor who makes AI-generated content indistinguishable from expert human writing.
 
 YOUR MISSION: Make every sentence sound like it came from a real person with real experience, not a helpful AI assistant.
+${readingLevelGuidelines}
 
 CRITICAL FORMATTING RULES:
 - Remove ALL colons from the text (use periods or restructure sentences)
@@ -200,11 +203,11 @@ Verify the content passes these conversion-critical tests:
 
 a) "THIS IS EXACTLY YOU" PUNCH CHECK (BRUTAL FORMAT REQUIRED)
 - Is there a section that lists 3-4 highly specific symptoms in the exact format:
-  "If your [symptom 1], your [symptom 2], and [symptom 3] — your [X] is not helping, it's hurting."
+  "If your [symptom 1], your [symptom 2], and [symptom 3], your [X] is not helping, it's hurting."
 - Must end with "not helping, it's hurting" or "system is already broken" punch
 - Symptoms must be granular (not generic like "you have problems")
 - If weak or missing, rewrite using the brutal format from blogGeneration Rule 5
-- This is the PRIMARY conversion trigger — it must hurt
+- This is the PRIMARY conversion trigger, it must hurt
 
 b) REAL SCENARIO CHECK (SPECIFIC NUMBERS REQUIRED)
 - Is there ONE story with concrete numbers/percentages?
@@ -213,12 +216,12 @@ b) REAL SCENARIO CHECK (SPECIFIC NUMBERS REQUIRED)
 - YES: "I worked on a support system where 60% of AI responses were escalated. Fixed tone and reduced to 15% in 2 weeks."
 - If numbers are vague ("many", "significantly"), replace with specific percentages
 
-18. CTA QUALITY CHECK (CRITICAL — this is where conversion fails)
+18. CTA QUALITY CHECK (CRITICAL, this is where conversion fails)
 The conclusion.cta.buttonText and mid-article CTAs must:
 - NEVER use: "Let's talk", "I can help", "Stop your churn", "Contact us", "Book a consultation"
-- MUST be specific diagnostic offers: "Send me your [thing] — I'll [show exactly what's wrong]"
-- Example GOOD: "Send me a few chatbot conversations — I'll show you exactly where it's breaking"
-- Example GOOD: "Send me your last 10 support tickets — I'll spot the patterns costing you customers"
+- MUST be specific diagnostic offers: "Send me your [thing], I'll [show exactly what's wrong]"
+- Example GOOD: "Send me a few chatbot conversations, I'll show you exactly where it's breaking"
+- Example GOOD: "Send me your last 10 support tickets, I'll spot the patterns costing you customers"
 - Must feel like free insight, not sales pitch
 - Test: Would a stressed founder at 11pm find this useful? If sales-y → rewrite
 
@@ -233,13 +236,13 @@ The conclusion.cta.buttonText and mid-article CTAs must:
 - Position as DAMAGE CONTROL not improvement
 - ❌ Remove: "Improve your AI", "Make your chatbot better"
 - ✅ Use: "Stop your AI from driving customers away", "Fix what's actively breaking"
-- Include at least one phrase: "This isn't about being better — it's about stopping the bleeding"
+- Include at least one phrase: "This isn't about being better, it's about stopping the bleeding"
 
 21. CONVERSION LEAK FIXES CHECK (Rule 15 from blogGeneration)
 Verify these 7 gaps are fixed:
 
 a) SHARPER "THIS IS EXACTLY YOU" DIAGNOSIS
-- Must use brutal bullet format: "If your [symptom 1], your [symptom 2], and [symptom 3] — your [X] is not helping, it's hurting."
+- Must use brutal bullet format: "If your [symptom 1], your [symptom 2], and [symptom 3], your [X] is not helping, it's hurting."
 - 3-4 highly specific symptoms (not generic)
 - Must create "Oh shit, this is literally me" moment
 
@@ -259,7 +262,7 @@ c) READER-SCALE NUMBERS CHECK
 d) IMMEDIATE-VALUE CTA CHECK
 - NO "Let's talk" / "I can help" / "Find a partner"
 - MUST offer specific diagnostic value
-- Example: "Send me your last sprint retrospectives — I'll spot exactly where time is leaking"
+- Example: "Send me your last sprint retrospectives, I'll spot exactly where time is leaking"
 
 22. REFRAME SOLUTIONS AS WARNINGS CHECK
 - "Finding a partner who delivers" → "What I've learned watching teams try to fix this"
@@ -277,7 +280,7 @@ d) IMMEDIATE-VALUE CTA CHECK
 - Must include at least ONE urgency phrase:
 - "Every week you ship late, you're burning runway you can't get back"
 - "Every bug that reaches customers trains them not to trust you"
-- "This isn't about being better next quarter — it's about surviving this one"
+- "This isn't about being better next quarter, it's about surviving this one"
 - Creates "This is costing me NOW" not "important to fix someday"
 
 25. FINAL CHECKLIST (must pass all):

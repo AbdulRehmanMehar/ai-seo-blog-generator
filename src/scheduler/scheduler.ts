@@ -4,6 +4,7 @@ import { runPipelineOnce } from './orchestrator.js';
 import { syncGitHubKnowledge } from '../knowledge/knowledgeSync.js';
 import { mysqlPool } from '../db/mysqlPool.js';
 import { postgresPool } from '../db/postgresPool.js';
+import { pgKeepAlive } from '../db/keepAlive.js';
 import { PostReviewer } from '../services/postReviewer.js';
 import { PostRewriter } from '../services/postRewriter.js';
 import { GeminiRateLimiter } from '../llm/rateLimiter.js';
@@ -486,6 +487,20 @@ export function startScheduler() {
   });
   // eslint-disable-next-line no-console
   console.log('Database stats scheduled: every hour (0 * * * *)');
+
+  // Postgres keep-alive - prevents the managed instance from being suspended for
+  // inactivity (write + read a heartbeat row). Runs once now and on a schedule.
+  const pgKeepAliveTick = async () => {
+    const ts = new Date().toISOString();
+    const r = await pgKeepAlive();
+    // eslint-disable-next-line no-console
+    if (r.ok) console.log(`[${ts}] 💓 Postgres keep-alive ok (last_ping=${r.lastPing})`);
+    else console.error(`[${ts}] 💔 Postgres keep-alive failed: ${r.error}`);
+  };
+  void pgKeepAliveTick();
+  cron.schedule(env.CRON_PG_KEEPALIVE, () => { void pgKeepAliveTick(); });
+  // eslint-disable-next-line no-console
+  console.log('Postgres keep-alive scheduled:', env.CRON_PG_KEEPALIVE);
 
   // Cleanup old usage data - daily at 3 AM
   cron.schedule('0 3 * * *', async () => {

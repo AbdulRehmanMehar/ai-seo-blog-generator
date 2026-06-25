@@ -1,6 +1,7 @@
 import { sleep } from '../utils/sleep.js';
 import { withRetry } from '../utils/retry.js';
 import { GoogleGenAI } from '@google/genai';
+import { env } from '../config/env.js';
 import type { GeminiRateLimiter, ModelType } from './rateLimiter.js';
 
 export interface GeminiClientOptions {
@@ -28,11 +29,65 @@ export class GeminiClient {
 
   private lastRequestAt = 0;
 
+  // When true, text generation is served by OpenRouter (e.g. DeepSeek) instead of Gemini.
+  // Embeddings always stay on Gemini regardless.
+  private readonly useOpenRouter: boolean;
+
   constructor(opts: GeminiClientOptions) {
     this.rateLimiter = opts.rateLimiter;
     this.generationModel = opts.generationModel;
     this.embeddingModel = opts.embeddingModel;
     this.minMsBetween = opts.minSecondsBetweenRequests * 1000;
+    this.useOpenRouter = env.LLM_PROVIDER === 'openrouter' && !!env.OPENROUTER_API_KEY;
+  }
+
+  /**
+   * Generate text via OpenRouter (OpenAI-compatible chat completions). Used for the whole
+   * generation workload when LLM_PROVIDER=openrouter — bypasses the Gemini rate limiter /
+   * free-tier daily cap. The 12 services call generateText() unchanged.
+   */
+  private async generateViaOpenRouter(input: GenerateTextInput): Promise<string> {
+    const messages: Array<{ role: 'system' | 'user'; content: string }> = [];
+    if (input.systemInstruction) messages.push({ role: 'system', content: input.systemInstruction });
+    messages.push({ role: 'user', content: input.userPrompt });
+
+    return withRetry(
+      async () => {
+        const res = await fetch(`${env.OPENROUTER_BASE_URL}/chat/completions`, {
+          method: 'POST',
+          headers: {
+            authorization: `Bearer ${env.OPENROUTER_API_KEY}`,
+            'content-type': 'application/json',
+            'X-Title': 'ai-seo-blog-generator',
+          },
+          body: JSON.stringify({
+            model: env.OPENROUTER_MODEL,
+            messages,
+            temperature: input.temperature ?? 0.7,
+            max_tokens: input.maxOutputTokens ?? 8192,
+            // Every generateText caller in this codebase expects a JSON object; forcing
+            // JSON mode eliminates the truncated/unescaped-string parse failures.
+            response_format: { type: 'json_object' },
+          }),
+          signal: AbortSignal.timeout(120_000),
+        });
+
+        if (!res.ok) {
+          const body = await res.text().catch(() => '');
+          const err = new Error(`OpenRouter HTTP ${res.status}: ${body.slice(0, 200)}`) as Error & { status?: number };
+          err.status = res.status;
+          throw err;
+        }
+
+        const json = (await res.json()) as { choices?: Array<{ message?: { content?: string } }> };
+        const content = json.choices?.[0]?.message?.content;
+        if (!content || typeof content !== 'string' || !content.trim()) {
+          throw new Error('OpenRouter: empty response content');
+        }
+        return content.trim();
+      },
+      { retries: 3, baseDelayMs: 1500, maxDelayMs: 15000 }
+    );
   }
 
   /**
@@ -83,6 +138,11 @@ export class GeminiClient {
   }
 
   async generateText(input: GenerateTextInput): Promise<string> {
+    // Generation provider switch — embeddings stay on Gemini (see embedText).
+    if (this.useOpenRouter) {
+      return this.generateViaOpenRouter(input);
+    }
+
     const effectiveUserPrompt = input.systemInstruction
       ? `${input.systemInstruction}\n\n${input.userPrompt}`
       : input.userPrompt;

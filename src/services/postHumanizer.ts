@@ -13,6 +13,7 @@
 
 import type { BlogPostStructure } from '../prompts/blogGeneration.js';
 import { AI_VOCABULARY_BLOCKLIST, FORBIDDEN_OPENINGS, FORBIDDEN_TRANSITIONS } from '../prompts/reviewer.js';
+import { env } from '../config/env.js';
 
 // Natural replacements for AI vocabulary
 const VOCABULARY_REPLACEMENTS: Record<string, string[]> = {
@@ -62,6 +63,45 @@ const VOCABULARY_REPLACEMENTS: Record<string, string[]> = {
   'endeavor': ['effort', 'project', 'attempt'],
   'endeavors': ['efforts', 'projects', 'attempts'],
   'multifaceted': ['complex', 'varied', 'diverse'],
+};
+
+// A2 (elementary) simplifications: formal/long words → simple common words.
+// Applied only when CONTENT_READING_LEVEL is set (not 'none'). Kept conservative so it
+// never changes the meaning of core technical terms (e.g. "implement", "deploy" are left
+// alone — an A2 reader handles those fine once explained in the prose).
+const A2_SIMPLIFICATIONS: Record<string, string> = {
+  'approximately': 'about',
+  'purchase': 'buy',
+  'purchased': 'bought',
+  'purchasing': 'buying',
+  'demonstrate': 'show',
+  'demonstrates': 'shows',
+  'demonstrated': 'showed',
+  'additional': 'more',
+  'assistance': 'help',
+  'obtain': 'get',
+  'obtained': 'got',
+  'require': 'need',
+  'requires': 'needs',
+  'required': 'needed',
+  'numerous': 'many',
+  'sufficient': 'enough',
+  'commence': 'start',
+  'terminate': 'end',
+  'regarding': 'about',
+  'subsequently': 'later',
+  'furthermore': 'also',
+  'additionally': 'also',
+  'therefore': 'so',
+  'consequently': 'so',
+  'nevertheless': 'still',
+  'finalize': 'finish',
+  'prior to': 'before',
+  'in order to': 'to',
+  'due to the fact that': 'because',
+  'a number of': 'some',
+  'the majority of': 'most',
+  'in the event that': 'if',
 };
 
 // Contractions to apply
@@ -144,6 +184,7 @@ export class PostHumanizer {
   private colonCount = 0;
   private emDashCount = 0;
   private markdownCount = 0;
+  private simplificationCount = 0;
 
   /**
    * Humanize a blog post by cleaning AI patterns
@@ -155,6 +196,7 @@ export class PostHumanizer {
     this.colonCount = 0;
     this.emDashCount = 0;
     this.markdownCount = 0;
+    this.simplificationCount = 0;
     const changes: string[] = [];
 
     // Deep clone to avoid mutating original
@@ -214,7 +256,10 @@ export class PostHumanizer {
       changes.push(`Removed ${this.colonCount} colons`);
     }
     if (this.emDashCount > 0) {
-      changes.push(`Removed ${this.emDashCount} em dashes`);
+      changes.push(`Removed ${this.emDashCount} em/en dashes`);
+    }
+    if (this.simplificationCount > 0) {
+      changes.push(`Simplified ${this.simplificationCount} words for ${env.CONTENT_READING_LEVEL} reading level`);
     }
     if (this.markdownCount > 0) {
       changes.push(`Removed ${this.markdownCount} markdown formatting instances`);
@@ -254,9 +299,9 @@ export class PostHumanizer {
       changed = true;
     }
     
-    // Remove em dashes and replace with "and" or comma
-    if (result.includes('—')) {
-      result = result.replace(/\s*—\s*/g, ' and ');
+    // Remove em dashes and en dashes and replace with "and" or comma
+    if (result.includes('—') || result.includes('–')) {
+      result = result.replace(/\s*[—–]\s*/g, ' and ');
       this.emDashCount++;
       changed = true;
     }
@@ -291,6 +336,22 @@ export class PostHumanizer {
           }
           return replacement;
         });
+      }
+    }
+
+    // Simplify formal words to A2 (elementary) equivalents — only when a reading level is set.
+    if (env.CONTENT_READING_LEVEL !== 'none') {
+      for (const [word, replacement] of Object.entries(A2_SIMPLIFICATIONS)) {
+        const regex = new RegExp(`\\b${word}\\b`, 'gi');
+        const matches = result.match(regex);
+        if (matches) {
+          this.simplificationCount += matches.length;
+          result = result.replace(regex, (match: string): string =>
+            match[0] === match[0]?.toUpperCase()
+              ? replacement.charAt(0).toUpperCase() + replacement.slice(1)
+              : replacement
+          );
+        }
       }
     }
 
@@ -334,11 +395,15 @@ export class PostHumanizer {
       result = result.replace(/(\w):\s+(?=[A-Z])/g, '$1. ');
     }
 
-    // Remove em dashes and replace with commas or "and"
-    const emDashMatches = result.match(/\s*—\s*/g);
-    if (emDashMatches) {
-      this.emDashCount += emDashMatches.length;
-      result = result.replace(/\s*—\s*/g, ', ');
+    // Number ranges with a dash (e.g. "5–20", "10—15") read more simply as "5 to 20".
+    result = result.replace(/(\d)\s*[—–]\s*(\d)/g, '$1 to $2');
+
+    // Remove em dashes AND en dashes and replace with commas. A2 readers handle two short
+    // clauses with a comma far better than a dash-joined aside.
+    const dashMatches = result.match(/\s*[—–]\s*/g);
+    if (dashMatches) {
+      this.emDashCount += dashMatches.length;
+      result = result.replace(/\s*[—–]\s*/g, ', ');
     }
 
     // Remove forbidden transitions at start of sentences

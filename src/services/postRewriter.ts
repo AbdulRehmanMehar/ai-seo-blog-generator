@@ -194,10 +194,14 @@ export class PostRewriter {
       console.log(`   🧹 Post-humanization: ${changes.join(', ')}`);
     }
 
+    // Slug is IMMUTABLE — the public URL must never change. The posts.slug column is
+    // never updated anywhere; pin content_json.slug to it too so a rewrite can't drift it.
+    rewrittenContent.slug = post.slug;
+
     // Update the post with rewritten content, set status back to draft for re-review
     await this.deps.pool.query<ResultSetHeader>(
-      `UPDATE posts 
-       SET content_json = ?, 
+      `UPDATE posts
+       SET content_json = ?,
            title = ?,
            meta_title = ?,
            meta_description = ?,

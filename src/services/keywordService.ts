@@ -38,6 +38,10 @@ export interface KeywordDiscoveryResult {
   discovered: number;
   filtered: number;
   inserted: number;
+  /** How many came from GSC near-miss (proven demand). */
+  gscImported: number;
+  /** 'gsc' = pool filled from GSC alone; 'serp' = needed SERP expansion to supplement. */
+  source: 'gsc' | 'serp';
 }
 
 export class KeywordService {
@@ -78,9 +82,27 @@ export class KeywordService {
   }
 
   async discoverAndStoreKeywords(): Promise<KeywordDiscoveryResult> {
-    // First, try to recycle old keywords
+    // Recycle stale keywords back into the pool.
     await this.recycleOldKeywords();
-    
+
+    // ── GSC-FIRST ────────────────────────────────────────────────────────────
+    // Primary source: GSC near-miss queries (pages your site already ranks 5–20 for).
+    // This is PROVEN demand + proven relevance, so it leads — before any SERP scraping.
+    const gscImported = await this.importNearMissKeywords();
+
+    // If the unused-keyword pool is already healthy (GSC imports + leftovers from prior
+    // runs), skip SERP expansion entirely — real demand beats scraped related-searches.
+    const unused = await this.countUnusedKeywords();
+    if (unused >= env.KEYWORD_POOL_TARGET) {
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] 🎯 GSC-first: ${unused} unused keyword(s) available (≥${env.KEYWORD_POOL_TARGET}); skipping SERP expansion (+${gscImported} new from GSC near-miss).`);
+      return { discovered: gscImported, filtered: gscImported, inserted: gscImported, gscImported, source: 'gsc' };
+    }
+
+    // ── SERP EXPANSION (supplement only) ─────────────────────────────────────
+    // Pool is thin → expand via SERP providers to DISCOVER new long-tail topics.
+    // eslint-disable-next-line no-console
+    console.log(`[KeywordService] 🔎 Only ${unused} unused keyword(s) (target ${env.KEYWORD_POOL_TARGET}); expanding via SERP providers to supplement…`);
     const discovered = await this.discoverKeywords();
     const filtered = discovered.filter((k) => this.passesFilters(k));
 
@@ -97,15 +119,23 @@ export class KeywordService {
       inserted += res.affectedRows ?? 0;
     }
 
-    // If no new keywords were inserted, try to generate AI-only keywords
-    if (inserted === 0) {
+    // Last resort: if SERP + GSC both produced nothing and the pool is empty, AI-generate.
+    if (inserted === 0 && gscImported === 0 && unused === 0) {
       // eslint-disable-next-line no-console
-      console.log(`[KeywordService] ⚠️ No new keywords from SERP, generating AI-only keywords...`);
+      console.log(`[KeywordService] ⚠️ No new keywords from GSC or SERP, generating AI-only keywords...`);
       const aiInserted = await this.generateAndInsertAiOnlyKeywords();
       inserted += aiInserted;
     }
 
-    return { discovered: discovered.length, filtered: filtered.length, inserted };
+    return { discovered: discovered.length, filtered: filtered.length, inserted: inserted + gscImported, gscImported, source: 'serp' };
+  }
+
+  /** Count keywords still available for topic planning (status='new'). */
+  private async countUnusedKeywords(): Promise<number> {
+    const [rows] = await this.deps.pool.query<import('mysql2/promise').RowDataPacket[]>(
+      `SELECT COUNT(*) AS c FROM keywords WHERE status = 'new'`
+    );
+    return Number((rows[0] as any)?.c ?? 0);
   }
 
   /**
@@ -232,21 +262,29 @@ Return JSON:
   }
 
   private passesFilters(k: DiscoveredKeyword): boolean {
-    const volumeOk = (k.volume ?? 0) > 50; // Lowered from 100
-    const difficultyOk = k.difficulty == null || k.difficulty < 50; // Raised from 40
-    const cpcOk = (k.cpc ?? 0) > 1.0; // Lowered from 2.0
-
+    // IMPORTANT: volume / difficulty / cpc are NOT real metrics here. SERP providers
+    // (Serpstack/Zenserp) return only related searches & questions — never volume/CPC/
+    // difficulty. Those fields are *estimated by Gemini*, i.e. effectively hallucinated.
+    // We therefore must NOT reject a keyword based on them: doing so both discards
+    // genuinely good keywords (because fiction said "low volume") and lends false
+    // confidence to the ones that survive.
+    //
+    // The only defensible signal at discovery time is INTENT, derived from the keyword
+    // text itself (and SERP ad presence). So intent is the sole gate here. Real demand is
+    // enforced downstream: GSC near-miss keywords (proven impressions) get a +60 boost in
+    // TopicPlanner, and the LLM only selects `selectCount` topics from the ranked pool —
+    // so a larger, looser candidate set is safe.
     const intent = (k.intent ?? '').toLowerCase();
-    const intentOk = 
-      intent.includes('commercial') || 
-      intent.includes('founder') || 
+    const intentOk =
+      intent.includes('commercial') ||
+      intent.includes('founder') ||
       intent.includes('cto') ||
       intent.includes('transactional') ||
       intent.includes('service') ||
       intent.includes('hire') ||
       intent.includes('consulting');
 
-    return volumeOk && difficultyOk && cpcOk && intentOk;
+    return intentOk;
   }
 
   /**

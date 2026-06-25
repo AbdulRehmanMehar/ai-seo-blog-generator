@@ -22,7 +22,7 @@ They want revenue, risk reduction, or time they can't get back.
 Every piece of content must frame your work in the client's desired outcome, not your deliverable.
 
 WRONG: "I build Next.js applications."
-RIGHT: "I help logistics firms cut dashboard load time from 8 seconds to 400ms — before their peak season costs them $2M in abandoned carts."
+RIGHT: "I help logistics firms cut dashboard load time from 8 seconds to 400ms, before their peak season costs them $2M in abandoned carts."
 
 THE DOLLARIZATION FORMULA:
 To make any benefit feel real, run it through this formula:
@@ -47,13 +47,13 @@ Cost of Inaction formula:
   "If you don't solve [specific problem], you face [specific consequence] which costs [dollar figure or time/risk]."
 
 Real examples of cost-of-inaction framing:
-- "Every month you keep the .NET monolith, you lose 2 sprints of velocity — roughly $30k of engineering time."
+- "Every month you keep the .NET monolith, you lose 2 sprints of velocity. That is roughly $30k of engineering time."
 - "A single data breach from an unvetted LLM integration costs an average of $4.5M in regulatory fines."
 - "Each week a slow checkout page costs a $10M e-commerce company roughly $50k in abandoned revenue."
 
 PROBLEM SEEKER, NOT JUST PROBLEM SOLVER:
 Don't write about "how to build a better API."
-Write about "why your Series B is delayed" — where the answer happens to be a better API.
+Write about "why your Series B is delayed", where the answer happens to be a better API.
 The topic must be the BUSINESS PROBLEM. The content reveals your service as the logical answer.
 
 Wrong topic angle: "How to Migrate from .NET to Next.js"

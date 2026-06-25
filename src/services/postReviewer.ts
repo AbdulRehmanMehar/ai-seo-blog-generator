@@ -14,6 +14,7 @@ import {
 } from '../prompts/reviewer.js';
 import { safeJsonParse } from '../utils/json.js';
 import { PromptLearner } from './promptLearner.js';
+import { env } from '../config/env.js';
 
 export interface PostReviewerDeps {
   pool: MysqlPool;
@@ -240,6 +241,37 @@ export class PostReviewer {
         penalty: -5 * colonBoldMatches.length,
         suggestion: 'Change to "**bold.** text" or "**bold** — text"',
       });
+    }
+
+    // Reading-level checks (CEFR). Enforces the CONTENT_READING_LEVEL target so posts that
+    // come back too complex get queued for rewrite with concrete instructions.
+    if (env.CONTENT_READING_LEVEL !== 'none') {
+      // Em/en dashes anywhere are a hard no for the simplified style.
+      const dashMatches = fullText.match(/[—–]/g);
+      if (dashMatches) {
+        issues.push({
+          code: 'EM_DASH_USED',
+          message: `Found ${dashMatches.length} em/en dash(es), not allowed in ${env.CONTENT_READING_LEVEL} style`,
+          penalty: -5 * dashMatches.length,
+          suggestion: 'Replace each dash with a full stop, a comma, or the word "and".',
+        });
+      }
+
+      // Long sentences are the strongest signal of above-level complexity.
+      const sentences = fullText.split(/(?<=[.!?])\s+/).filter((s) => s.trim().length > 0);
+      const longSentences = sentences.filter(
+        (s) => s.split(/\s+/).filter(Boolean).length > env.READING_MAX_SENTENCE_WORDS
+      );
+      const longRatio = sentences.length > 0 ? longSentences.length / sentences.length : 0;
+      // Allow a small tail of longer sentences; penalize when more than 15% run long.
+      if (longRatio > 0.15) {
+        issues.push({
+          code: 'SENTENCES_TOO_LONG',
+          message: `${longSentences.length}/${sentences.length} sentences exceed ${env.READING_MAX_SENTENCE_WORDS} words (${Math.round(longRatio * 100)}%) — too complex for ${env.CONTENT_READING_LEVEL}`,
+          penalty: -Math.min(20, Math.round(longRatio * 30)),
+          suggestion: `Split long sentences. Aim for 10-15 words, one idea each. Max ${env.READING_MAX_SENTENCE_WORDS} words.`,
+        });
+      }
     }
 
     // Check title-content alignment for numbered posts

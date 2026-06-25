@@ -1,6 +1,7 @@
 import { google } from 'googleapis';
-import type { OAuth2Client } from 'google-auth-library';
+import type { OAuth2Client, JWT } from 'google-auth-library';
 import { env } from '../config/env.js';
+import { buildServiceAccountAuth, hasServiceAccount } from './googleAuth.js';
 
 export interface GscQueryArgs {
   siteUrl: string;
@@ -42,20 +43,28 @@ export interface GscInspectResult {
  * so both primestrides.com and theabdulrehman.com can be queried with the same instance.
  */
 export class GscClient {
-  private readonly auth: OAuth2Client;
+  private readonly auth: OAuth2Client | JWT;
 
   constructor() {
-    this.auth = new google.auth.OAuth2(
+    // Prefer a service account (headless, never expires); fall back to OAuth2.
+    const sa = buildServiceAccountAuth();
+    if (sa) {
+      this.auth = sa;
+      return;
+    }
+
+    const oauth = new google.auth.OAuth2(
       env.GSC_CLIENT_ID,
       env.GSC_CLIENT_SECRET,
       env.GSC_REDIRECT_URI
     ) as OAuth2Client;
 
-    this.auth.setCredentials({
+    oauth.setCredentials({
       access_token: env.GSC_ACCESS_TOKEN,
       refresh_token: env.GSC_REFRESH_TOKEN,
       expiry_date: env.GSC_TOKEN_EXPIRY,
     });
+    this.auth = oauth;
   }
 
   /**
@@ -129,8 +138,12 @@ export class GscClient {
  * the case where GSC is not yet set up.
  */
 export function buildGscClient(): GscClient | null {
-  // Access tokens are intentionally optional — google-auth-library can refresh
-  // on demand from the refresh token in fully headless runs.
+  // Preferred path: a service account is configured.
+  if (hasServiceAccount()) {
+    return new GscClient();
+  }
+  // Legacy fallback: OAuth2. Access tokens are optional — google-auth-library can
+  // refresh on demand from the refresh token in fully headless runs.
   if (!env.GSC_CLIENT_ID || !env.GSC_CLIENT_SECRET || !env.GSC_REFRESH_TOKEN) {
     return null;
   }

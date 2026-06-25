@@ -7,47 +7,104 @@ services:
       dockerfile: Dockerfile
     container_name: seo-blog-generator
     restart: unless-stopped
-    
-    # Environment variables - configure these in Portainer or use .env file
+
+    # Environment variables - configure these in Portainer or use a .env file.
     environment:
       - NODE_ENV=production
-      # Database connections
+
+      # ── Databases ──────────────────────────────────────────────────────────
       - MYSQL_URL=${MYSQL_URL}
       - MYSQL_SSL=${MYSQL_SSL:-true}
       - MYSQL_SSL_REJECT_UNAUTHORIZED=${MYSQL_SSL_REJECT_UNAUTHORIZED:-true}
       - POSTGRES_URL=${POSTGRES_URL}
       - POSTGRES_SSL_REJECT_UNAUTHORIZED=${POSTGRES_SSL_REJECT_UNAUTHORIZED:-false}
-      # Gemini API
+
+      # ── Runtime / networking ───────────────────────────────────────────────
+      # Force IPv4 DNS (default on) — prevents ETIMEDOUT hangs on hosts whose IPv6
+      # egress is broken while Google/OpenRouter resolve IPv6-first. Set false only on
+      # IPv6-only hosts.
+      - FORCE_IPV4=${FORCE_IPV4:-true}
+      # Pause NEW article generation while keeping the GSC/GA4 review + refresh loop alive.
+      - PAUSE_NEW_POSTS=${PAUSE_NEW_POSTS:-false}
+
+      # ── Generation provider ────────────────────────────────────────────────
+      # 'gemini' or 'openrouter'. With 'openrouter', GENERATION uses OpenRouter (DeepSeek);
+      # EMBEDDINGS always stay on Gemini.
+      - LLM_PROVIDER=${LLM_PROVIDER:-gemini}
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY:-}
+      - OPENROUTER_MODEL=${OPENROUTER_MODEL:-deepseek/deepseek-v4-flash}
+      - OPENROUTER_BASE_URL=${OPENROUTER_BASE_URL:-https://openrouter.ai/api/v1}
+
+      # ── Gemini (embeddings always; generation if LLM_PROVIDER=gemini) ───────
       - GEMINI_API_KEYS=${G_API_KEYS}
       - GEMINI_GENERATION_MODEL=${GEMINI_GENERATION_MODEL:-gemini-2.5-flash}
       - GEMINI_EMBEDDING_MODEL=${GEMINI_EMBEDDING_MODEL:-gemini-embedding-001}
-      # SERP APIs (optional - for keyword discovery)
+
+      # ── Google auth — SERVICE ACCOUNT (preferred; GSC + GA4) ───────────────
+      # Provide the discrete fields, OR the full JSON, OR a key-file path. Only the
+      # email + private_key are strictly required.
+      - GS_client_email=${GS_client_email:-}
+      - GS_private_key=${GS_private_key:-}
+      - GS_project_id=${GS_project_id:-}
+      - GSC_SERVICE_ACCOUNT_JSON=${GSC_SERVICE_ACCOUNT_JSON:-}
+      - GOOGLE_APPLICATION_CREDENTIALS=${GOOGLE_APPLICATION_CREDENTIALS:-}
+
+      # ── Google auth — OAuth (legacy fallback if no service account) ────────
+      - GSC_CLIENT_ID=${GSC_CLIENT_ID:-}
+      - GSC_CLIENT_SECRET=${GSC_CLIENT_SECRET:-}
+      - GSC_REDIRECT_URI=${GSC_REDIRECT_URI:-}
+      - GSC_ACCESS_TOKEN=${GSC_ACCESS_TOKEN:-}
+      - GSC_REFRESH_TOKEN=${GSC_REFRESH_TOKEN:-}
+      - GSC_TOKEN_EXPIRY=${GSC_TOKEN_EXPIRY:-}
+
+      # ── GA4 property IDs (per-site; GSC property URIs live in the DB) ───────
+      - GA4_PROPERTY_ID=${GA4_PROPERTY_ID:-}
+      - GA4_PROPERTY_ID_PRIMESTRIDES=${GA4_PROPERTY_ID_PRIMESTRIDES:-}
+      - GA4_PROPERTY_ID_ABDULREHMAN=${GA4_PROPERTY_ID_ABDULREHMAN:-}
+
+      # ── Keyword discovery (GSC-first) + SERP providers ─────────────────────
+      - KEYWORD_POOL_TARGET=${KEYWORD_POOL_TARGET:-15}
       - SERPSTACK_APIS=${SERPSTACK_APIS:-}
       - SERPSTACK_MAX_LIMIT=${SERPSTACK_MAX_LIMIT:-100}
       - ZENSERP_APIS=${ZENSERP_APIS:-}
       - ZENSERP_MAX_LIMIT=${ZENSERP_MAX_LIMIT:-50}
       - SCRAPPER_X_API=${SCRAPPER_X_API:-}
-      # Scheduling
+
+      # ── Indexing mechanics (sitemap / IndexNow / taxonomy URLs) ────────────
+      - BLOG_URL_PATTERN=${BLOG_URL_PATTERN:-https://{domain}/blog/{slug}}
+      - CATEGORY_URL_PATTERN=${CATEGORY_URL_PATTERN:-https://{domain}/blog/category/{slug}}
+      - TAG_URL_PATTERN=${TAG_URL_PATTERN:-https://{domain}/blog/tag/{slug}}
+      - SITEMAP_DIR=${SITEMAP_DIR:-./out/posts}
+      - INDEXNOW_KEY=${INDEXNOW_KEY:-}
+      - INDEXING_LOOKBACK_DAYS=${INDEXING_LOOKBACK_DAYS:-2}
+      - TAG_INDEX_MIN_POSTS=${TAG_INDEX_MIN_POSTS:-3}
+      - TAXONOMY_PAGE_CONTENT_PER_RUN=${TAXONOMY_PAGE_CONTENT_PER_RUN:-3}
+
+      # ── Content controls ───────────────────────────────────────────────────
+      - CONTENT_READING_LEVEL=${CONTENT_READING_LEVEL:-A2}
+      - READING_MAX_SENTENCE_WORDS=${READING_MAX_SENTENCE_WORDS:-22}
+      - POST_MIN_WORDS=${POST_MIN_WORDS:-1200}
+      - DUPLICATE_SIMILARITY_THRESHOLD=${DUPLICATE_SIMILARITY_THRESHOLD:-0.85}
+      - EXPORT_DIR=${EXPORT_DIR:-./out/posts}
+
+      # ── Scheduling ─────────────────────────────────────────────────────────
       - CRON_SCHEDULE_1=${CRON_SCHEDULE_1:-15 9 * * *}
       - CRON_SCHEDULE_2=${CRON_SCHEDULE_2:-}
-      # Rate limiting
+      - CRON_PG_KEEPALIVE=${CRON_PG_KEEPALIVE:-0 * * * *}
+      - CRON_KNOWLEDGE_SYNC=${CRON_KNOWLEDGE_SYNC:-0 3 * * *}
+
+      # ── GitHub knowledge sync (optional) ───────────────────────────────────
+      - GITHUB_PAT=${GITHUB_PAT:-}
+      - GITHUB_MAX_REPOS=${GITHUB_MAX_REPOS:-150}
+
+      # ── Rate limiting / volume ─────────────────────────────────────────────
       - LLM_MIN_SECONDS_BETWEEN_REQUESTS=${LLM_MIN_SECONDS_BETWEEN_REQUESTS:-10}
-      - LLM_DAILY_REQUEST_CAP=${LLM_DAILY_REQUEST_CAP:-20}
-      - POSTS_PER_RUN=${POSTS_PER_RUN:-4}
-      # Debug
+      - LLM_DAILY_REQUEST_CAP=${LLM_DAILY_REQUEST_CAP:-80}
+      - POSTS_PER_RUN=${POSTS_PER_RUN:-2}
+
+      # ── Debug ──────────────────────────────────────────────────────────────
       - DEBUG_GEMINI=${DEBUG_GEMINI:-0}
-    
-    # Optional: mount volumes for persistent data
-    # Only use this if running locally with the data directory present
-    # volumes:
-    #   - ./data:/app/data:ro  # Author knowledge files (read-only)
-    
-    # No ports needed - this is a background scheduler
-    # Uncomment if you add an API endpoint later
-    # ports:
-    #   - "3000:3000"
-    
-    # Resource limits (adjust based on your server)
+
     deploy:
       resources:
         limits:
@@ -56,30 +113,59 @@ services:
         reservations:
           cpus: '0.25'
           memory: 128M
-    
-    # Logging configuration
+
     logging:
       driver: "json-file"
       options:
         max-size: "10m"
         max-file: "3"
 
-  # Optional: Run migrations separately
-  # Uncomment and run once: docker-compose run --rm migrate
-  # migrate:
-  #   build:
-  #     context: .
-  #     dockerfile: Dockerfile
-  #   command: ["node", "dist/db/migrate.js"]
-  #   environment:
-  #     - MYSQL_URL=${MYSQL_URL}
-  #     - POSTGRES_URL=${POSTGRES_URL}
-  #   profiles:
-  #     - migrate
+  # ── Postgres keep-alive ──────────────────────────────────────────────────────
+  # Writes + reads a heartbeat row every hour so the managed Postgres instance is not
+  # suspended for inactivity. Runs INDEPENDENTLY of the main app (survives its restarts).
+  # The main scheduler also pings hourly (CRON_PG_KEEPALIVE) — this is belt-and-suspenders.
+  pg-keepalive:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pg-keepalive
+    restart: unless-stopped
+    # Loop: ping, then sleep PG_KEEPALIVE_INTERVAL_SECONDS (default hourly = 3600s).
+    command: ["sh", "-c", "while true; do node dist/keepAliveOnce.js; sleep ${PG_KEEPALIVE_INTERVAL_SECONDS:-3600}; done"]
+    environment:
+      - NODE_ENV=production
+      - MYSQL_URL=${MYSQL_URL}                 # required only so env validation passes
+      - POSTGRES_URL=${POSTGRES_URL}
+      - POSTGRES_SSL_REJECT_UNAUTHORIZED=${POSTGRES_SSL_REJECT_UNAUTHORIZED:-false}
+      - FORCE_IPV4=${FORCE_IPV4:-true}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.1'
+          memory: 128M
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+  # Optional: run migrations once -> docker-compose run --rm migrate
+  migrate:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["node", "dist/db/migrate.js"]
+    environment:
+      - MYSQL_URL=${MYSQL_URL}
+      - MYSQL_SSL=${MYSQL_SSL:-true}
+      - MYSQL_SSL_REJECT_UNAUTHORIZED=${MYSQL_SSL_REJECT_UNAUTHORIZED:-true}
+      - POSTGRES_URL=${POSTGRES_URL}
+      - POSTGRES_SSL_REJECT_UNAUTHORIZED=${POSTGRES_SSL_REJECT_UNAUTHORIZED:-false}
+      - FORCE_IPV4=${FORCE_IPV4:-true}
+    profiles:
+      - migrate
 
 networks:
   default:
     name: primestrides-network
-    # Set external: true if you want to use an existing network
-    # Create it first with: docker network create primestrides-network
     external: false

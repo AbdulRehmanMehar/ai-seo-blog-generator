@@ -17,11 +17,87 @@ import { GscSyncService } from '../services/gscSyncService.js';
 import { GscOpportunityDetector } from '../services/gscOpportunityDetector.js';
 import { Ga4EngagementRefreshDetector } from '../services/ga4EngagementRefreshDetector.js';
 import { ContentRefreshService } from '../services/contentRefreshService.js';
+import { SitemapService } from '../services/sitemapService.js';
+import { IndexNowService } from '../services/indexNowService.js';
+import { TaxonomyService } from '../services/taxonomyService.js';
 
 function log(message: string) {
   const ts = new Date().toISOString();
   // eslint-disable-next-line no-console
   console.log(`[${ts}] ${message}`);
+}
+
+/**
+ * Final pipeline step: regenerate sitemaps for every website and (if configured)
+ * submit recently published/refreshed URLs to IndexNow. Best-effort — never throws,
+ * so it can run at the end of both the normal and refresh-only paths.
+ */
+async function runIndexingStep(taxonomy: TaxonomyService) {
+  log('');
+  log('──────────────────────────────────────────────────────────────────────────');
+  log('STEP: TAXONOMY + SITEMAP GENERATION + INDEXNOW SUBMISSION');
+  log('──────────────────────────────────────────────────────────────────────────');
+
+  // 0) Refresh taxonomy: backfill any uncategorized published posts, recompute
+  //    published-post counts + tag indexability, then (re)generate unique hub-page
+  //    content for stale/new categories & indexable tags.
+  try {
+    const backfilled = await taxonomy.backfillUncategorizedPublished(10);
+    if (backfilled > 0) log(`🏷️  Taxonomy backfill: categorized ${backfilled} previously-uncategorized published post(s)`);
+    const counts = await taxonomy.recomputeCountsAndIndexability();
+    // Rebuild internal links for never-linked / rewritten / stale posts (no LLM cost).
+    const links = await taxonomy.refreshInternalLinks(25);
+    if (links.processed > 0) log(`🔗 Internal links: checked ${links.processed} post(s), rebuilt ${links.updated}`);
+    const pages = await taxonomy.generatePendingPageContent(env.TAXONOMY_PAGE_CONTENT_PER_RUN);
+    log(`🏷️  Taxonomy: indexable tags=${counts.indexableTags} | hub content generated this run: categories=${pages.categories} tags=${pages.tags}`);
+  } catch (err) {
+    log(`⚠️  Taxonomy update failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // 1) Sitemaps — the legitimate Google discovery lever. Helps only once the live
+  //    site serves the file and references it from robots.txt / Search Console.
+  try {
+    const sitemap = new SitemapService(mysqlPool);
+    const results = await sitemap.generateAll();
+    if (results.length === 0) {
+      log('🗺️  Sitemap: no published posts yet — nothing to write');
+    } else {
+      for (const r of results) {
+        log(`🗺️  Sitemap written: ${r.filePath} (${r.urlCount} URL(s) for ${r.domain})`);
+      }
+      log('   ↳ Deploy these to https://{domain}/sitemap.xml and reference them in robots.txt for Google to use them.');
+    }
+  } catch (err) {
+    log(`⚠️  Sitemap generation failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // 2) IndexNow — notifies Bing/Yandex/Seznam (NOT Google). Gated on INDEXNOW_KEY.
+  try {
+    const indexNow = new IndexNowService();
+    if (!indexNow.isEnabled()) {
+      log('📨 IndexNow: skipped (INDEXNOW_KEY not set)');
+      return;
+    }
+    const keyFile = await indexNow.writeKeyFile();
+    if (keyFile) log(`📨 IndexNow key file written: ${keyFile} (host it at https://{domain}/<key>.txt)`);
+
+    const sitemap = new SitemapService(mysqlPool);
+    const recent = await sitemap.getRecentlyPublishedUrls(env.INDEXING_LOOKBACK_DAYS);
+    if (recent.length === 0) {
+      log(`📨 IndexNow: no posts published/updated in the last ${env.INDEXING_LOOKBACK_DAYS} day(s) — nothing to submit`);
+      return;
+    }
+    const submissions = await indexNow.submitUrls(recent);
+    for (const s of submissions) {
+      if (s.ok) {
+        log(`📨 IndexNow: submitted ${s.submitted} URL(s) for ${s.domain} (HTTP ${s.status})`);
+      } else {
+        log(`⚠️  IndexNow: submission for ${s.domain} failed: ${s.error}`);
+      }
+    }
+  } catch (err) {
+    log(`⚠️  IndexNow submission failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
 }
 
 function elapsed(startMs: number): string {
@@ -76,6 +152,7 @@ export async function runPipelineOnce() {
   const blogGenerator = new BlogGenerator({ pool: mysqlPool, gemini, knowledge, embeddings, minWords: env.POST_MIN_WORDS });
   const humanizer = new Humanizer({ pool: mysqlPool, gemini, knowledge, minWords: env.POST_MIN_WORDS });
   const postReviewer = new PostReviewer({ pool: mysqlPool, gemini });
+  const taxonomy = new TaxonomyService({ pool: mysqlPool, gemini });
   log('   ✓ All services initialized');
 
   // ──────────────────────────────────────────────────────────────────────────
@@ -114,6 +191,10 @@ export async function runPipelineOnce() {
   } catch (err) {
     log(`⚠️  GSC opportunity detection failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
   }
+
+  // NOTE: GSC near-miss keywords are now imported GSC-FIRST inside Step 1
+  // (keywordService.discoverAndStoreKeywords), which leads with proven-demand queries and
+  // only expands via SERP providers when the pool is thin. No separate import needed here.
 
   // 3) Detect GA4 low-engagement pages and queue refreshes (best-effort)
   try {
@@ -161,9 +242,27 @@ export async function runPipelineOnce() {
     } catch (err) {
       log(`⚠️  Refresh queue processing failed: ${err instanceof Error ? err.message : String(err)}`);
     }
+
+    // Refreshed posts changed — refresh taxonomy, regenerate sitemaps and re-notify IndexNow.
+    await runIndexingStep(taxonomy);
+
     log('');
     log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     log('✅ PIPELINE RUN FINISHED (refresh-priority mode)');
+    log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    return;
+  }
+
+  // PAUSE MODE: keep the GSC/GA4 review + refresh queue running (above), but skip generating
+  // NEW posts. Used to let the existing library settle (e.g. while measuring an indexing
+  // change) while the system still reviews GSC and acts on opportunities/refreshes.
+  if (env.PAUSE_NEW_POSTS) {
+    log('');
+    log('⏸️  NEW-POST GENERATION PAUSED (PAUSE_NEW_POSTS=true).');
+    log('   GSC/GA4 sync, opportunity detection, and the refresh queue still ran above.');
+    await runIndexingStep(taxonomy);
+    log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    log('✅ PIPELINE RUN FINISHED (paused — review/refresh only, no new posts)');
     log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     return;
   }
@@ -172,11 +271,11 @@ export async function runPipelineOnce() {
 
   log('');
   log('──────────────────────────────────────────────────────────────────────────');
-  log('STEP 1: KEYWORD DISCOVERY');
+  log('STEP 1: KEYWORD DISCOVERY (GSC-first; SERP expansion only when pool is thin)');
   log('──────────────────────────────────────────────────────────────────────────');
-  log('🔍 Discovering keywords via SERP providers + Gemini enrichment...');
+  log('🔍 Importing GSC near-miss demand, expanding via SERP only if needed...');
   const keywordResult = await keywordService.discoverAndStoreKeywords();
-  log(`   ✓ Keywords: discovered=${keywordResult.discovered}, new=${keywordResult.inserted}, filtered=${keywordResult.filtered}`);
+  log(`   ✓ Keywords: source=${keywordResult.source}, gsc_nearmiss=${keywordResult.gscImported}, new=${keywordResult.inserted}`);
 
   log('');
   log('──────────────────────────────────────────────────────────────────────────');
@@ -252,10 +351,26 @@ export async function runPipelineOnce() {
         log(`      Failing checks: ${topIssues}${extras}`);
       }
 
+      // Only categorize posts that passed (now published). Failed drafts are picked up by
+      // the backfill in the indexing step once/if they reach 'published' after a rewrite.
+      if (reviewResult.passed) {
+        log('   🏷️  Assigning categories & tags...');
+        try {
+          const tax = await taxonomy.assignTaxonomy(postId);
+          const tagStr = tax.tags.length ? ` | tags: ${tax.tags.join(', ')}` : '';
+          log(`   ✓ Filed under: ${tax.categories.join(', ') || '(uncategorized)'}${tagStr}`);
+        } catch (taxErr) {
+          log(`   ⚠️  Taxonomy assignment failed (continuing): ${taxErr instanceof Error ? taxErr.message : String(taxErr)}`);
+        }
+      }
+
       created += 1;
       log(`   🎉 Post ${created}/${targetPosts} processed!`);
     }
   }
+
+  // Final step: refresh taxonomy + sitemaps + submit newly published URLs to IndexNow.
+  await runIndexingStep(taxonomy);
 
   log('');
   log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');

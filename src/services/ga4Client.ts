@@ -2,6 +2,7 @@ import { google } from 'googleapis';
 import type { OAuth2Client } from 'google-auth-library';
 import { BetaAnalyticsDataClient } from '@google-analytics/data';
 import { env } from '../config/env.js';
+import { buildServiceAccountAuth } from './googleAuth.js';
 
 export interface Ga4PageEngagementRow {
   page: string; // pagePath
@@ -26,7 +27,13 @@ export class Ga4Client {
   constructor(args: { propertyId: string }) {
     this.propertyId = args.propertyId;
 
-    // Reuse the same OAuth2 refresh token as GSC.
+    // Prefer a service account (headless, never expires); fall back to the OAuth2 token.
+    const sa = buildServiceAccountAuth();
+    if (sa) {
+      this.client = new BetaAnalyticsDataClient({ authClient: sa as any });
+      return;
+    }
+
     const auth = new google.auth.OAuth2(
       env.GSC_CLIENT_ID,
       env.GSC_CLIENT_SECRET,

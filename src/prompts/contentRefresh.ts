@@ -1,4 +1,5 @@
 import type { BlogPostStructure } from './blogGeneration.js';
+import { getReadingLevelGuidelines } from './readingLevel.js';
 
 export interface ContentRefreshArgs {
   currentPost: BlogPostStructure;
@@ -45,6 +46,7 @@ CORE PRINCIPLE: Match the searcher's exact language and create urgency without h
 TITLE RULES:
 - NO colons anywhere
 - NO em dashes (—)
+- Use simple, common words a non-native speaker would understand
 - Use the searcher's own words from the "real queries" list below
 - Include a specific number, dollar figure, or timeframe when possible
 - Create a curiosity gap or state the outcome clearly
@@ -137,8 +139,9 @@ ${gscContext.topQueries.map(q => `  • "${q.query}" | ${q.impressions} impr | p
 
   return {
     system: `You are an expert content refresher for B2B software consulting.
-Your job is NOT to rewrite for style — the voice and tone are already correct.
+Your job is NOT to rewrite for style. The voice and tone are already correct.
 Your job is to refresh this post to rank better and capture more search traffic.
+${getReadingLevelGuidelines()}
 
 REFRESH PRINCIPLES:
 1. DEPTH FIRST: Every section must reach 200-300 words. Sections under 200 words are a Google quality failure — expand them with specific examples, real scenarios, and practical detail. This is the primary fix.
@@ -187,6 +190,59 @@ ${args.refreshType === 'section_expand' ? `SECTION EXPAND:
 3. Place it logically within the existing structure` : ''}
 
 Return the COMPLETE updated post as STRICT JSON matching the original schema exactly.
+Only return the JSON — no commentary, no markdown fences.`
+  };
+}
+
+/**
+ * INDEX RESCUE — rewrite a post that Google REFUSED to index (Discovered/Crawled - currently
+ * not indexed). Unlike full_refresh, this is allowed (required) to change the TITLE, because
+ * clickbait/formulaic titles are a primary reason these pages are judged low-value.
+ * Outputs the same BlogPostStructure JSON; the slug is preserved by the caller.
+ */
+export function indexRescuePrompt(args: {
+  currentPost: BlogPostStructure;
+  keyword: string;
+  targetIcp?: string | null;
+}): { system: string; user: string } {
+  const { currentPost, keyword } = args;
+  return {
+    system: `You are rewriting a blog post that Google has REFUSED TO INDEX. It was judged
+low-value, thin, or too similar to other pages. Your single job: make this page so genuinely
+useful and specific that Google has no reason not to index it.
+${getReadingLevelGuidelines()}
+WHY GOOGLE REJECTED IT (fix all of these):
+1. CLICKBAIT / VAGUE TITLE. Titles like "The Hidden Reason...", "...Bleeding Millions...",
+   "...Unless You Fix This" signal low quality. REWRITE the title to be plain, specific, and
+   matched to what a real person would search. State the actual topic and outcome. No hype,
+   no colons, no em dashes, no "hidden/secret/shocking".
+2. NO INFORMATION GAIN. Generic advice anyone could write. ADD real specifics: concrete
+   numbers, a step-by-step method, a named trade-off, a contrarian but defensible opinion,
+   and real first-hand framing ("In my experience...", "When I migrated..."). Never fabricate
+   client names or fake case studies — use the author's own real project experience and
+   general engineering knowledge.
+3. THIN / DUPLICATE. Each section must add something a competitor article would not. Cut
+   filler. Reach at least 1,500 words of genuine substance.
+
+ALSO:
+- Keep the author's first-person voice and any real CTAs.
+- No AI vocabulary (leverage, utilize, delve, robust, seamless, etc.).
+- No colons in the title or headings. No em dashes anywhere.
+- Output the SAME JSON structure as the input post.`,
+    user: `PRIMARY KEYWORD: "${keyword}"
+${args.targetIcp ? `TARGET READER (ICP): ${args.targetIcp}\n` : ''}
+CURRENT POST (Google refused to index this — rewrite it to be index-worthy):
+${JSON.stringify(currentPost, null, 2)}
+
+TASK:
+1. Rewrite the TITLE to be specific and search-intent matched (no clickbait, no colon).
+2. Rewrite/expand every section for real information gain — concrete numbers, steps, opinions,
+   first-hand experience. Each section 200-300 words.
+3. Add 2-3 FAQ items answering specific questions a buyer would actually search.
+4. Total at least 1,500 words of genuine substance.
+5. Keep the same JSON schema and keep it valid.
+
+Return the COMPLETE rewritten post as STRICT JSON matching the input schema exactly.
 Only return the JSON — no commentary, no markdown fences.`
   };
 }
