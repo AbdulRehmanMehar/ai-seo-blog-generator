@@ -6,8 +6,9 @@ import { keywordEnrichmentPrompt } from '../prompts/keywordEnrichment.js';
 import { serpKeywordExtractionPrompt } from '../prompts/serpKeywordExtraction.js';
 import { sleep } from '../utils/sleep.js';
 import { z } from 'zod';
-import { MysqlSerpUsageStore } from './serpUsageStore.js';
+import { MysqlSerpUsageStore, hashApiKey } from './serpUsageStore.js';
 import { loadIcps } from '../knowledge/icpKnowledge.js';
+import { mapConcurrent } from '../utils/concurrency.js';
 
 export interface KeywordServiceDeps {
   pool: MysqlPool;
@@ -57,18 +58,22 @@ export class KeywordService {
    * This allows re-targeting popular keywords with fresh content.
    */
   async recycleOldKeywords(): Promise<number> {
-    // Reset keywords that:
-    // 1. Were created more than 14 days ago (older keywords)
-    // 2. Don't have a post created in the last 30 days
+    // Reset keywords that were used but never resulted in a LIVE post.
+    // CANNIBALIZATION GUARD: a keyword with ANY published post must NEVER return
+    // to the new-post pool — a second post on the same keyword competes with the
+    // first and Google ranks neither well (this exact mechanism produced 230
+    // competing posts across 105 keywords). Freshness for those keywords comes
+    // from REFRESHING the existing post (GSC-driven refresh detectors), never
+    // from writing a competitor.
     const [result] = await this.deps.pool.query<ResultSetHeader>(`
       UPDATE keywords k
       SET k.status = 'new'
       WHERE k.status = 'used'
         AND k.created_at < DATE_SUB(NOW(), INTERVAL 14 DAY)
         AND NOT EXISTS (
-          SELECT 1 FROM posts p 
-          WHERE p.primary_keyword = k.keyword 
-            AND p.created_at > DATE_SUB(NOW(), INTERVAL 30 DAY)
+          SELECT 1 FROM posts p
+          WHERE LOWER(TRIM(p.primary_keyword)) = LOWER(TRIM(k.keyword))
+            AND p.status IN ('published', 'draft', 'pending_review')
         )
       LIMIT 10
     `);
@@ -339,297 +344,85 @@ Return JSON:
 
   private async discoverKeywords(): Promise<DiscoveredKeyword[]> {
     const seeds = [
-      // ===== PAIN POINT KEYWORDS (Problem-aware, high intent) =====
-      'technical debt solutions',
-      'failed software project recovery',
-      'why do software projects fail',
-      'software project rescue services',
-      'legacy system modernization',
-      'fix slow software application',
-      'software security audit services',
-      'technical due diligence checklist',
-      
-      // ===== COST/PRICING KEYWORDS (Decision stage, very high intent) =====
-      'software development cost estimate',
+      // Brand-aligned seeds (July 2026): digital friction for growing businesses,
+      // $20k-$50k buyers (owners, non-technical founders, ops leads). Enterprise
+      // seeds (due diligence, KYC/AML, defense, pharma) deliberately removed.
+
+      // ===== BOOKING, INTAKE & CUSTOMER EXPERIENCE =====
+      'online booking system for small business',
+      'custom booking system development',
+      'why customers abandon online booking',
+      'appointment scheduling software for clinics',
+      'hotel direct booking website',
+      'client intake process automation',
+      'customer portal for small business',
+      'online ordering system for restaurants',
+      'improve website conversion rate small business',
+
+      // ===== DISCONNECTED TOOLS & INTEGRATIONS =====
+      'connect crm to scheduling software',
+      'integrate business software tools',
+      'stop double data entry between systems',
+      'sync data between business apps',
+      'custom api integration for small business',
+      'replace spreadsheets with custom software',
+      'automate data transfer between systems',
+
+      // ===== WORKFLOW AUTOMATION & PRACTICAL AI =====
+      'workflow automation for small business',
+      'automate repetitive office tasks',
+      'ai assistant for small business',
+      'automate client follow up',
+      'automate weekly business reports',
+      'business process automation for growing business',
+      'ai chatbot for customer service small business',
+      'automate invoice processing',
+      'ai automation for recruiting agency',
+      'automate employee onboarding paperwork',
+      'reduce manual admin work',
+      'digitize paper processes',
+
+      // ===== WEBSITE & PERFORMANCE =====
+      'slow website losing customers',
+      'website redesign for growing business',
+      'fix slow web application',
+      'website performance optimization service',
+      'modernize outdated business website',
+
+      // ===== MVP & NON-TECHNICAL FOUNDERS =====
+      'mvp development for non technical founder',
+      'how to build an mvp without a cto',
+      'rebuild app after bad development experience',
+      'developer disappeared mid project',
+      'rescue stalled software project',
+      'app development for startup founder',
+      'custom software for growing business',
       'how much does custom software cost',
-      'mvp development cost breakdown',
-      'cto consulting rates per hour',
-      'app development pricing guide',
-      'software consultant hourly rate',
-      'cost to build a saas product',
-      'offshore development rates 2024',
-      
-      // ===== COMPARISON KEYWORDS (Evaluating options) =====
-      'toptal alternatives for startups',
-      'upwork vs development agency',
-      'in-house vs outsourced development',
-      'fractional cto vs full-time cto',
-      'offshore vs nearshore development',
-      'agency vs freelance developers',
-      'staff augmentation vs dedicated team',
-      
-      // ===== URGENCY/TIMELINE KEYWORDS (Hot leads) =====
-      'fast mvp development',
-      'rapid prototyping services',
-      'quick software development',
-      'emergency software developer',
-      'launch product in 3 months',
-      'accelerate software development',
-      
-      // ===== INDUSTRY VERTICAL KEYWORDS (Niche, high conversion) =====
-      'fintech software development',
-      'healthcare app development hipaa',
-      'real estate software solutions',
-      'logistics software development',
-      'ecommerce platform development',
-      'edtech software development',
-      'legaltech software solutions',
-      
-      // ===== OUTCOME-BASED KEYWORDS (Results-focused) =====
-      'scale startup engineering team',
-      'reduce software development costs',
-      'improve app performance',
-      'automate business processes',
-      'build investor-ready mvp',
-      'prepare startup for acquisition tech',
-      
-      // ===== ROLE-BASED KEYWORDS (Target decision makers) =====
-      'cto services for non-technical founders',
-      'technical advisor for startups',
-      'interim cto for hire',
-      'virtual cto services',
-      'startup technical leadership',
-      'technology strategy consultant',
-      
-      // ===== AI/ML SPECIFIC (Hot market) =====
-      'integrate chatgpt into business',
-      'custom ai solution development',
-      'ai automation for small business',
-      'machine learning consulting services',
-      'build ai powered application',
-      'llm fine tuning services',
-      'ai implementation roadmap',
-      
-      // ===== LONG-TAIL TRANSACTIONAL (Ready to buy) =====
-      'hire senior software developers',
-      'find technical co-founder',
-      'software development rfp template',
-      'development team for equity startup',
-      'white label software development',
-      'software development partnership',
-      
-      // ===== TRUST/CREDIBILITY KEYWORDS =====
-      'vetted software developers',
-      'top rated software consultants',
-      'proven mvp development company',
-      'experienced startup developers',
-      'enterprise grade development team',
+      'phased software development approach',
 
-      // ===== TECH STACK SPECIFIC (Developers searching) =====
-      'node.js development company',
-      'react native app development',
-      'python development services',
-      'typescript consulting',
-      'aws architecture consulting',
-      'kubernetes consulting services',
-      'microservices architecture consultant',
-      'graphql api development',
-      'postgresql database consulting',
-      'redis implementation services',
-      'docker consulting services',
-      'terraform infrastructure consulting',
-
-      // ===== BUSINESS MODEL KEYWORDS =====
-      'saas product development',
-      'marketplace platform development',
-      'subscription app development',
-      'b2b software development',
-      'enterprise software consulting',
-      'mobile app development for startups',
-      'web application development services',
-      'api first development',
-      'headless commerce development',
-      'multi-tenant saas architecture',
-
-      // ===== FUNDING STAGE KEYWORDS (Target by company stage) =====
-      'pre-seed startup tech partner',
-      'series a technical due diligence',
-      'post-funding software development',
-      'bootstrapped startup development',
-      'venture backed startup cto',
-      'investor ready product development',
-      'startup runway optimization tech',
-
-      // ===== QUESTION KEYWORDS (Top of funnel, builds authority) =====
-      'how to find a technical cofounder',
-      'how to hire developers for startup',
-      'how to build an mvp',
-      'how to choose a development partner',
-      'what to look for in a cto',
-      'when to hire a fractional cto',
-      'how to manage offshore developers',
-      'how to reduce development costs',
-      'how to validate startup idea technically',
-      'how to prepare for technical interview as founder',
-
-      // ===== PROBLEM/MISTAKE KEYWORDS =====
+      // ===== CHOOSING A PARTNER / TRUST =====
+      'how to choose a software development partner',
+      'freelance developer vs agency',
+      'questions to ask before hiring a developer',
       'software development red flags',
-      'signs of bad software architecture',
-      'common mvp development mistakes',
-      'why startups fail technically',
-      'software project management issues',
-      'development team communication problems',
-      'technical debt warning signs',
-      'offshore development horror stories',
-      'failed app development recovery',
+      'fixed price vs hourly software development',
+      'trusted developer for long term project',
 
-      // ===== BEST/TOP/REVIEW KEYWORDS =====
-      'best mvp development companies',
-      'top software consulting firms',
-      'best fractional cto services',
-      'best ai development companies',
-      'top startup development agencies',
-      'best practices software development',
-      'best tech stack for startups 2024',
-      'best countries for outsourcing development',
+      // ===== VERTICALS (service businesses we can win) =====
+      'software for property management company',
+      'custom crm for real estate agents',
+      'recruiting agency automation software',
+      'job board development',
+      'software for medical clinic operations',
+      'inventory management for small retailer',
+      'custom dashboard for business owners',
+      'field service scheduling software',
+      'ecommerce site speed optimization',
 
-      // ===== COMPETITOR ALTERNATIVE KEYWORDS =====
-      'turing.com alternatives',
-      'andela alternatives',
-      'toptal competitors',
-      'clutch.co top developers',
-      'fiverr pro alternatives for startups',
-      'gigster alternatives',
-      'software development companies like thoughtbot',
-
-      // ===== LOCATION-BASED KEYWORDS =====
-      'software development usa',
-      'european software developers',
-      'nearshore development latin america',
-      'eastern europe developers',
-      'software development australia',
-      'uk software consulting',
-      'remote software development team',
-      'timezone friendly developers',
-
-      // ===== USE CASE SPECIFIC =====
-      'crm custom development',
-      'inventory management software custom',
-      'booking system development',
-      'payment integration development',
-      'dashboard development services',
-      'data analytics platform development',
-      'workflow automation development',
-      'customer portal development',
-      'admin panel development',
-      'reporting system development',
-
-      // ===== CONTRACT/ENGAGEMENT KEYWORDS =====
-      'time and materials development',
-      'fixed price software development',
-      'retainer software development',
-      'project based development team',
-      'dedicated development team model',
-      'software development sla',
-      'development team augmentation',
-      'managed development services',
-
-      // ===== SECURITY/COMPLIANCE KEYWORDS (High-value clients) =====
-      'soc 2 compliant development',
-      'gdpr compliant software development',
-      'pci dss development services',
-      'hipaa compliant app development',
-      'secure software development practices',
-      'penetration testing services',
-      'security code review services',
-      'compliance software consulting',
-
-      // ===== SCALING KEYWORDS =====
-      'scale application performance',
-      'handle high traffic application',
-      'database optimization consulting',
-      'application scalability audit',
-      'cloud migration services',
-      'serverless architecture consulting',
-      'performance optimization services',
-      'load testing services',
-
-      // ===== PROCESS/METHODOLOGY KEYWORDS =====
-      'agile development consulting',
-      'devops implementation services',
-      'ci cd pipeline setup',
-      'code review services',
-      'technical documentation services',
-      'software architecture review',
-      'development process audit',
-      'engineering team assessment',
-
-      // ===== EXIT/ACQUISITION KEYWORDS (High-value) =====
-      'technical due diligence for acquisition',
-      'prepare codebase for acquisition',
-      'software asset valuation',
-      'tech stack assessment for investors',
-      'clean up technical debt for exit',
-      'startup acquisition technical review',
-
-      // ===== ICP-DERIVED BUSINESS PROBLEM KEYWORDS =====
-      // Modernizing Michael (CTO, legacy .NET modernization)
-      'net to nextjs migration services',
-      'legacy net monolith modernization',
-      'ai integration legacy software',
-      'enterprise software modernization cost',
-      'net codebase ai integration',
-      'legacy system holding back ai',
-      // Compliance-Driven Clara (banking/fintech, KYC/AML)
-      'automate kyc aml processes software',
-      'banking ai compliance automation',
-      'financial services workflow automation',
-      'manual compliance process cost reduction',
-      'high security banking software development',
-      'nodjs postgresql fintech development',
-      // SaaS Founder Sarah (pre-exit, .NET to Next.js)
-      'prepare saas for acquisition technical',
-      'series b technical due diligence',
-      'net frontend to nextjs migration',
-      'acquisition ready codebase cleanup',
-      'boost saas valuation tech stack',
-      // Operation-Ops Owen (supply chain, real-time ops)
-      'real time inventory management software',
-      'warehouse operations ai prediction',
-      'supply chain software integration',
-      'operations dashboard development',
-      'websocket real time dashboard development',
-      // Innovating Isabella (pharma, clinical trial AI)
-      'clinical trial data ai tool',
-      'pharma research software development',
-      'rag implementation custom data',
-      'scientific data visualization software',
-      'custom ai for internal research data',
-      // Retaining Robert (enterprise support, AI voice)
-      'ai customer support voice integration',
-      'enterprise tier one support automation',
-      'ai voice assistant for support teams',
-      'reduce customer support costs ai',
-      // Visionary Victor (luxury brand, headless commerce)
-      'headless nextjs ecommerce development',
-      'laravel to nextjs migration',
-      'ai personalized shopping experience',
-      'luxury brand digital experience development',
-      // Secure Samuel (defense/gov, on-prem AI)
-      'on premise ai deployment secure',
-      'vpc isolated llm implementation',
-      'secure ai no cloud data',
-      'government compliant ai software',
-      // Director David (commercial real estate, AI tenant mgmt)
-      'tenant management ai software',
-      'commercial real estate software custom',
-      'property management ai automation',
-      'building management software integration',
-      // Architectural Arthur (enterprise architecture)
-      'enterprise software architecture consulting',
-      'domain driven design consulting',
-      'microservices migration consulting',
-      'software architecture modernization'
+      // ===== OPERATIONS LEADERSHIP =====
+      'operations dashboard for growing business',
+      'systems for scaling operations team',
+      'business reporting automation'
     ];
 
     // eslint-disable-next-line no-console
@@ -691,10 +484,29 @@ Return JSON:
     // eslint-disable-next-line no-console
     console.log(`   Total raw candidates: ${candidates.length}`);
 
-    const unique = dedupeStrings(candidates.map((c) => c.keyword)).slice(0, 40);
+    // DataForSEO keyword IDEAS — the strongest expansion source since every idea
+    // arrives with REAL Google Ads metrics. Ideas join the candidate pool and
+    // their metrics pre-fill the validation map (no double-paying for them).
+    const knownMetrics = new Map<string, { volume: number | null; cpc: number | null; difficulty: number | null }>();
+    if (this.dataForSeoEnabled()) {
+      try {
+        const ideas = await this.dataForSeoKeywordsForKeywords(shuffledSeeds.slice(0, 20));
+        for (const idea of ideas) {
+          candidates.push({ keyword: idea.keyword, commercialSerpSignal: false });
+          knownMetrics.set(idea.keyword.toLowerCase(), { volume: idea.volume, cpc: idea.cpc, difficulty: idea.difficulty });
+        }
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] 💡 DataForSEO ideas: ${ideas.length} (with real metrics)`);
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ⚠️ DataForSEO ideas failed (continuing without): ${e instanceof Error ? e.message : String(e)}`);
+      }
+    }
+
+    const unique = dedupeStrings(candidates.map((c) => c.keyword)).slice(0, this.dataForSeoEnabled() ? 80 : 40);
     // eslint-disable-next-line no-console
     console.log(`[KeywordService] 🔄 After dedup: ${unique.length} unique keywords`);
-    
+
     if (unique.length === 0) {
       // eslint-disable-next-line no-console
       console.log(`[KeywordService] ⚠️ No keywords found from any provider!`);
@@ -706,6 +518,37 @@ Return JSON:
     const enriched = await this.enrichWithGemini(unique);
     // eslint-disable-next-line no-console
     console.log(`[KeywordService] ✅ Enrichment complete: ${enriched.length} keywords`);
+
+    // ── REAL-DEMAND VALIDATION GATE (DataForSEO) ─────────────────────────────
+    // Replace the LLM's estimated metrics with real Google Ads data and REJECT
+    // anything with zero/unknown volume — no more posts targeting phantom demand.
+    // (GSC near-miss keywords never pass through here; they are proven demand.)
+    if (this.dataForSeoEnabled()) {
+      try {
+        const missing = enriched
+          .map((k) => k.keyword.toLowerCase())
+          .filter((k) => !knownMetrics.has(k));
+        const fetched = await this.dataForSeoSearchVolume(missing);
+        for (const [k, m] of fetched) knownMetrics.set(k, m);
+
+        const before = enriched.length;
+        const validated = enriched.filter((k) => {
+          const m = knownMetrics.get(k.keyword.toLowerCase());
+          if (!m || !m.volume || m.volume <= 0) return false;
+          k.volume = m.volume;
+          if (m.cpc != null) k.cpc = m.cpc;
+          if (m.difficulty != null) k.difficulty = m.difficulty;
+          return true;
+        });
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ✅ Real-demand gate: ${validated.length} kept, ${before - validated.length} rejected (zero/unknown search volume)`);
+        enriched.length = 0;
+        enriched.push(...validated);
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ⚠️ DataForSEO validation failed (keeping LLM estimates): ${e instanceof Error ? e.message : String(e)}`);
+      }
+    }
 
     // If SERP indicates ads, bias intent toward commercial.
     const commercialSignalSet = new Set(
@@ -963,52 +806,54 @@ Return JSON:
     return out;
   }
 
-  private async dataForSeoKeywordsForKeywords(seeds: string[]): Promise<DiscoveredKeyword[]> {
-    const url = 'https://api.dataforseo.com/v3/keywords_data/google_ads/keywords_for_keywords/live';
+  dataForSeoEnabled(): boolean {
+    return Boolean(env.DATAFORSEO_LOGIN && env.DATAFORSEO_PASSWORD);
+  }
+
+  /**
+   * Shared DataForSEO POST: auth, timeout, error surface, spend metering.
+   * Every response reports its cost; we log it and count the request in
+   * serp_usage_monthly alongside the free SERP providers.
+   */
+  private async dataForSeoPost(path: string, tasks: unknown[]): Promise<any> {
     const auth = Buffer.from(`${env.DATAFORSEO_LOGIN}:${env.DATAFORSEO_PASSWORD}`).toString('base64');
-
-    const body = seeds.map((seed) => ({
-      keywords: [seed],
-      language_name: 'English',
-      location_name: 'United States'
-    }));
-
-    const res = await fetch(url, {
+    const res = await fetch(`https://api.dataforseo.com/v3${path}`, {
       method: 'POST',
-      headers: {
-        authorization: `Basic ${auth}`,
-        'content-type': 'application/json'
-      },
-      body: JSON.stringify(body)
+      headers: { authorization: `Basic ${auth}`, 'content-type': 'application/json' },
+      body: JSON.stringify(tasks),
+      signal: AbortSignal.timeout(60_000)
     });
-
     if (!res.ok) {
-      const text = await res.text();
-      throw new Error(`DataForSEO HTTP ${res.status}: ${text}`);
+      throw new Error(`DataForSEO HTTP ${res.status}: ${(await res.text()).slice(0, 300)}`);
     }
+    const json: any = await res.json();
+    try {
+      await this.serpUsage.increment('dataforseo', hashApiKey(env.DATAFORSEO_LOGIN ?? 'dataforseo'));
+    } catch { /* metering is best-effort */ }
+    if (typeof json?.cost === 'number' && json.cost > 0) {
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] 💰 DataForSEO cost: $${json.cost.toFixed(4)}`);
+    }
+    return json;
+  }
 
-    type Resp = {
-      tasks?: Array<{
-        result?: Array<{
-          items?: Array<{
-            keyword?: string;
-            search_volume?: number;
-            competition?: number;
-            cpc?: number;
-          }>;
-        }>;
-      }>;
-    };
-
-    const json = (await res.json()) as Resp;
+  private static parseAdsKeywordItems(json: any): DiscoveredKeyword[] {
     const items: DiscoveredKeyword[] = [];
-
-    for (const task of json.tasks ?? []) {
-      for (const result of task.result ?? []) {
-        for (const it of result.items ?? []) {
-          const keyword = it.keyword?.trim();
+    for (const task of json?.tasks ?? []) {
+      if (task?.status_code && task.status_code !== 20000) {
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ⚠️ DataForSEO task failed: ${task.status_code} ${task.status_message ?? ''}`);
+        continue;
+      }
+      for (const result of task?.result ?? []) {
+        // google_ads endpoints return keyword objects either directly in result[]
+        // (search_volume) or nested under result[].items (keywords_for_keywords).
+        const entries = Array.isArray(result?.items) ? result.items : [result];
+        for (const it of entries) {
+          const keyword = typeof it?.keyword === 'string' ? it.keyword.trim() : '';
           if (!keyword) continue;
-          const competition = typeof it.competition === 'number' ? it.competition : null;
+          const competition = typeof it.competition === 'number' ? it.competition
+            : typeof it.competition_index === 'number' ? it.competition_index / 100 : null;
           const difficulty = competition == null ? null : Math.round(Math.max(0, Math.min(1, competition)) * 100);
           items.push({
             keyword,
@@ -1020,8 +865,115 @@ Return JSON:
         }
       }
     }
-
     return items;
+  }
+
+  /**
+   * Keyword IDEAS with real metrics for a set of seeds. Google Ads allows up to
+   * 20 seed keywords per task, so seeds are chunked — one task fee per chunk,
+   * not per seed.
+   */
+  private async dataForSeoKeywordsForKeywords(seeds: string[]): Promise<DiscoveredKeyword[]> {
+    if (!this.dataForSeoEnabled() || seeds.length === 0) return [];
+    const clean = dedupeStrings(seeds.map((s) => s.trim()).filter(Boolean));
+    const chunks: string[][] = [];
+    for (let i = 0; i < clean.length; i += 20) chunks.push(clean.slice(i, i + 20));
+    // Live endpoints accept ONE task per request (max 20 seed keywords each);
+    // chunks are independent, so fetch several concurrently instead of one at a time.
+    const results = await mapConcurrent(chunks, 5, async (chunk) => {
+      const json = await this.dataForSeoPost('/keywords_data/google_ads/keywords_for_keywords/live', [
+        { keywords: chunk, language_name: 'English', location_name: 'United States' }
+      ]);
+      return KeywordService.parseAdsKeywordItems(json);
+    });
+    return results.flat();
+  }
+
+  /**
+   * Real Google Ads metrics for EXACT keywords (the validation workhorse).
+   * Public so audit/diagnostic scripts can reuse it. Up to 1000 keywords per
+   * task; chunked at 700 for headroom. Returns a lowercase-keyed map.
+   */
+  async dataForSeoSearchVolume(
+    keywords: string[]
+  ): Promise<Map<string, { volume: number | null; cpc: number | null; difficulty: number | null }>> {
+    const out = new Map<string, { volume: number | null; cpc: number | null; difficulty: number | null }>();
+    if (!this.dataForSeoEnabled()) return out;
+
+    // Google Ads rejects keywords with special symbols or >10 words, and ONE bad
+    // keyword fails its whole task. Sanitize, remember sanitized→originals, and
+    // chunk small enough that a failing chunk loses little.
+    const sanitize = (k: string) =>
+      k.toLowerCase().replace(/[^a-z0-9\s-]/g, ' ').replace(/\s+/g, ' ').trim();
+    const originalsBySanitized = new Map<string, string[]>();
+    for (const original of keywords) {
+      const key = original.trim().toLowerCase();
+      const s = sanitize(key);
+      if (s.length < 3 || s.length > 80 || s.split(' ').length > 10) continue;
+      const arr = originalsBySanitized.get(s) ?? [];
+      if (!arr.includes(key)) arr.push(key);
+      originalsBySanitized.set(s, arr);
+    }
+    const clean = [...originalsBySanitized.keys()];
+    if (clean.length === 0) return out;
+
+    // Live endpoints accept ONE task per request; chunks are independent, so
+    // fetch several concurrently instead of one at a time.
+    const volChunks: string[][] = [];
+    for (let i = 0; i < clean.length; i += 200) volChunks.push(clean.slice(i, i + 200));
+    await mapConcurrent(volChunks, 5, async (chunk, ci) => {
+      try {
+        const json = await this.dataForSeoPost('/keywords_data/google_ads/search_volume/live', [
+          { keywords: chunk, language_name: 'English', location_name: 'United States' }
+        ]);
+        for (const item of KeywordService.parseAdsKeywordItems(json)) {
+          const metrics = { volume: item.volume, cpc: item.cpc, difficulty: item.difficulty };
+          const resultKey = item.keyword.toLowerCase();
+          out.set(resultKey, metrics);
+          // Map back to every original spelling that sanitized to this keyword.
+          for (const original of originalsBySanitized.get(sanitize(resultKey)) ?? []) {
+            out.set(original, metrics);
+          }
+        }
+      } catch (e) {
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ⚠️ search_volume chunk ${ci + 1} failed: ${e instanceof Error ? e.message : String(e)}`);
+      }
+    });
+    return out;
+  }
+
+  /**
+   * Live Google SERP top-10 for a keyword (DataForSEO). This is the winnability
+   * evidence: Ads "difficulty" measures advertiser competition, not organic —
+   * only the actual page 1 tells us whether our domain can crack it.
+   */
+  async dataForSeoSerpTop(keyword: string): Promise<Array<{ position: number; domain: string; title: string }>> {
+    if (!this.dataForSeoEnabled()) return [];
+    const json = await this.dataForSeoPost('/serp/google/organic/live/regular', [
+      { keyword, language_name: 'English', location_name: 'United States', depth: 10 }
+    ]);
+    const out: Array<{ position: number; domain: string; title: string }> = [];
+    for (const task of json?.tasks ?? []) {
+      if (task?.status_code && task.status_code !== 20000) {
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ⚠️ SERP task failed for "${keyword}": ${task.status_code} ${task.status_message ?? ''}`);
+        continue;
+      }
+      for (const result of task?.result ?? []) {
+        for (const it of result?.items ?? []) {
+          if (it?.type && it.type !== 'organic') continue;
+          const domain = typeof it?.domain === 'string' ? it.domain : '';
+          if (!domain) continue;
+          out.push({
+            position: typeof it.rank_absolute === 'number' ? it.rank_absolute : out.length + 1,
+            domain,
+            title: typeof it.title === 'string' ? it.title : ''
+          });
+        }
+      }
+    }
+    return out.slice(0, 10);
   }
 
   private async googleSuggest(seed: string): Promise<string[]> {

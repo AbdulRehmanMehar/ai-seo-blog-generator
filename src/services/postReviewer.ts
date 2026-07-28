@@ -6,6 +6,8 @@ import type { BlogPostStructure } from '../prompts/blogGeneration.js';
 import {
   reviewerPrompt,
   AI_VOCABULARY_BLOCKLIST,
+  BRAND_VOCABULARY_BLOCKLIST,
+  CLIENT_NAME_BLOCKLIST,
   FORBIDDEN_OPENINGS,
   PASS_THRESHOLD,
   BASE_SCORE,
@@ -168,6 +170,56 @@ export class PostReviewer {
           message: `AI vocabulary found: "${word}" (${matches.length} instance${matches.length > 1 ? 's' : ''})`,
           penalty: -10 * matches.length,
           suggestion: `Replace "${word}" with a more natural alternative.`,
+        });
+      }
+    }
+
+    // Check for NDA-covered client/employer names (must never appear in content)
+    for (const name of CLIENT_NAME_BLOCKLIST) {
+      const regex = new RegExp(name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
+      const matches = fullText.match(regex);
+      if (matches) {
+        issues.push({
+          code: 'CLIENT_NAME_LEAK',
+          message: `NDA-covered client name found: "${name}" (${matches.length} instance${matches.length > 1 ? 's' : ''})`,
+          penalty: -30 * matches.length,
+          suggestion: 'Describe the work anonymously ("a large e-commerce migration I led", "a desktop replay product I built") — never name the client.',
+        });
+      }
+    }
+
+    // Check for brand-banned vocabulary (flashy words the Brand OS forbids)
+    for (const word of BRAND_VOCABULARY_BLOCKLIST) {
+      const regex = new RegExp(`\\b${word}\\b`, 'gi');
+      const matches = fullText.match(regex);
+      if (matches) {
+        issues.push({
+          code: 'OFF_BRAND_VOCABULARY',
+          message: `Brand-banned word found: "${word}" (${matches.length} instance${matches.length > 1 ? 's' : ''})`,
+          penalty: -10 * matches.length,
+          suggestion: `Remove "${word}". The brand is never flashy — state the concrete benefit plainly instead.`,
+        });
+      }
+    }
+
+    // Check for dollar-outcome promises (the brand never promises revenue/savings)
+    const dollarPromisePatterns: Array<{ re: RegExp; label: string }> = [
+      { re: /\bpays? for itself\b/i, label: 'payback promise' },
+      { re: /\bpayback period\b/i, label: 'payback promise' },
+      { re: /\broi\b/i, label: 'ROI claim' },
+      { re: /\bsav(?:e|es|ing) you (?:roughly |about |around |up to )?\$\d/i, label: 'promised dollar savings' },
+      { re: /\bwill save (?:roughly |about |around |up to )?\$\d/i, label: 'promised dollar savings' },
+      { re: /\bcost(?:s|ing)? you (?:roughly |about |around |up to )?\$\d[\d,.]*\s*(?:k|m|million|thousand)?\s*(?:a|per|every) (?:year|month|week|day)\b/i, label: 'asserted dollar cost' },
+      { re: /\b(?:guaranteed?|proven) roi\b/i, label: 'ROI promise' },
+    ];
+    for (const { re, label } of dollarPromisePatterns) {
+      const m = fullText.match(re);
+      if (m) {
+        issues.push({
+          code: 'DOLLAR_PROMISE',
+          message: `Dollar-outcome promise found (${label}): "${m[0]}"`,
+          penalty: -15,
+          suggestion: 'We never promise revenue or savings. State the friction operationally (hours, delays, abandoned bookings) or cite a real past outcome from a real project.',
         });
       }
     }

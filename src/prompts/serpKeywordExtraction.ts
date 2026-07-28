@@ -4,19 +4,19 @@ export function serpKeywordExtractionPrompt(args: {
 }) {
   return {
     system:
-      `You are an SEO researcher specialising in ONE niche: legacy software modernization and pre-acquisition / pre-Series-B technical debt cleanup for SaaS, HealthTech, and Fintech companies.
+      `You are an SEO researcher specialising in ONE niche: removing digital friction for growing businesses through modern software, workflow automation, and practical AI.
 
-TARGET BUYERS: CTOs and VPs of Engineering at aging B2B SaaS companies preparing for a Series B raise, and SaaS founders preparing for acquisition who have legacy .NET or aging codebases.
+TARGET BUYERS: owners of growing service businesses (hospitality, clinics, real estate, recruiting, e-commerce, home services; 15-150 staff), non-technical founders of digital products, and operations leads — buyers of $20k-$50k engagements who decide directly.
 
 NICHE LOCK: Only extract keywords directly relevant to:
-- Legacy .NET or aging codebase modernization
-- Technical debt before Series B or acquisition
-- Pre-acquisition technical due diligence preparation
-- Valuation impact of technical debt
-- AI integration blocked by legacy systems
-- Code quality, architecture review, or security gaps pre-exit
+- Booking, scheduling, intake, and customer-portal friction
+- Disconnected tools, integrations, and double data entry
+- Manual workflows and reporting ready for automation or AI assistants
+- Slow or aging websites and web apps hurting customer experience
+- MVP builds/rebuilds and rescuing stalled products for non-technical founders
+- Choosing and working with a technology partner at this budget level
 
-REJECT any keyword related to: logistics, pharma, real estate, defense, retail, luxury, telecom, general hiring, general software development unrelated to this niche.
+REJECT any keyword aimed at enterprise buyers: defense, bank compliance (KYC/AML), pharma, Fortune 500 IT, Series B / acquisition / technical due diligence, or anything whose natural stakes are millions of dollars.
 
 Do not invent facts — only derive phrases from the provided titles and snippets.`,
     user: `SEED:
@@ -27,8 +27,8 @@ ${JSON.stringify(args.organicResults, null, 2)}
 
 TASK:
 - Generate 8–15 unique keyword ideas as search queries closely related to the seed AND within the niche.
-- Prefer queries that signal buying intent: "before acquisition", "due diligence", "valuation", "Series B", "legacy modernization", "technical debt cost"
-- Include question-style queries a CTO or founder would literally type at 11pm when they have a problem.
+- Prefer queries that signal buying intent: "custom booking system for", "automate client intake", "connect X to Y", "hire developer for", "replace spreadsheets with", "AI assistant for small business"
+- Include question-style queries a business owner, founder, or ops manager would literally type at 11pm when they have a problem.
 - Keep each item 3–12 words.
 - SKIP any keyword outside the niche definition.
 

@@ -48,13 +48,34 @@ export interface AuthorKnowledgeJson {
   };
 }
 
+export interface CaseStudy {
+  id: string;
+  title: string;
+  business_type: string;
+  icp_fit: string;
+  friction_before: string;
+  what_changed: string;
+  evidence: string[];
+  tech: string;
+  source: 'client work' | 'own product';
+}
+
+export interface CaseStudiesJson {
+  usage_rules: string[];
+  case_studies: CaseStudy[];
+  client_validation: Array<{ quote: string; attribution: string }>;
+  platform_track_record: { facts: string[]; usage: string };
+}
+
 export interface AuthorKnowledge {
   raw: string;
   structured?: AuthorKnowledgeJson;
+  caseStudies?: CaseStudiesJson;
 }
 
 const MARKDOWN_PATH = './data/author_knowledge.md';
 const JSON_PATH = './data/author_knowledge.json';
+const CASE_STUDIES_PATH = './data/case_studies.json';
 
 export async function loadAuthorKnowledge(): Promise<AuthorKnowledge> {
   const mdPath = path.resolve(process.cwd(), MARKDOWN_PATH);
@@ -112,7 +133,21 @@ export async function loadAuthorKnowledge(): Promise<AuthorKnowledge> {
     // JSON file doesn't exist or is invalid - continue without it
   }
 
-  return { raw, structured };
+  // Load case studies (optional) — the NDA-safe real evidence pool for content
+  let caseStudies: CaseStudiesJson | undefined;
+  try {
+    const caseStudiesPath = path.resolve(process.cwd(), CASE_STUDIES_PATH);
+    if (existsSync(caseStudiesPath)) {
+      caseStudies = JSON.parse(await fs.readFile(caseStudiesPath, 'utf8')) as CaseStudiesJson;
+      // eslint-disable-next-line no-console
+      console.log(`[loadAuthorKnowledge] Case studies loaded (${caseStudies.case_studies.length})`);
+    }
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.log('[loadAuthorKnowledge] Case studies read failed (optional):', err);
+  }
+
+  return { raw, structured, caseStudies };
 }
 
 /**
@@ -171,6 +206,28 @@ ${s.seo_focus_keywords.join(', ')}`);
     sections.push(`## Conversion Strategy
 - **Primary CTA:** ${s.conversion_strategy.primary_cta}
 - **Positioning:** ${s.conversion_strategy.positioning}`);
+  }
+
+  // Real, NDA-safe evidence pool — the ONLY client stories content may use
+  if (knowledge.caseStudies) {
+    const cs = knowledge.caseStudies;
+    sections.push(`## REAL PROJECT EVIDENCE (NDA-safe — use ONLY these stories, never invent others)
+${cs.usage_rules.map((r) => `- ${r}`).join('\n')}
+
+${cs.case_studies
+  .map((c) => `### ${c.title} (${c.business_type})
+Friction before: ${c.friction_before}
+What changed: ${c.what_changed}
+Evidence (past tense only): ${c.evidence.join('; ')}
+Tech (mention last, if at all): ${c.tech}`)
+  .join('\n\n')}
+
+### Client validation (quote anonymously, attribution as written)
+${cs.client_validation.map((v) => `- "${v.quote}" — ${v.attribution}`).join('\n')}
+
+### Public track record
+${cs.platform_track_record.facts.map((f) => `- ${f}`).join('\n')}
+(${cs.platform_track_record.usage})`);
   }
 
   // Add raw markdown content (includes GitHub repos section)

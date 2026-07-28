@@ -1,0 +1,2465 @@
+{
+  "decisions": [
+    {
+      "slug": "architecture-review-board-bottleneck-catalyst",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "how-to-pick-strategic-partner-legacy-modernization-without-leaving-a-mess",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "logistics-software-partner-warehouse-realities",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "legacy-net-ai-breakthroughs",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "kyc-aml-compliance-costs-automation",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "7-mistakes-ai-customer-support-partner",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "property-acquisition-value-tech-modernization",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "the-10-million-secret-cutting-kyc-aml-costs-without-data-leak",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "outsourcing-logistics-software-risks-avoid-supply-chain-halt",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "build-ai-react-native-apps-value",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "5-mistakes-hiring-fractional-cto",
+      "action": "repurpose",
+      "chosen_keyword": "fractional cto",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "slow-ai-cost-enterprise-customer-success",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "bank-tech-debt-acquisition-value-fix",
+      "action": "merge_only"
+    },
+    {
+      "slug": "luxury-ecommerce-nextjs-mvp-speed",
+      "action": "merge_only"
+    },
+    {
+      "slug": "halve-bank-compliance-automation-risk-white-label-engineering",
+      "action": "merge_only"
+    },
+    {
+      "slug": "why-bank-ctos-pick-wrong-tech-partner",
+      "action": "merge_only"
+    },
+    {
+      "slug": "enterprise-modernization-hidden-cost",
+      "action": "merge_only"
+    },
+    {
+      "slug": "4m-mvp-mistake-valuation-drain",
+      "action": "merge_only"
+    },
+    {
+      "slug": "ai-architecture-flaws-compliance-risk-fines",
+      "action": "merge_only"
+    },
+    {
+      "slug": "andela-alternative-search-real-problem",
+      "action": "merge_only"
+    },
+    {
+      "slug": "the-hidden-reason-outsourced-software-projects-fail",
+      "action": "repurpose",
+      "chosen_keyword": "outsource software projects",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "why-founders-pick-wrong-software-partner",
+      "action": "merge_only"
+    },
+    {
+      "slug": "staff-augmentation-vs-staffing-trap",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-costs-it-consulting-singapore",
+      "action": "redirect_new",
+      "chosen_keyword": "digital consulting firms",
+      "slug_fit": "poor"
+    },
+    {
+      "slug": "net-nextjs-migration-global-supply-chain-risk",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "secure-software-development-slow-breach-risk",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "why-enterprise-dev-team-slow-faster-shipping",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "ai-inventory-systems-pay-for-themselves",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "bank-kyc-aml-automation-stalling-security",
+      "action": "redirect_new",
+      "chosen_keyword": "aml software for banks",
+      "slug_fit": "poor"
+    },
+    {
+      "slug": "smart-building-ai-projects-failing",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "legacy-modernization-partner-red-flags",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "due-diligence-api-first-saas-exit",
+      "action": "repurpose",
+      "chosen_keyword": "api first approach",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "costly-api-first-mistakes-startups",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "api-first-strategies-get-it-right",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "why-hidden-technical-debt-kills-legacy-systems",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "flow-builder-automation-failing-ai-fix",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "bank-kyc-aml-automation-mistake",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "1990s-support-automation-churn-stop",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "secure-open-protocol-integrations-defense-tech",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "slow-systems-peak-season-revenue-loss",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "pre-exit-code-review-due-diligence-fail",
+      "action": "repurpose",
+      "chosen_keyword": "security code review",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "unlock-faster-drug-approvals-without-regulatory-risk",
+      "action": "repurpose",
+      "chosen_keyword": "best regulatory compliance software",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "7-engineering-traps-compliance-tech-startups",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "2-million-dollar-mistake-delaying-enterprise-modernization",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "7-hidden-costs-delaying-refactoring-defense-tech-exit",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "ai-governance-liability-cloud-defense",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "property-ai-vision-stalled-costing-you-400k",
+      "action": "repurpose",
+      "chosen_keyword": "digital transformation consulting companies",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "build-scientific-ai-research-tool-pharma",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "healthtech-modernization-leadership-moves",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-custom-software-development-cost",
+      "action": "merge_only"
+    },
+    {
+      "slug": "luxury-brand-custom-software-budget-mistakes",
+      "action": "merge_only"
+    },
+    {
+      "slug": "luxury-brand-slow-website-bleeding-millions",
+      "action": "merge_only"
+    },
+    {
+      "slug": "digital-transformation-stalls-hidden-ops-data-gaps",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": "poor",
+      "reason": "[keyword already assigned — demoted to merge]"
+    },
+    {
+      "slug": "the-5m-mistake-principal-architects-make-20-year-build",
+      "action": "merge_only"
+    },
+    {
+      "slug": "ecommerce-build-costs-peak-season-control",
+      "action": "merge_only"
+    },
+    {
+      "slug": "ecommerce-platform-hidden-costs",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-architecture-flaw-property-portfolio",
+      "action": "merge_only"
+    },
+    {
+      "slug": "enterprise-software-projects-exploding-firm-delivers",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": "good",
+      "reason": "[keyword already assigned — demoted to merge]"
+    },
+    {
+      "slug": "hidden-traps-enterprise-software-consulting",
+      "action": "merge_only"
+    },
+    {
+      "slug": "breakthrough-trapped-bad-architecture",
+      "action": "merge_only"
+    },
+    {
+      "slug": "ai-architecture-traps-killing-initiatives",
+      "action": "merge_only"
+    },
+    {
+      "slug": "luxury-mvp-mistake-digital-flagship",
+      "action": "merge_only"
+    },
+    {
+      "slug": "drug-discovery-stalled-manual-data-governance",
+      "action": "merge_only"
+    },
+    {
+      "slug": "pharma-compliance-automation-data-workflows",
+      "action": "merge_only"
+    },
+    {
+      "slug": "defense-ai-platform-breach-risk",
+      "action": "merge_only"
+    },
+    {
+      "slug": "fintech-project-failures-guarantee-delivery-security",
+      "action": "merge_only"
+    },
+    {
+      "slug": "fixed-price-agile-trap-enterprise-modernization",
+      "action": "merge_only"
+    },
+    {
+      "slug": "why-fixed-price-software-development-fails-ultimate-strategy",
+      "action": "merge_only"
+    },
+    {
+      "slug": "secure-fixed-price-defense-software",
+      "action": "merge_only"
+    },
+    {
+      "slug": "cut-product-launch-time-fractional-cto",
+      "action": "merge_only"
+    },
+    {
+      "slug": "your-global-logistics-firm-risks-gdpr-fines-hidden-data-traps",
+      "action": "redirect_new",
+      "chosen_keyword": "global trade compliance software",
+      "slug_fit": "poor"
+    },
+    {
+      "slug": "hiring-software-companies-ops-mistakes",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-secret-hiring-software-development-company",
+      "action": "merge_only"
+    },
+    {
+      "slug": "pharma-ai-breakthrough-risk",
+      "action": "merge_only"
+    },
+    {
+      "slug": "custom-property-app-budget-hidden-mistakes",
+      "action": "redirect_new",
+      "chosen_keyword": "how much does it cost to create an app",
+      "slug_fit": "poor"
+    },
+    {
+      "slug": "the-200k-mistake-principal-architects-make-choosing-partner",
+      "action": "merge_only"
+    },
+    {
+      "slug": "the-200k-mistake-hiring-ai-support",
+      "action": "redirect_new",
+      "chosen_keyword": "hire developers for startup",
+      "slug_fit": "poor"
+    },
+    {
+      "slug": "lead-developer-hires-kill-exit-timeline",
+      "action": "redirect_new",
+      "chosen_keyword": "hire android app developer",
+      "slug_fit": "poor"
+    },
+    {
+      "slug": "startup-engineer-hiring-failures",
+      "action": "repurpose",
+      "chosen_keyword": "hire programmers",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "the-hidden-reasons-luxury-app-budget-explodes",
+      "action": "merge_only"
+    },
+    {
+      "slug": "legacy-ops-systems-killing-peak-season-revenue-modernize",
+      "action": "merge_only"
+    },
+    {
+      "slug": "luxury-ecommerce-performance-risks-holiday-season",
+      "action": "merge_only"
+    },
+    {
+      "slug": "peak-season-revenue-risk-performance-gaps",
+      "action": "merge_only"
+    },
+    {
+      "slug": "cut-downtime-risk-load-testing-saas",
+      "action": "merge_only"
+    },
+    {
+      "slug": "luxury-site-slow-lcp-cost-1-4m",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "logistics-software-realtime-data-revenue-loss",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "offshore-development-managed-services-architect-mistake",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "your-clunky-meeting-room-system-bleeding-value-ai-upgrade-fix",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "saas-exit-timeline-ai-automation",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "fast-mvp-churn-risk-empathetic-ai-core",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "rapid-mvp-not-so-rapid",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "ai-support-mistakes-cost-millions",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": "poor",
+      "reason": "[keyword already assigned — demoted to merge]"
+    },
+    {
+      "slug": "7-ai-strategies-cut-supply-chain-operational-risk",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "real-time-dashboards-always-late-reliability",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "why-your-reporting-system-stays-slow",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "luxury-ecommerce-inventory-blind-spots-revenue-loss",
+      "action": "merge_only",
+      "chosen_keyword": null,
+      "slug_fit": null
+    },
+    {
+      "slug": "scale-up-software-crashing-pressure",
+      "action": "merge_only"
+    },
+    {
+      "slug": "intelligence-data-visualization-vulnerabilities",
+      "action": "merge_only"
+    },
+    {
+      "slug": "operational-dashboard-peak-season-failure",
+      "action": "merge_only"
+    },
+    {
+      "slug": "legacy-ai-security-breach-risk",
+      "action": "merge_only"
+    },
+    {
+      "slug": "2-million-dollar-security-mistake-bespoke-software",
+      "action": "merge_only"
+    },
+    {
+      "slug": "7-hidden-security-flaws-healthtech-saas-valuation",
+      "action": "merge_only"
+    },
+    {
+      "slug": "insecure-code-costing-millions-retail-operations",
+      "action": "merge_only"
+    },
+    {
+      "slug": "defense-tech-software-process-hidden-gaps-breach",
+      "action": "merge_only"
+    },
+    {
+      "slug": "enterprise-software-security-risks",
+      "action": "merge_only"
+    },
+    {
+      "slug": "ai-drug-discovery-security-risk-pharma",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-architectural-flaws-defense-ai-breach",
+      "action": "merge_only"
+    },
+    {
+      "slug": "legacy-system-partner-cost-build-twenty-years",
+      "action": "merge_only"
+    },
+    {
+      "slug": "choosing-dev-partner-luxury-brand-digital-vibe",
+      "action": "repurpose",
+      "chosen_keyword": "digital strategy firms",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "software-audit-20-year-longevity",
+      "action": "merge_only"
+    },
+    {
+      "slug": "software-rfp-security-breach-mistake",
+      "action": "merge_only"
+    },
+    {
+      "slug": "stop-writing-rfps-unmaintainable-code-build-for-20-years",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-cost-luxury-digital-team-salaries",
+      "action": "merge_only"
+    },
+    {
+      "slug": "telecom-it-transformation-mistake-churn",
+      "action": "repurpose",
+      "chosen_keyword": "digital transformation strategy consulting",
+      "slug_fit": "good"
+    },
+    {
+      "slug": "hidden-tech-upgrade-saas-acquisition-value",
+      "action": "merge_only"
+    },
+    {
+      "slug": "retail-ops-systems-breaking-not-old-code",
+      "action": "merge_only"
+    },
+    {
+      "slug": "m-a-tech-due-diligence-cost-protection",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-support-tech-bombs-acquisition-collapse",
+      "action": "merge_only"
+    },
+    {
+      "slug": "luxury-brand-replatforming-5-million-mistake",
+      "action": "merge_only"
+    },
+    {
+      "slug": "the-hidden-secret-scaling-dubai-tech-without-full-time-cto",
+      "action": "merge_only"
+    },
+    {
+      "slug": "why-internal-dev-teams-break-support-tech-ai",
+      "action": "merge_only"
+    },
+    {
+      "slug": "hidden-200k-cost-technical-debt-slows-operations",
+      "action": "merge_only"
+    },
+    {
+      "slug": "secure-digital-products-neobank-competition",
+      "action": "merge_only"
+    },
+    {
+      "slug": "logistics-automation-losing-millions-inventory-prediction",
+      "action": "merge_only"
+    },
+    {
+      "slug": "automation-errors-pharma-discovery",
+      "action": "merge_only"
+    }
+  ],
+  "duplicates": [
+    {
+      "id": "d24e74c7-1577-49a5-915a-3bb45a0b1e50",
+      "slug": "architecture-review-board-bottleneck-catalyst",
+      "title": "How to Fix a Slow Software Architecture Review Board",
+      "keyword": "software architecture review board",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 316,
+      "canonicalSlug": "hidden-cost-architecture-drift-arb-legacy",
+      "candidates": []
+    },
+    {
+      "id": "2e8e17f6-3adc-40f2-bfb0-0aad8ce0b138",
+      "slug": "how-to-pick-strategic-partner-legacy-modernization-without-leaving-a-mess",
+      "title": "How to Choose a Partner for Legacy System Modernization",
+      "keyword": "strategic tech partner for legacy system modernization",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 146,
+      "canonicalSlug": "pharma-ai-insights-tech-partners-dont-speak-science",
+      "candidates": []
+    },
+    {
+      "id": "a3047137-7ee2-4056-8a98-d8ace8455126",
+      "slug": "logistics-software-partner-warehouse-realities",
+      "title": "How to Choose a Logistics Software Development Company in Mumbai That Prevents Revenue Loss",
+      "keyword": "logistics software development company mumbai",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 139,
+      "canonicalSlug": "hidden-five-million-cost-wrong-logistics-software-partner",
+      "candidates": []
+    },
+    {
+      "id": "bf76cff0-7ed2-47d1-a5b4-86d24feff631",
+      "slug": "legacy-net-ai-breakthroughs",
+      "title": "How to Connect AI to Legacy .NET Systems for Faster Drug Discovery",
+      "keyword": "strategic ai integration for complex .net",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 55,
+      "canonicalSlug": "ai-connection-legacy-systems-no-new-mess",
+      "candidates": []
+    },
+    {
+      "id": "4a7cc0ec-58c2-4eb0-87e8-bd5085c9d76f",
+      "slug": "kyc-aml-compliance-costs-automation",
+      "title": "Three Automation Steps to Reduce KYC AML Compliance Costs",
+      "keyword": "preventable kyc aml costs automation",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 53,
+      "canonicalSlug": "why-bank-kyc-aml-spend-not-ai-problem",
+      "candidates": []
+    },
+    {
+      "id": "6feca86d-d71e-4b88-bade-180b8d5ff308",
+      "slug": "7-mistakes-ai-customer-support-partner",
+      "title": "Software Development Firm Comparison for AI Customer Support",
+      "keyword": "software development firm comparison",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 46,
+      "canonicalSlug": "stop-hiring-generic-ai-dev-teams-hidden-cost-robotic-support-churn",
+      "candidates": []
+    },
+    {
+      "id": "07465709-ce6d-4dbb-ac60-2c8e92806126",
+      "slug": "property-acquisition-value-tech-modernization",
+      "title": "How Technical Due Diligence Can Add Millions to Your Property's Sale Price",
+      "keyword": "increase acquisition valuation technical due diligence",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 42,
+      "canonicalSlug": "healthtech-acquisition-value-drop-hidden-code-issues",
+      "candidates": []
+    },
+    {
+      "id": "e9f941b0-f031-41d1-918f-fe0525fcd087",
+      "slug": "the-10-million-secret-cutting-kyc-aml-costs-without-data-leak",
+      "title": "How to Cut KYC AML Costs by 50% Using Secure AI",
+      "keyword": "financial institution compliance cost reduction ai",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 35,
+      "canonicalSlug": "10m-compliance-drain-manual-kyc",
+      "candidates": []
+    },
+    {
+      "id": "672a11c0-417e-4077-a3d3-180df25b385f",
+      "slug": "outsourcing-logistics-software-risks-avoid-supply-chain-halt",
+      "title": "How to Find a Logistics Software Development Company in India That Understands Your Supply Chain",
+      "keyword": "logistics software development company in india",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 26,
+      "canonicalSlug": "real-time-inventory-dashboard-peak-season-failure",
+      "candidates": []
+    },
+    {
+      "id": "b842a07f-f0a2-406d-ba89-f98dbfb8532e",
+      "slug": "build-ai-react-native-apps-value",
+      "title": "How to Build AI-Powered React Native Apps That Actually Work",
+      "keyword": "react native app development ai",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 21,
+      "canonicalSlug": "ai-react-native-app-failure-avoidance",
+      "candidates": []
+    },
+    {
+      "id": "14b7db60-c09f-4a53-960d-fe0949a0dda6",
+      "slug": "5-mistakes-hiring-fractional-cto",
+      "title": "How to Hire a Fractional CTO 5 Mistakes and What to Do Instead",
+      "keyword": "how to hire a fractional cto",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 15,
+      "canonicalSlug": "fractional-cto-saas-exit-timeline",
+      "candidates": [
+        {
+          "keyword": "fractional cto",
+          "volume": 1600,
+          "cpc": 32.57,
+          "ov": 2,
+          "score": 23.257
+        }
+      ]
+    },
+    {
+      "id": "7eaddbf6-bf4d-4038-88f5-2bbcd574c387",
+      "slug": "slow-ai-cost-enterprise-customer-success",
+      "title": "How to Reduce Enterprise Churn with Rapid AI Support Development",
+      "keyword": "rapid software development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 12,
+      "canonicalSlug": "ship-ai-features-faster-logistics",
+      "candidates": []
+    },
+    {
+      "id": "1a59de84-f805-4c14-b944-05acf85fb112",
+      "slug": "bank-tech-debt-acquisition-value-fix",
+      "title": "How Tech Debt Lowers Your Bank's Acquisition Value and What to Fix",
+      "keyword": "tech debt reduction for acquisition valuation",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "excluded",
+      "impressions": 9,
+      "canonicalSlug": "legacy-system-time-bomb-hidden-debt",
+      "candidates": []
+    },
+    {
+      "id": "c4ea7ee3-30e3-408c-a39c-5b1ecad14b07",
+      "slug": "luxury-ecommerce-nextjs-mvp-speed",
+      "title": "Stop Your Luxury E-commerce Modernization From Stalling Here's The MVP Approach That Delivers Flawless Next.js Speed",
+      "keyword": "startup mvp development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "indexed",
+      "impressions": 6,
+      "canonicalSlug": "7-hidden-red-flags-startup-mvp-development-company",
+      "candidates": []
+    },
+    {
+      "id": "5abffa28-afe8-484d-a50a-4327fde42bf0",
+      "slug": "halve-bank-compliance-automation-risk-white-label-engineering",
+      "title": "White Label Engineering for Safer Bank Compliance Automation",
+      "keyword": "white label software engineering",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 6,
+      "canonicalSlug": "telecom-internal-dev-churn-mistake",
+      "candidates": [
+        {
+          "keyword": "bank compliance software",
+          "volume": 170,
+          "cpc": 89,
+          "ov": 2,
+          "score": 28.9
+        }
+      ]
+    },
+    {
+      "id": "e1783486-84e5-4fd5-bbea-976c2b255ba1",
+      "slug": "why-bank-ctos-pick-wrong-tech-partner",
+      "title": "How to Find a Strategic Technology Partner for Your Bank",
+      "keyword": "strategic technology partners",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 5,
+      "canonicalSlug": "the-hidden-reason-your-strategic-tech-partner-is-failing-ai-mandate",
+      "candidates": []
+    },
+    {
+      "id": "9b4f9a0a-caff-4f3d-81d6-21fc90fe7399",
+      "slug": "enterprise-modernization-hidden-cost",
+      "title": "The Real Cost of Delaying Enterprise Software Modernization",
+      "keyword": "cost of delaying enterprise software modernization",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 4,
+      "canonicalSlug": "pharma-data-delays-cost-500-million",
+      "candidates": []
+    },
+    {
+      "id": "2bc455c0-a866-4f2b-a389-b4956722af75",
+      "slug": "4m-mvp-mistake-valuation-drain",
+      "title": "How to Build a Fast MVP That Is Ready for Acquisition",
+      "keyword": "fast mvp development",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 4,
+      "canonicalSlug": "how-to-ship-saas-mvp-faster-ultimate-guide",
+      "candidates": []
+    },
+    {
+      "id": "5839232f-6876-4186-881d-1b30901b662c",
+      "slug": "ai-architecture-flaws-compliance-risk-fines",
+      "title": "How to Minimize Financial Compliance Risk with AI Architecture",
+      "keyword": "minimizing financial compliance risk with ai",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 4,
+      "canonicalSlug": "bank-ai-security-checklists-fall-short-data-safety",
+      "candidates": []
+    },
+    {
+      "id": "5ea96ab5-adbf-44f0-9e9e-79bd5fd4c832",
+      "slug": "andela-alternative-search-real-problem",
+      "title": "How to Find a Product Focused Engineer Instead of an Andela Alternative",
+      "keyword": "andela alternatives",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 3,
+      "canonicalSlug": "generic-staffing-fails-bank-compliance-automation",
+      "candidates": []
+    },
+    {
+      "id": "754567d0-98e3-4e6e-ae4d-a4d8cd87fdb2",
+      "slug": "the-hidden-reason-outsourced-software-projects-fail",
+      "title": "How to Choose an Outsource Software Development Company That Ships",
+      "keyword": "outsource software development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 2,
+      "canonicalSlug": "internal-dev-team-stuck-1990s-outsource-software-development-company",
+      "candidates": [
+        {
+          "keyword": "outsource software projects",
+          "volume": 70,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "bfa9dc4e-f4e8-4394-8e5a-2219aef3de9a",
+      "slug": "why-founders-pick-wrong-software-partner",
+      "title": "How to Choose a Custom Software Development Company for Your Startup",
+      "keyword": "how to choose a custom software development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 1,
+      "canonicalSlug": "ai-support-churn-3-mistakes",
+      "candidates": []
+    },
+    {
+      "id": "38d15326-4394-499b-b4a3-21740b7208f3",
+      "slug": "staff-augmentation-vs-staffing-trap",
+      "title": "Staff Augmentation vs Staffing The Real Difference for Startups",
+      "keyword": "staff augmentation vs staffing",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 1,
+      "canonicalSlug": "flexible-dev-team-valuation-impact",
+      "candidates": []
+    },
+    {
+      "id": "360908cd-5ae1-4fb6-a0c6-1fa08da2688b",
+      "slug": "hidden-costs-it-consulting-singapore",
+      "title": "How Top IT Consulting Firms in Singapore Waste Startup Money and What to Do",
+      "keyword": "top it consulting firms in singapore",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 1,
+      "canonicalSlug": "generic-it-consulting-saas-exit-valuation",
+      "candidates": [
+        {
+          "keyword": "top digital transformation consulting firms",
+          "volume": 50,
+          "cpc": null,
+          "ov": 3,
+          "score": 30
+        },
+        {
+          "keyword": "digital consulting firms",
+          "volume": 320,
+          "cpc": 32.64,
+          "ov": 2,
+          "score": 23.264
+        },
+        {
+          "keyword": "best digital transformation consulting firms",
+          "volume": 70,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "a1765e75-a304-4ad9-8011-14fbf1c38415",
+      "slug": "net-nextjs-migration-global-supply-chain-risk",
+      "title": ".NET to Next.js migration partner for enterprise logistics",
+      "keyword": ".net to next.js migration partner for enterprise",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "legacy-dotnet-ai-security-gaps-bank",
+      "candidates": []
+    },
+    {
+      "id": "d2fbe00e-ea7d-426b-a753-083c4684a3bb",
+      "slug": "secure-software-development-slow-breach-risk",
+      "title": "How to Speed Up Secure Software Development and Reduce Breach Risk",
+      "keyword": "accelerate software development",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "luxury-digital-projects-drag-perfect-experiences-faster",
+      "candidates": []
+    },
+    {
+      "id": "0c74c57b-df2d-4942-90ca-165d3ad77285",
+      "slug": "why-enterprise-dev-team-slow-faster-shipping",
+      "title": "How to Fix Slow Enterprise Development and Ship Features Faster",
+      "keyword": "accelerate software development agency",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "ops-team-misses-deadlines-ship-critical-features-faster",
+      "candidates": []
+    },
+    {
+      "id": "4ebec5dd-80ac-49fa-bb21-f14fbc3c2b2b",
+      "slug": "ai-inventory-systems-pay-for-themselves",
+      "title": "AI Driven Inventory Optimization Software Cost and How to Build Systems That Deliver ROI",
+      "keyword": "ai driven inventory optimization software cost",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "indexed",
+      "impressions": 0,
+      "canonicalSlug": "pharma-inventory-ai-software-saves-millions",
+      "candidates": []
+    },
+    {
+      "id": "84b4f270-6c01-44f4-b168-ab3a722cd140",
+      "slug": "bank-kyc-aml-automation-stalling-security",
+      "title": "How to Safely Automate KYC AML with AI and Save $10M Yearly",
+      "keyword": "ai driven kyc aml process optimization for banks",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "ai-kyc-aml-legacy-mess",
+      "candidates": [
+        {
+          "keyword": "aml software for banks",
+          "volume": 140,
+          "cpc": 74.01,
+          "ov": 2,
+          "score": 27.401
+        }
+      ]
+    },
+    {
+      "id": "6b167875-906c-4a1e-b568-f927d4fac8c4",
+      "slug": "smart-building-ai-projects-failing",
+      "title": "How to Successfully Connect AI with Your Legacy Property Systems",
+      "keyword": "ai in legacy system modernization",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "outdated-support-tech-churn",
+      "candidates": []
+    },
+    {
+      "id": "a07e9d09-82c4-47d1-9fa6-5000b1c2c998",
+      "slug": "legacy-modernization-partner-red-flags",
+      "title": "How to Choose a Legacy Modernization Partner Without Costing Your Firm $500,000",
+      "keyword": "andela alternatives",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "offshore-code-maintenance-nightmare-principal-architects",
+      "candidates": []
+    },
+    {
+      "id": "c46199a4-4fd2-4cd2-ad68-8bd6f4242189",
+      "slug": "due-diligence-api-first-saas-exit",
+      "title": "How API First Development Prepares Your SaaS for Acquisition",
+      "keyword": "api first development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "operations-platform-fast-tech-integration",
+      "candidates": [
+        {
+          "keyword": "api first approach",
+          "volume": 110,
+          "cpc": 44.86,
+          "ov": 2,
+          "score": 24.486
+        }
+      ]
+    },
+    {
+      "id": "37a77c1e-a0c2-47e0-8046-2d499637fb61",
+      "slug": "costly-api-first-mistakes-startups",
+      "title": "7 API-First Development Mistakes and How to Avoid Them",
+      "keyword": "api first development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "operations-platform-fast-tech-integration",
+      "candidates": []
+    },
+    {
+      "id": "7548a177-48b5-4521-a7f1-5be0f79a6254",
+      "slug": "api-first-strategies-get-it-right",
+      "title": "Why Most API First Strategies Miss the Point and How to Get It Right",
+      "keyword": "api first software development",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "api-first-secure-ai-intelligence-data",
+      "candidates": []
+    },
+    {
+      "id": "1a46e837-07f1-4d27-9e09-9498f9bf42c8",
+      "slug": "why-hidden-technical-debt-kills-legacy-systems",
+      "title": "Why Hidden Technical Debt Is Killing Your Legacy System",
+      "keyword": "application modernization consulting",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "modernize-property-management-software-operations",
+      "candidates": []
+    },
+    {
+      "id": "e5cfbfe1-ff87-4672-bf60-9c1a30049307",
+      "slug": "flow-builder-automation-failing-ai-fix",
+      "title": "How to Automate Your Business Processes with a Flow Builder and AI",
+      "keyword": "automate business processes with flow builder",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "future-proof-property-ai-automation",
+      "candidates": []
+    },
+    {
+      "id": "e549a47a-0335-4841-87ba-c27bab1301d3",
+      "slug": "bank-kyc-aml-automation-mistake",
+      "title": "How to Automate Business Processes with Flow Builder for KYC AML and Save $10M",
+      "keyword": "automate business processes with flow builder",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "future-proof-property-ai-automation",
+      "candidates": []
+    },
+    {
+      "id": "171379c9-c576-426b-a24a-27f530ac2fcf",
+      "slug": "1990s-support-automation-churn-stop",
+      "title": "How to Automate Business Processes with Flow Builder and Stop Churn",
+      "keyword": "automate business processes with flow builder",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "future-proof-property-ai-automation",
+      "candidates": []
+    },
+    {
+      "id": "ef238b8e-7bb9-408e-b1bc-8ef5b785644d",
+      "slug": "secure-open-protocol-integrations-defense-tech",
+      "title": "How to Secure Building Automation System Integration with Open Protocols for Defense",
+      "keyword": "building automation system integration with open protocols",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "why-enterprise-legacy-hidden-liability",
+      "candidates": []
+    },
+    {
+      "id": "e421fd6b-2bc5-4619-8c6d-05cbf2acbc9b",
+      "slug": "slow-systems-peak-season-revenue-loss",
+      "title": "The Business Value of Fixing Technical Debt for Peak Season Retail",
+      "keyword": "business value of technical debt remediation",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "legacy-system-invisible-tax-costing-400k-annually",
+      "candidates": []
+    },
+    {
+      "id": "b12cfac9-3b1a-4b54-b6df-6c5947e8fe7a",
+      "slug": "pre-exit-code-review-due-diligence-fail",
+      "title": "5 Important Checks for a Pre-Exit Code Review in HealthTech SaaS",
+      "keyword": "code review companies",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hidden-code-flaws-saas-acquisition-deal",
+      "candidates": [
+        {
+          "keyword": "security code review",
+          "volume": 170,
+          "cpc": 50.19,
+          "ov": 2,
+          "score": 25.019
+        }
+      ]
+    },
+    {
+      "id": "5d394661-6569-4d44-b7dc-2a18ce6cfecd",
+      "slug": "unlock-faster-drug-approvals-without-regulatory-risk",
+      "title": "Custom AI vs Compliance Software Companies for Faster Drug Approvals",
+      "keyword": "compliance software companies",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "generic-compliance-software-failure-banks",
+      "candidates": [
+        {
+          "keyword": "best regulatory compliance software",
+          "volume": 70,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "c7f0ef75-e00b-4311-a6dd-062b65f5253d",
+      "slug": "7-engineering-traps-compliance-tech-startups",
+      "title": "7 Engineering Traps That Kill Compliance Tech Startups and How to Fix Them",
+      "keyword": "compliance tech companies",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "compliance-tech-national-security-risk",
+      "candidates": []
+    },
+    {
+      "id": "cd8455e6-a993-4ac5-bd8f-c4477b0ff697",
+      "slug": "2-million-dollar-mistake-delaying-enterprise-modernization",
+      "title": "The Cost of Delaying Enterprise Software Modernization for Logistics Firms",
+      "keyword": "cost of delaying enterprise software modernization",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "pharma-data-delays-cost-500-million",
+      "candidates": []
+    },
+    {
+      "id": "6084962d-945b-4143-a9f4-a188539e1484",
+      "slug": "7-hidden-costs-delaying-refactoring-defense-tech-exit",
+      "title": "The Real Cost of Delaying Software Refactoring for Your Defense Tech Exit",
+      "keyword": "cost of delaying software refactoring pre-exit",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "support-tech-churn-delay",
+      "candidates": []
+    },
+    {
+      "id": "7edba59b-14ef-459c-9d27-d4018cf99c5e",
+      "slug": "ai-governance-liability-cloud-defense",
+      "title": "How to Build a Secure AI Governance Framework for Your Bank",
+      "keyword": "cto consulting for ai governance in banking",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "bank-ai-data-leak-governance",
+      "candidates": []
+    },
+    {
+      "id": "7c34cff6-39f2-45ef-b7ed-fb2450865b8d",
+      "slug": "property-ai-vision-stalled-costing-you-400k",
+      "title": "CTO Consulting Costs for Real Estate Digital Transformation",
+      "keyword": "cto consulting rates for digital transformation",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "luxury-digital-transformation-erodes-brand-value",
+      "candidates": [
+        {
+          "keyword": "digital transformation management consulting",
+          "volume": 1900,
+          "cpc": 23.29,
+          "ov": 3,
+          "score": 32.329
+        },
+        {
+          "keyword": "digital transformation consulting companies",
+          "volume": 590,
+          "cpc": 13.88,
+          "ov": 3,
+          "score": 31.388
+        },
+        {
+          "keyword": "best digital transformation consulting firms",
+          "volume": 70,
+          "cpc": null,
+          "ov": 3,
+          "score": 30
+        }
+      ]
+    },
+    {
+      "id": "1f8d61fa-4395-41cd-96c1-57bf22762792",
+      "slug": "build-scientific-ai-research-tool-pharma",
+      "title": "How to Build Your Scientific AI Research Tool Without Generic Agencies",
+      "keyword": "cto consulting rates for enterprise modernization",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "enterprise-modernization-20-year-solution-failure",
+      "candidates": []
+    },
+    {
+      "id": "714355be-0e97-4238-a9b1-8803d4dee2de",
+      "slug": "healthtech-modernization-leadership-moves",
+      "title": "Stop Your HealthTech Modernization From Dying a Slow Death 3 Leadership Moves to Reclaim Your Exit Timeline",
+      "keyword": "cto leadership for it modernization adoption",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "it-modernization-adoption-stalling",
+      "candidates": []
+    },
+    {
+      "id": "d2d58f83-774d-4145-8c2d-aa1bff0fb4f0",
+      "slug": "hidden-custom-software-development-cost",
+      "title": "How to Calculate the True Cost of Custom Software Development for Customer Support",
+      "keyword": "custom software development cost",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "why-custom-software-budget-explodes-accurate-estimates",
+      "candidates": []
+    },
+    {
+      "id": "88dac5dc-6835-4d75-95b3-54ac463beada",
+      "slug": "luxury-brand-custom-software-budget-mistakes",
+      "title": "3 Mistakes That Waste Money and Hurt Your Brand",
+      "keyword": "custom software for startups",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "why-off-the-shelf-software-is-a-trap-for-startups",
+      "candidates": []
+    },
+    {
+      "id": "2a651d1c-aee4-48cb-b08f-6e4f612070a8",
+      "slug": "luxury-brand-slow-website-bleeding-millions",
+      "title": "Custom Software for Startups Helps You Build a Unique Product Experience",
+      "keyword": "custom software for startups",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "ai-support-1990s-churn-cost",
+      "candidates": []
+    },
+    {
+      "id": "a880f52c-5400-42fb-afd7-1702e19386b5",
+      "slug": "digital-transformation-stalls-hidden-ops-data-gaps",
+      "title": "3 Data Gaps That Kill Digital Transformation and How to Fix Them",
+      "keyword": "digital transformation consulting services",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "digital-flagship-losing-soul-reclaim-it",
+      "candidates": [
+        {
+          "keyword": "digital transformation consulting companies",
+          "volume": 590,
+          "cpc": 13.88,
+          "ov": 3,
+          "score": 31.388
+        },
+        {
+          "keyword": "best digital transformation consulting firms",
+          "volume": 70,
+          "cpc": null,
+          "ov": 3,
+          "score": 30
+        },
+        {
+          "keyword": "digital transformation strategy consulting",
+          "volume": 90,
+          "cpc": null,
+          "ov": 3,
+          "score": 30
+        }
+      ]
+    },
+    {
+      "id": "0cb30551-46ba-464f-9ca1-8cd6bac94c33",
+      "slug": "the-5m-mistake-principal-architects-make-20-year-build",
+      "title": "How to Plan a Digital Transformation That Lasts 20 Years",
+      "keyword": "digital transformation consulting services",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "digital-flagship-losing-soul-reclaim-it",
+      "candidates": [
+        {
+          "keyword": "best digital transformation consulting firms",
+          "volume": 70,
+          "cpc": null,
+          "ov": 3,
+          "score": 30
+        },
+        {
+          "keyword": "digital transformation strategy consulting",
+          "volume": 90,
+          "cpc": null,
+          "ov": 3,
+          "score": 30
+        },
+        {
+          "keyword": "digital transformation consulting services and solutions",
+          "volume": 50,
+          "cpc": null,
+          "ov": 3,
+          "score": 30
+        }
+      ]
+    },
+    {
+      "id": "dac8b898-9ef1-47ed-b34c-50f72bbd33ec",
+      "slug": "ecommerce-build-costs-peak-season-control",
+      "title": "How to Control Ecommerce Website Development Cost in India",
+      "keyword": "ecommerce website development cost in india",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "luxury-digital-flagship-revenue-nextjs-ai",
+      "candidates": []
+    },
+    {
+      "id": "08ddd86c-556d-4b81-a6bf-8b2d5534db5a",
+      "slug": "ecommerce-platform-hidden-costs",
+      "title": "Ecommerce Website Development Cost in India for Operations Leaders",
+      "keyword": "ecommerce website development cost in india",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "luxury-digital-flagship-revenue-nextjs-ai",
+      "candidates": []
+    },
+    {
+      "id": "02501f4a-2776-437e-8742-8ecb2b8ef02e",
+      "slug": "hidden-architecture-flaw-property-portfolio",
+      "title": "How Old Property Systems Cost You Money and What to Do",
+      "keyword": "enterprise software architecture consulting",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "7-hidden-architecture-flaws-enterprise-growth",
+      "candidates": []
+    },
+    {
+      "id": "dbbdab46-3208-4fe7-b59a-42ee5e1293ea",
+      "slug": "enterprise-software-projects-exploding-firm-delivers",
+      "title": "How to Choose an Enterprise Software Consulting Firm That Solves Real Problems",
+      "keyword": "enterprise software consulting firms",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "outdated-support-tech-churn-stop",
+      "candidates": [
+        {
+          "keyword": "digital consulting firms",
+          "volume": 320,
+          "cpc": 32.64,
+          "ov": 2,
+          "score": 23.264
+        },
+        {
+          "keyword": "business transformation consulting firms",
+          "volume": 70,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "14215b78-5c90-4148-89b2-5985e2fd1f16",
+      "slug": "hidden-traps-enterprise-software-consulting",
+      "title": "5 Hidden Traps When Choosing an Enterprise Software Consulting Firm",
+      "keyword": "enterprise software consulting firms",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "why-enterprise-ai-consultants-fail-pharma-cios",
+      "candidates": [
+        {
+          "keyword": "business transformation consulting firms",
+          "volume": 70,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "e82bad70-5f35-494a-b84b-25d53af409c6",
+      "slug": "breakthrough-trapped-bad-architecture",
+      "title": "How to Fix Bad Pharma Architecture That Delays Drug Discovery",
+      "keyword": "facilitating software architecture review",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "architecture-reviews-accelerate-development",
+      "candidates": []
+    },
+    {
+      "id": "143c3df0-06f3-4a70-b4f1-526f83a73f6f",
+      "slug": "ai-architecture-traps-killing-initiatives",
+      "title": "How to Run a Software Architecture Review for AI Systems",
+      "keyword": "facilitating software architecture review",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "ai-support-churn-internal-dev-trap",
+      "candidates": []
+    },
+    {
+      "id": "937791a5-17f7-46ee-98c0-3d1b8bd5fb8d",
+      "slug": "luxury-mvp-mistake-digital-flagship",
+      "title": "How to Build a Fast MVP for Luxury Brands Without Losing Quality",
+      "keyword": "fast mvp development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "rapidly-deploying-secure-ai-intelligence",
+      "candidates": []
+    },
+    {
+      "id": "b9a2fd64-71b9-4a04-b5f0-9e31460a2f4d",
+      "slug": "drug-discovery-stalled-manual-data-governance",
+      "title": "How Financial Institutions Cut KYC AML Costs With AI Automation",
+      "keyword": "financial institution kyc aml automation cost savings",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "cloud-kyc-aml-automation-trap-defense-contractors-millions",
+      "candidates": []
+    },
+    {
+      "id": "72d83a85-5f41-45eb-a265-c1de9ec6f578",
+      "slug": "pharma-compliance-automation-data-workflows",
+      "title": "The Financial Risk of Manual Compliance Processes in Pharma and How Custom AI Fixes It",
+      "keyword": "financial risk of manual compliance processes",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hidden-compliance-risks-property-management",
+      "candidates": []
+    },
+    {
+      "id": "e5e727de-a74b-4cd0-ba04-46c619f1e16d",
+      "slug": "defense-ai-platform-breach-risk",
+      "title": "How a Fintech Software Development Company Builds Secure AI for National Security",
+      "keyword": "fintech software development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "fintech-development-traps-startup-failure",
+      "candidates": []
+    },
+    {
+      "id": "c71a11d9-8cb8-4215-a60a-7421380a4587",
+      "slug": "fintech-project-failures-guarantee-delivery-security",
+      "title": "How to Choose a Fintech Software Development Company That Delivers on Time and Budget",
+      "keyword": "fintech software development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "fintech-development-traps-startup-failure",
+      "candidates": []
+    },
+    {
+      "id": "1d3705dd-e73f-4fce-8b04-2519070e4fce",
+      "slug": "fixed-price-agile-trap-enterprise-modernization",
+      "title": "The Fixed Price Agile Trap Why it Fails Enterprise Modernization",
+      "keyword": "fixed price contract agile software development",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "fixed-price-agile-20-year-system-longevity",
+      "candidates": []
+    },
+    {
+      "id": "c6978d36-4bf5-4b82-a8d7-cda7e504ee76",
+      "slug": "why-fixed-price-software-development-fails-ultimate-strategy",
+      "title": "A Simple Plan for Fixed Price Software Development That Works for Startups",
+      "keyword": "fixed price software development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "fixed-price-software-budget-explosion-20-year-systems",
+      "candidates": []
+    },
+    {
+      "id": "07851bfc-2a6d-4ff3-8ec8-9a91154b88f1",
+      "slug": "secure-fixed-price-defense-software",
+      "title": "Fixed Price Software for Defense Projects That Keeps Security Strong",
+      "keyword": "fixed price software development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "fixed-price-software-budget-explosion-20-year-systems",
+      "candidates": []
+    },
+    {
+      "id": "358a4b03-156b-44a3-ba74-d5f2c87718ba",
+      "slug": "cut-product-launch-time-fractional-cto",
+      "title": "Cut Your Product Launch Time by 40 Percent with a Strategic Fractional CTO",
+      "keyword": "fractional cto services",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "luxury-e-commerce-fractional-cto",
+      "candidates": []
+    },
+    {
+      "id": "e6898c19-d530-43a8-b42d-7164ea9fbef5",
+      "slug": "your-global-logistics-firm-risks-gdpr-fines-hidden-data-traps",
+      "title": "How to Achieve GDPR Compliance for Your Global Logistics Firm",
+      "keyword": "gdpr compliance software development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "pharma-ai-gdpr-fines-unbreakable-governance",
+      "candidates": [
+        {
+          "keyword": "global trade compliance software",
+          "volume": 110,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "8a2c1944-5c37-4e39-8e08-55eddb999212",
+      "slug": "hiring-software-companies-ops-mistakes",
+      "title": "How to Find a Software Company That Works for Your Warehouse Operations",
+      "keyword": "hire software development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hire-software-development-company-ai-support",
+      "candidates": [
+        {
+          "keyword": "companies that hire software engineers",
+          "volume": 140,
+          "cpc": 13.76,
+          "ov": 2,
+          "score": 21.376
+        },
+        {
+          "keyword": "companies that hire software developers",
+          "volume": 50,
+          "cpc": 13.74,
+          "ov": 2,
+          "score": 21.374
+        }
+      ]
+    },
+    {
+      "id": "7fd9137f-77d6-48e4-8fa7-80b7d3ef446e",
+      "slug": "hidden-secret-hiring-software-development-company",
+      "title": "How to Hire a Software Development Company That Delivers Results",
+      "keyword": "hire software development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hire-software-development-company-ai-support",
+      "candidates": []
+    },
+    {
+      "id": "35aa8fa1-7ddb-4ae8-9eb6-0006bf015eae",
+      "slug": "pharma-ai-breakthrough-risk",
+      "title": "How to Hire a Software Development Company for Pharma AI Projects",
+      "keyword": "hire software development company",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hire-software-development-company-ai-support",
+      "candidates": []
+    },
+    {
+      "id": "f9df4737-2535-4695-9ea3-35be680baa87",
+      "slug": "custom-property-app-budget-hidden-mistakes",
+      "title": "How Much a Custom Property App Costs and How to Plan Your Budget",
+      "keyword": "how much does it cost to design an app",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "stop-customer-support-churn-telecom-ai",
+      "candidates": [
+        {
+          "keyword": "how much does it cost to create a mobile app",
+          "volume": 110,
+          "cpc": 13.88,
+          "ov": 4,
+          "score": 41.388
+        },
+        {
+          "keyword": "how much does it cost to create an app",
+          "volume": 720,
+          "cpc": 10.6,
+          "ov": 4,
+          "score": 41.06
+        },
+        {
+          "keyword": "how much does it cost create an app",
+          "volume": 50,
+          "cpc": 10.08,
+          "ov": 4,
+          "score": 41.008
+        }
+      ]
+    },
+    {
+      "id": "8cbae01f-2ecc-4a48-b2b3-76df8082a345",
+      "slug": "the-200k-mistake-principal-architects-make-choosing-partner",
+      "title": "How to Choose a Custom Software Development Company for 20 Year Systems",
+      "keyword": "how to choose a custom software development company",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "why-enterprise-support-tech-fails",
+      "candidates": []
+    },
+    {
+      "id": "61cd15fa-ad35-4cdf-b0dd-ddfa681e4847",
+      "slug": "the-200k-mistake-hiring-ai-support",
+      "title": "How to Hire Developers for Startups for AI Support Systems",
+      "keyword": "how to hire developers for startups",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "7-mistakes-hiring-startup-devs",
+      "candidates": [
+        {
+          "keyword": "hire developers for startup",
+          "volume": 110,
+          "cpc": 59.58,
+          "ov": 2,
+          "score": 25.958
+        },
+        {
+          "keyword": "companies that hire software developers",
+          "volume": 50,
+          "cpc": 13.74,
+          "ov": 2,
+          "score": 21.374
+        },
+        {
+          "keyword": "hire saas developers",
+          "volume": 110,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "17383157-3ceb-49fa-b626-e42fd39b60d1",
+      "slug": "lead-developer-hires-kill-exit-timeline",
+      "title": "How to Hire a Lead Developer for Your Startup. A Step-by-Step System to Protect Your Exit Timeline.",
+      "keyword": "how to hire lead developer startup company",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "200k-mistake-hiring-lead-developer-cto",
+      "candidates": [
+        {
+          "keyword": "hire developer offshore",
+          "volume": 260,
+          "cpc": 389.98,
+          "ov": 2,
+          "score": 30
+        },
+        {
+          "keyword": "hire freelance software developer",
+          "volume": 210,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        },
+        {
+          "keyword": "hire android app developer",
+          "volume": 390,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "e5c0432e-cc9f-40f0-adcd-596874cc1306",
+      "slug": "startup-engineer-hiring-failures",
+      "title": "How to Hire Programmers for Your Startup Step by Step",
+      "keyword": "how to hire programmers for a startup",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hiring-developers-luxury-digital-perfection",
+      "candidates": [
+        {
+          "keyword": "hire programmers",
+          "volume": 480,
+          "cpc": 48.78,
+          "ov": 2,
+          "score": 24.878
+        },
+        {
+          "keyword": "app programmers for hire",
+          "volume": 90,
+          "cpc": 48.19,
+          "ov": 2,
+          "score": 24.819
+        }
+      ]
+    },
+    {
+      "id": "6d022dd5-ff46-4dc0-8158-8f50eea74095",
+      "slug": "the-hidden-reasons-luxury-app-budget-explodes",
+      "title": "How to Reduce App Development Costs 3 Strategies That Work",
+      "keyword": "how to reduce app development costs",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "custom-ai-research-tool-development-traps",
+      "candidates": []
+    },
+    {
+      "id": "f527861b-7717-459d-895a-44efa8850a43",
+      "slug": "legacy-ops-systems-killing-peak-season-revenue-modernize",
+      "title": "How We Saved $1.5M and Cut Load Time by 80%",
+      "keyword": "legacy system modernization case study",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "defense-ai-secure-modernization-no-breaches",
+      "candidates": []
+    },
+    {
+      "id": "a9ad4480-7810-4b4a-b749-05fafeb31772",
+      "slug": "luxury-ecommerce-performance-risks-holiday-season",
+      "title": "How Load Testing Services Near Me Can Fix Your Luxury E-Commerce Site Speed",
+      "keyword": "load testing services near me",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "logistics-platform-crashes-peak-performance",
+      "candidates": []
+    },
+    {
+      "id": "a8c091c2-4f58-4d9e-a14f-3fbe43d56725",
+      "slug": "peak-season-revenue-risk-performance-gaps",
+      "title": "3 Common Performance Gaps That Load Testing Services Near Me Can Find",
+      "keyword": "load testing services near me",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "basic-load-testing-dangerous-lie-startups",
+      "candidates": []
+    },
+    {
+      "id": "e1271556-4a16-4740-b623-19c86fdecd85",
+      "slug": "cut-downtime-risk-load-testing-saas",
+      "title": "Load Testing Services Singapore and How We Reduce SaaS Downtime",
+      "keyword": "load testing services singapore",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "1990s-support-tech-bleeding-millions-performance-traps",
+      "candidates": []
+    },
+    {
+      "id": "0f3cc003-046c-4af0-bf3f-ca205caf2227",
+      "slug": "luxury-site-slow-lcp-cost-1-4m",
+      "title": "How Load Testing Services in Singapore Help You Fix Slow LCP and Checkout Problems",
+      "keyword": "load testing services singapore",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "luxury-digital-flagship-peak-traffic",
+      "candidates": []
+    },
+    {
+      "id": "808c2efb-6f8d-4158-b7e2-5d968addae9b",
+      "slug": "logistics-software-realtime-data-revenue-loss",
+      "title": "Real-Time Data Fixes Logistics Software Revenue Loss in Dubai",
+      "keyword": "logistics software development dubai",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hidden-cost-lagging-logistics-data",
+      "candidates": []
+    },
+    {
+      "id": "90b8b47f-4454-4257-b4fa-f44cc953a643",
+      "slug": "offshore-development-managed-services-architect-mistake",
+      "title": "Managed Development Services Fix Offshore Code Problems and Build Lasting Systems",
+      "keyword": "managed development services",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "2-million-mistake-internal-dev-team-managed-services-churn",
+      "candidates": []
+    },
+    {
+      "id": "47dfacbc-0a03-4a3a-a693-bfc9c38653c5",
+      "slug": "your-clunky-meeting-room-system-bleeding-value-ai-upgrade-fix",
+      "title": "How a Custom Meeting Room Booking System Development Project Boosts Property Value",
+      "keyword": "meeting room booking system development",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "smart-building-booking-system-design",
+      "candidates": []
+    },
+    {
+      "id": "6f4e9ed4-c5eb-40b8-9183-bd98828d0e51",
+      "slug": "saas-exit-timeline-ai-automation",
+      "title": "Process Automation Development to Accelerate Your SaaS Exit Timeline",
+      "keyword": "process automation development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "automation-projects-failing-ship-systems",
+      "candidates": []
+    },
+    {
+      "id": "e2ea83bf-7b38-44a2-bd10-e666c0922070",
+      "slug": "fast-mvp-churn-risk-empathetic-ai-core",
+      "title": "How to Build a Rapid MVP That Does Not Increase Customer Churn",
+      "keyword": "rapid mvp development services",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "rapid-clean-mvp-development-secret",
+      "candidates": []
+    },
+    {
+      "id": "73bcc02d-9426-484c-971d-989ae9e98d4b",
+      "slug": "rapid-mvp-not-so-rapid",
+      "title": "Rapid MVP Development Services How I Build MVPs That Launch Fast and Scale",
+      "keyword": "rapid mvp development services",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "rapid-clean-mvp-development-secret",
+      "candidates": []
+    },
+    {
+      "id": "8a5c482b-7ead-4332-b26a-dc9b2614f111",
+      "slug": "ai-support-mistakes-cost-millions",
+      "title": "How to Build a React Native AI Assistant That Reduces Customer Churn",
+      "keyword": "react native app development ai",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "ai-react-native-app-failure-avoidance",
+      "candidates": [
+        {
+          "keyword": "how much it cost to create an app",
+          "volume": 480,
+          "cpc": 12.34,
+          "ov": 2,
+          "score": 21.234
+        },
+        {
+          "keyword": "how much would it cost to create an app",
+          "volume": 70,
+          "cpc": 12.06,
+          "ov": 2,
+          "score": 21.206
+        },
+        {
+          "keyword": "how much does it cost to create an app",
+          "volume": 720,
+          "cpc": 10.6,
+          "ov": 2,
+          "score": 21.06
+        }
+      ]
+    },
+    {
+      "id": "f64853bf-1d72-4b03-8587-22f2cd07e734",
+      "slug": "7-ai-strategies-cut-supply-chain-operational-risk",
+      "title": "7 AI Strategies That Cut Supply Chain Operational Risk by 30 Percent",
+      "keyword": "reduce supply chain operational risk with ai",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "indexed",
+      "impressions": 0,
+      "canonicalSlug": "pharma-supply-chain-risk-ai",
+      "candidates": []
+    },
+    {
+      "id": "f23f506c-4d79-45ed-a6f3-137e8f216fbc",
+      "slug": "real-time-dashboards-always-late-reliability",
+      "title": "How to Improve Your Reporting System and Database for Real-Time Dashboards",
+      "keyword": "reporting system and database development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "why-ops-dashboards-miss-inventory-signals",
+      "candidates": []
+    },
+    {
+      "id": "e5ce5418-61a0-4278-ab1a-3f2f6cc7b69f",
+      "slug": "why-your-reporting-system-stays-slow",
+      "title": "How to Fix a Slow Reporting System with Better Database Design",
+      "keyword": "reporting system and database development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "why-ops-dashboards-miss-inventory-signals",
+      "candidates": []
+    },
+    {
+      "id": "66f380dd-dcce-4a17-9501-243ab2d2c07a",
+      "slug": "luxury-ecommerce-inventory-blind-spots-revenue-loss",
+      "title": "How to Stop Revenue Loss From Slow Inventory Systems in Luxury E-commerce",
+      "keyword": "revenue loss prevention due to slow inventory systems",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "luxury-ecommerce-slow-inventory-data-fix",
+      "candidates": []
+    },
+    {
+      "id": "16ef7cb5-a297-4e84-96e4-c5f6d1f1d6ac",
+      "slug": "scale-up-software-crashing-pressure",
+      "title": "Why Your Scale-Up Software Crashes Under Pressure and How to Fix It",
+      "keyword": "scale-up software development services",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "pharma-ai-data-platform-stalls-unlock-breakthroughs",
+      "candidates": []
+    },
+    {
+      "id": "1cedf8e3-d631-4eb4-949d-fd2e3c606856",
+      "slug": "intelligence-data-visualization-vulnerabilities",
+      "title": "Your Intelligence Data Visualization Has 3 Hidden Vulnerabilities Unless You Build It This Way",
+      "keyword": "scientific data visualization software",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "pharma-clinical-data-ai-visualization",
+      "candidates": []
+    },
+    {
+      "id": "10c6ad32-af70-4415-96a1-1a62527688bb",
+      "slug": "operational-dashboard-peak-season-failure",
+      "title": "Why Your Operational Dashboard Fails During Peak Season",
+      "keyword": "scientific data visualization software",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "pharma-clinical-data-ai-visualization",
+      "candidates": []
+    },
+    {
+      "id": "d1ec7078-6d26-4439-b8db-de467fb7a00d",
+      "slug": "legacy-ai-security-breach-risk",
+      "title": "Secure Application Development Practices for Legacy AI Integration",
+      "keyword": "secure application development practices",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "the-20-year-codebase-enterprise-applications",
+      "candidates": []
+    },
+    {
+      "id": "ea00103e-2dae-46b2-a307-31bce17c9d61",
+      "slug": "2-million-dollar-security-mistake-bespoke-software",
+      "title": "How to Build a Secure Application Development Process for Your Custom Software",
+      "keyword": "secure application development process",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "bank-app-data-leak-risk",
+      "candidates": []
+    },
+    {
+      "id": "3072d128-b551-4806-aa70-58f043178d5b",
+      "slug": "7-hidden-security-flaws-healthtech-saas-valuation",
+      "title": "7 Hidden Security Flaws That Slash Your HealthTech SaaS Valuation by Millions",
+      "keyword": "secure software development best practices owasp",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "bank-ai-security-owasp-safeguards",
+      "candidates": []
+    },
+    {
+      "id": "2cb1ec13-1a48-41aa-b6e4-e0dd36c59a10",
+      "slug": "insecure-code-costing-millions-retail-operations",
+      "title": "How Secure Software Development Practices Reduce Retail Revenue Loss",
+      "keyword": "secure software development practices",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "luxury-digital-flagship-hidden-security-risks",
+      "candidates": []
+    },
+    {
+      "id": "e1c621ce-ff26-4626-adff-85ad191e869a",
+      "slug": "defense-tech-software-process-hidden-gaps-breach",
+      "title": "3 Gaps in Your Secure Software Development Process for Defense Tech",
+      "keyword": "secure software development process",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "bank-data-security-process-gaps",
+      "candidates": []
+    },
+    {
+      "id": "5db4c35d-be87-4d2b-b8b5-d4f51cb98e55",
+      "slug": "enterprise-software-security-risks",
+      "title": "Secure Software Development Process A Principal Architect's Step by Step Guide",
+      "keyword": "secure software development process",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "bank-data-security-process-gaps",
+      "candidates": []
+    },
+    {
+      "id": "b7552eda-238a-4289-904c-c0436ebd9028",
+      "slug": "ai-drug-discovery-security-risk-pharma",
+      "title": "Why Your AI Drug Discovery Tools Could Be a Billion Dollar Security Risk",
+      "keyword": "secure source code review services",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "hidden-security-flaws-legacy-code-costing-millions",
+      "candidates": []
+    },
+    {
+      "id": "f4e716ae-9d82-40cb-946b-8594d87e5d8f",
+      "slug": "hidden-architectural-flaws-defense-ai-breach",
+      "title": "Software Architecture Review Board for Defense AI Security",
+      "keyword": "software architecture review board",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hidden-cost-architecture-drift-arb-legacy",
+      "candidates": []
+    },
+    {
+      "id": "78956af1-33d5-4394-836c-cf5a4d91e303",
+      "slug": "legacy-system-partner-cost-build-twenty-years",
+      "title": "How to Find a Legacy System Partner That Builds for 20 Years",
+      "keyword": "software consulting companies near me",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "why-world-class-partner-breaks-customer-trust",
+      "candidates": [
+        {
+          "keyword": "digital consulting companies",
+          "volume": 320,
+          "cpc": 32.64,
+          "ov": 2,
+          "score": 23.264
+        },
+        {
+          "keyword": "business transformation consulting companies",
+          "volume": 70,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "ba5114cb-c22c-4513-b987-74c61b9c0631",
+      "slug": "choosing-dev-partner-luxury-brand-digital-vibe",
+      "title": "How to Compare Software Development Firms for Your Luxury Brand",
+      "keyword": "software development firm comparison",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "indexed",
+      "impressions": 0,
+      "canonicalSlug": "stop-hiring-generic-ai-dev-teams-hidden-cost-robotic-support-churn",
+      "candidates": [
+        {
+          "keyword": "digital strategy firms",
+          "volume": 70,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "cc2259ad-93d3-4e04-bd33-9d6a4be852f5",
+      "slug": "software-audit-20-year-longevity",
+      "title": "How to Do a Software Development Process Audit for 20 Year Systems",
+      "keyword": "software development process audit",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "cut-software-delivery-time-process-audit",
+      "candidates": []
+    },
+    {
+      "id": "96ca44c9-dc54-4c7d-b5e5-687c8aeb65df",
+      "slug": "software-rfp-security-breach-mistake",
+      "title": "How to Write a Software Development RFP for On-Prem Defense Tech Projects",
+      "keyword": "software development rfp example",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "why-software-rfp-attracts-wrong-partners",
+      "candidates": []
+    },
+    {
+      "id": "fd529674-c780-41bf-993c-f34521e94992",
+      "slug": "stop-writing-rfps-unmaintainable-code-build-for-20-years",
+      "title": "Stop Writing RFPs That Attract Unmaintainable Code Here's How to Find Partners Who Build for 20 Years",
+      "keyword": "software development rfp template",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "indexed",
+      "impressions": 0,
+      "canonicalSlug": "software-rfp-security-risk-defense-tech",
+      "candidates": []
+    },
+    {
+      "id": "b39a4b14-1d6b-4522-9578-eb0692fdef6f",
+      "slug": "hidden-cost-luxury-digital-team-salaries",
+      "title": "Staff Augmentation vs Staffing for Luxury Brands Which One Saves You Millions",
+      "keyword": "staff augmentation vs staffing",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "flexible-dev-team-valuation-impact",
+      "candidates": []
+    },
+    {
+      "id": "fec1e45f-7d85-4beb-bf3a-ad052e732cf0",
+      "slug": "telecom-it-transformation-mistake-churn",
+      "title": "How Telecom Leaders Can Stop Customer Churn with a Product-First IT Strategy",
+      "keyword": "strategic it transformation leadership for growth",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "telecom-customer-churn-it-strategy-mistake",
+      "candidates": [
+        {
+          "keyword": "strategy & transformation consulting",
+          "volume": 50,
+          "cpc": 19.77,
+          "ov": 2,
+          "score": 21.977
+        },
+        {
+          "keyword": "strategy and transformation consulting",
+          "volume": 50,
+          "cpc": 19.77,
+          "ov": 2,
+          "score": 21.977
+        },
+        {
+          "keyword": "digital transformation strategy consulting",
+          "volume": 90,
+          "cpc": null,
+          "ov": 2,
+          "score": 20
+        }
+      ]
+    },
+    {
+      "id": "f6ce2f53-345a-4979-845c-079d75dc2c0f",
+      "slug": "hidden-tech-upgrade-saas-acquisition-value",
+      "title": "How a Next.js 15 upgrade adds millions to your HealthTech SaaS acquisition price",
+      "keyword": "strategic tech upgrade to boost acquisition value",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hidden-tech-upgrades-property-portfolio-value",
+      "candidates": []
+    },
+    {
+      "id": "fc270692-6845-4f2c-ace7-236cca78fdc3",
+      "slug": "retail-ops-systems-breaking-not-old-code",
+      "title": "Why Your Operational Systems Keep Breaking It Is Not Just Old Code",
+      "keyword": "tech debt reduction for acquisition valuation",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "legacy-system-time-bomb-hidden-debt",
+      "candidates": []
+    },
+    {
+      "id": "91dd8714-4e63-4fad-bac1-a9af026c3f08",
+      "slug": "m-a-tech-due-diligence-cost-protection",
+      "title": "The Hidden 10M Cost of Skipping M&A Tech Due Diligence And How to Protect Your Deal Value",
+      "keyword": "technical due diligence for m&a integration",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "hidden-architectural-debt-m-and-a-value",
+      "candidates": []
+    },
+    {
+      "id": "28fdbabf-dbc8-42e4-bf9f-06c35f11e13f",
+      "slug": "hidden-support-tech-bombs-acquisition-collapse",
+      "title": "How to Evaluate Customer Support Systems",
+      "keyword": "technical due diligence for m&a integration",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "hidden-architectural-debt-m-and-a-value",
+      "candidates": []
+    },
+    {
+      "id": "745efb60-326f-42b7-b57f-e092dbf5bb10",
+      "slug": "luxury-brand-replatforming-5-million-mistake",
+      "title": "How Technical Re-platforming Increases Your Luxury Brand's Acquisition Value",
+      "keyword": "technical re-platforming for acquisition valuation",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "exit-value-drop-replatforming-legacy-tech",
+      "candidates": []
+    },
+    {
+      "id": "910eb0b3-2af6-4825-b179-6aa04c480c80",
+      "slug": "the-hidden-secret-scaling-dubai-tech-without-full-time-cto",
+      "title": "Get Senior Tech Leadership in Dubai Without a Full-Time CTO",
+      "keyword": "virtual cto services in dubai",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "pharma-ai-breakthroughs-without-full-time-cto",
+      "candidates": []
+    },
+    {
+      "id": "0cec321d-d6f7-47c9-b8a3-c7693f85ecf9",
+      "slug": "why-internal-dev-teams-break-support-tech-ai",
+      "title": "How Virtual CTO Services in India Fix Broken Support Tech and Reduce Churn",
+      "keyword": "virtual cto services in india",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "defense-tech-virtual-ciso-cloud-architect",
+      "candidates": []
+    },
+    {
+      "id": "5213ce81-cad4-4f72-8a7e-057def32fcce",
+      "slug": "hidden-200k-cost-technical-debt-slows-operations",
+      "title": "What Is Technical Debt and How It Costs Your Operations Money",
+      "keyword": "what is technical debt",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "indexed",
+      "impressions": 0,
+      "canonicalSlug": "legacy-systems-block-ai-real-estate-costs",
+      "candidates": []
+    },
+    {
+      "id": "0151acca-8c48-4a07-a22f-d41f0afa6f7b",
+      "slug": "secure-digital-products-neobank-competition",
+      "title": "How White Label Neobank Software Developers Help Banks Launch Secure Digital Products",
+      "keyword": "white label neobank software developers",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "vet-white-label-neobank-platforms-hidden-traps",
+      "candidates": []
+    },
+    {
+      "id": "bfddce3c-3c82-4428-8927-5739722ab100",
+      "slug": "logistics-automation-losing-millions-inventory-prediction",
+      "title": "Logistics Automation Costing You Money Here Is How to Start Predicting Inventory",
+      "keyword": "workflow automation development",
+      "domain": "primestrides.com",
+      "websiteId": "3a4c8244-f868-11f0-9dba-e6708e15feb9",
+      "indexState": "unknown",
+      "impressions": 0,
+      "canonicalSlug": "bank-automation-security-risk-fix",
+      "candidates": []
+    },
+    {
+      "id": "d3bf2124-12ef-4d8b-bf87-86e80025b703",
+      "slug": "automation-errors-pharma-discovery",
+      "title": "7 Automation Errors That Slow Drug Discovery and How to Fix Them",
+      "keyword": "workflow automation development",
+      "domain": "theabdulrehman.com",
+      "websiteId": "3a4c8918-f868-11f0-9dba-e6708e15feb9",
+      "indexState": null,
+      "impressions": 0,
+      "canonicalSlug": "cut-operational-costs-ai-automation",
+      "candidates": []
+    }
+  ]
+}

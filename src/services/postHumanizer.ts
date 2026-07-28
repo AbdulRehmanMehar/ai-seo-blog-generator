@@ -355,9 +355,13 @@ export class PostHumanizer {
       }
     }
 
-    // Add contractions
+    // Add contractions. "X have" only contracts as an auxiliary ("you have seen"
+    // → "you've seen"), never as possession ("you have a problem" must NOT become
+    // "you've a problem") — so skip when a determiner/noun phrase follows.
+    const possessionGuard = '(?!\\s+(?:a|an|the|no|some|any|more|less|only|just|two|three|four|five|six|seven|eight|nine|ten|\\d+|this|that|these|those|my|your|our|their|its|it|work|time|money|options|problems)\\b)';
     for (const [full, contraction] of Object.entries(CONTRACTION_MAP)) {
-      const regex = new RegExp(`\\b${full}\\b`, 'g');
+      const guard = /\bhave$/i.test(full) ? possessionGuard : '';
+      const regex = new RegExp(`\\b${full}\\b${guard}`, 'g');
       if (regex.test(result)) {
         const matches = result.match(regex);
         this.contractionCount += matches?.length ?? 0;

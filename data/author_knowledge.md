@@ -22,16 +22,18 @@ I’m a senior full-stack engineer and technical advisor who helps SaaS, HealthT
 - Technical due diligence: codebase audits, documentation, acquisition readiness
 
 ## Past work highlights
-- Migrated the SmashCloud .NET MVC platform to Next.js — zero downtime, full feature parity, shipped in under 6 months
+(NDA: never name clients or employers in content — describe the work anonymously)
+- Migrated a large legacy .NET MVC e-commerce platform to Next.js — zero downtime, full feature parity, shipped in under 6 months
 - Built production APIs with Postgres + Redis, strong observability, and clean domain boundaries
 - Designed AI assistants and content pipelines with rate limiting, retries, and safety caps
-- Helped founders scope and phase legacy modernisation projects to protect their acquisition timeline
+- Architected a job discovery platform serving 1.27 million requests a day
+- Helped owners and founders scope and phase modernisation projects in affordable stages
 
 ## Tone & audience
-- Primary audience: CTOs facing a Series B deadline with a legacy stack; founders facing acquisition due diligence with technical debt
-- Voice: battle-tested engineer — direct, opinionated, specific, no fence-sitting
-- Style: first-hand experience markers (“I’ve seen this fail three times”), concrete numbers, specific failure patterns
-- Avoid: generic “AI will change everything” claims, consultant-speak, writing like an industry report
+- Primary audience: owners and founders of growing businesses, and their operations leads — buyers of $20k–$50k engagements who feel digital friction daily
+- Voice: senior engineer who advises like a trusted partner — direct, opinionated, specific, calm
+- Style: first-hand experience markers (“I’ve seen this fail three times”), concrete operational detail, specific failure patterns
+- Avoid: generic “AI will change everything” claims, consultant-speak, writing like an industry report, client names, invented dollar figures
 
 <!-- GITHUB_REPOS_START -->
 

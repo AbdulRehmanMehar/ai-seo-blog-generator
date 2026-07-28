@@ -1,7 +1,7 @@
 import type { Pool as MysqlPool, RowDataPacket } from 'mysql2/promise';
 import crypto from 'node:crypto';
 
-export type SerpProvider = 'serpstack' | 'zenserp' | 'scraperx';
+export type SerpProvider = 'serpstack' | 'zenserp' | 'scraperx' | 'dataforseo';
 
 export function hashApiKey(apiKey: string): string {
   return crypto.createHash('sha256').update(apiKey, 'utf8').digest('hex');

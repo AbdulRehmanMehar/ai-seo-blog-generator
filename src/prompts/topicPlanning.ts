@@ -4,21 +4,23 @@ import { getHeadlineGuidelines } from './conversionCopy.js';
 
 // ─── NICHE DEFINITION ────────────────────────────────────────────────────────
 //
-// SINGLE TARGET NICHE:
-//   SaaS / HealthTech / Fintech founders, CTOs, and VPs of Engineering
-//   who have a legacy .NET or aging codebase and are 6–18 months from
-//   a Series B raise or acquisition — and whose technical debt is the
-//   primary risk to their valuation or fundraising close.
+// SINGLE TARGET NICHE (from the Brand Operating System, July 2026):
+//   Removing digital friction for GROWING BUSINESSES — service businesses
+//   (hospitality, clinics, real estate, recruiting, e-commerce, home services)
+//   and small digital-product companies whose systems grew slower than the
+//   business: clunky booking/intake flows, disconnected tools, manual
+//   workflows, aging websites, and repetitive work ready for automation/AI.
 //
-// TWO BUYER PROFILES:
-//   1. Modernizing Michael — CTO/VP Eng at B2B SaaS, Series B window
-//   2. Exit-Ready Sarah   — Founder preparing for acquisition / sale
+// THREE BUYER PROFILES ($20k–$50k engagements, direct decision makers):
+//   1. Owner Omar      — owner of a growing service business (15–150 staff)
+//   2. Founder Nadia   — non-technical founder of a digital product
+//   3. Ops-Lead Olivia — operations/GM who champions the project to the owner
 //
 // FOUR BUYER JOURNEY STAGES (with target content distribution):
 //   Stage 1 — AWARENESS     (40%): Problem-framing, diagnostic, "you might have this"
-//   Stage 2 — CONSIDERATION (30%): Checklists, comparisons, cost breakdowns, how-to
-//   Stage 3 — DECISION      (20%): Emergency playbooks, trigger-event content, calculators
-//   Stage 4 — VALIDATION    (10%): Case studies, methodology explainers, process posts
+//   Stage 2 — CONSIDERATION (30%): Checklists, comparisons, how-to, build-vs-buy
+//   Stage 3 — DECISION      (20%): Trigger-event content ("your admin just quit")
+//   Stage 4 — VALIDATION    (10%): Methodology explainers, real case walkthroughs
 //
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -61,59 +63,65 @@ ${postsList}
   const validationTarget   = Math.max(0, total - awarenessTarget - considerationTarget - decisionTarget);
 
   return {
-    system: `You are a senior B2B content strategist specialising in ONE niche only:
+    system: `You are a senior content strategist specialising in ONE niche only:
 
-NICHE: Legacy software modernization and pre-acquisition / pre-Series-B technical debt cleanup
-for SaaS, HealthTech, and Fintech companies with .NET or aging codebases.
+NICHE: Removing digital friction for growing businesses — clunky booking and intake flows,
+disconnected tools and double data entry, manual workflows ready for automation or AI
+assistants, aging websites and web apps, and systems that don't talk to each other.
 
-TARGET BUYERS:
-- CTOs and VPs of Engineering at B2B SaaS companies 6–12 years old, facing a Series B raise in 12 months.
-- Founders of HealthTech / Fintech SaaS ($2M–$15M ARR) preparing for acquisition or sale.
+TARGET BUYERS ($20k–$50k engagements, decided directly by the buyer — no procurement):
+- Owners of growing service businesses (hospitality, clinics, real estate, recruiting,
+  e-commerce, home services; 15–150 staff) whose systems grew slower than the business.
+- Non-technical founders of digital products who need a senior partner to own delivery.
+- Operations leads / general managers who champion the fix to the owner.
 
 HARD RULE — NICHE LOCK:
-Every topic you generate MUST be relevant to at least one of these two buyers in this niche.
+Every topic you generate MUST be relevant to at least one of these buyers.
 You MUST REJECT any keyword or topic that does not clearly serve:
-- Legacy .NET or aging codebase modernization
-- Technical debt before a Series B raise or acquisition
-- Pre-acquisition technical due diligence preparation
-- Valuation impact of technical debt
-- AI integration blocked by legacy systems
-- Code quality, architecture review, or security gaps pre-exit
+- Booking, scheduling, intake, or customer-portal friction
+- Disconnected tools, integrations, and double data entry
+- Manual workflows and reporting ready for automation or practical AI
+- Slow or aging websites and web apps hurting customer experience
+- MVP builds/rebuilds and rescuing stalled products for non-technical founders
+- Choosing and working with a technology partner at this budget level
 
-Do NOT generate topics about: generic hiring, general software development, logistics, pharma, real estate, defense, retail, luxury, telecom, or any other niche. Those audiences are out of scope.
+Do NOT generate topics for ENTERPRISE buyers. Out of scope: defense contractors, bank
+compliance programs (KYC/AML), pharma R&D, Fortune 500 IT, Series B / acquisition /
+technical due diligence content, and any topic whose natural stakes are millions of
+dollars. Those readers will never hire us, so those topics are worthless.
 
 EXPLICITLY EXCLUDED — reject even if the keyword sounds adjacent:
-- KYC/AML compliance for banks (this is a banking operations topic, not a software modernization topic)
+- KYC/AML, banking compliance, defense security, pharma compliance
 - Cryptocurrency or blockchain development
-- Healthcare compliance (HIPAA) as a standalone topic — only include if it is about codebase modernization before acquisition
-- General AI consulting or AI strategy — only include if directly connected to legacy stack modernization blocking AI adoption
+- M&A technical due diligence, exit valuation, Series B fundraising content
+- Enterprise architecture and CTO-level content written for large engineering organizations
 
 BUYER JOURNEY STAGES — You MUST distribute topics across all four stages:
 Each topic must be tagged with its buyer journey stage in the output JSON.
 
 STAGE 1 — AWARENESS (reader thinks "I have this problem but it's not urgent yet")
-- Content type: diagnostic posts, problem-framing, "7 signs your codebase..." articles
+- Content type: diagnostic posts, problem-framing, "7 signs your systems don't talk to each other"
 - Tone: educational, observational, no hard sell
-- Keywords signal: "what is technical debt", "legacy system risks", "signs your codebase is aging"
+- Keywords signal: "why do customers abandon online booking", "signs you've outgrown spreadsheets", "manual data entry problems"
 - CTA style: soft offer, email capture, checklist download
 
 STAGE 2 — CONSIDERATION (reader thinks "I need to fix this in the next 6 months")
-- Content type: checklists, comparison posts (options A vs B), cost breakdowns, 90-day plans
+- Content type: checklists, comparison posts (off-the-shelf vs custom, tool A vs tool B), phased plans
 - Tone: practical, framework-driven, positions the author as the expert guide
-- Keywords signal: "how to fix technical debt", "legacy modernization checklist", "technical due diligence prep"
-- CTA style: specific diagnostic offer ("send me your codebase situation, I'll tell you what's at risk")
+- Keywords signal: "how to automate client intake", "connect CRM to scheduling software", "custom booking system vs plugin"
+- CTA style: specific diagnostic offer ("send me how your intake works, I'll map what to automate first")
 
 STAGE 3 — DECISION (reader thinks "something just happened and I need help NOW")
-- Content type: emergency playbooks, trigger-event posts, "what to do when you receive an LOI"
-- Tone: urgent, specific, written for someone with a live deadline
-- Keywords signal: "technical debt before acquisition", "LOI due diligence timeline", "pre-exit code cleanup"
-- CTA style: immediate value offer ("I can run your technical audit in 2 weeks")
+- Content type: trigger-event posts ("your office manager just quit", "your developer disappeared mid-project", "busy season starts in 8 weeks")
+- Tone: urgent, specific, written for someone with a live trigger — calm, never panicked
+- Keywords signal: "developer abandoned my project", "replace spreadsheet system fast", "automate before peak season"
+- CTA style: immediate value offer ("send me your setup, I'll tell you what to stabilize first")
 
 STAGE 4 — VALIDATION (reader thinks "I've decided to hire someone — is it this person?")
-- Content type: methodology explainers, case studies, process walkthroughs
-- Tone: confident, proof-driven, shows the specific work and outcomes
-- Keywords signal: "how technical due diligence works", "legacy modernization case study"
-- CTA style: zero-friction entry point ("start with a 30-minute architecture call")
+- Content type: methodology explainers, real project walkthroughs, how-I-work posts
+- Tone: confident, proof-driven, shows the specific work and real outcomes
+- Keywords signal: "how to choose a software development partner", "what a workflow automation project looks like"
+- CTA style: zero-friction entry point ("start with a workflow audit, no commitment")
 
 REQUIRED DISTRIBUTION for this batch of ${total} topics:
 - Stage 1 AWARENESS:     ${awarenessTarget} topic(s)
@@ -128,17 +136,18 @@ HEADLINE RULES — INSTANT REJECTION if violated:
 - Must include: specific pain + clear outcome + curiosity gap
 - Must make either "Modernizing Michael" or "Exit-Ready Sarah" say "that's me" in 2 seconds
 
-BAD: "Your Legacy Codebase — Here's Why It Kills Valuation" (has em dash)
-GOOD: "Your Legacy Codebase Is Quietly Killing Your Valuation. Here Is What to Do First."
+BAD: "Your Booking Flow — Here's Why Customers Abandon It" (has em dash)
+GOOD: "Why Customers Abandon Your Booking Flow Halfway. And What Smooth Looks Like."
 
-HIGH-CONVERTING TITLE PATTERNS:
-1. "Your [X] Will Kill Your Series B — Unless You Fix This First"
-2. "What Happens to Your Valuation When Technical Due Diligence Finds Your Legacy .NET Code"
-3. "The 11-Week Code Cleanup That Saved a HealthTech Acquisition"
-4. "7 Signs Your Codebase Will Fail Acquisition Due Diligence"
-5. "What to Do When You Receive an LOI and Your Backend Is a Mess"
+HIGH-CONVERTING TITLE PATTERNS (friction-first, never dollar-scare):
+1. "Why Customers Abandon Your [Booking/Intake/Checkout] Halfway"
+2. "Your Team Isn't Slow. Your Tools Are."
+3. "7 Signs Your Business Has Outgrown Its Spreadsheets"
+4. "The Monday Report Your Ops Manager Shouldn't Be Building by Hand"
+5. "What to Do When Your Developer Disappears Mid-Project"
 
-CRITICAL: Target BUSINESS PROBLEMS, not services. "How technical debt destroyed a $4M acquisition" not "Technical debt consulting services."`,
+CRITICAL: Target BUSINESS PROBLEMS, not services. "Why customers abandon your booking flow"
+not "Booking system development services". NEVER put dollar figures in titles.`,
 
     user: `AUTHOR KNOWLEDGE (must reflect in output):
 
@@ -152,14 +161,16 @@ ${JSON.stringify(args.candidateKeywords, null, 2)}
 TASK:
 Select exactly ${args.selectCount} keywords that are relevant to the niche.
 If fewer than ${args.selectCount} niche-relevant keywords exist in the list, select as many as possible.
-REJECT any keyword not directly related to legacy modernization, technical debt, pre-acquisition, or pre-Series-B preparation for SaaS/HealthTech/Fintech.
+REJECT any keyword not directly related to removing digital friction for growing businesses
+(booking/intake flows, disconnected tools, workflow automation, practical AI, aging websites,
+MVP builds for non-technical founders, choosing a technology partner).
 
 For each selected keyword:
 1. Assign a buyer_journey_stage: "awareness" | "consideration" | "decision" | "validation"
-2. Write a headline using the Pain + Outcome + Curiosity formula — no colons, no em dashes
+2. Write a headline using the Pain + Outcome + Curiosity formula — no colons, no em dashes, no dollar figures
 3. Write a 6-section outline following: Hook → Problem Breakdown → Why It Fails → Better Approach → Actionable Steps → Soft CTA
-4. Include at least one section that addresses the COST OF INACTION with a specific dollar consequence
-5. For Stage 3 (decision) topics: include a section written specifically for someone with an active LOI or imminent due diligence
+4. Include at least one section that addresses the COST OF INACTION in operational terms (hours, delays, abandoned bookings, burnout) — never an invented dollar consequence
+5. For Stage 3 (decision) topics: include a section written specifically for someone whose trigger just fired (key admin resigned, developer disappeared, busy season approaching)
 
 REQUIRED DISTRIBUTION:
 - ${awarenessTarget} topic(s) tagged "awareness"

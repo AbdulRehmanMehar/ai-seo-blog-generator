@@ -1,0 +1,6261 @@
+{
+  "generated_for": "wave-1 rewrite + phantom remap",
+  "verdicts": [
+    {
+      "keyword": "custom software development cost",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "growing-business-buyer",
+      "buyer_journey_stage": "awareness",
+      "reason": "Buyer is early-stage researching costs, not ready to commit $20k+; low CPC and no authority sites make it winnable but low lead value.",
+      "content_angle": "Friction-first: expose hidden cost drivers (technical debt, scope creep) with real examples from our projects.",
+      "canonical_slug": "why-custom-software-budget-explodes-accurate-estimates"
+    },
+    {
+      "keyword": "hire dedicated software development team",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP dominated by offshore staffing agencies; intent is to hire a team, not a senior partner; low CPC and no proof fit.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "saas product development company",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "digital-product-founder",
+      "buyer_journey_stage": "consideration",
+      "reason": "High CPC indicates buyer intent, but SERP is directory-heavy with comparison shopping; we have one post but need differentiation.",
+      "content_angle": "Calm advisor: contrast agency assembly lines with a senior partner who owns delivery end-to-end, using our SaaS proof.",
+      "canonical_slug": "build-saas-without-technical-debt"
+    },
+    {
+      "keyword": "compliance software companies",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP targets enterprise compliance (financial, regulatory) with Gartner and authority sites; no proof fit for our growing-business buyer.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "software development partnership",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "growing-business-buyer",
+      "buyer_journey_stage": "consideration",
+      "reason": "High CPC ($59.33), low ads difficulty, and buyer intent for a long-term partner; we have a relevant post and can position as a senior partner.",
+      "content_angle": "Evidence over promises: share real partnership outcomes (e.g., dental group app, recruitment AI) and red flags to avoid.",
+      "canonical_slug": "hidden-500k-cost-bad-software-partnership"
+    },
+    {
+      "keyword": "digital product development services",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "digital-product-founder",
+      "buyer_journey_stage": "consideration",
+      "reason": "Very high CPC ($74.08), no authority sites, and clear buyer intent for services; we can leverage our SaaS proofs.",
+      "content_angle": "Friction-first: expose common product development pitfalls (technical debt, scope creep) with case studies from our work.",
+      "canonical_slug": "shipping-digital-products-that-grow-fast"
+    },
+    {
+      "keyword": "website performance optimization services",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "growing-business-buyer",
+      "buyer_journey_stage": "consideration",
+      "reason": "High CPC ($65.45), low ads difficulty, and SERP lacks authority sites; we have a Next.js performance overhaul proof and relevant posts.",
+      "content_angle": "Calm advisor: diagnose performance friction points (e.g., Core Web Vitals, conversion impact) with real before/after data.",
+      "canonical_slug": "luxury-website-performance-killers"
+    },
+    {
+      "keyword": "code review services",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "growing-business-buyer",
+      "buyer_journey_stage": "consideration",
+      "reason": "Moderate CPC, but SERP includes AI tools and Reddit; buyer may be technical or low-budget; we have posts but need to target senior decision-makers.",
+      "content_angle": "Evidence over promises: show how deep code review prevents costly production failures, using real examples.",
+      "canonical_slug": "code-traps-killing-system-future-deep-review"
+    },
+    {
+      "keyword": "application modernization consulting",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by IBM and large consultancies; authority-locked and enterprise-focused; no proof fit for our growing-business buyer.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "virtual cto services",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "growing-business-buyer",
+      "buyer_journey_stage": "consideration",
+      "reason": "High CPC ($24.72), clear buyer intent for strategic tech leadership, and SERP has no authority sites; we have relevant posts and real estate proof.",
+      "content_angle": "Friction-first: frame virtual CTO as solving digital friction (e.g., legacy systems, AI strategy) with calm, evidence-based guidance.",
+      "canonical_slug": "virtual-cto-bespoke-ai-real-estate"
+    },
+    {
+      "keyword": "commercial real estate software solutions",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "growing-business-buyer",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP is directory-heavy with software comparisons; buyer is researching tools, not services; low lead value but relevant to our real estate proof.",
+      "content_angle": "Calm advisor: guide buyers on when custom software beats off-the-shelf, using our real estate map tool proof.",
+      "canonical_slug": "property-software-costs-millions-asset-value"
+    },
+    {
+      "keyword": "real estate software development solutions",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "growing-business-buyer",
+      "buyer_journey_stage": "consideration",
+      "reason": "Clear buyer intent for custom development in real estate; we have strong proof (real estate map tool) and relevant posts; SERP lacks authority sites.",
+      "content_angle": "Evidence over promises: showcase our real estate map tool project and contrast with off-the-shelf failures.",
+      "canonical_slug": "property-directors-off-the-shelf-software-mistake"
+    },
+    {
+      "keyword": "api first development",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Educational definition query; searchers are developers or students, not growing-business buyers with a $20k+ pain.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "fixed price software development",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Comparison-shopping query; searchers are evaluating pricing models, not ready to hire a partner for a specific engagement.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "how to build an ai company",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Founder/aspirational query; attracts students and dreamers, not buyers with a specific digital friction.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "legacy system modernization approaches",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "ops lead, non-technical founder",
+      "buyer_journey_stage": "consideration",
+      "reason": "High CPC and clear buyer intent; growing businesses with legacy systems are actively seeking modernization strategies and a partner.",
+      "content_angle": "Friction-first: How legacy systems silently drain budget and agility, and a calm, evidence-based approach to modernize without disruption.",
+      "canonical_slug": "your-30-year-legacy-system-is-a-5m-maintenance-trap"
+    },
+    {
+      "keyword": "software for property management company",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Software comparison/shopping query; searchers are looking for off-the-shelf tools, not custom development partners.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "affordable property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Budget-focused software shopping; searchers want cheap tools, not a $20k+ custom engagement.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management maintenance software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Niche software comparison; searchers are evaluating specific tools, not seeking a development partner.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best rent collection software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Software comparison query; searchers are landlords looking for an app, not a custom development engagement.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best vacation rental software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Software comparison query; searchers are hosts looking for a platform, not a custom development partner.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best appointment scheduling software for small business",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Software comparison query; searchers are small business owners looking for a tool, not a custom development engagement.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "High-volume software comparison; searchers are evaluating tools, not seeking a custom development partner.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best real estate management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Software comparison with directory intent; searchers are shopping for tools, not a custom development partner.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property manager software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best airbnb management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "rental property management system",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best short term rental management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best property management systems for hotels",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best rental management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "short term rental property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "software for rental property",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best rental property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management software for small business",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management software for small companies",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "appfolio competitors",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Wrong intent: searcher is looking to buy software, not hire custom development. SERP dominated by software vendors and comparison sites. No proof of building property management systems.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management app",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is comparing off-the-shelf software, not seeking custom development. No proof in property management.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "estate management app",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same as property management app; intent is software comparison.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "vacation rental property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants to buy vacation rental software, not custom build. No proof.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management software vacation rentals",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same as above; software comparison intent.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property manager tools",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is looking for tools, not custom development. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hoa self management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "HOA software comparison; no proof in HOA space.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "management rental software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Broad rental software intent; SERP shows comparison lists and SaaS products.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "software to manage rental properties",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same as above; authority sites present, user wants to buy software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management software rental",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Software comparison; no custom development intent.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best short term rental software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Best-of lists; user wants to choose a product, not build one.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "rental property management app",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "App comparison; no proof for custom app development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "yardi commercial real estate software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Brand-specific query; Yardi is a vendor, not a custom development opportunity. No proof.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "appfolio property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is looking for AppFolio itself, not a custom developer; no proof we can serve AppFolio migrations or customizations.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "rent management app",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is a small landlord or property manager looking for a ready-made app, not a custom development partner.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best accounting software for property management",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants a software recommendation, not a custom build; no proof we serve accounting software for property management.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "airbnb management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants a ready-made Airbnb management tool, not a custom development engagement.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management software for short term rentals",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is looking for a SaaS product, not a custom developer; no proof we build short-term rental software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best hoa management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants a ready-made HOA management tool, not a custom development partner.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "online booking software for small business",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants a ready-made booking tool (Calendly, Square), not a custom developer.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "workflow automation for small business",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "ops lead",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is a small business ops lead exploring automation; high CPC indicates intent, but SERP has Salesforce and Reddit; we can target with a custom workflow automation angle.",
+      "content_angle": "How a growing service business replaced spreadsheet-driven workflows with a custom automation platform — and cut manual work by 80%.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "workflow management software small business",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "ops lead",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is evaluating workflow tools; high CPC and moderate difficulty; we can differentiate by focusing on custom workflow management for service businesses.",
+      "content_angle": "Why off-the-shelf workflow software fails for multi-location service businesses — and how a custom solution fixed it.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "buildium property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is looking for Buildium itself, not a custom developer; no proof we serve Buildium integrations or customizations.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "buildium software property management",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same as 'buildium property management software' — searcher wants the product, not a custom build.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "airbnb property management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants a ready-made Airbnb management tool, not a custom development engagement.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management software for airbnb",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking to buy existing Airbnb management software, not custom development. No proof fit.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "mri software property management",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher wants information about MRI Software, a specific product. No custom development opportunity.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management software yardi",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking for Yardi software, not custom solutions. No proof fit.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "buildium property management",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking for Buildium software. No custom development need.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "estates management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking for estate management software products. Not a custom development query.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best online booking system for small business",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Comparison intent for existing booking systems. No proof of custom booking system work; likely not a $20k+ opportunity.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "appfolio manager",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking for AppFolio product info. No custom development angle.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "appfolio software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher wants AppFolio software details. Not relevant to our services.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "appointment scheduling software for small business",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking for off-the-shelf scheduling software. Comparison intent, not custom build.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "small business appointment software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Same as above: searcher wants ready-made software, not custom development.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "yardi for property management",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking for Yardi software. No proof fit for custom development.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "appfolio app download",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Download intent for an existing app. No custom development opportunity.",
+      "content_angle": "N/A",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best hoa software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Comparison shopper for packaged HOA software, not custom development. No proof in this niche.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best hoa website software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Niche comparison for HOA website software, no proof or credibility in this space.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best homeowners association software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Same as other HOA keywords; buyer seeking packaged software, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "software yardi",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Branded search for Yardi software; no Yardi expertise or proof, and intent is informational not custom build.",
+      "content_angle": "",
+      "canonical_slug": null
+    }
+  ],
+  "evidence": [
+    {
+      "keyword": "what is technical debt",
+      "volume": 3600,
+      "cpc": 2.57,
+      "difficulty": 1,
+      "source": "existing-post",
+      "ourSlugs": [
+        "hidden-200k-cost-technical-debt-slows-operations",
+        "legacy-systems-block-ai-real-estate-costs"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "In your own words: What is technical debt?"
+        },
+        {
+          "position": 3,
+          "domain": "en.wikipedia.org",
+          "title": "Technical debt"
+        },
+        {
+          "position": 5,
+          "domain": "www.ibm.com",
+          "title": "What is Technical Debt? | IBM"
+        },
+        {
+          "position": 6,
+          "domain": "www.atlassian.com",
+          "title": "Say 'bye' to tech debt: Agile solutions for clean development"
+        },
+        {
+          "position": 7,
+          "domain": "www.coursera.org",
+          "title": "What Is Technical Debt: A Guide"
+        },
+        {
+          "position": 9,
+          "domain": "www.productplan.com",
+          "title": "Technical Debt | Glossary"
+        },
+        {
+          "position": 10,
+          "domain": "vfunction.com",
+          "title": "Technical Debt: What Is It? Definition, Examples & Types"
+        },
+        {
+          "position": 11,
+          "domain": "www.youtube.com",
+          "title": "What is Technical Debt? Definition, Types and Best Practices ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 4,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "ai consulting jobs",
+      "volume": 1600,
+      "cpc": 4.82,
+      "difficulty": 26,
+      "source": "existing-post",
+      "ourSlugs": [
+        "ai-mvp-production-hell-saas"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 3,
+          "domain": "www.indeed.com",
+          "title": "Artificial Intelligence Consultant Jobs, Employment"
+        },
+        {
+          "position": 4,
+          "domain": "www.linkedin.com",
+          "title": "4000+ Artificial Intelligence Consultant jobs in United States"
+        },
+        {
+          "position": 5,
+          "domain": "www.linkedin.com",
+          "title": "406 Artificial Intelligence Consultant jobs in New York"
+        },
+        {
+          "position": 6,
+          "domain": "www.ziprecruiter.com",
+          "title": "$28-$96/hr Ai Consultant Jobs Atlanta, GA (NOW HIRING)"
+        },
+        {
+          "position": 7,
+          "domain": "www.indeed.com",
+          "title": "Ai Consulting jobs in New York, NY"
+        },
+        {
+          "position": 8,
+          "domain": "aijobs.ai",
+          "title": "AI Consultant Jobs"
+        },
+        {
+          "position": 9,
+          "domain": "www.ziprecruiter.com",
+          "title": "$46-$60/hr Artificial Intelligence Consultant Jobs"
+        },
+        {
+          "position": 10,
+          "domain": "www.linkedin.com",
+          "title": "120 Artificial Intelligence Consultant jobs in Dallas-Fort ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.glassdoor.com",
+          "title": "3641 Ai consultant jobs in United States"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": true,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "how much does it cost to design an app",
+      "volume": 720,
+      "cpc": 12.91,
+      "difficulty": 48,
+      "source": "existing-post",
+      "ourSlugs": [
+        "stop-customer-support-churn-telecom-ai",
+        "custom-property-app-budget-hidden-mistakes"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 3,
+          "domain": "solveit.dev",
+          "title": "How Much Does It Cost to Design an App in 2026? - SolveIt"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "How much does it cost to get an entire app designed?"
+        },
+        {
+          "position": 5,
+          "domain": "www.businessofapps.com",
+          "title": "App Development Cost (2026)"
+        },
+        {
+          "position": 7,
+          "domain": "www.americaneagle.com",
+          "title": "How Much Does It Cost to Develop an App?"
+        },
+        {
+          "position": 9,
+          "domain": "www.youtube.com",
+          "title": "How Much It Costs To Build a Mobile App in 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.quora.com",
+          "title": "How much would it cost to have a custom-built iOS and ..."
+        },
+        {
+          "position": 11,
+          "domain": "appinventiv.com",
+          "title": "How Much Does It Cost to Design a Mobile App?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 2,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "outsource software development company",
+      "volume": 590,
+      "cpc": 492.57,
+      "difficulty": 11,
+      "source": "existing-post",
+      "ourSlugs": [
+        "internal-dev-team-stuck-1990s-outsource-software-development-company",
+        "the-hidden-reason-outsourced-software-projects-fail",
+        "pharma-cio-ai-outsourcing-mistake"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.bairesdev.com",
+          "title": "Software Development Outsourcing Services"
+        },
+        {
+          "position": 3,
+          "domain": "innowise.com",
+          "title": "Top 28 best software outsourcing companies of 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.luxoft.com",
+          "title": "Software development outsourcing services"
+        },
+        {
+          "position": 5,
+          "domain": "www.outsourceaccelerator.com",
+          "title": "Top 25 Software Outsourcing Companies in 2026"
+        },
+        {
+          "position": 6,
+          "domain": "belitsoft.com",
+          "title": "Reliable Software Development Outsourcing Company"
+        },
+        {
+          "position": 7,
+          "domain": "scand.com",
+          "title": "Top 15 Software Outsourcing Companies in 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.hirewithnear.com",
+          "title": "9 Top Companies for Outsourcing Software Development"
+        },
+        {
+          "position": 10,
+          "domain": "www.purrweb.com",
+          "title": "Top Software Development Outsourcing Companies in 2026"
+        },
+        {
+          "position": 11,
+          "domain": "devico.io",
+          "title": "Software Development Outsourcing Services"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "digital transformation consulting firms",
+      "volume": 590,
+      "cpc": 13.88,
+      "difficulty": 1,
+      "source": "existing-post",
+      "ourSlugs": [
+        "digital-transformation-failure-lasting-value"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.protiviti.com",
+          "title": "Digital Transformation Consulting Services"
+        },
+        {
+          "position": 3,
+          "domain": "www.bcg.com",
+          "title": "Digital Transformation Strategy Consulting | BCG"
+        },
+        {
+          "position": 4,
+          "domain": "www.linkedin.com",
+          "title": "Best IT Consulting Companies for Digital Transformation"
+        },
+        {
+          "position": 5,
+          "domain": "www.g-co.agency",
+          "title": "Top Digital Transformation Agencies & Consulting Firms to ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.ttec.com",
+          "title": "What is Digital Transformation Consulting?"
+        },
+        {
+          "position": 7,
+          "domain": "www.consulting.us",
+          "title": "Top Digital consulting firms in the US"
+        },
+        {
+          "position": 8,
+          "domain": "www.bain.com",
+          "title": "Digital Transformation Consulting Services"
+        },
+        {
+          "position": 9,
+          "domain": "smartpandalabs.com",
+          "title": "Finding The Perfect Digital Transformation Consulting Firm"
+        },
+        {
+          "position": 10,
+          "domain": "www.prosci.com",
+          "title": "What is Digital Transformation Consulting?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "application modernization services",
+      "volume": 590,
+      "cpc": 53.97,
+      "difficulty": 14,
+      "source": "existing-post",
+      "ourSlugs": [
+        "7-hidden-pitfalls-legacy-system-modernization"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "dxc.com",
+          "title": "Applications Modernization Services and Solutions"
+        },
+        {
+          "position": 3,
+          "domain": "www.softura.com",
+          "title": "Application Modernization Services"
+        },
+        {
+          "position": 4,
+          "domain": "azure.microsoft.com",
+          "title": "What Is Application Modernization?"
+        },
+        {
+          "position": 5,
+          "domain": "www.hpe.com",
+          "title": "HPE Application Modernization Services"
+        },
+        {
+          "position": 6,
+          "domain": "www.winwire.com",
+          "title": "Application Modernization Services | WinWire Blog"
+        },
+        {
+          "position": 7,
+          "domain": "www.vmware.com",
+          "title": "What is Application Modernization?"
+        },
+        {
+          "position": 8,
+          "domain": "www.itransition.com",
+          "title": "Legacy Application Modernization Services"
+        },
+        {
+          "position": 9,
+          "domain": "www.agencycluster.com",
+          "title": "App Modernization & Legacy Migration Agencies in USA"
+        },
+        {
+          "position": 10,
+          "domain": "intellias.com",
+          "title": "Application Modernization Services | Shaped by AI"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "fintech software development company",
+      "volume": 480,
+      "cpc": 53.7,
+      "difficulty": 26,
+      "source": "existing-post",
+      "ourSlugs": [
+        "fintech-project-failures-guarantee-delivery-security",
+        "defense-ai-platform-breach-risk",
+        "fintech-development-traps-startup-failure"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "appinventiv.com",
+          "title": "FinTech Software Development Services"
+        },
+        {
+          "position": 3,
+          "domain": "sdk.finance",
+          "title": "⭐Top 10 FinTech App Development Companies 2026 ⭐"
+        },
+        {
+          "position": 4,
+          "domain": "www.scnsoft.com",
+          "title": "Fintech Software Development Company 💸🚀"
+        },
+        {
+          "position": 5,
+          "domain": "www.linkedin.com",
+          "title": "Top FinTech Software Development Companies Serving ..."
+        },
+        {
+          "position": 6,
+          "domain": "xchange.avixa.org",
+          "title": "10 Fintech Software Development Companies Trusted by ..."
+        },
+        {
+          "position": 7,
+          "domain": "dev.pro",
+          "title": "Fintech Software Development Company"
+        },
+        {
+          "position": 8,
+          "domain": "www.rishabhsoft.com",
+          "title": "Fintech Software Development Company"
+        },
+        {
+          "position": 9,
+          "domain": "clutch.co",
+          "title": "Top Custom Software Development Companies for Fintech"
+        },
+        {
+          "position": 10,
+          "domain": "itexus.com",
+          "title": "Top Fintech Development Companies in the USA (2026)"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "digital transformation consulting services",
+      "volume": 320,
+      "cpc": 61.41,
+      "difficulty": 6,
+      "source": "existing-post",
+      "ourSlugs": [
+        "digital-flagship-losing-soul-reclaim-it",
+        "the-5m-mistake-principal-architects-make-20-year-build",
+        "digital-transformation-fails-why",
+        "digital-transformation-stalls-hidden-ops-data-gaps"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.protiviti.com",
+          "title": "Digital Transformation Consulting Services"
+        },
+        {
+          "position": 3,
+          "domain": "www.bain.com",
+          "title": "Digital Transformation Consulting Services"
+        },
+        {
+          "position": 4,
+          "domain": "www.bcg.com",
+          "title": "Digital Transformation Strategy Consulting | BCG"
+        },
+        {
+          "position": 5,
+          "domain": "www.ttec.com",
+          "title": "What is Digital Transformation Consulting?"
+        },
+        {
+          "position": 6,
+          "domain": "www.g-co.agency",
+          "title": "Top Digital Transformation Agencies & Consulting Firms to ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.ricoh-usa.com",
+          "title": "What is Digital Transformation Consulting?"
+        },
+        {
+          "position": 8,
+          "domain": "aimconsulting.com",
+          "title": "Digital Transformation Consulting: How Can It Help Your ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.talentmsh.com",
+          "title": "Top 6 Digital Transformation Consulting Firms"
+        },
+        {
+          "position": 11,
+          "domain": "www.bdemerson.com",
+          "title": "Digital Transformation Services"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "fractional cto services",
+      "volume": 320,
+      "cpc": 37.39,
+      "difficulty": 9,
+      "source": "existing-post",
+      "ourSlugs": [
+        "hobbyist-dev-team-killing-ai-support-fractional-cto-churn",
+        "cut-product-launch-time-fractional-cto",
+        "luxury-e-commerce-fractional-cto"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.connectd.com",
+          "title": "Fractional CTO Services"
+        },
+        {
+          "position": 3,
+          "domain": "www.gofractional.com",
+          "title": "What Is a Fractional CTO? Cost, Benefits & How to Hire ..."
+        },
+        {
+          "position": 4,
+          "domain": "ctox.com",
+          "title": "Fractional CTO Services | Hire Top-Level Technology ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.encomputers.com",
+          "title": "When fractional CTO services make sense (and when they ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.fractionaljobs.io",
+          "title": "The 5 Best Fractional CTO Platforms and Services (2026)"
+        },
+        {
+          "position": 7,
+          "domain": "tenmilesquare.com",
+          "title": "Strategic Fractional CTO Services"
+        },
+        {
+          "position": 8,
+          "domain": "www.impekable.com",
+          "title": "Fractional CTO Services - Impekable"
+        },
+        {
+          "position": 10,
+          "domain": "vettedoutsource.com",
+          "title": "Fractional CTO Services: Guide for Startups and Scaling Teams"
+        },
+        {
+          "position": 11,
+          "domain": "mentorcruise.com",
+          "title": "Fractional CTO Service | Expert CTOs for Your Business"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": true,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "custom enterprise software development",
+      "volume": 320,
+      "cpc": null,
+      "difficulty": 19,
+      "source": "existing-post",
+      "ourSlugs": [
+        "build-enterprise-software-growth-not-costs"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.itransition.com",
+          "title": "Custom Enterprise Software Development Services & ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.mindk.com",
+          "title": "Custom Enterprise Software Development in 2025"
+        },
+        {
+          "position": 4,
+          "domain": "www.effectivesoft.com",
+          "title": "Custom Enterprise Software Development Services"
+        },
+        {
+          "position": 5,
+          "domain": "www.zco.com",
+          "title": "Custom Enterprise Software Development"
+        },
+        {
+          "position": 6,
+          "domain": "entranceconsulting.com",
+          "title": "Custom Enterprise Software Development Services"
+        },
+        {
+          "position": 7,
+          "domain": "www.pegasusone.com",
+          "title": "Custom Enterprise Software Development Services"
+        },
+        {
+          "position": 9,
+          "domain": "fullscale.io",
+          "title": "Your Ultimate Guide to Custom Enterprise Software ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.linkedin.com",
+          "title": "Why Custom Enterprise Software Development is the ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "startup mvp development company",
+      "volume": 260,
+      "cpc": 46.36,
+      "difficulty": 13,
+      "source": "existing-post",
+      "ourSlugs": [
+        "7-hidden-red-flags-startup-mvp-development-company",
+        "luxury-ecommerce-nextjs-mvp-speed",
+        "why-ai-operations-tools-fail-reliability"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "deepinspire.com",
+          "title": "MVP Development Services"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Best MVP development companies in the US? : r/startup"
+        },
+        {
+          "position": 4,
+          "domain": "ventionteams.com",
+          "title": "MVP Development for Startups - Vention"
+        },
+        {
+          "position": 5,
+          "domain": "helpware.com",
+          "title": "Top 30 MVP development companies"
+        },
+        {
+          "position": 6,
+          "domain": "forcoda.com",
+          "title": "MVP DEVELOPMENT AGENCY FOR STARTUPS AND ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.wavespace.agency",
+          "title": "Top 10 MVP Development Companies in the USA for ..."
+        },
+        {
+          "position": 8,
+          "domain": "s-pro.io",
+          "title": "Best 22 MVP Development Companies"
+        },
+        {
+          "position": 9,
+          "domain": "www.freshcodeit.com",
+          "title": "MVP Development Services for Startups"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "technical debt examples",
+      "volume": 210,
+      "cpc": 0.19,
+      "difficulty": 2,
+      "source": "existing-post",
+      "ourSlugs": [
+        "enterprise-technical-debt-cost"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "In your own words: What is technical debt?"
+        },
+        {
+          "position": 4,
+          "domain": "www.softwareimprovementgroup.com",
+          "title": "Eight examples of technical debt: how software failures hurt ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.confluent.io",
+          "title": "Technical Debt (Tech Debt): A Complete Guide"
+        },
+        {
+          "position": 6,
+          "domain": "www.ibm.com",
+          "title": "What is Technical Debt? | IBM"
+        },
+        {
+          "position": 7,
+          "domain": "www.atlassian.com",
+          "title": "Say 'bye' to tech debt: Agile solutions for clean development"
+        },
+        {
+          "position": 8,
+          "domain": "vfunction.com",
+          "title": "Technical Debt: What Is It? Definition, Examples & Types"
+        },
+        {
+          "position": 9,
+          "domain": "asana.com",
+          "title": "What is Technical Debt & How to Pay it Off, Examples [2026]"
+        },
+        {
+          "position": 10,
+          "domain": "www.coursera.org",
+          "title": "What Is Technical Debt: A Guide"
+        },
+        {
+          "position": 11,
+          "domain": "notthecode.com",
+          "title": "12 Technical Debt Examples (With Real-World Incidents)"
+        }
+      ],
+      "serpSignals": {
+        "authority": 3,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "custom software development cost",
+      "volume": 170,
+      "cpc": 4.06,
+      "difficulty": 2,
+      "source": "existing-post",
+      "ourSlugs": [
+        "why-custom-software-budget-explodes-accurate-estimates",
+        "hidden-custom-software-development-cost"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.eventpro.net",
+          "title": "How much does custom software development cost"
+        },
+        {
+          "position": 5,
+          "domain": "soltech.net",
+          "title": "How Much Does Custom Software Development Cost in 2026?"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "Roughly how much would such a custom software Cost? I ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.saritasa.com",
+          "title": "How Much Does Custom Software Development Cost?"
+        },
+        {
+          "position": 8,
+          "domain": "kimei-global.com",
+          "title": "How Much Does Custom Software Development Really Cost"
+        },
+        {
+          "position": 9,
+          "domain": "www.cleveroad.com",
+          "title": "How Much Does Software Development Cost: 2026 ..."
+        },
+        {
+          "position": 10,
+          "domain": "syndicode.com",
+          "title": "The Guide to Custom Software Development Cost Estimation"
+        },
+        {
+          "position": 11,
+          "domain": "keyholesoftware.com",
+          "title": "Custom Software Development Cost: 2026 Pricing & ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hire dedicated software development team",
+      "volume": 170,
+      "cpc": null,
+      "difficulty": 14,
+      "source": "existing-post",
+      "ourSlugs": [
+        "dedicated-dev-team-trap-startup-guide"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.simpalm.com",
+          "title": "Hire Dedicated Software Development Team"
+        },
+        {
+          "position": 4,
+          "domain": "www.agicent.com",
+          "title": "Dedicated Software Development Team"
+        },
+        {
+          "position": 5,
+          "domain": "itexus.com",
+          "title": "Hire Dedicated Software Development Team"
+        },
+        {
+          "position": 6,
+          "domain": "fusionhit.com",
+          "title": "How to Hire or Build a Dedicated Software Development ..."
+        },
+        {
+          "position": 7,
+          "domain": "ncube.com",
+          "title": "Dedicated Development Team: How to Hire or Build One"
+        },
+        {
+          "position": 8,
+          "domain": "www.bairesdev.com",
+          "title": "Dedicated Software Development Teams"
+        },
+        {
+          "position": 9,
+          "domain": "blackthorn-vision.com",
+          "title": "Dedicated Development Team Guide: Hire, Structure & ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.scnsoft.com",
+          "title": "Dedicated Development Teams for Hire 👨‍💻"
+        },
+        {
+          "position": 11,
+          "domain": "wise.com",
+          "title": "How to Hire a Dedicated Remote Development Team"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "saas product development company",
+      "volume": 140,
+      "cpc": 35.04,
+      "difficulty": 15,
+      "source": "existing-post",
+      "ourSlugs": [
+        "build-saas-without-technical-debt"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.techformation.io",
+          "title": "SaaS Application Development Services"
+        },
+        {
+          "position": 3,
+          "domain": "medium.com",
+          "title": "10 Leading SaaS Product Development Companies"
+        },
+        {
+          "position": 4,
+          "domain": "intellias.com",
+          "title": "SaaS Development Services"
+        },
+        {
+          "position": 5,
+          "domain": "www.designrush.com",
+          "title": "Top SaaS Development Companies in 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.matechco.com",
+          "title": "Top Rated SaaS Development Services"
+        },
+        {
+          "position": 7,
+          "domain": "www.scnsoft.com",
+          "title": "SaaS Application Development Services 🚀"
+        },
+        {
+          "position": 8,
+          "domain": "technothinksupsolutions.com",
+          "title": "Choosing the Best SaaS Product Development Company"
+        },
+        {
+          "position": 9,
+          "domain": "www.talentelgia.com",
+          "title": "Top SaaS Product Development Companies"
+        },
+        {
+          "position": 10,
+          "domain": "diceus.com",
+          "title": "Top SaaS Development Companies for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "compliance software companies",
+      "volume": 110,
+      "cpc": 66.73,
+      "difficulty": 35,
+      "source": "existing-post",
+      "ourSlugs": [
+        "generic-compliance-software-failure-banks",
+        "unlock-faster-drug-approvals-without-regulatory-risk",
+        "7-database-ai-mistakes-compliance-software"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.securitycompass.com",
+          "title": "Top 10 Compliance Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.comply.com",
+          "title": "Comply: Compliance Management Platform for Financial ..."
+        },
+        {
+          "position": 4,
+          "domain": "usercentrics.com",
+          "title": "The 8 Best Regulatory Compliance Platforms For 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.ncontracts.com",
+          "title": "Compliance Management Software for Financial Industry"
+        },
+        {
+          "position": 7,
+          "domain": "cynomi.com",
+          "title": "Top Compliance Management Software Solutions for 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.atlassystems.com",
+          "title": "Best Compliance Tracking & Monitoring Software (+ 10 ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.reddit.com",
+          "title": "Compliance automation tools / SaaS companies"
+        },
+        {
+          "position": 10,
+          "domain": "www.gartner.com",
+          "title": "Best Compliance Monitoring Solutions Reviews 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "software development partnership",
+      "volume": 110,
+      "cpc": 59.33,
+      "difficulty": 3,
+      "source": "existing-post",
+      "ourSlugs": [
+        "hidden-500k-cost-bad-software-partnership"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.vegaitglobal.com",
+          "title": "How to choose the right software development partner"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Where to find software developers for partnership"
+        },
+        {
+          "position": 4,
+          "domain": "www.softwaredesignpartners.com",
+          "title": "Software Design Partners: Home"
+        },
+        {
+          "position": 6,
+          "domain": "spr.com",
+          "title": "Finding the Right Software Development Partner - SPR"
+        },
+        {
+          "position": 7,
+          "domain": "www.happyfuncorp.com",
+          "title": "How to Choose a Software Development Partner"
+        },
+        {
+          "position": 8,
+          "domain": "www.rishabhsoft.com",
+          "title": "Software Channel Partners"
+        },
+        {
+          "position": 9,
+          "domain": "innowise.com",
+          "title": "How to choose the right software development partner"
+        },
+        {
+          "position": 10,
+          "domain": "www.linkedin.com",
+          "title": "6 Powerful Benefits of Partnering with a Leading Software ..."
+        },
+        {
+          "position": 11,
+          "domain": "impressit.io",
+          "title": "How to Choose a Software Development Partner in 2025"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "digital product development services",
+      "volume": 110,
+      "cpc": 74.08,
+      "difficulty": 20,
+      "source": "existing-post",
+      "ourSlugs": [
+        "shipping-digital-products-that-grow-fast"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "clockwise.software",
+          "title": "Digital Product Development Company"
+        },
+        {
+          "position": 3,
+          "domain": "www.virtusa.com",
+          "title": "Digital Product Development"
+        },
+        {
+          "position": 4,
+          "domain": "www.vegaitglobal.com",
+          "title": "Digital product development"
+        },
+        {
+          "position": 5,
+          "domain": "www.greensighter.com",
+          "title": "Digital Product Development"
+        },
+        {
+          "position": 6,
+          "domain": "experionglobal.com",
+          "title": "Digital Product Development: The Road to Market Success"
+        },
+        {
+          "position": 7,
+          "domain": "www.cognizant.com",
+          "title": "What are digital product development services?"
+        },
+        {
+          "position": 8,
+          "domain": "hexaware.com",
+          "title": "Digital Product Development: Trends & Benefits"
+        },
+        {
+          "position": 9,
+          "domain": "vervint.com",
+          "title": "Digital Product Development Services"
+        },
+        {
+          "position": 10,
+          "domain": "www.productboard.com",
+          "title": "What is Digital Product Development?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "website performance optimization services",
+      "volume": 90,
+      "cpc": 65.45,
+      "difficulty": 3,
+      "source": "existing-post",
+      "ourSlugs": [
+        "logistics-system-performance-traps-costing-millions",
+        "luxury-website-performance-killers"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.milestoneinternet.com",
+          "title": "Page Speed Optimization Services"
+        },
+        {
+          "position": 3,
+          "domain": "www.pagespeedmatters.com",
+          "title": "PageSpeed Matters: Website Speed Optimization Services"
+        },
+        {
+          "position": 4,
+          "domain": "10turtle.com",
+          "title": "WordPress Website Speed Optimization Services"
+        },
+        {
+          "position": 5,
+          "domain": "www.webfx.com",
+          "title": "Site Speed Optimization Services | Improve Core Web Vitals"
+        },
+        {
+          "position": 6,
+          "domain": "www.fiverr.com",
+          "title": "Online Website Speed Optimization Services"
+        },
+        {
+          "position": 7,
+          "domain": "avatarwebsitedesign.com",
+          "title": "5 Best Website Speed Optimization Service Options (2026)"
+        },
+        {
+          "position": 8,
+          "domain": "developers.google.com",
+          "title": "Make the Web Faster | Google for Developers"
+        },
+        {
+          "position": 9,
+          "domain": "www.onely.com",
+          "title": "Website Speed Optimization Service"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "code review services",
+      "volume": 90,
+      "cpc": 19.57,
+      "difficulty": 23,
+      "source": "existing-post",
+      "ourSlugs": [
+        "hidden-ai-code-gaps-costing-banks-millions",
+        "code-traps-killing-system-future-deep-review"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.reddit.com",
+          "title": "Code review service? : r/node"
+        },
+        {
+          "position": 3,
+          "domain": "www.greptile.com",
+          "title": "AI Code Review | Greptile | Merge 4X Faster, Catch 3X More ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.scnsoft.com",
+          "title": "Code Review Services 🕵🏻"
+        },
+        {
+          "position": 5,
+          "domain": "www.codementor.io",
+          "title": "On-Demand Code Review as a Service"
+        },
+        {
+          "position": 6,
+          "domain": "rhinosecuritylabs.com",
+          "title": "Secure Code Review Services"
+        },
+        {
+          "position": 7,
+          "domain": "www.coderabbit.ai",
+          "title": "AI Code Reviews | CodeRabbit | Try for Free."
+        },
+        {
+          "position": 9,
+          "domain": "code.claude.com",
+          "title": "Code Review - Claude Code Docs"
+        },
+        {
+          "position": 10,
+          "domain": "sourcegraph.com",
+          "title": "13 Best Automated Code Review Tools in 2026: AI and ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "application modernization consulting",
+      "volume": 70,
+      "cpc": null,
+      "difficulty": 3,
+      "source": "existing-post",
+      "ourSlugs": [
+        "why-hidden-technical-debt-kills-legacy-systems",
+        "modernize-property-management-software-operations",
+        "your-1990s-support-tech-killing-customer-loyalty"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.ibm.com",
+          "title": "Application Modernization Services"
+        },
+        {
+          "position": 3,
+          "domain": "www.rishabhsoft.com",
+          "title": "Application Modernization Services"
+        },
+        {
+          "position": 4,
+          "domain": "dxc.com",
+          "title": "Applications Modernization Services and Solutions"
+        },
+        {
+          "position": 5,
+          "domain": "www.n-ix.com",
+          "title": "Application modernization services"
+        },
+        {
+          "position": 6,
+          "domain": "corsactech.com",
+          "title": "Best 11 App Modernisation Experts to Watch in 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.scnsoft.com",
+          "title": "Application Modernization Services"
+        },
+        {
+          "position": 8,
+          "domain": "www.linkedin.com",
+          "title": "Application Modernization Consulting"
+        },
+        {
+          "position": 9,
+          "domain": "www.legacyleap.ai",
+          "title": "Top Application Modernization Platforms & Companies ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.soliantconsulting.com",
+          "title": "Application Modernization Services | AWS Advanced Partner"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "virtual cto services",
+      "volume": 70,
+      "cpc": 24.72,
+      "difficulty": 27,
+      "source": "existing-post",
+      "ourSlugs": [
+        "virtual-cto-bespoke-ai-real-estate",
+        "200k-mistake-property-directors-custom-ai-virtual-cto"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.damcogroup.com",
+          "title": "Virtual CTO Services | On-Demand Technology Leadership"
+        },
+        {
+          "position": 3,
+          "domain": "tcitechs.com",
+          "title": "Virtual CTO | CTO as a Service"
+        },
+        {
+          "position": 4,
+          "domain": "www.essendis.com",
+          "title": "Virtual Chief Technology Officer Services"
+        },
+        {
+          "position": 5,
+          "domain": "www.adrytech.com",
+          "title": "Everything You Need to Know About a Virtual CTO"
+        },
+        {
+          "position": 6,
+          "domain": "www.wcatech.com",
+          "title": "Virtual Chief Technology Officers (CTO) Services New York ..."
+        },
+        {
+          "position": 7,
+          "domain": "techenhance.com",
+          "title": "Virtual CTO Services | Tech Strategy by TechEnhance"
+        },
+        {
+          "position": 9,
+          "domain": "www.transputec.com",
+          "title": "The Role of Virtual CTO: A Strategic Guide"
+        },
+        {
+          "position": 10,
+          "domain": "www.tericsoft.com",
+          "title": "What is a Virtual CTO & How This Service Can Impact ..."
+        },
+        {
+          "position": 11,
+          "domain": "tsttechnology.io",
+          "title": "Virtual CTO Services for Startups & SaaS Companies"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "commercial real estate software solutions",
+      "volume": 70,
+      "cpc": null,
+      "difficulty": 0,
+      "source": "existing-post",
+      "ourSlugs": [
+        "property-software-costs-millions-asset-value"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.yardi.com",
+          "title": "Commercial Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.mrisoftware.com",
+          "title": "MRI Software: Real Estate Solutions for Innovators"
+        },
+        {
+          "position": 4,
+          "domain": "wint.ai",
+          "title": "Top 10 Commercial Property Management Software Solutions"
+        },
+        {
+          "position": 5,
+          "domain": "www.azibo.com",
+          "title": "The 5 Best Commercial Real Estate Software Options"
+        },
+        {
+          "position": 7,
+          "domain": "cretelligent.com",
+          "title": "Best Commercial Real Estate Software for 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.appfolio.com",
+          "title": "Top-Rated Commercial Property Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.getapp.com",
+          "title": "Top Rated Commercial Real Estate Software with Real time data"
+        },
+        {
+          "position": 10,
+          "domain": "pickspace.com",
+          "title": "Commercial Real Estate Property Management Software"
+        },
+        {
+          "position": 12,
+          "domain": "fyxt.com",
+          "title": "13 Best Commercial Property Management Software of 2024"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "real estate software development solutions",
+      "volume": 70,
+      "cpc": null,
+      "difficulty": 12,
+      "source": "existing-post",
+      "ourSlugs": [
+        "property-directors-off-the-shelf-software-mistake",
+        "legacy-property-software-maintenance-trap-automation-secret"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.itransition.com",
+          "title": "Real Estate Software Development: Solutions & Tech Stack"
+        },
+        {
+          "position": 3,
+          "domain": "www.chetu.com",
+          "title": "Efficient Real Estate Software Development Solutions"
+        },
+        {
+          "position": 4,
+          "domain": "buildbite.com",
+          "title": "The 7 best real estate development software tools reviewed"
+        },
+        {
+          "position": 5,
+          "domain": "www.northspyre.com",
+          "title": "Northspyre - Real Estate Development Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.digisoftsolution.com",
+          "title": "5 Best Real Estate Software Development Companies for ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.seasiainfotech.com",
+          "title": "Real Estate Software Development | Real Estate IT Solutions"
+        },
+        {
+          "position": 8,
+          "domain": "www.linkedin.com",
+          "title": "Best Real Estate Software Development Companies for ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.housingwire.com",
+          "title": "The best real estate software for 2026: 20 top picks for ..."
+        },
+        {
+          "position": 10,
+          "domain": "ventionteams.com",
+          "title": "Real Estate Software Development & Custom PropTech ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "api first development",
+      "volume": 50,
+      "cpc": null,
+      "difficulty": 23,
+      "source": "existing-post",
+      "ourSlugs": [
+        "operations-platform-fast-tech-integration",
+        "costly-api-first-mistakes-startups",
+        "hidden-cost-broken-logistics-connections",
+        "due-diligence-api-first-saas-exit"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.postman.com",
+          "title": "What is API-first? The API-first Approach Explained"
+        },
+        {
+          "position": 3,
+          "domain": "swagger.io",
+          "title": "Understanding the API-First Approach to Building Products"
+        },
+        {
+          "position": 4,
+          "domain": "www.sitecore.com",
+          "title": "What is an API-First Approach? | Tech Terms to Know"
+        },
+        {
+          "position": 5,
+          "domain": "www.contentful.com",
+          "title": "Why API-first is the key to fast development and scalable AI ..."
+        },
+        {
+          "position": 6,
+          "domain": "medium.com",
+          "title": "API-first software development for modern organizations"
+        },
+        {
+          "position": 8,
+          "domain": "apisyouwonthate.com",
+          "title": "A Developer's Guide to API Design-First"
+        },
+        {
+          "position": 9,
+          "domain": "maddevs.io",
+          "title": "API-First Development: Unlock Software Scalability"
+        },
+        {
+          "position": 10,
+          "domain": "www.moesif.com",
+          "title": "API-First Approach: What It Is and How to Adopt It"
+        },
+        {
+          "position": 11,
+          "domain": "labspractices.com",
+          "title": "Understanding API-First Development"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "fixed price software development",
+      "volume": 50,
+      "cpc": null,
+      "difficulty": 0,
+      "source": "existing-post",
+      "ourSlugs": [
+        "secure-fixed-price-defense-software",
+        "fixed-price-software-budget-explosion-20-year-systems",
+        "fixed-price-software-valuation-trap",
+        "why-fixed-price-software-development-fails-ultimate-strategy"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "Why We Don't Do Fixed-Price Software Projects (And ..."
+        },
+        {
+          "position": 3,
+          "domain": "saigontechnology.com",
+          "title": "Fixed Price Software Development vs Time & Material"
+        },
+        {
+          "position": 4,
+          "domain": "soltech.net",
+          "title": "Time & Materials vs. Fixed Price: A Complete Guide | SOLTECH"
+        },
+        {
+          "position": 5,
+          "domain": "techfarhub.usds.gov",
+          "title": "Contract Types for Agile Development Contracts"
+        },
+        {
+          "position": 6,
+          "domain": "inspeerity.com",
+          "title": "Understanding Time & Material vs. Fixed Price Projects in ..."
+        },
+        {
+          "position": 7,
+          "domain": "atomicobject.com",
+          "title": "Fixed Price Software Development vs T&M vs Scope- ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.aalpha.net",
+          "title": "Fixed Price Software Development: A Complete Guide - Aalpha"
+        },
+        {
+          "position": 10,
+          "domain": "www.scopemaster.com",
+          "title": "Fixed Price Agile Projects - secrets revealed"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "how to build an ai company",
+      "volume": 50,
+      "cpc": 17.11,
+      "difficulty": 50,
+      "source": "existing-post",
+      "ourSlugs": [
+        "building-profitable-ai-company-steps"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "I spent $47k and 18 months building an \"AI startup.\" Here's ..."
+        },
+        {
+          "position": 7,
+          "domain": "python.plainenglish.io",
+          "title": "How I Built My First AI Startup (With No Experience)"
+        },
+        {
+          "position": 8,
+          "domain": "online.hbs.edu",
+          "title": "How to Create an AI-First Company"
+        },
+        {
+          "position": 9,
+          "domain": "www.salesforce.com",
+          "title": "How to Become an AI Business"
+        },
+        {
+          "position": 10,
+          "domain": "www.wired.com",
+          "title": "How to Build an AI Startup: Go Big, Be Strange, Embrace ..."
+        },
+        {
+          "position": 11,
+          "domain": "build.inc",
+          "title": "Build — The AI-Native Operating Partner for the Built World"
+        },
+        {
+          "position": 12,
+          "domain": "thoughtbot.com",
+          "title": "How to Build an AI Startup, and Do You Really Need To?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "legacy system modernization approaches",
+      "volume": 50,
+      "cpc": 43.57,
+      "difficulty": 34,
+      "source": "existing-post",
+      "ourSlugs": [
+        "your-30-year-legacy-system-is-a-5m-maintenance-trap"
+      ],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.ibm.com",
+          "title": "What Is Legacy Application Modernization?"
+        },
+        {
+          "position": 3,
+          "domain": "www.stromasys.com",
+          "title": "What Are Best Legacy Modernization Approaches for 2026?"
+        },
+        {
+          "position": 4,
+          "domain": "kodesage.ai",
+          "title": "Legacy System Modernization: Strategies and Tools"
+        },
+        {
+          "position": 5,
+          "domain": "hexaware.com",
+          "title": "Top 8 Legacy Modernization Approaches for Business ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.bdemerson.com",
+          "title": "Legacy App Modernization: Strategies, Benefits & Steps"
+        },
+        {
+          "position": 7,
+          "domain": "www.skmgp.com",
+          "title": "Legacy System Modernization: Mitigate .NET & Java Risks"
+        },
+        {
+          "position": 8,
+          "domain": "solutionshub.epam.com",
+          "title": "Legacy System Modernization: Why It Matters"
+        },
+        {
+          "position": 11,
+          "domain": "vfunction.com",
+          "title": "What is Legacy Application Modernization?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "software for property management company",
+      "volume": 170,
+      "cpc": 258.58,
+      "difficulty": 59,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.buildium.com",
+          "title": "Buildium: Property Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.yardi.com",
+          "title": "Property Management Software for Real Estate Portfolios"
+        },
+        {
+          "position": 7,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "rentredi.com",
+          "title": "RentRedi: Property Management Software for Landlords"
+        },
+        {
+          "position": 11,
+          "domain": "www.avail.com",
+          "title": "12 Best Free Property Management Software For 2026"
+        },
+        {
+          "position": 12,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "affordable property management software",
+      "volume": 70,
+      "cpc": 257.09,
+      "difficulty": 58,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.appfolio.com",
+          "title": "Affordable Housing Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.doorloop.com",
+          "title": "The Cheapest Property Management Software For 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.avail.com",
+          "title": "12 Best Free Property Management Software For 2026"
+        },
+        {
+          "position": 8,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 9,
+          "domain": "butterflymx.com",
+          "title": "6 Best Affordable Housing Property Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.platuni.com",
+          "title": "Inexpensive Property Management Software | Best Options"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management maintenance software",
+      "volume": 210,
+      "cpc": 251.17,
+      "difficulty": 42,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.getmaintainx.com",
+          "title": "Property Management Maintenance Software"
+        },
+        {
+          "position": 3,
+          "domain": "propertymeld.com",
+          "title": "Property Meld | Property Maintenance Software"
+        },
+        {
+          "position": 4,
+          "domain": "upkeep.com",
+          "title": "Property Management Maintenance Software"
+        },
+        {
+          "position": 5,
+          "domain": "vendoroo.ai",
+          "title": "Top 7 Property Management Maintenance Software ..."
+        },
+        {
+          "position": 7,
+          "domain": "safetyculture.com",
+          "title": "Top 7 Property Maintenance Software of 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.reddit.com",
+          "title": "Property maintenance software suggestions"
+        },
+        {
+          "position": 9,
+          "domain": "www.gofmx.com",
+          "title": "Property Maintenance Management & Work Order Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.hemlane.com",
+          "title": "10 Best Property Maintenance Software Options in 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best rent collection software",
+      "volume": 50,
+      "cpc": 234.31,
+      "difficulty": 58,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "Landlords, what mobile apps are you using to collect rent ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.avail.com",
+          "title": "12 Best Rent Collection Apps for Landlords [2026]"
+        },
+        {
+          "position": 5,
+          "domain": "www.mrisoftware.com",
+          "title": "Best Rent Collection Software in 2026 for Landlords & ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.buildium.com",
+          "title": "The 8 Best Rent Payment Apps of 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.hemlane.com",
+          "title": "10 Best Rent Collection Apps of 2026"
+        },
+        {
+          "position": 9,
+          "domain": "skybridgeproperty.com",
+          "title": "14 Best Apps for Landlords to Collect Rent in 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.landlordstudio.com",
+          "title": "11 Best Rent Collection Apps For Landlords (2026)"
+        },
+        {
+          "position": 11,
+          "domain": "www.stessa.com",
+          "title": "13 Best Apps to Easily Collect Rent Online [2026 ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.azibo.com",
+          "title": "The Best Rent Collection Software of 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best vacation rental software",
+      "volume": 90,
+      "cpc": 179.88,
+      "difficulty": 39,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.lodgify.com",
+          "title": "Lodgify: The #1 Vacation Rental Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.capterra.com",
+          "title": "Best Vacation Rental Software 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Vacation Rental Software in 2024 : r/airbnb_hosts"
+        },
+        {
+          "position": 7,
+          "domain": "www.avantio.com",
+          "title": "Best Vacation Rental Management Software for 2026: A ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.doorloop.com",
+          "title": "Best Short-Term Rental Management Software [7 Options]"
+        },
+        {
+          "position": 9,
+          "domain": "hospitable.com",
+          "title": "Best Vacation Rental Software in 2026"
+        },
+        {
+          "position": 10,
+          "domain": "thehotelgm.com",
+          "title": "The 10 Best Vacation Rental Software Of 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.softwareworld.co",
+          "title": "Top 10 Vacation Rental Software for Businesses in the USA"
+        },
+        {
+          "position": 12,
+          "domain": "rentalsunited.com",
+          "title": "7 Best Vacation Rental Software Platforms for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best appointment scheduling software for small business",
+      "volume": 50,
+      "cpc": 165.81,
+      "difficulty": 32,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Free Online Booking and Scheduling Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.emailtooltester.com",
+          "title": "Best Scheduling App for Online Bookings: 12 Easy Options"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "Best Appointment Scheduling App with specific needs"
+        },
+        {
+          "position": 7,
+          "domain": "youcanbook.me",
+          "title": "9 Best Appointment Scheduling Apps to Try in 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.appointy.com",
+          "title": "Appointment Scheduling Software | Online Scheduler Software"
+        },
+        {
+          "position": 9,
+          "domain": "calendly.com",
+          "title": "Scheduling software for small businesses"
+        },
+        {
+          "position": 11,
+          "domain": "www.thryv.com",
+          "title": "10 Best Scheduling Apps for Small Businesses"
+        },
+        {
+          "position": 12,
+          "domain": "www.youtube.com",
+          "title": "Best Appointment Booking & Scheduling App! (Calendly ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.reservio.com",
+          "title": "Reservio | Free Online Appointment Scheduling Software"
+        },
+        {
+          "position": 14,
+          "domain": "schedly.io",
+          "title": "The Top Free Appointment Scheduling Apps for Small ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best property management software",
+      "volume": 1300,
+      "cpc": 163.99,
+      "difficulty": 57,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.youtube.com",
+          "title": "Best Property Management Software: Our Top 5 ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.featuredcustomers.com",
+          "title": "Property Management Software Companies"
+        },
+        {
+          "position": 11,
+          "domain": "www.avail.com",
+          "title": "12 Best Free Property Management Software For 2026"
+        },
+        {
+          "position": 12,
+          "domain": "www.youtube.com",
+          "title": "The Best FREE Property Management Tools You Need to Try"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best real estate management software",
+      "volume": 1300,
+      "cpc": 163.99,
+      "difficulty": 57,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software (~100 Units)"
+        },
+        {
+          "position": 5,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.youtube.com",
+          "title": "Best Property Management Software: Our Top 5 ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.buildium.com",
+          "title": "6 of the Best Real Estate Management Software Options"
+        },
+        {
+          "position": 10,
+          "domain": "www.investopedia.com",
+          "title": "Best Rental Property Management Software for 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.g2.com",
+          "title": "Best Property Management Software: User Reviews from ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.landlordstudio.com",
+          "title": "11 Best Rental Property Management Software for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "property manager software",
+      "volume": 18100,
+      "cpc": 159.31,
+      "difficulty": 34,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "rentredi.com",
+          "title": "RentRedi: Property Management Software for Landlords"
+        },
+        {
+          "position": 7,
+          "domain": "www.yardi.com",
+          "title": "Property Management Software for Real Estate Portfolios"
+        },
+        {
+          "position": 8,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.rentmanager.com",
+          "title": "Rent Manager Property Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best airbnb management software",
+      "volume": 110,
+      "cpc": 151.78,
+      "difficulty": 39,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.guesty.com",
+          "title": "Guesty: Airbnb & Vacation Rental Software, Built on AI"
+        },
+        {
+          "position": 3,
+          "domain": "www.airbnb.com",
+          "title": "Meet our software partners"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software for Short-Term ..."
+        },
+        {
+          "position": 7,
+          "domain": "stayfi.com",
+          "title": "10 Best Airbnb Management Software Platforms in 2026"
+        },
+        {
+          "position": 8,
+          "domain": "touchstay.com",
+          "title": "10 Best Short-Term Rental Management Software Tools in ..."
+        },
+        {
+          "position": 9,
+          "domain": "hospitable.com",
+          "title": "Airbnb Management Software: Boosting Your Business"
+        },
+        {
+          "position": 11,
+          "domain": "www.lodgify.com",
+          "title": "Airbnb Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "rental property management system",
+      "volume": 90,
+      "cpc": 150.76,
+      "difficulty": 39,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.turbotenant.com",
+          "title": "TurboTenant: Property Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.rentmanager.com",
+          "title": "Rent Manager Property Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 10,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best short term rental management software",
+      "volume": 140,
+      "cpc": 150.75,
+      "difficulty": 40,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "touchstay.com",
+          "title": "10 Best Short-Term Rental Management Software Tools in ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software for Short-Term ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.capterra.com",
+          "title": "Best Vacation Rental Software 2026"
+        },
+        {
+          "position": 5,
+          "domain": "rentalsunited.com",
+          "title": "7 Best Vacation Rental Software Platforms for 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.doorloop.com",
+          "title": "Best Short-Term Rental Management Software [7 Options]"
+        },
+        {
+          "position": 8,
+          "domain": "www.reddit.com",
+          "title": "Best Vacation Rental Software in 2024 : r/airbnb_hosts"
+        },
+        {
+          "position": 9,
+          "domain": "www.youtube.com",
+          "title": "Best Short Term Rental Property Management software (2026)"
+        },
+        {
+          "position": 10,
+          "domain": "landlory.com",
+          "title": "Best property management software for Airbnb & short-term ..."
+        },
+        {
+          "position": 11,
+          "domain": "rentpost.com",
+          "title": "6 Property Management Software for Short-Term Rentals ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 2,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best property management systems for hotels",
+      "volume": 90,
+      "cpc": 140.1,
+      "difficulty": 45,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "hoteltechreport.com",
+          "title": "Top 10 Best Hotel Property Management Systems 2026"
+        },
+        {
+          "position": 3,
+          "domain": "www.mews.com",
+          "title": "Mews: The Hospitality Management Software of the Future"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "What's the best hotel management software system you've ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.cloudbeds.com",
+          "title": "#1 Top-Rated Hotel Property Management System 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.canarytechnologies.com",
+          "title": "Hospitality Property Management System"
+        },
+        {
+          "position": 10,
+          "domain": "www.getlynx.co",
+          "title": "How to Choose the Perfect Hotel Property Management ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.agilysys.com",
+          "title": "Agilysys PMS | Property Management System for Hotels & ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best rental management software",
+      "volume": 140,
+      "cpc": 135.86,
+      "difficulty": 51,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.avail.com",
+          "title": "12 Best Free Property Management Software For 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.investopedia.com",
+          "title": "Best Rental Property Management Software for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        },
+        {
+          "position": 10,
+          "domain": "www.landlordstudio.com",
+          "title": "11 Best Rental Property Management Software for 2026"
+        },
+        {
+          "position": 11,
+          "domain": "safetyculture.com",
+          "title": "10 Best Rental Property Management Software of 2026"
+        },
+        {
+          "position": 12,
+          "domain": "www.rocketmortgage.com",
+          "title": "The best property management software for your needs 2025"
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "short term rental property management software",
+      "volume": 140,
+      "cpc": 130.02,
+      "difficulty": 36,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.guesty.com",
+          "title": "Guesty: Airbnb & Vacation Rental Software, Built on AI"
+        },
+        {
+          "position": 3,
+          "domain": "www.lodgify.com",
+          "title": "Lodgify: The #1 Vacation Rental Software"
+        },
+        {
+          "position": 4,
+          "domain": "hospitable.com",
+          "title": "Hospitable | The Super App for Vacation Rental Hosts"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software for Short-Term ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.hostaway.com",
+          "title": "Hostaway - Airbnb & Vacation Rental Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.facebook.com",
+          "title": "what short-term rental property management software to use"
+        },
+        {
+          "position": 9,
+          "domain": "touchstay.com",
+          "title": "10 Best Short-Term Rental Management Software Tools in ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.boomnow.com",
+          "title": "Boom: AI Property Management Software For Short-Term ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "software for rental property",
+      "volume": 390,
+      "cpc": 124.03,
+      "difficulty": 59,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.landlordstudio.com",
+          "title": "Landlord Studio: Property Management Software for Landlords"
+        },
+        {
+          "position": 8,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 10,
+          "domain": "www.stessa.com",
+          "title": "Stessa: Free Property Management Software for Landlords"
+        },
+        {
+          "position": 11,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software (~100 Units)"
+        },
+        {
+          "position": 12,
+          "domain": "www.youtube.com",
+          "title": "Best Property Management Software: Our Top 5 ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best rental property management software",
+      "volume": 260,
+      "cpc": 121.78,
+      "difficulty": 49,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 7,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 8,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "rentredi.com",
+          "title": "RentRedi: Property Management Software for Landlords"
+        },
+        {
+          "position": 11,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management software for small business",
+      "volume": 140,
+      "cpc": 109.57,
+      "difficulty": 48,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.buildium.com",
+          "title": "Buildium: Property Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.yardi.com",
+          "title": "Property Management Software for Real Estate Portfolios"
+        },
+        {
+          "position": 9,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 10,
+          "domain": "rentpost.com",
+          "title": "Best Property Management Software for Small Landlords"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management software for small companies",
+      "volume": 140,
+      "cpc": 109.57,
+      "difficulty": 48,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 5,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 8,
+          "domain": "www.doorloop.com",
+          "title": "13 Best Property Management Software for Small Landlords"
+        },
+        {
+          "position": 9,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        },
+        {
+          "position": 10,
+          "domain": "nawbo.org",
+          "title": "Best Property Management Software for Small Landlords"
+        },
+        {
+          "position": 11,
+          "domain": "www.avail.com",
+          "title": "12 Best Free Property Management Software For 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "appfolio competitors",
+      "volume": 110,
+      "cpc": 104.06,
+      "difficulty": 52,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "AppFolio vs. anything else : r/PropertyManagement"
+        },
+        {
+          "position": 4,
+          "domain": "www.g2.com",
+          "title": "Top 10 AppFolio Alternatives & Competitors in 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.re-leased.com",
+          "title": "7 Best AppFolio Alternatives for Commercial Property ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.wealthblock.ai",
+          "title": "10 best AppFolio competitors for real estate investment firms"
+        },
+        {
+          "position": 10,
+          "domain": "www.balancedassetsolutions.com",
+          "title": "Property Management Solutions: AppFolio Competitors ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.gartner.com",
+          "title": "Top AppFolio Alternatives & Competitors 2026"
+        },
+        {
+          "position": 12,
+          "domain": "www.hemlane.com",
+          "title": "Best AppFolio Alternatives for Property Managers (2026)"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "property management app",
+      "volume": 1000,
+      "cpc": 101.59,
+      "difficulty": 60,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "apps.apple.com",
+          "title": "Landlordy Property Management - App Store"
+        },
+        {
+          "position": 4,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 9,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 10,
+          "domain": "safetyculture.com",
+          "title": "Top 10 Property Management Apps of 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 12,
+          "domain": "tapkey.com",
+          "title": "10 Useful Apps for Property Management"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "estate management app",
+      "volume": 1000,
+      "cpc": 101.59,
+      "difficulty": 60,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "ninesliving.com",
+          "title": "Nines - Estate and Household Management Software And ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "safetyculture.com",
+          "title": "Top 10 Property Management Apps of 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.buildium.com",
+          "title": "Buildium: Property Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.doorloop.com",
+          "title": "Best Property Management Apps [for 2026]"
+        },
+        {
+          "position": 10,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "vacation rental property management software",
+      "volume": 210,
+      "cpc": 99.93,
+      "difficulty": 20,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.guesty.com",
+          "title": "Guesty: Airbnb & Vacation Rental Software, Built on AI"
+        },
+        {
+          "position": 3,
+          "domain": "www.lodgify.com",
+          "title": "Lodgify: The #1 Vacation Rental Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.hostaway.com",
+          "title": "Hostaway - Airbnb & Vacation Rental Software"
+        },
+        {
+          "position": 5,
+          "domain": "rentalsunited.com",
+          "title": "7 Best Vacation Rental Software Platforms for 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software for Short-Term ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.streamlinevrs.com",
+          "title": "Streamline: Vacation Rental Software | All-In-One ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.capterra.com",
+          "title": "Best Vacation Rental Software 2026"
+        },
+        {
+          "position": 12,
+          "domain": "hospitable.com",
+          "title": "Hospitable | The Super App for Vacation Rental Hosts"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management software vacation rentals",
+      "volume": 210,
+      "cpc": 99.93,
+      "difficulty": 20,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.lodgify.com",
+          "title": "Lodgify: The #1 Vacation Rental Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.capterra.com",
+          "title": "Best Vacation Rental Software 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.ownerrez.com",
+          "title": "OwnerRez: Vacation Rental Software for Property Managers"
+        },
+        {
+          "position": 7,
+          "domain": "www.hostaway.com",
+          "title": "Hostaway - Airbnb & Vacation Rental Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.streamlinevrs.com",
+          "title": "Streamline: Vacation Rental Software | All-In-One ..."
+        },
+        {
+          "position": 9,
+          "domain": "rentalsunited.com",
+          "title": "7 Best Vacation Rental Software Platforms for 2026"
+        },
+        {
+          "position": 10,
+          "domain": "www.hostfully.com",
+          "title": "Hostfully - Award Winning Vacation Rental Software"
+        },
+        {
+          "position": 11,
+          "domain": "hoteltechreport.com",
+          "title": "The 30 Best Vacation Rental Software in 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property manager tools",
+      "volume": 480,
+      "cpc": 99.57,
+      "difficulty": 53,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "propertymanagertools.com",
+          "title": "Property Manager Tools"
+        },
+        {
+          "position": 4,
+          "domain": "www.avail.com",
+          "title": "12 Best Free Property Management Software For 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.roomstage.ai",
+          "title": "The 10 Best Property Manager Tools for 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.zoho.com",
+          "title": "Free property management software"
+        },
+        {
+          "position": 10,
+          "domain": "www.mashvisor.com",
+          "title": "Best Property Management Tools & Rental Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.appfolio.com",
+          "title": "Property Management Software | Real Estate Solutions"
+        },
+        {
+          "position": 12,
+          "domain": "touchstay.com",
+          "title": "Best Property Management Tools 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hoa self management software",
+      "volume": 210,
+      "cpc": 93.21,
+      "difficulty": 57,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.payhoa.com",
+          "title": "PayHOA: HOA Software | HOA Management Software | HOA ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Recommended HOA management software?"
+        },
+        {
+          "position": 4,
+          "domain": "managecasa.com",
+          "title": "Best Self-Managed HOA Software in 2026 Compared"
+        },
+        {
+          "position": 5,
+          "domain": "easyhoa.com",
+          "title": "Easy HOA: HOA Management Software To Manage Your ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.community.solume.com",
+          "title": "Best HOA Management Software for Self-Managed Boards ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.runhoa.com",
+          "title": "RunHOA - Best HOA Management Software Online"
+        },
+        {
+          "position": 10,
+          "domain": "www.yardibreeze.com",
+          "title": "Best property management software for condo & HOA (2026)"
+        },
+        {
+          "position": 11,
+          "domain": "hoamyway.com",
+          "title": "All-in-One Self-Managed HOA Software from ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.youtube.com",
+          "title": "Top 10 HOA Management Software for 2025"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "management rental software",
+      "volume": 1300,
+      "cpc": 92.21,
+      "difficulty": 47,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "rentredi.com",
+          "title": "RentRedi: Property Management Software for Landlords"
+        },
+        {
+          "position": 3,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 7,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 8,
+          "domain": "www.investopedia.com",
+          "title": "Best Rental Property Management Software for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.rentmanager.com",
+          "title": "Rent Manager Property Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "safetyculture.com",
+          "title": "10 Best Rental Property Management Software of 2026"
+        },
+        {
+          "position": 12,
+          "domain": "www.doorloop.com",
+          "title": "13 Best Property Management Software for Small Landlords"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "software to manage rental properties",
+      "volume": 1300,
+      "cpc": 90.15,
+      "difficulty": 31,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.landlordstudio.com",
+          "title": "Landlord Studio: Property Management Software for Landlords"
+        },
+        {
+          "position": 5,
+          "domain": "www.avail.com",
+          "title": "12 Best Free Property Management Software For 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.investopedia.com",
+          "title": "Best Rental Property Management Software for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.zoho.com",
+          "title": "Free property management software"
+        },
+        {
+          "position": 10,
+          "domain": "safetyculture.com",
+          "title": "10 Best Rental Property Management Software of 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.baselane.com",
+          "title": "15 Best Landlord Software Platforms 2026"
+        },
+        {
+          "position": 12,
+          "domain": "www.gartner.com",
+          "title": "Best Property Management Software Reviews 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management software rental",
+      "volume": 1300,
+      "cpc": 90.15,
+      "difficulty": 31,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.landlordstudio.com",
+          "title": "Landlord Studio: Property Management Software for Landlords"
+        },
+        {
+          "position": 5,
+          "domain": "www.appfolio.com",
+          "title": "Best Property Management Software 2026: Top 6 ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.rentmanager.com",
+          "title": "Rent Manager Property Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 10,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.stessa.com",
+          "title": "Stessa: Free Property Management Software for Landlords"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best short term rental software",
+      "volume": 90,
+      "cpc": 84.35,
+      "difficulty": 48,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.doorloop.com",
+          "title": "Best Short-Term Rental Management Software [7 Options]"
+        },
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software for Short-Term ..."
+        },
+        {
+          "position": 3,
+          "domain": "touchstay.com",
+          "title": "10 Best Short-Term Rental Management Software Tools in ..."
+        },
+        {
+          "position": 4,
+          "domain": "rentalsunited.com",
+          "title": "7 Best Vacation Rental Software Platforms for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.youtube.com",
+          "title": "Best Short Term Rental Property Management software (2026)"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Best Vacation Rental Software in 2024 : r/airbnb_hosts"
+        },
+        {
+          "position": 8,
+          "domain": "landlory.com",
+          "title": "Best property management software for Airbnb & short-term ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.capterra.com",
+          "title": "Best Vacation Rental Software 2026"
+        },
+        {
+          "position": 10,
+          "domain": "www.guestready.com",
+          "title": "Best short-term rental software in 2026 - Top 5"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 2,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "rental property management app",
+      "volume": 170,
+      "cpc": 73.88,
+      "difficulty": 38,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 3,
+          "domain": "apps.apple.com",
+          "title": "Landlordy Property Management - App Store"
+        },
+        {
+          "position": 4,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "What is your favorite property management software? (I ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.amerisave.com",
+          "title": "10 Best Property Management Software Solutions for 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.doorloop.com",
+          "title": "Best Property Management Apps [for 2026]"
+        },
+        {
+          "position": 10,
+          "domain": "www.zoho.com",
+          "title": "Free property management software"
+        },
+        {
+          "position": 12,
+          "domain": "www.azibo.com",
+          "title": "Free Rental Property Management Software: 5 Best Options"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "yardi commercial real estate software",
+      "volume": 50,
+      "cpc": 71.86,
+      "difficulty": 11,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.yardi.com",
+          "title": "Commercial Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.yardi.com",
+          "title": "Yardi: Real Estate Software Energized For Tomorrow, Today"
+        },
+        {
+          "position": 4,
+          "domain": "www.yardi.com",
+          "title": "Property Management Software for Real Estate Portfolios"
+        },
+        {
+          "position": 5,
+          "domain": "www.yardimatrix.com",
+          "title": "Yardi Matrix: Commercial Real Estate Data and Research"
+        },
+        {
+          "position": 7,
+          "domain": "www.yardibreeze.com",
+          "title": "Commercial Property Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.yardi.com",
+          "title": "Yardi: Property Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.bcsolut.com",
+          "title": "What Is Yardi Software? Complete Platform Guide | BC Solutions"
+        },
+        {
+          "position": 12,
+          "domain": "www.reddit.com",
+          "title": "What are your guys' thoughts on Yardi as a property ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "appfolio property management software",
+      "volume": 2900,
+      "cpc": 69.79,
+      "difficulty": 3,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.softwareadvice.com",
+          "title": "AppFolio Property Manager Review"
+        },
+        {
+          "position": 5,
+          "domain": "apps.apple.com",
+          "title": "AppFolio Property Manager - App Store - Apple"
+        },
+        {
+          "position": 6,
+          "domain": "play.google.com",
+          "title": "AppFolio Property Manager - Apps on Google Play"
+        },
+        {
+          "position": 7,
+          "domain": "www.balancedassetsolutions.com",
+          "title": "What is AppFolio? A Deep Dive into Property Management ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.amanica.com",
+          "title": "What Is AppFolio Property Manager? A Complete Overview"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "rent management app",
+      "volume": 210,
+      "cpc": 69.62,
+      "difficulty": 57,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.tenantcloud.com",
+          "title": "TenantCloud: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.avail.com",
+          "title": "Avail | Landlord Software & Property Management Software ..."
+        },
+        {
+          "position": 4,
+          "domain": "rentredi.com",
+          "title": "RentRedi: Property Management Software for Landlords"
+        },
+        {
+          "position": 5,
+          "domain": "safetyculture.com",
+          "title": "Top 10 Property Management Apps of 2026"
+        },
+        {
+          "position": 7,
+          "domain": "innago.com",
+          "title": "Innago"
+        },
+        {
+          "position": 9,
+          "domain": "play.google.com",
+          "title": "Rent Management System - Apps on Google Play"
+        },
+        {
+          "position": 10,
+          "domain": "www.rentmanager.com",
+          "title": "Rent Manager Property Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.doorloop.com",
+          "title": "Best Property Management Apps [for 2026]"
+        },
+        {
+          "position": 12,
+          "domain": "www.turbotenant.com",
+          "title": "Best Property Management Apps: A How-to Guide"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best accounting software for property management",
+      "volume": 90,
+      "cpc": 67.61,
+      "difficulty": 27,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "Accounting software + part-time help recommendations (12 ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.reihub.net",
+          "title": "Rental Property Accounting Software for Small Landlords"
+        },
+        {
+          "position": 7,
+          "domain": "www.landlordstudio.com",
+          "title": "Landlord Studio: Property Management Software for Landlords"
+        },
+        {
+          "position": 8,
+          "domain": "www.buildium.com",
+          "title": "Property Management Accounting Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.doorloop.com",
+          "title": "Property Management Accounting Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.freshbooks.com",
+          "title": "Best property management accounting software"
+        },
+        {
+          "position": 11,
+          "domain": "managecasa.com",
+          "title": "Best Rental Property Accounting Software for 2026"
+        },
+        {
+          "position": 12,
+          "domain": "www.xero.com",
+          "title": "Accounting software for landlords"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "airbnb management software",
+      "volume": 260,
+      "cpc": 59,
+      "difficulty": 35,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.guesty.com",
+          "title": "Guesty: Airbnb & Vacation Rental Software, Built on AI"
+        },
+        {
+          "position": 3,
+          "domain": "www.airbnb.com",
+          "title": "Managing listings with property management software"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software for Short-Term ..."
+        },
+        {
+          "position": 5,
+          "domain": "stayfi.com",
+          "title": "10 Best Airbnb Management Software Platforms in 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.hostaway.com",
+          "title": "Hostaway - Airbnb & Vacation Rental Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.igms.com",
+          "title": "iGMS: Vacation Rental Software for Airbnb Management"
+        },
+        {
+          "position": 9,
+          "domain": "hospitable.com",
+          "title": "Airbnb Management Software: Boosting Your Business"
+        },
+        {
+          "position": 10,
+          "domain": "touchstay.com",
+          "title": "10 Best Short-Term Rental Management Software Tools in ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.airbnb.com",
+          "title": "Meet our software partners"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management software for short term rentals",
+      "volume": 110,
+      "cpc": 58.51,
+      "difficulty": 35,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.guesty.com",
+          "title": "Guesty: Airbnb & Vacation Rental Software, Built on AI"
+        },
+        {
+          "position": 3,
+          "domain": "www.lodgify.com",
+          "title": "Lodgify: The #1 Vacation Rental Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Property Management Software for Short-Term ..."
+        },
+        {
+          "position": 5,
+          "domain": "hospitable.com",
+          "title": "Hospitable | The Super App for Vacation Rental Hosts"
+        },
+        {
+          "position": 7,
+          "domain": "rentpost.com",
+          "title": "6 Best Vacation Rental Software for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.boomnow.com",
+          "title": "Boom: AI Property Management Software For Short-Term ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.hostaway.com",
+          "title": "Hostaway - Airbnb & Vacation Rental Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.facebook.com",
+          "title": "What software systems and tools are recommended for ..."
+        },
+        {
+          "position": 12,
+          "domain": "touchstay.com",
+          "title": "10 Best Short-Term Rental Management Software Tools in ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best hoa management software",
+      "volume": 90,
+      "cpc": 56.8,
+      "difficulty": 59,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.payhoa.com",
+          "title": "PayHOA: HOA Software | HOA Management Software | HOA ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Recommended HOA management software?"
+        },
+        {
+          "position": 4,
+          "domain": "www.runhoa.com",
+          "title": "RunHOA - Best HOA Management Software Online"
+        },
+        {
+          "position": 6,
+          "domain": "www.appfolio.com",
+          "title": "Intuitive Community Association & HOA Management ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.community.solume.com",
+          "title": "How HOA Software Simplifies Community Management"
+        },
+        {
+          "position": 10,
+          "domain": "www.vantaca.com",
+          "title": "What is the Best HOA Software? Top Platforms Compared ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.youtube.com",
+          "title": "Property Management Software Buying Guide: Choosing HOA ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "online booking software for small business",
+      "volume": 50,
+      "cpc": 55.59,
+      "difficulty": 48,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Free Online Booking and Scheduling Software"
+        },
+        {
+          "position": 3,
+          "domain": "simplybook.me",
+          "title": "SimplyBook.me - Free Appointment Booking System"
+        },
+        {
+          "position": 4,
+          "domain": "calendly.com",
+          "title": "Calendly: Free Online Appointment Scheduling Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.setmore.com",
+          "title": "Setmore | Free Online Appointment Scheduling Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.youtube.com",
+          "title": "Best Appointment Booking Software for Small Businesses ..."
+        },
+        {
+          "position": 9,
+          "domain": "blog.supersaas.com",
+          "title": "The best appointment schedulers and booking apps for ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.spectrum.com",
+          "title": "4 Online Appointment Scheduling Tools for Small Businesses"
+        },
+        {
+          "position": 11,
+          "domain": "www.reservio.com",
+          "title": "9 Best Online Booking Systems for Small Businesses in 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "workflow automation for small business",
+      "volume": 110,
+      "cpc": 54.65,
+      "difficulty": 16,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "What Are the Best Automation Workflows for Small ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.salesforce.com",
+          "title": "Workflow Automation for Small Business"
+        },
+        {
+          "position": 4,
+          "domain": "www.activepieces.com",
+          "title": "Workflow Automation for Small Businesses: A 2026 Guide"
+        },
+        {
+          "position": 5,
+          "domain": "www.ruby.com",
+          "title": "What is AI workflow automation, and why do small businesses ..."
+        },
+        {
+          "position": 6,
+          "domain": "business.clermontchamber.com",
+          "title": "A Small Business Guide To Increasing Efficiency Through ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.business.com",
+          "title": "Workflow Automation Benefits for Businesses"
+        },
+        {
+          "position": 9,
+          "domain": "www.rippling.com",
+          "title": "12 Small Business Automation Ideas & Tools for Efficiency"
+        },
+        {
+          "position": 10,
+          "domain": "www.moxo.com",
+          "title": "Workflow automation for small businesses: Handle more with ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "workflow management software small business",
+      "volume": 140,
+      "cpc": 47.33,
+      "difficulty": 22,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.atlassian.com",
+          "title": "The 9 Best Workflow Automation Software [2026]"
+        },
+        {
+          "position": 3,
+          "domain": "slack.com",
+          "title": "Best Workflow Management Tools to Use in 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.cflowapps.com",
+          "title": "Best Workflow Management for Your Small Business [2026]"
+        },
+        {
+          "position": 5,
+          "domain": "www.forbes.com",
+          "title": "10 Best Workflow Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "opscheck.com",
+          "title": "Best Free Workflow Management Tools for Small Businesses"
+        },
+        {
+          "position": 8,
+          "domain": "blog.weekdone.com",
+          "title": "The 25 Best Workflow Management Tools For Streamlining ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.suitefiles.com",
+          "title": "10 Best Workflow Management Software for Small Business"
+        },
+        {
+          "position": 10,
+          "domain": "thedigitalprojectmanager.com",
+          "title": "29 Best Free Workflow Software For Small Teams In 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.lindy.ai",
+          "title": "9 Best Workflow Management Tools I Use for My Work ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "buildium property management software",
+      "volume": 3600,
+      "cpc": 46.75,
+      "difficulty": 6,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.buildium.com",
+          "title": "Buildium: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "signin.managebuilding.com",
+          "title": "Buildium"
+        },
+        {
+          "position": 4,
+          "domain": "www.softwareadvice.com",
+          "title": "Buildium Software Reviews, Demo & Pricing - 2026"
+        },
+        {
+          "position": 7,
+          "domain": "hr.mcleanco.com",
+          "title": "Buildium Property Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.softwarereviews.com",
+          "title": "Buildium Property Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.proptia.com",
+          "title": "Buildium Property Management Software Overview"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "buildium software property management",
+      "volume": 3600,
+      "cpc": 46.75,
+      "difficulty": 6,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.buildium.com",
+          "title": "Buildium: Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.softwareadvice.com",
+          "title": "Buildium Software Reviews, Demo & Pricing - 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.softwarereviews.com",
+          "title": "Buildium Property Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.proptia.com",
+          "title": "Buildium Property Management Software Overview"
+        },
+        {
+          "position": 6,
+          "domain": "play.google.com",
+          "title": "Buildium - Apps on Google Play"
+        },
+        {
+          "position": 7,
+          "domain": "www.saascounter.com",
+          "title": "Buildium Pricing, Features & More 2026"
+        },
+        {
+          "position": 8,
+          "domain": "app-fox.com",
+          "title": "Buildium Management Software 2024 Review - on App-Fox"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "airbnb property management software",
+      "volume": 590,
+      "cpc": 46.67,
+      "difficulty": 12,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.airbnb.com",
+          "title": "Managing listings with property management software"
+        },
+        {
+          "position": 3,
+          "domain": "www.guesty.com",
+          "title": "Guesty: Airbnb & Vacation Rental Software, Built on AI"
+        },
+        {
+          "position": 4,
+          "domain": "www.airbnb.com",
+          "title": "Meet our software partners"
+        },
+        {
+          "position": 5,
+          "domain": "www.hostaway.com",
+          "title": "Hostaway - Airbnb & Vacation Rental Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Recommendations for Remote Airbnb Property ..."
+        },
+        {
+          "position": 8,
+          "domain": "touchstay.com",
+          "title": "10 Best Short-Term Rental Management Software Tools in ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.igms.com",
+          "title": "iGMS: Vacation Rental Software for Airbnb Management"
+        },
+        {
+          "position": 11,
+          "domain": "hospitable.com",
+          "title": "Airbnb Management Software: Boosting Your Business"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management software for airbnb",
+      "volume": 590,
+      "cpc": 46.67,
+      "difficulty": 12,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.guesty.com",
+          "title": "Guesty: Airbnb & Vacation Rental Software, Built on AI"
+        },
+        {
+          "position": 3,
+          "domain": "www.airbnb.com",
+          "title": "Managing listings with property management software"
+        },
+        {
+          "position": 4,
+          "domain": "www.lodgify.com",
+          "title": "Airbnb Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "hospitable.com",
+          "title": "Airbnb Management Software: Boosting Your Business"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Recommendations for Remote Airbnb Property ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.airbnb.com",
+          "title": "Meet our software partners"
+        },
+        {
+          "position": 9,
+          "domain": "hostify.com",
+          "title": "Hostify: Airbnb Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.guestready.com",
+          "title": "Best Airbnb management softwares in 2026 - Top 5"
+        },
+        {
+          "position": 12,
+          "domain": "www.redawning.com",
+          "title": "Best Airbnb Property Management Software 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "mri software property management",
+      "volume": 90,
+      "cpc": 45.99,
+      "difficulty": 40,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.mrisoftware.com",
+          "title": "MRI Software: Real Estate Solutions for Innovators"
+        },
+        {
+          "position": 5,
+          "domain": "www.linkedin.com",
+          "title": "MRI Software"
+        },
+        {
+          "position": 6,
+          "domain": "en.wikipedia.org",
+          "title": "MRI Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.capterra.com",
+          "title": "MRI Property Management Software Pricing, Alternatives & ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.softwareadvice.com",
+          "title": "MRI Property Management Reviews, Pros and Cons"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management software yardi",
+      "volume": 390,
+      "cpc": 45.12,
+      "difficulty": 45,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.yardi.com",
+          "title": "Property Management Software for Real Estate Portfolios"
+        },
+        {
+          "position": 2,
+          "domain": "www.yardi.com",
+          "title": "Yardi: Real Estate Software Energized For Tomorrow, Today"
+        },
+        {
+          "position": 5,
+          "domain": "www.yardi.com",
+          "title": "Yardi: Property Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.yardibreeze.com",
+          "title": "Yardi Breeze: Cloud Based Property Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.yardi.com",
+          "title": "Commercial Property Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.bcsolut.com",
+          "title": "What Is Yardi Software? Complete Platform Guide | BC Solutions"
+        },
+        {
+          "position": 11,
+          "domain": "www.reddit.com",
+          "title": "What are your guys' thoughts on Yardi as a property ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.yardimatrix.com",
+          "title": "Yardi Matrix: Commercial Real Estate Data and Research"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "buildium property management",
+      "volume": 720,
+      "cpc": 42.99,
+      "difficulty": 54,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.buildium.com",
+          "title": "Buildium: Property Management Software"
+        },
+        {
+          "position": 2,
+          "domain": "signin.managebuilding.com",
+          "title": "Buildium"
+        },
+        {
+          "position": 4,
+          "domain": "apps.apple.com",
+          "title": "Buildium - App Store - Apple"
+        },
+        {
+          "position": 5,
+          "domain": "www.softwareadvice.com",
+          "title": "Buildium Software Reviews, Demo & Pricing - 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.infotech.com",
+          "title": "Buildium Property Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "signin.managebuilding.com",
+          "title": "Sign in - Resident Center"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "estates management software",
+      "volume": 90,
+      "cpc": 42.39,
+      "difficulty": 52,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.estatemanagementsystems.com",
+          "title": "Estate Management Systems"
+        },
+        {
+          "position": 3,
+          "domain": "ninesliving.com",
+          "title": "Nines - Estate and Household Management Software And ..."
+        },
+        {
+          "position": 4,
+          "domain": "estatespace.com",
+          "title": "EstateSpace: Home"
+        },
+        {
+          "position": 5,
+          "domain": "www.idoxgroup.com",
+          "title": "Estates Management software & solutions"
+        },
+        {
+          "position": 6,
+          "domain": "www.estateably.com",
+          "title": "Estateably: Estate and Trust Administration Software"
+        },
+        {
+          "position": 7,
+          "domain": "gitnux.org",
+          "title": "Best Estates Management Software | 2026 Edition"
+        },
+        {
+          "position": 8,
+          "domain": "planonsoftware.com",
+          "title": "Real Estate Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.latitude365.com",
+          "title": "Estate Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "worldmetrics.org",
+          "title": "Best Estates Management Software (2026)"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best online booking system for small business",
+      "volume": 70,
+      "cpc": 42.18,
+      "difficulty": 56,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Free Online Booking and Scheduling Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reservio.com",
+          "title": "9 Best Online Booking Systems for Small Businesses in 2026"
+        },
+        {
+          "position": 5,
+          "domain": "zapier.com",
+          "title": "The 5 best appointment schedulers and booking apps in ..."
+        },
+        {
+          "position": 7,
+          "domain": "blog.supersaas.com",
+          "title": "The best appointment schedulers and booking apps for ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.reservio.com",
+          "title": "Reservio | Free Online Appointment Scheduling Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.ruby.com",
+          "title": "20 Integrable Scheduling Tools for Small Business Systems"
+        },
+        {
+          "position": 10,
+          "domain": "www.emailtooltester.com",
+          "title": "Best Scheduling App for Online Bookings: 12 Easy Options"
+        },
+        {
+          "position": 11,
+          "domain": "www.roverd.com",
+          "title": "Best Online Booking Software for Small Businesses in 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "appfolio manager",
+      "volume": 70,
+      "cpc": 40.37,
+      "difficulty": 44,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "apps.apple.com",
+          "title": "AppFolio Property Manager - App Store - Apple"
+        },
+        {
+          "position": 4,
+          "domain": "play.google.com",
+          "title": "AppFolio Property Manager - Apps on Google Play"
+        },
+        {
+          "position": 5,
+          "domain": "www.softwareadvice.com",
+          "title": "AppFolio Property Manager Review"
+        },
+        {
+          "position": 8,
+          "domain": "realtybiznews.com",
+          "title": "Take Control of Your Properties with Appfolio ..."
+        },
+        {
+          "position": 9,
+          "domain": "solevant.com",
+          "title": "AppFolio Property Manager - Software Review"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "appfolio software",
+      "volume": 170,
+      "cpc": 40.2,
+      "difficulty": 57,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.softwareadvice.com",
+          "title": "AppFolio Property Manager Review"
+        },
+        {
+          "position": 5,
+          "domain": "apps.apple.com",
+          "title": "AppFolio Property Manager - App Store - Apple"
+        },
+        {
+          "position": 7,
+          "domain": "www.balancedassetsolutions.com",
+          "title": "What is AppFolio? A Deep Dive into Property Management ..."
+        },
+        {
+          "position": 8,
+          "domain": "en.wikipedia.org",
+          "title": "AppFolio"
+        },
+        {
+          "position": 9,
+          "domain": "www.g2.com",
+          "title": "AppFolio Reviews 2026: Details, Pricing, & Features"
+        },
+        {
+          "position": 10,
+          "domain": "www.reddit.com",
+          "title": "Do you use Appfolio? : r/PropertyManagement"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "appointment scheduling software for small business",
+      "volume": 140,
+      "cpc": 39.76,
+      "difficulty": 41,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Free Online Booking and Scheduling Software"
+        },
+        {
+          "position": 3,
+          "domain": "calendly.com",
+          "title": "Calendly: Free Online Appointment Scheduling Software"
+        },
+        {
+          "position": 4,
+          "domain": "lunacal.ai",
+          "title": "Best appointment scheduling software in 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "What appointment scheduling software do you use?"
+        },
+        {
+          "position": 7,
+          "domain": "www.emailtooltester.com",
+          "title": "Best Scheduling App for Online Bookings: 12 Easy Options"
+        },
+        {
+          "position": 8,
+          "domain": "simplybook.me",
+          "title": "SimplyBook.me - Free Appointment Booking System"
+        },
+        {
+          "position": 9,
+          "domain": "www.ruby.com",
+          "title": "20 Integrable Scheduling Tools for Small Business Systems"
+        },
+        {
+          "position": 10,
+          "domain": "www.salesforce.com",
+          "title": "The Best Scheduling Tools for Small Businesses"
+        },
+        {
+          "position": 12,
+          "domain": "schedly.io",
+          "title": "The Top Free Appointment Scheduling Apps for Small ..."
+        },
+        {
+          "position": 13,
+          "domain": "www.youtube.com",
+          "title": "Best Appointment Booking Software for Small Businesses ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "small business appointment software",
+      "volume": 140,
+      "cpc": 39.76,
+      "difficulty": 41,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Free Online Booking and Scheduling Software"
+        },
+        {
+          "position": 3,
+          "domain": "calendly.com",
+          "title": "Scheduling software for small businesses"
+        },
+        {
+          "position": 5,
+          "domain": "www.emailtooltester.com",
+          "title": "Best Scheduling App for Online Bookings: 12 Easy Options"
+        },
+        {
+          "position": 8,
+          "domain": "www.appointy.com",
+          "title": "Appointment Scheduling Software | Online Scheduler Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.reddit.com",
+          "title": "Best Appointment Scheduling App with specific needs"
+        },
+        {
+          "position": 10,
+          "domain": "www.ruby.com",
+          "title": "20 Integrable Scheduling Tools for Small Business Systems"
+        },
+        {
+          "position": 11,
+          "domain": "www.youtube.com",
+          "title": "Best Appointment Booking Software for Small Businesses ..."
+        },
+        {
+          "position": 12,
+          "domain": "youcanbook.me",
+          "title": "9 Best Appointment Scheduling Apps to Try in 2026"
+        },
+        {
+          "position": 13,
+          "domain": "www.reservio.com",
+          "title": "Reservio | Free Online Appointment Scheduling Software"
+        },
+        {
+          "position": 14,
+          "domain": "zapier.com",
+          "title": "The 5 best appointment schedulers and booking apps in ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "yardi for property management",
+      "volume": 720,
+      "cpc": 39.31,
+      "difficulty": 57,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.yardi.com",
+          "title": "Property Management Software for Real Estate Portfolios"
+        },
+        {
+          "position": 2,
+          "domain": "www.yardi.com",
+          "title": "Yardi: Real Estate Software Energized For Tomorrow, Today"
+        },
+        {
+          "position": 5,
+          "domain": "www.yardi.com",
+          "title": "Yardi: Property Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.yardibreeze.com",
+          "title": "Yardi Breeze: Cloud Based Property Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.yardimatrix.com",
+          "title": "Yardi Matrix: Commercial Real Estate Data and Research"
+        },
+        {
+          "position": 9,
+          "domain": "www.yardi.com",
+          "title": "Commercial Property Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.reddit.com",
+          "title": "What are your guys' thoughts on Yardi as a property ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.bcsolut.com",
+          "title": "What Is Yardi Software? Complete Platform Guide | BC Solutions"
+        },
+        {
+          "position": 12,
+          "domain": "en.wikipedia.org",
+          "title": "Yardi Systems"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "appfolio app download",
+      "volume": 50,
+      "cpc": 38.41,
+      "difficulty": 24,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "play.google.com",
+          "title": "Online Portal by AppFolio - Apps on Google Play"
+        },
+        {
+          "position": 2,
+          "domain": "apps.apple.com",
+          "title": "AppFolio Property Manager - App Store - Apple"
+        },
+        {
+          "position": 3,
+          "domain": "www.appfolio.com",
+          "title": "Online-portal"
+        },
+        {
+          "position": 4,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio: Move Beyond Property Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "play.google.com",
+          "title": "AppFolio Property Manager - Apps on Google Play"
+        },
+        {
+          "position": 7,
+          "domain": "apps.apple.com",
+          "title": "Online Portal by AppFolio - App Store - Apple"
+        },
+        {
+          "position": 8,
+          "domain": "www.appfolio.com",
+          "title": "Homeowners Online Portal Overview"
+        },
+        {
+          "position": 9,
+          "domain": "online-portal-by-appfolio.en.softonic.com",
+          "title": "Online Portal by AppFolio APK for Android - Download"
+        },
+        {
+          "position": 11,
+          "domain": "www.appfolio.com",
+          "title": "AppFolio Login Instructions"
+        },
+        {
+          "position": 12,
+          "domain": "webcatalog.io",
+          "title": "Appfolio - Desktop App - Mac, Windows"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best hoa software",
+      "volume": 110,
+      "cpc": 36.66,
+      "difficulty": 49,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.payhoa.com",
+          "title": "PayHOA: HOA Software | HOA Management Software | HOA ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Recommended HOA management software?"
+        },
+        {
+          "position": 4,
+          "domain": "www.capterra.com",
+          "title": "Best HOA Software 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.buildium.com",
+          "title": "Best HOA Management Software Review | 2026 Guide"
+        },
+        {
+          "position": 7,
+          "domain": "smartwebs.com",
+          "title": "10 Best HOA Accounting Software Solutions"
+        },
+        {
+          "position": 8,
+          "domain": "joinit.com",
+          "title": "10 Best HOA Management Software in 2026 (Reviews & ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.hoalife.com",
+          "title": "The Best HOA Management Software for 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.wildapricot.com",
+          "title": "Homeowners' Association Software: the Best Options in 2025"
+        },
+        {
+          "position": 11,
+          "domain": "www.condocontrol.com",
+          "title": "12 Best HOA Management Software Picks For 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best hoa website software",
+      "volume": 110,
+      "cpc": 36.66,
+      "difficulty": 49,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "Recommended HOA management software?"
+        },
+        {
+          "position": 3,
+          "domain": "www.payhoa.com",
+          "title": "PayHOA: HOA Software | HOA Management Software | HOA ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.runhoa.com",
+          "title": "RunHOA - Best HOA Management Software Online"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.com",
+          "title": "Best HOA Software 2026"
+        },
+        {
+          "position": 7,
+          "domain": "easyhoa.com",
+          "title": "Easy HOA: HOA Management Software To Manage Your ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.community.solume.com",
+          "title": "How HOA Software Simplifies Community Management"
+        },
+        {
+          "position": 10,
+          "domain": "www.springly.org",
+          "title": "10 of the Best HOA Website Builders to DIY a Professional Site"
+        },
+        {
+          "position": 12,
+          "domain": "www.townsq.io",
+          "title": "HOA Management Software: Features, Benefits, and How ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best homeowners association software",
+      "volume": 110,
+      "cpc": 36.66,
+      "difficulty": 49,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.payhoa.com",
+          "title": "PayHOA: HOA Software | HOA Management Software | HOA ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Recommended HOA management software?"
+        },
+        {
+          "position": 5,
+          "domain": "www.appfolio.com",
+          "title": "Intuitive Community Association & HOA Management ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.community.solume.com",
+          "title": "Best HOA Management Software for Self-Managed Boards ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.yardibreeze.com",
+          "title": "Best property management software for condo & HOA (2026)"
+        },
+        {
+          "position": 9,
+          "domain": "www.runhoa.com",
+          "title": "RunHOA - Best HOA Management Software Online"
+        },
+        {
+          "position": 10,
+          "domain": "www.eballot.com",
+          "title": "Best HOA Software to Invest in Now"
+        },
+        {
+          "position": 11,
+          "domain": "www.vantaca.com",
+          "title": "What is the Best HOA Software? Top Platforms Compared ..."
+        },
+        {
+          "position": 12,
+          "domain": "cincsystems.com",
+          "title": "What Is the Best Software for Association Management?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "software yardi",
+      "volume": 1600,
+      "cpc": 35.17,
+      "difficulty": 47,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.yardi.com",
+          "title": "Yardi: Real Estate Software Energized For Tomorrow, Today"
+        },
+        {
+          "position": 5,
+          "domain": "en.wikipedia.org",
+          "title": "Yardi Systems"
+        },
+        {
+          "position": 7,
+          "domain": "www.yardibreeze.com",
+          "title": "Yardi Breeze: Cloud Based Property Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.yardimatrix.com",
+          "title": "Yardi Matrix: Commercial Real Estate Data and Research"
+        },
+        {
+          "position": 9,
+          "domain": "www.bcsolut.com",
+          "title": "What Is Yardi Software? Complete Platform Guide | BC Solutions"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    }
+  ]
+}

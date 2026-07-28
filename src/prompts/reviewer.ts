@@ -1,4 +1,7 @@
 import type { BlogPostStructure } from './blogGeneration.js';
+import { BRAND_VOCABULARY_BLOCKLIST, CLIENT_NAME_BLOCKLIST, getBrandVoiceSummary } from '../knowledge/brandKnowledge.js';
+
+export { BRAND_VOCABULARY_BLOCKLIST, CLIENT_NAME_BLOCKLIST };
 
 /**
  * Review criteria with scoring weights
@@ -18,13 +21,20 @@ export const REVIEW_CRITERIA = {
   LACKS_REAL_EXPERIENCE: { weight: -15, description: 'Does this sound like real experience? Not generic or theoretical' },
   LACKS_FOUNDER_RELATABILITY: { weight: -15, description: 'Would a founder relate to this? If no, positioning is off' },
   
-  // Content Positioning Stack (from feedback section 4)
-  MISSING_COST_OF_INACTION: { weight: -15, description: 'No cost-of-inaction statement with specific dollar figure' },
-  MISSING_DOLLARIZED_VALUE: { weight: -15, description: 'No dollarized value statement ([Work] → [Outcome] → [Dollar Value])' },
+  // Content Positioning Stack (friction-first promise architecture)
+  MISSING_FRICTION_SCENE: { weight: -15, description: 'No vivid, recognizable scene of the daily friction (the retyping, the manual report, the abandoned booking)' },
+  DOLLAR_PROMISE: { weight: -15, description: 'Promises or asserts dollar outcomes ("saves you $X", "costing you $X a year", ROI claims) — we never promise revenue or savings' },
   WEAK_HOOK: { weight: -20, description: 'Opening hook does not grab attention with pain point' },
   MISSING_CONTRARIAN_TAKE: { weight: -10, description: 'No contrarian or surprising take - sounds like every other article' },
   TOO_FORMAL: { weight: -10, description: 'Missing contractions, too formal/consultant tone' },
   
+  // Brand alignment (from Abdul's Brand Operating System)
+  CLIENT_NAME_LEAK: { weight: -30, description: 'Names an NDA-covered client or employer — the work must be described anonymously' },
+  OFF_BRAND_VOCABULARY: { weight: -10, description: 'Brand-banned flashy word found (disruptive, world-class, ninja, guru, etc.)' },
+  TECH_FIRST_FRAMING: { weight: -15, description: 'Title, hook, or section leads with a technology name instead of the business problem or outcome' },
+  OFF_BRAND_TONE: { weight: -10, description: 'Hype or fear-mongering tone; fails the "would a business owner feel more informed, confident, and trusting" test' },
+  FREELANCER_IDENTITY: { weight: -15, description: 'Author framed as a freelancer/coder/programmer instead of a trusted technology partner' },
+
   // Structural issues
   FAQ_TOO_LONG: { weight: -5, description: 'FAQ answer over 25 words' },
   SECTION_TOO_LONG: { weight: -5, description: 'Section over 300 words' },
@@ -37,7 +47,8 @@ export const REVIEW_CRITERIA = {
   GOOD_SENTENCE_RHYTHM: { weight: 5, description: 'Varied sentence length, includes short punches' },
   PLAIN_TEXT_FORMAT: { weight: 5, description: 'Content is clean plain text without formatting characters' },
   EXCELLENT_HOOK: { weight: 10, description: 'Hook makes reader say "that\'s me" immediately' },
-  STRONG_COST_OF_INACTION: { weight: 10, description: 'Powerful cost-of-inaction statement with specific dollar loss' },
+  VIVID_FRICTION_SCENE: { weight: 10, description: 'A friction scene so recognizable the reader could name the employee it happens to' },
+  BRAND_PILLAR_ALIGNMENT: { weight: 5, description: 'Content naturally reinforces a brand messaging pillar (interactions matter, removing friction, business value, trusted partnership)' },
 };
 
 export const PASS_THRESHOLD = 70;
@@ -142,12 +153,31 @@ Layer 1 - RELATABILITY: Does the reader feel "This guy understands my exact prob
 Layer 2 - AUTHORITY: Does the reader think "He knows what he's doing"?
 Layer 3 - CONVERSION: Does the reader feel "I should talk to him"?
 
+BRAND ALIGNMENT CHECK (from the Brand Operating System — MUST CHECK):
+${getBrandVoiceSummary()}
+
+Brand violations to flag:
+- CLIENT_NAME_LEAK (-30): the content names an NDA-covered client or employer (${CLIENT_NAME_BLOCKLIST.join(', ')}). The author's work must be described anonymously ("a large e-commerce migration I led"). "Microsoft Fluent UI" (public open-source contribution) is the only allowed named project.
+- OFF_BRAND_VOCABULARY (-10 per word): brand-banned flashy words: ${BRAND_VOCABULARY_BLOCKLIST.join(', ')}
+- TECH_FIRST_FRAMING (-15): title, hook, or a section OPENS with a technology name (React, Next.js, AWS, OpenAI...) instead of the business problem or outcome. Technology must come last.
+- OFF_BRAND_TONE (-10): hype or fear-mongering ("bleeding millions", "shocking truth", "10x your business"). Urgency must come from honest, concrete stakes stated calmly.
+- FREELANCER_IDENTITY (-15): the author is described as a freelancer, coder, or programmer. He is a trusted technology partner; coding is the mechanism, not the identity.
+Brand bonus:
+- BRAND_PILLAR_ALIGNMENT (+5): content naturally reinforces a messaging pillar (every digital interaction matters / removing friction / technology that creates business value / trusted technology partnership) without sounding like a slogan.
+
 REQUIRED ELEMENTS CHECK:
-- Cost-of-inaction statement with SPECIFIC dollar figure (e.g., "Every month you delay costs $X")
-- Dollarized value statement ([Work] → [Outcome] → [Dollar Value])
+- A vivid friction scene the reader recognizes from their own week (the retyping, the manual Monday report, the abandoned mobile booking)
+- An honest cost-of-inaction statement in OPERATIONAL terms (hours, delays, burnout, lost trust) — NEVER an invented dollar figure
+- A "what smooth looks like" after-state
 - Pain-driven hook that makes reader say "that's me" in first 2 sentences
 - Soft, natural CTAs (NOT "Contact us" - use "If you're dealing with this, I can review your setup...")
 - Contrarian take that challenges common wisdom
+
+PROMISE ARCHITECTURE CHECK (critical):
+- The brand NEVER promises revenue, dollar savings, or ROI ("this will save you $X" = DOLLAR_PROMISE, -15)
+- Asserted dollar costs the author cannot know ("this is costing you $150k a year") = DOLLAR_PROMISE
+- Real past-tense outcomes from the author's real projects are fine as evidence; predictions for the reader are not
+- Invented client stories or unsourced statistics = LACKS_REAL_EXPERIENCE at minimum
 
 SCORING SYSTEM (start at 100, deduct penalties)
 
@@ -163,8 +193,8 @@ CONTENT QUALITY PENALTIES:
 - Content is too generic, no one would pay for it: -20 (LACKS_VALUE_PROPOSITION)
 - Sounds theoretical, not from real experience: -15 (LACKS_REAL_EXPERIENCE)
 - Founders wouldn't relate to this positioning: -15 (LACKS_FOUNDER_RELATABILITY)
-- No cost-of-inaction statement: -15 (MISSING_COST_OF_INACTION)
-- No dollarized value statement: -15 (MISSING_DOLLARIZED_VALUE)
+- No recognizable friction scene: -15 (MISSING_FRICTION_SCENE)
+- Promises/asserts dollar outcomes or ROI: -15 (DOLLAR_PROMISE)
 - Hook doesn't grab with pain point: -20 (WEAK_HOOK)
 - No contrarian take, sounds generic: -10 (MISSING_CONTRARIAN_TAKE)
 
@@ -184,7 +214,7 @@ BONUSES:
 - Good sentence rhythm with varied length and short punches gets +5
 - Clean plain text without formatting characters gets +5
 - Hook makes reader say "that's me" immediately gets +10
-- Powerful cost-of-inaction statement with specific dollar loss gets +10
+- A friction scene so recognizable the reader could name the employee it happens to gets +10
 
 PASS THRESHOLD is 70 out of 100
 
@@ -214,7 +244,7 @@ Your response must be valid JSON matching this schema:
 Be SPECIFIC in your feedback. Don't just say "AI vocabulary found" but say WHICH words and WHERE.
 Also check that there are NO colons, NO em dashes, and NO markdown formatting anywhere.
 
-REQUIRED: Check for cost-of-inaction and dollarized value statements. If missing, this is a critical issue.`,
+REQUIRED: Check for the friction scene and for dollar-outcome promises. A missing friction scene or any promised/asserted dollar outcome is a critical issue.`,
 
     user: `PRIMARY KEYWORD is ${args.keyword}
 
@@ -303,6 +333,8 @@ ${args.learnedRules}
 This is rewrite attempt ${args.attemptNumber} of 2. If this fails again, the content will be DELETED.
 
 Your job is to fix ALL identified issues while maintaining the content's value and SEO optimization.
+
+${getBrandVoiceSummary()}
 ${learnedRulesSection}
 CRITICAL OUTPUT MUST MATCH THIS EXACT JSON STRUCTURE:
 ${BLOG_JSON_SCHEMA}

@@ -1,68 +1,101 @@
 [
   {
-    "persona_name": "Modernizing Michael",
+    "persona_name": "Owner Omar",
     "biographics": {
-      "age": 44,
-      "title": "CTO or VP Engineering at a B2B SaaS / HealthTech / Fintech company",
-      "status": "Married, two kids in school, stable",
-      "location": "Austin TX, Chicago IL, or remote in a mid-size US city",
-      "education": "CS degree, possibly an MBA. Has been coding since college.",
-      "personal_income": "$280k–$420k total comp"
+      "age": 47,
+      "title": "Owner of a growing service business (hotel group, clinic network, real estate agency, recruiting firm, or e-commerce brand) with 15-150 staff",
+      "status": "Married, kids, business is the family's main asset",
+      "location": "US, UK, UAE, or EU. Mid-size city. Hands-on in the business every day.",
+      "education": "Business degree or came up through the industry. Not technical, and doesn't want to be.",
+      "personal_income": "$150k-$400k depending on the year; the business does $2M-$20M in revenue"
     },
     "psychographics": {
-      "values": "Shipping things that work. Hates rework. Believes technical debt is a compounding tax on every future decision.",
-      "belief_system": "If the architecture is clean, the team ships fast. If it is not, no amount of sprints will fix it.",
-      "fears": "Losing a Series B or strategic acquisition because a technical due diligence revealed a legacy .NET codebase that nobody on their team fully understands anymore.",
-      "spending_logic": "Will pay $80k–$250k for a specialist who can modernize the legacy backend without breaking production — because the alternative is a $2M–$8M valuation haircut or a failed fundraise."
+      "values": "Reliability and straight talk. Wants one accountable person, not an account manager relaying messages to juniors. Judges people by whether they do what they said, when they said.",
+      "belief_system": "The business grew faster than its systems. Spreadsheets, WhatsApp, a dated website, and five tools that don't talk to each other got us here, but they're now the thing slowing us down.",
+      "fears": "Hiring the wrong developer again. He's been burned before: a cheap freelancer who disappeared, or an agency that sent juniors and shipped late. He can't evaluate technical work himself, so trust is everything.",
+      "spending_logic": "Will invest $20k-$50k, often phased, to remove friction his staff and customers complain about every week. He doesn't need an ROI spreadsheet; he needs to believe the person will actually deliver and stick around after launch."
     },
-    "the_crap_he_deals_with": "His company is 6–12 years old. The original .NET monolith was written by developers who have long left. His current team works around it, not in it. Every new AI feature the board mandates has to somehow connect to this black box. He has been pitched by three agencies who claimed to understand .NET and Next.js — none of them shipped anything. His board has a 12-month window to demonstrate AI traction or the acquisition conversation dies.",
-    "the_hunger": "A complete, phased migration plan from the .NET legacy stack to a modern Node.js / Next.js architecture — with zero downtime, real AI integration on the new stack, and a codebase his current team can actually own and extend.",
+    "the_crap_he_deals_with": "His front desk retypes the same booking into three systems. Customers call because the website form doesn't work on phones, or they give up mid-booking and go to a competitor with a smoother flow. His best admin threatens to quit every busy season because the manual workload doubles. Reports are assembled by hand in Excel every Monday. He knows technology should fix this, but every past attempt either stalled or made things more complicated.",
+    "the_hunger": "One trusted senior partner who understands the business first, then quietly replaces the friction: a booking flow that works, systems that talk to each other, automation for the repetitive work, and a website that doesn't embarrass him. Someone who explains things in plain language, sends updates without being chased, and is still reachable six months after launch.",
     "trifecta_alignment": {
-      "joy": "Deep architectural work: strangler-fig migration, domain-driven design, event sourcing on the new stack.",
-      "money": "A $150k–$300k engagement is less than 5% of the valuation upside from a clean technical due diligence.",
-      "mission": "Turning a liability into a competitive moat before the board's patience runs out."
+      "joy": "End-to-end ownership of a real business system: booking and intake flows, integrations between tools, dashboards the owner actually reads, automation and AI assistants for the repetitive work.",
+      "money": "A $20k-$50k phased engagement the owner approves directly, with a first phase small enough to prove the partnership and a roadmap that extends it naturally.",
+      "mission": "Removing friction so the staff stop fighting their tools and customers stop feeling it. Every digital interaction with the business should build trust, not test patience."
     },
-    "cost_of_inaction": "Every month the .NET monolith stays in place burns roughly 2–3 sprints of engineering velocity (~$40k in team time fighting legacy issues instead of shipping). At Series B, a legacy backend with no modernization plan costs 20–40% of valuation in a technical due diligence adjustment — on a $10M raise, that is $2M–$4M left on the table. If a competitor modernizes first and ships AI features faster, the acquisition window closes permanently.",
+    "cost_of_inaction": "Every week the friction stays: staff hours lost to double entry and manual reports, customers who abandon a clunky booking and don't call to complain (they just book elsewhere), slow replies that make the business look smaller than it is, and the best employees quietly burning out on work a system should do. The busy season magnifies all of it.",
     "trigger_events": [
-      "Board or investors have formally set a 12-month AI integration deadline — and the legacy stack is the blocker.",
-      "A Series B investor has verbally flagged their legacy tech stack as a concern they want resolved before term sheet.",
-      "They received preliminary acquisition interest and the buyer's team is going to run technical due diligence in the next 60 days.",
-      "A new CTO or VP Eng joined, ran an internal audit, and discovered the debt is larger than anyone knew — too big for the internal team to fix alone.",
-      "They tried to hire an agency to modernize the .NET stack and the engagement failed: missed deadlines, broken production, no real progress after 6 months."
+      "A key admin or office manager resigned, citing the manual workload, and the owner realized the process lives in that person's head.",
+      "A competitor launched online booking or a customer portal, and customers started mentioning it.",
+      "The busy season overwhelmed the current setup: double bookings, missed enquiries, or a weekend of angry calls.",
+      "A previous freelancer or agency engagement failed, and the half-finished system is now part of the problem.",
+      "The owner tried an off-the-shelf tool and hit its limits within months; the workarounds are now their own workload."
     ],
-    "hiring_threshold": "1. FINANCIAL PAIN IS DOLLARIZED: They know specifically how much the legacy system is costing them (in valuation suppression, engineering hours, or missed AI revenue). The number is real and large. 2. DEADLINE IS REAL: They have a specific calendar event — a due diligence date, a board review, a fundraising close — that cannot slip. 3. PROOF EXISTS: They need to see that someone has fixed this exact problem (legacy .NET to modern stack) for a company of similar size, with specific outcomes and a timeline."
+    "hiring_threshold": "1. FRICTION IS FELT DAILY: the owner, staff, or customers can name the specific annoyance without thinking (the retyping, the broken form, the Monday report). 2. TRUST IS ESTABLISHED: he has seen proof of reliability: real projects, testimonials that mention communication and delivery, direct access to the senior person doing the work. 3. THE FIRST STEP IS SMALL: a scoped first phase he can approve without betting the year's budget."
   },
   {
-    "persona_name": "Exit-Ready Sarah",
+    "persona_name": "Founder Nadia",
     "biographics": {
-      "age": 40,
-      "title": "Founder or Co-Founder of a HealthTech, Fintech, or B2B SaaS company ($2M–$15M ARR)",
-      "status": "Divorced or married, 1–2 kids, intensely focused on the company",
-      "location": "San Francisco CA, New York NY, Boston MA, or Austin TX",
-      "education": "Stanford, MIT, or top-tier university. Technical or business background.",
-      "personal_income": "$200k–$350k salary plus $5M–$30M in paper equity at risk"
+      "age": 36,
+      "title": "Non-technical founder or co-founder of a digital product or productized service ($200k-$3M revenue, 2-20 people)",
+      "status": "Single or young family; the product is her main bet",
+      "location": "US, UK, or EU. Remote-first.",
+      "education": "Domain expert: came from the industry her product serves (health, recruiting, hospitality, professional services). Not a developer.",
+      "personal_income": "$80k-$200k; funding is revenue, savings, or a small angel round"
     },
     "psychographics": {
-      "values": "Speed to exit and maximum valuation. She is done building — she wants to close the deal and move on to the next chapter.",
-      "belief_system": "The product is good enough. The market wants it. The only thing standing between her and a great exit is the technical debt hiding in the codebase from the first three years of building.",
-      "fears": "A buyer's technical due diligence finds the legacy backend — spaghetti code, missing documentation, security gaps, no test coverage — and either kills the deal or cuts $2M–$5M from the offer. Or worse: the deal closes, the acquirer finds the mess post-close, and she faces clawback clauses.",
-      "spending_logic": "Will spend $60k–$150k on a technical cleanup and modernization engagement if it recovers $500k–$3M in acquisition valuation. The math is obvious. She just needs confidence the work will be done right and fast enough."
+      "values": "Momentum and honesty. She would rather hear 'that feature is a bad idea, here's a simpler way' than watch a polite contractor build the wrong thing for three months.",
+      "belief_system": "The product idea is validated; execution is the bottleneck. What kills companies like hers isn't competition, it's shipping slowly and building on foundations that fall over at the worst moment.",
+      "fears": "Being technically hostage: to an agency that hands her project between juniors, to a codebase nobody can maintain, or to a developer she can't evaluate. She's seen founder friends lose a year and their runway this way.",
+      "spending_logic": "Will invest $20k-$60k to build or rebuild the product properly with a senior partner who works directly with her. She's comparing this against agency quotes twice the price with half the accountability."
     },
-    "the_crap_he_deals_with": "Her company's codebase has a secret: the first three years were built by a contractor team that no longer exists. The core backend is a mix of outdated Node.js, some .NET remnants, and glue code nobody has touched in years. Her current dev team knows the product but does not fully understand the foundation. An M&A advisor told her last month that technical due diligence is the single most common deal-killer in her valuation range. She has an LOI in draft or an investor who wants to run due diligence in 8 weeks.",
-    "the_hunger": "A clean, documented, acquisition-ready codebase — with the technical debt identified, quantified, and either remediated or formally documented with a remediation plan. She wants to walk into technical due diligence with confidence, not dread.",
+    "the_crap_he_deals_with": "Her MVP was built by a contractor who's gone. Small changes take weeks and break other things. Customers ask for features she can't promise because she doesn't know what the codebase can take. Ops behind the product are held together with spreadsheets and manual steps that eat her evenings. Agencies she's talked to pitch big teams and bigger retainers, but she can never talk to the person actually writing the code.",
+    "the_hunger": "A senior technical partner who acts like a co-founder for the build: tells her what to build and what to skip, ships a product customers enjoy using, automates the manual ops behind it, and leaves her with a system her next hire can take over. Direct communication, visible progress every week, no handoffs.",
     "trifecta_alignment": {
-      "joy": "Code audit, technical debt triage, targeted refactoring, security hardening, and documentation that a buyer's team can actually understand.",
-      "money": "VC-funded or profitable, so price is not the issue. Speed and confidence are the issue. A $100k engagement that protects a $5M valuation difference is a trivially easy decision.",
-      "mission": "Getting to the finish line of a life-defining exit without the technical foundation collapsing in the last 60 days."
+      "joy": "Product engineering with real ownership: MVP builds and rebuilds, AI features that serve the product instead of decorating it, automation of the founder's manual ops, clean handover.",
+      "money": "A $20k-$60k build or rebuild, often followed by a monthly partnership for iteration, approved by the founder herself in days, not quarters.",
+      "mission": "Giving a domain expert a product and operation that match the quality of her idea, so execution stops being the bottleneck."
     },
-    "cost_of_inaction": "Technical debt in a SaaS acquisition suppresses valuation by 20–40% when a buyer's technical due diligence team finds it. On a $10M acquisition, that is $2M–$4M in direct valuation reduction. If the deal collapses entirely — which happens in 30% of SaaS M&A cases due to technical issues — she loses 18–24 months of positioning work and the market window may not reopen. Every week without a clean codebase increases the risk that the next diligence session uncovers something unfixable in the time available.",
+    "cost_of_inaction": "Every month of slow shipping is a month of runway spent standing still: features customers asked for stay unbuilt, the manual ops behind the product eat the founder's evenings, and every small change that breaks something teaches customers not to trust the product. Competitors with faster execution set the pace she gets measured against.",
     "trigger_events": [
-      "She has received a Letter of Intent (LOI) from an acquirer and due diligence starts in 30–60 days.",
-      "A Series B investor has formally requested a technical audit as a condition of the term sheet.",
-      "Her M&A advisor told her that her valuation offer came in 25–40% below her expectation and technical debt was cited as the reason.",
-      "A previous acquisition conversation fell apart because technical due diligence revealed issues her team could not explain or defend.",
-      "She is 6–12 months from starting a formal sale process and her advisor told her to clean up the codebase first or risk discounting."
+      "Her contractor or dev shop disappeared, went unresponsive, or delivered something she can't extend.",
+      "A wave of customer feedback demands product changes she can't ship with the current setup.",
+      "She raised a small round or landed a big client, and the product now has to hold up under real usage.",
+      "An agency quote came in at 2-3x her budget with a team she'd never talk to directly.",
+      "Her own evenings became the ops department: manual onboarding, manual reports, manual support."
     ],
-    "hiring_threshold": "1. FINANCIAL PAIN IS DOLLARIZED: She knows the gap between her current valuation and what it should be — and that gap is larger than the cost of fixing it. The number has been said out loud by an advisor or investor. 2. DEADLINE IS REAL: She has a specific date — a due diligence kickoff, a term sheet deadline, or a board-imposed sale timeline — that she cannot push. 3. PROOF EXISTS: She needs to see that someone has prepared a SaaS company of similar size for acquisition technical due diligence and that company closed successfully. Specific industry (HealthTech, Fintech) is a strong bonus."
+    "hiring_threshold": "1. FRICTION IS FELT DAILY: shipping is visibly slow, ops are visibly manual, and she can name what she'd build next if she trusted the foundation. 2. TRUST IS ESTABLISHED: she's seen real shipped products, testimonials that mention honesty and communication, and she talks directly to the senior person from the first call. 3. THE FIRST STEP IS SMALL: an audit or scoped first milestone that proves the working style before the bigger build."
+  },
+  {
+    "persona_name": "Ops-Lead Olivia",
+    "biographics": {
+      "age": 41,
+      "title": "Operations or general manager at a growing business (30-200 staff), reporting to an owner who signs off on spending",
+      "status": "The person everyone messages when a system breaks",
+      "location": "US, UK, UAE, or EU",
+      "education": "Rose through operations; expert in how the business actually runs, fluent in its spreadsheets",
+      "personal_income": "$70k-$140k; spends the owner's money carefully because failures land on her"
+    },
+    "psychographics": {
+      "values": "Practicality. She doesn't want innovation theater; she wants the Monday report to build itself and the intake queue to stop leaking.",
+      "belief_system": "The team isn't slow, the tools are. People are copy-pasting between systems that were never connected, and every workaround becomes permanent.",
+      "fears": "Championing a technology project that fails publicly. If she brings in a developer and it goes badly, it's her credibility with the owner that pays for it.",
+      "spending_logic": "Builds the case for a $20k-$50k engagement by listing what the team could stop doing manually. Needs a partner who makes her look right: clear scope, visible progress, no surprises."
+    },
+    "the_crap_he_deals_with": "Her team runs the business across five tools plus email, and she personally maintains the spreadsheets that bridge them. New staff take weeks to learn the workarounds. Customer-facing steps (quotes, scheduling, follow-ups) depend on someone remembering. She's evaluated off-the-shelf tools; each fixes a third of the problem and adds its own quirks. She needs custom glue and automation, but past developer experiences were slow and opaque.",
+    "the_hunger": "A senior partner who maps how work actually flows, then connects the systems, automates the handoffs, and gives her team one place to look. Someone who communicates in her language, shows progress weekly, and trains the team instead of leaving a mystery box.",
+    "trifecta_alignment": {
+      "joy": "Workflow automation and integrations: connecting the CRM to the scheduling tool, automating intake and follow-ups, AI assistants for the repetitive queue, dashboards that replace the Monday spreadsheet ritual.",
+      "money": "A $20k-$50k engagement she champions and the owner approves, with progress visible enough to keep both of them confident.",
+      "mission": "Freeing a competent team from work a system should do, so operations scale without burning people out."
+    },
+    "cost_of_inaction": "The team's week keeps a hidden tax: hours of copy-paste between systems, follow-ups that slip when someone's on leave, onboarding that takes weeks because the process lives in workarounds, and an ops lead whose own time goes to bridging tools instead of improving the operation. Growth makes every one of these worse, never better.",
+    "trigger_events": [
+      "Headcount grew but throughput didn't, and the owner asked her why.",
+      "A dropped handoff (missed follow-up, double booking, lost enquiry) escalated to the owner or a key customer.",
+      "She mapped a process for a new hire and realized how much of it is manual bridging between tools.",
+      "An off-the-shelf tool they bet on hit its ceiling, and the workarounds now have workarounds.",
+      "The owner came back from a conference asking what they're doing about AI, and she needs a practical answer."
+    ],
+    "hiring_threshold": "1. FRICTION IS FELT DAILY: she can list the manual bridges and the hours they eat without opening a document. 2. TRUST IS ESTABLISHED: the partner explains things clearly enough for her to relay to the owner, shows real similar work, and gives her direct access to the person building. 3. THE FIRST STEP IS SMALL: one workflow automated end to end, visible to the whole team, before the broader engagement."
   }
 ]

@@ -1,0 +1,488 @@
+{
+  "retarget": [
+    {
+      "slug": "build-startup-full-stack-scales-without-rework",
+      "action": "retarget",
+      "keyword": "mvp for startup",
+      "lead_value": "high",
+      "reason": "Real buyer intent: non-technical founders actively searching for MVP development, and the post's angle on building scalable full stacks can credibly pivot to MVP without rework.",
+      "content_angle": "Focus on the pain of rushed MVPs that collapse under growth; show how a deliberate, scalable architecture from day one prevents costly rework and actually accelerates time-to-market."
+    },
+    {
+      "slug": "defense-tech-stack-liability",
+      "action": "retarget",
+      "keyword": "secure code review",
+      "lead_value": "medium",
+      "reason": "The post's defense contractor exit preparation can pivot to secure code review as a key de-risking step, and the high CPC signals serious buyer intent for security services.",
+      "content_angle": "Frame secure code review as the overlooked audit that kills deals; use evidence from defense industry to show how early review protects valuation and accelerates exit timelines."
+    }
+  ],
+  "noGood": [
+    {
+      "slug": "pharma-supply-chain-risk-ai",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'ai assistant for small business' requires a major topic pivot from pharma supply chain to general small business AI, and the SERP is dominated by tool comparisons and listicles, making it hard to win as a service provider."
+    },
+    {
+      "slug": "bank-ai-security-owasp-safeguards",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'owasp secure coding standards' has low volume (70), the SERP is authority-locked (OWASP.org, GitHub), and the intent is educational rather than buyer-driven."
+    },
+    {
+      "slug": "enterprise-churn-human-like-ai-support",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'appfolio customer service' is a branded search for existing AppFolio users seeking support, with a SERP dominated by AppFolio's own pages and complaint sites; not winnable or buyer-intent for a service provider."
+    },
+    {
+      "slug": "stop-wasting-money-generic-software-rfps-attract-bespoke-ai-solution",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'software for property management company' is a product search for off-the-shelf software, with a SERP dominated by established vendors (AppFolio, Yardi, Buildium); not winnable for a custom development service."
+    },
+    {
+      "slug": "property-deals-stall-bespoke-ai-asset-value",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'real estate brokerage crm' is a product search, with a SERP dominated by CRM vendors and comparison articles (Forbes, Salesforce, etc.); not winnable for a bespoke AI service."
+    },
+    {
+      "slug": "internal-dev-teams-break-support-tools-retainer-stops-churn",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'field technician software' is completely unrelated to the post's topic of internal dev teams and retainers; the pivot is too large and the SERP is product-focused."
+    },
+    {
+      "slug": "telecom-customer-churn-it-strategy-mistake",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'it service management software' is a product search, with a SERP dominated by large vendors and comparison sites (ServiceNow, Atlassian, Gartner); not winnable for a service provider and the pivot from IT strategy is weak."
+    },
+    {
+      "slug": "property-portfolio-valuation-custom-ai-premium",
+      "action": "no_good_candidate",
+      "reason": "Keyword 'yardi commercial real estate software' is a branded search for a specific product, with a SERP almost entirely Yardi's own pages; not winnable and the intent is product evaluation, not custom AI development."
+    },
+    {
+      "slug": "luxury-site-slowness-costing-millions",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'improve website performance' has low volume and informational intent, with a SERP dominated by free tools and guides, not service providers. The current topic (cloud architecture review) could pivot, but the intent mismatch makes it unwinnable for buyer engagement."
+    },
+    {
+      "slug": "legacy-telecom-support-bleeding-millions",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'optimize web performance' targets developers seeking DIY techniques, not business buyers. The SERP is educational, and the current post's specific migration angle would require a forced pivot that dilutes credibility."
+    },
+    {
+      "slug": "preventing-global-supply-chain-halts-legacy-migration",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "3-mvp-mistakes-property-directors-lose-ai-advantage",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'property management software for small companies' leads to software product and review pages, not service opportunities. The current topic (MVP development in Pakistan) is unrelated, and the SERP is dominated by established software vendors, making it unwinnable."
+    },
+    {
+      "slug": "digital-flagship-luxury-performance-brand-vibe",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'website performance optimisation' has informational intent with a SERP of tools and guides. The current topic (digital product strategy) could relate, but the searcher is not looking to hire; they want to learn DIY methods."
+    },
+    {
+      "slug": "ai-support-churn-internal-dev-trap",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'service tech software' is for field service management software products, not consulting services. The SERP is dominated by software vendors, and the current topic (software architecture review) does not credibly pivot to software selection."
+    },
+    {
+      "slug": "luxury-inventory-ai-perfection-avoiding-lost-sales",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'site speed optimization' has high volume but informational intent, with a SERP of free testing tools and guides. The current topic (AI inventory optimization) is unrelated, and the searcher is not a buyer for consulting services."
+    },
+    {
+      "slug": "legacy-system-ai-cost-blockade",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'api first architecture' has low volume and informational intent, with a SERP of educational resources. The current topic (cost of delaying AI integration) could pivot, but the lack of commercial intent and low volume make it unattractive."
+    },
+    {
+      "slug": "why-api-first-fails-growth-potential",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'api first design' has low volume and is dominated by authoritative educational content (Postman, IBM, Microsoft). The intent is informational, not buyer-driven, and the SERP is difficult to outrank for a service provider."
+    },
+    {
+      "slug": "eu-startups-global-senior-engineering-talent",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "cloud-migration-resistance-defense-security",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'field service software cloud' has strong commercial intent but the SERP is dominated by software vendor and review pages, making it unwinnable for a blog post about overcoming IT resistance."
+    },
+    {
+      "slug": "luxury-digital-flagship-hidden-costs",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'improve page performance' has low volume, no CPC, and the SERP consists of DIY guides and tools, indicating informational intent rather than buyer demand for a service."
+    },
+    {
+      "slug": "defense-tech-secure-frontend-replatforming",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'enterprise field service management' has low volume and the SERP is filled with software vendor pages, making it unwinnable for a post about frontend re-platforming."
+    },
+    {
+      "slug": "defense-tech-secure-frontend-replatforming",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'increase website performance' has low volume, no CPC, and the SERP is dominated by tools and guides, lacking buyer intent for a consulting engagement."
+    },
+    {
+      "slug": "legacy-systems-bleeding-millions-operational-costs",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'software field service' has high volume and CPC but the SERP is locked by software product and review pages, not winnable for a blog post about modernization valuation."
+    },
+    {
+      "slug": "architecture-reviews-accelerate-development",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'code review guide owasp' has low volume and the SERP is dominated by OWASP and technical guides, indicating developer DIY intent, not buyer demand for architecture review services."
+    },
+    {
+      "slug": "api-first-secure-ai-intelligence-data",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'api first' has moderate volume but the SERP consists of educational and vendor pages, making it an informational query rather than a buyer-intent search for consulting."
+    },
+    {
+      "slug": "logistics-software-bleeding-millions-peak-season",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'dispatch software field service' has high CPC but the SERP is dominated by software vendor and review pages, unwinnable for a blog post about logistics software issues."
+    },
+    {
+      "slug": "property-portfolio-value-stalls",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'estates management software' has moderate CPC but the SERP is filled with software product pages, making it a commercial query where a blog post cannot compete effectively."
+    },
+    {
+      "slug": "peak-season-system-lag-not-traffic",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'seo website speed' has low CPC and the SERP is dominated by tools and guides, indicating DIY intent rather than buyer demand for performance consulting."
+    },
+    {
+      "slug": "unlock-millions-hidden-value-custom-property-tech",
+      "action": "no_good_candidate",
+      "reason": "The SERP is dominated by property management software vendors and comparison lists, indicating tool-shopper intent rather than custom development; the post's valuation angle cannot credibly pivot to a product search keyword."
+    },
+    {
+      "slug": "logistics-operations-bleeding-millions-ai-integration-mistakes",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'website performance optimization' is completely unrelated to logistics AI cost reduction; the pivot would require rewriting the entire post."
+    },
+    {
+      "slug": "hidden-technical-debt-luxury-brand-digital-vibe-fix",
+      "action": "no_good_candidate",
+      "reason": "The SERP is dominated by generic web performance tools and guides, and the post's technical debt angle is broader than just website speed; the pivot is forced and the intent is not buyer-specific."
+    },
+    {
+      "slug": "the-20-year-codebase-enterprise-applications",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "hidden-costs-outdated-property-management-ai",
+      "action": "no_good_candidate",
+      "reason": "The SERP is dominated by property maintenance software vendors (MaintainX, Property Meld, etc.) indicating product comparison intent; the post's AI predictive maintenance angle cannot compete with direct tool listings."
+    },
+    {
+      "slug": "owasp-traps-defense-tech-security",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "future-proof-property-ai-automation",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "why-enterprise-systems-lag-peak-season-not-old-code",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'improve web page performance' is too narrow and unrelated to enterprise modernization for peak season; the SERP is dominated by generic performance tools and guides, and the CPC is null indicating low commercial intent."
+    },
+    {
+      "slug": "smart-building-ai-legacy-modernization",
+      "action": "no_good_candidate",
+      "reason": "The keyword 'appfolio smart maintenance' is a branded product term with a SERP entirely dominated by AppFolio's own pages; it is unwinnable and the post's legacy modernization angle cannot compete with a specific vendor feature."
+    },
+    {
+      "slug": "tenant-churn-ai-commercial-real-estate",
+      "action": "no_good_candidate",
+      "reason": "The SERP for 'property management apps' is dominated by software vendors and comparison lists, indicating tool-shopper intent; the post's AI churn prediction angle cannot credibly pivot to a product search keyword."
+    },
+    {
+      "slug": "higher-lease-rates-smart-building-secret",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'property management software rental' has high volume and CPC, but the SERP is dominated by product comparison pages and vendor sites, making it unwinnable for a consulting post; the current content angle on smart building valuation cannot credibly pivot to a software comparison listicle."
+    },
+    {
+      "slug": "cut-operational-costs-ai-automation",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'automation development' has low volume (50) and no CPC data, and the SERP is a mix of industrial automation, software development guides, and a company page, indicating unclear buyer intent and an unwinnable landscape for a consulting post."
+    },
+    {
+      "slug": "cut-cloud-costs-tech-stack-optimization",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'wordpress performance optimization' has low volume (70) and the SERP is dominated by DIY guides, Reddit threads, and plugin-specific advice, which does not match the buyer intent of a growing business seeking strategic tech stack optimization consulting."
+    },
+    {
+      "slug": "outdated-support-tech-churn-stop",
+      "action": "no_good_candidate",
+      "lead_value": "high",
+      "reason": "The keyword 'service management software' has high volume (720) and very high CPC ($134.68), and the SERP includes field service management software vendors and comparison pages, which shows real buyer intent from businesses evaluating solutions—a perfect fit for a post that can pivot from 'outdated support tech' to 'why custom service management software beats off-the-shelf for complex operations'.",
+      "content_angle": "Most field service software vendors sell you a template. But if your operations have edge cases—multi-location, custom workflows, legacy integrations—off-the-shelf creates new problems. Here's how custom service management software eliminates the friction that generic tools introduce, with real examples from a dental group and a staffing agency that cut churn by replacing their off-the-shelf systems."
+    },
+    {
+      "slug": "legacy-property-software-tenant-churn",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'property manager software' has high volume (18,100) and very high CPC ($159.31), but the SERP is completely dominated by software vendor pages and comparison lists, making it unwinnable for a consulting post; the current content angle on legacy modernization cannot credibly pivot to a software comparison."
+    },
+    {
+      "slug": "digital-transformation-property-development-mistake",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'property management software for small business' has moderate volume (140) and high CPC ($109.57), but the SERP is entirely vendor pages and comparison lists, making it unwinnable for a consulting post; the current fractional CTO angle cannot credibly pivot to a software recommendation listicle."
+    },
+    {
+      "slug": "legacy-property-software-tenant-churn",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'rental property management apps' has moderate volume (170) and high CPC ($73.88), but the SERP is dominated by app comparison pages and vendor sites, making it unwinnable for a consulting post; the current legacy modernization angle cannot credibly pivot to an app review."
+    },
+    {
+      "slug": "property-tech-5-million-dollar-mistake-exit-value",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'professional property management software' has very low volume (50) and no CPC data, and the SERP is entirely vendor pages and comparison lists, making it unwinnable and low-value for a consulting post."
+    },
+    {
+      "slug": "hidden-cost-off-shelf-automation",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'automation software development' has low volume (90) and no CPC data, and the SERP is a mix of software development automation guides and technical articles, which does not indicate clear buyer intent from growing businesses seeking custom automation solutions."
+    },
+    {
+      "slug": "custom-crm-development-malaysia-growth",
+      "action": "no_good_candidate",
+      "lead_value": "high",
+      "reason": "The keyword 'field service crm software' has moderate volume (110) and very high CPC ($107.72), and the SERP includes field service CRM vendors, comparison pages, and a Reddit thread discussing specific needs—showing real buyer intent from businesses evaluating solutions; the current post on custom CRM in Malaysia can credibly pivot to 'why field service businesses need custom CRM, not off-the-shelf'.",
+      "content_angle": "Field service CRMs from big vendors look good in demos, but they break when your team works across territories, schedules change hourly, and you need real-time inventory sync. Here's how a custom field service CRM—built for your actual workflows—eliminates the friction that generic tools create, with proof from a real estate business that replaced spreadsheets with a map-based territory tool."
+    },
+    {
+      "slug": "7-hidden-performance-bottlenecks-enterprise-costs",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'website performance optimization tool' has a SERP dominated by free tools (PageSpeed, GTmetrix, Pingdom) and vendor lists, making it nearly impossible for a consulting post to rank; intent is tool-shopper, not buyer of a $20k-$50k engagement.",
+      "content_angle": null
+    },
+    {
+      "slug": "nextjs-migration-property-portfolio-exit-value",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'mri software real estate' targets buyers looking for a specific vendor (MRI Software), not a custom development partner; the SERP is locked by the vendor's own site and review platforms, making it unwinnable for a consulting post.",
+      "content_angle": null
+    },
+    {
+      "slug": "your-legacy-systems-silently-killing-retail-growth",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'improve site speed' has a SERP dominated by free Google tools and generic tips, attracting DIYers and tool-shoppers, not business owners seeking a $20k-$50k engagement; intent is too broad and low-commitment.",
+      "content_angle": null
+    },
+    {
+      "slug": "2m-cost-developers-logistics-ai-ops-tools",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'speed optimize' has a SERP filled with free testing tools and WordPress plugins, targeting tool-shoppers and DIYers, not buyers of a $20k-$50k consulting engagement; intent is too generic and low-commitment.",
+      "content_angle": null
+    },
+    {
+      "slug": "generic-inventory-software-costing-millions",
+      "action": "no_good_candidate",
+      "lead_value": "low",
+      "reason": "The keyword 'field service report software' has a SERP dominated by established vendors (ServiceTitan, FieldPulse) and review aggregators, making it unwinnable for a consulting post; intent is tool-purchase, not custom development.",
+      "content_angle": null
+    }
+  ],
+  "noCandidateSlugs": [
+    "software-engineer-hourly-rate-sri-lanka-value",
+    "ai-kyc-aml-cost-reduction-traps",
+    "ai-kyc-aml-cost-reduction-traps",
+    "logistics-inventory-peak-season-failure-not-just-data",
+    "stop-hiring-generic-ai-dev-teams-hidden-cost-robotic-support-churn",
+    "support-tech-churn-delay",
+    "ai-support-sounds-robotic-human-connections",
+    "enterprise-exit-valuation-risk-nextjs-migration",
+    "legacy-dotnet-ai-security-gaps-bank",
+    "ai-banking-compliance-failures-millions",
+    "inventory-stockouts-bleeding-millions-realtime-ai-mission-control",
+    "net-monolith-ai-migration-mistake",
+    "saas-dev-partner-acquisition-valuation",
+    "stop-wasting-millions-ai-pharma-breakthroughs",
+    "ai-kyc-aml-compliance-fines-insurance",
+    "luxury-brands-ai-inventory-mistakes",
+    "2m-security-blind-spot-logistics-breach-close-fast",
+    "2-million-mistake-internal-dev-team-managed-services-churn",
+    "unlock-clinical-data-insights-without-disruption",
+    "5-mistakes-hiring-fractional-cto",
+    "why-1990s-support-tech-burns-2m-churn",
+    "custom-ai-research-tool-development-traps",
+    "hidden-logistics-costs-realtime-ai",
+    "pharma-inventory-ai-software-saves-millions",
+    "telecom-internal-dev-churn-mistake",
+    "hidden-ai-compliance-risks-pharma",
+    "ai-inventory-predictions-data-traps",
+    "ai-customer-support-fails-connect",
+    "pharma-ai-technical-debt-valuation-drain",
+    "why-technical-co-founder-search-fails",
+    "unblocking-pharma-ai-projects",
+    "ai-inventory-predictions-late-monolith-microservices",
+    "legacy-defense-code-acquisition-problem-rebuilding",
+    "robotic-ai-support-churn-fix",
+    "how-to-build-ai-compliance-systems-without-data-leaks",
+    "inventory-software-failing-predict-shortages",
+    "why-bank-kyc-aml-spend-not-ai-problem",
+    "fractional-cto-services-cost-budget-mistakes",
+    "legacy-system-time-bomb-hidden-debt",
+    "hidden-costs-digital-modernization-consulting-10-year-roadmap",
+    "pharma-ai-stalls-beyond-data",
+    "increase-startup-valuation-technical-debt-defuse-legacy-system",
+    "cost-of-delaying-net-modernization-for-ai-pharma-cios",
+    "secure-ai-bank-compliance-automation",
+    "why-enterprise-support-tech-feels-1990s",
+    "startup-tech-partner-not-delivering",
+    "why-best-mvp-company-pakistan-costly-mistake",
+    "enterprise-ai-projects-stall-hidden-reason",
+    "7-hidden-technical-due-diligence-steps",
+    "saas-architecture-grows-millions-without-costly-rework",
+    "regulatory-tech-strategy-liability-not-shield",
+    "ai-logistics-peak-season-reliability",
+    "legacy-system-invisible-tax-costing-400k-annually",
+    "api-first-software-development-20-year-design",
+    "hidden-cost-lagging-logistics-data",
+    "insurance-legacy-system-hidden-liability",
+    "pharma-breakthroughs-legacy-data-ai",
+    "enterprise-ai-tools-hidden-financial-risk-vetting",
+    "scaling-enterprise-ai-support",
+    "prevent-peak-revenue-loss-ai-inventory-forecasting",
+    "secure-ai-intelligence-defense",
+    "prevent-stockout-losses-ai-supply-chain",
+    "technical-co-founder-expertise-without-equity",
+    "logistics-modernization-stalled-costing-2m-annually",
+    "enterprise-velocity-stalls-not-just-technical-debt",
+    "ai-react-native-app-failure-avoidance",
+    "why-enterprise-ai-support-failing-customer-loyalty",
+    "ai-integration-legacy-logistics-supply-chain",
+    "reduce-bank-compliance-costs-secure-ai",
+    "ai-inventory-predictions-luxury-retail-failure-fix",
+    "ai-project-security-breach-risk-defense-tech",
+    "7-hidden-architecture-flaws-enterprise-growth",
+    "how-defense-tech-builds-secure-ai-without-cloud-vulnerabilities",
+    "defense-tech-app-vulnerabilities-50m-contracts",
+    "how-to-migrate-legacy-system-without-crushing-operations",
+    "failed-ai-support-project-churn-fix",
+    "virtual-cto-india-hidden-truth",
+    "board-mandated-ai-project-legacy-data-silos",
+    "luxury-e-commerce-ai-shift",
+    "bank-ai-kyc-regulatory-risk-stress-testing",
+    "how-to-ship-stalled-software-project-without-excuses",
+    "why-pharma-ai-breakthroughs-trapped-old-systems",
+    "the-50m-ai-mistake-defense-contractors-make",
+    "your-banks-ai-kyc-aml-project-will-trigger-a-4-5m-fine",
+    "build-scalable-saas-architecture-10x-growth",
+    "pick-mvp-partner-legacy-ai-fast",
+    "predictive-logistics-ai-signals",
+    "insurance-company-valuation-risk-technical-debt-traps",
+    "legacy-code-saas-valuation-killer",
+    "ai-unbreakable-drug-supply-chain-resilience",
+    "unseen-security-gaps-defense-tech-acquisition",
+    "why-internal-support-tools-cost-millions-churn",
+    "logistics-digital-transformation-stalls",
+    "enterprise-software-modernization-budget",
+    "pharma-breakthroughs-stuck-data-silos",
+    "generic-software-vendors-defense-tech-risk",
+    "pre-exit-tech-stack-overhaul-valuation",
+    "multi-million-dollar-cost-messy-code-saas-founders",
+    "bank-manual-kyc-aml-drain-deeper-risk-eliminate",
+    "internal-it-blocks-automation-progress",
+    "ai-innovation-technical-debt-traps",
+    "how-to-build-secure-on-prem-ai-for-sensitive-intelligence",
+    "enterprise-ai-roadmap-legacy-debt",
+    "secure-ai-implementation-strategy-financial-services",
+    "cut-compliance-fines-ai-automation",
+    "legacy-stack-ai-velocity",
+    "ai-risks-legacy-banking-systems",
+    "how-to-ship-saas-mvp-faster-ultimate-guide",
+    "luxury-brand-digital-promise-breaking",
+    "bank-ai-data-leak-governance",
+    "ai-governance-legacy-mess",
+    "real-time-inventory-dashboard-peak-season-failure",
+    "eastern-europe-game-dev-team-mistakes",
+    "secure-ai-legacy-defense-risk",
+    "technical-cofounder-search-stalling-startup-alternative",
+    "secure-ai-intelligence-defense",
+    "7-mistakes-hiring-startup-devs",
+    "kyc-aml-automation-strategy-bank-failure",
+    "pharma-ai-data-overload-operational-costs",
+    "it-modernization-adoption-stalling",
+    "luxury-ecommerce-frontend-modernization-exit-value",
+    "digital-transformation-valuation-gap",
+    "mumbai-logistics-software-stuck",
+    "exit-value-drop-replatforming-legacy-tech",
+    "cost-of-delaying-net-modernization-for-ai-pharma-cios",
+    "pharma-ai-breakthroughs-without-full-time-cto",
+    "2m-mistake-ops-critical-migrations",
+    "hidden-architectural-debt-m-and-a-value",
+    "internal-it-ai-resistance-cto-guide",
+    "automation-projects-failing-ship-systems",
+    "why-european-dev-search-fails-fix",
+    "predict-supply-chain-shortages-save-millions",
+    "cloud-kyc-aml-automation-trap-defense-contractors-millions",
+    "hidden-security-flaws-precision-code-review-banking",
+    "hidden-security-flaws-legacy-code-costing-millions",
+    "healthtech-saas-valuation-growth",
+    "ai-rollout-legacy-system-fixes",
+    "ai-velocity-pharma-developers-secret",
+    "legacy-ecommerce-backend-ai-workflows",
+    "why-generic-devs-cost-logistics-millions",
+    "secure-ai-legacy-defense-risk",
+    "architecture-flaws-pharma-breakthroughs",
+    "smart-building-ai-stalls-beyond-budget",
+    "ai-initiatives-fail-legacy-systems",
+    "fragmented-compliance-cost-global-logistics",
+    "offshore-development-mistakes-20-year-systems",
+    "hidden-costs-logistics-software-development",
+    "secure-ai-project-national-security-breach-safeguards",
+    "biotech-acquisition-value-leak",
+    "hidden-costs-cheap-software-engineer-rates-saas-exit",
+    "healthtech-exit-risk-legacy-frontend-fix",
+    "build-20-year-enterprise-system-boosts-valuation",
+    "modernization-efforts-failing-internal-resistance",
+    "bank-ai-data-leaks-engineering-security",
+    "ciso-unvetted-ai-5m-mistake",
+    "align-enterprise-engineering-migration-unreadable-code",
+    "rapid-clean-mvp-development-secret",
+    "ai-intelligence-assistant-national-security-liability",
+    "smart-building-ai-legacy-modernization",
+    "luxury-brand-digital-vibe-strategic-hire",
+    "7-valuation-killers-legacy-net-monolith",
+    "api-strategy-strangle-legacy-debt",
+    "customer-support-technical-debt-cost-millions",
+    "vet-white-label-neobank-platforms-hidden-traps",
+    "unlock-faster-drug-discovery-ai-science",
+    "bank-kyc-aml-automation-stalls",
+    "outdated-support-tech-churn",
+    "secure-software-project-deadlines-cost-budget",
+    "pharma-ai-insights-tech-partners-dont-speak-science",
+    "pharma-ai-data-platform-stalls-unlock-breakthroughs",
+    "7-missteps-ai-integration-property-systems",
+    "failed-ai-project-recovery-net",
+    "ai-inventory-predictions-fail",
+    "ai-connection-legacy-systems-no-new-mess",
+    "ai-inventory-optimization-prevent-lost-sales",
+    "why-ai-business-plan-fails-how-to-make-it-work",
+    "ai-prevents-pharma-research-delays",
+    "ai-inventory-forecasting-system-implementation-cost-hidden-costs",
+    "ai-inventory-forecasting-mistake-ops-leaders",
+    "why-software-rfp-attracts-wrong-partners",
+    "pre-exit-code-review-due-diligence-fail",
+    "due-diligence-api-first-saas-exit"
+  ]
+}

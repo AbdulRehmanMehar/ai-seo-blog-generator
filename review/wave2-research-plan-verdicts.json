@@ -1,0 +1,2877 @@
+{
+  "generated_for": "wave-1 rewrite + phantom remap",
+  "verdicts": [
+    {
+      "keyword": "cloudbeds reservation system",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is evaluating a specific vendor (Cloudbeds), not looking for custom development; no proof we can serve this.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "office hoteling software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by comparison lists and vendor pages; searcher wants to buy software, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "plumbing business management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher is a small plumbing business owner looking for off-the-shelf software, not custom development; no proof we serve this vertical.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "crm field service management",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP locked by Microsoft, Salesforce, and Pipedrive; searcher likely wants to buy a CRM, not custom build.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management crm",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP dominated by Gartner, Salesforce, ServiceNow, and comparison lists; authority-locked and buyer intent is to purchase software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "pms systems for small hotels",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants to buy a PMS, not custom development; no proof we serve small hotel PMS.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "property management system for small hotels",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same intent as above; searcher wants to buy a PMS, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "ap workflow software",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher wants to buy AP automation software; SERP dominated by Concur, AvidXchange, Stampli; no proof we serve this.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "med spa scheduling software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants to buy scheduling software for med spa; no proof we serve this vertical.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "medical spa scheduling software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same as above; searcher wants to buy scheduling software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "crm development",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "growing-business buyer",
+      "buyer_journey_stage": "consideration",
+      "reason": "High CPC, clear buyer intent for custom CRM development; we have proof from multiple projects (e.g., dental-group-internal-app, recruitment-ai-workflows) that we can serve this.",
+      "content_angle": "Growing businesses outgrow off-the-shelf CRMs; we build custom CRM solutions that eliminate digital friction and scale with your operations.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service applications",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "growing-business buyer",
+      "buyer_journey_stage": "consideration",
+      "reason": "Buyer intent for field service software, but SERP has directories and vendor pages; we have proof from ops-platform-spreadsheets and urgent-weekend-integration, but lower lead value than CRM development.",
+      "content_angle": "Off-the-shelf field service apps create new friction; we build custom applications that integrate with your existing workflows.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "applicant tracking system for recruiting agencies",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; intent is to buy software, not custom development. No direct proof for building ATS from scratch. SERP dominated by software vendors and comparison sites.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "applicant tracking system for staffing agencies",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; intent is to buy software, not custom development. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "applicant tracking software for staffing agencies",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; intent is to buy software, not custom development. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service business software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for HVAC field service. SERP dominated by software vendors like Workiz, ServiceTitan.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa online booking system",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for spa booking. SERP dominated by off-the-shelf booking software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa online booking software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for spa booking. SERP dominated by off-the-shelf booking software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac field service software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for HVAC field service. SERP dominated by software vendors like Housecall Pro, Jobber.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac field service management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for HVAC field service. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service software for hvac",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for HVAC field service. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac field management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for HVAC field service. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management software for hvac",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for HVAC field service. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management software hvac",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Product comparison query; no proof for HVAC field service. SERP dominated by software vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service hvac software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher intends to buy a SaaS product (HVAC field service software), not custom development; no proof in HVAC vertical.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service system",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by enterprise software vendors (Microsoft, Salesforce, Gartner); buyer looking for off-the-shelf FSM, not custom build.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "crm for hvac companies",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Product search – HVAC contractors seeking ready-made CRM; no custom dev angle and no proof in HVAC.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "custom crm software development company",
+      "verdict": "priority",
+      "lead_value": "high",
+      "icp_fit": "non-technical founder or ops lead",
+      "buyer_journey_stage": "consideration",
+      "reason": "Clear buyer intent for custom CRM development; SERP filled with dev shops, low AD, high CPC; we have relevant proof (internal app, ops platform).",
+      "content_angle": "Tired of CRMs that force your workflow into their boxes? Custom CRM development eliminates the friction – we've built internal platforms for dental groups and operations teams that actually fit.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "smart recruiters ats",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Search for SmartRecruiters product, not custom ATS development; brand dominates SERP.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac crm software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SaaS product search – HVAC businesses want ready-made CRM; no custom dev intent, no proof.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac customer management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Product search (HVAC customer management); SERP shows SaaS lists, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "medspa booking software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Buyer wants to purchase booking software, not custom build; no medspa proof.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "service call management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Product search for call management software; high AD (52) and SERP dominated by SaaS providers.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa booking software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Product search for spa booking SaaS; no custom dev intent, no proof.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa reservation software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Product search (spa reservation); similar to spa booking – SaaS intent.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "cloud based pms",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Searcher wants a cloud hotel PMS product; Oracle and Cloudbeds dominate; no custom development intent, no proof (hotel booking engine is different scope).",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "cloud based hotel management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher is looking for off-the-shelf hotel management software, not custom development or migration services. No proof we can serve this need.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hotel management software cloud based",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Intent mismatch: searcher wants a ready-made PMS product, not a dev partner. No relevant case study.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "cloudbeds channel manager",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Branded query dominated by Cloudbeds own pages. Impossible to rank for and no service offering related to Cloudbeds integration.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "med spa software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher targets off-the-shelf med spa management software, not custom development. No credible proof and competitive SERP dominated by vendors.",
+      "content_angle": "",
+      "canonical_slug": null
+    }
+  ],
+  "evidence": [
+    {
+      "keyword": "cloudbeds reservation system",
+      "volume": 50,
+      "cpc": 684.36,
+      "difficulty": 4,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.cloudbeds.com",
+          "title": "Cloudbeds: #1 Award-Winning Hospitality Management System"
+        },
+        {
+          "position": 5,
+          "domain": "hoteltechreport.com",
+          "title": "Cloudbeds Reviews & Product Details"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "Cloudbeds - Anything good to say? : r/askhotels"
+        },
+        {
+          "position": 7,
+          "domain": "www.youtube.com",
+          "title": "Cloudbeds training videos, part 1 (The Dashboard) - for front ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.hotelminder.com",
+          "title": "Cloudbeds Pricing, Reviews & Info 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "office hoteling software",
+      "volume": 170,
+      "cpc": 535.89,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "archieapp.co",
+          "title": "13+ Best (Hot) Desk Booking Software & Alternatives in 2026"
+        },
+        {
+          "position": 3,
+          "domain": "peoplemanagingpeople.com",
+          "title": "10 Best Hot Desk Booking Software Reviewed in 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Need office hoteling software recommendations (desk ..."
+        },
+        {
+          "position": 5,
+          "domain": "getjoan.com",
+          "title": "Office Hoteling Software - Best Practices for 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.officespacesoftware.com",
+          "title": "Desk Booking Software for Hybrid Teams"
+        },
+        {
+          "position": 7,
+          "domain": "www.skedda.com",
+          "title": "Best Office Hoteling Software 2026: 10+ Platforms Compared"
+        },
+        {
+          "position": 8,
+          "domain": "www.deskflex.com",
+          "title": "DeskFlex: Powering Hybrid Solutions Worldwide | Hoteling ..."
+        },
+        {
+          "position": 9,
+          "domain": "dibsido.com",
+          "title": "7 Best Office Hoteling Software Solutions for 2026"
+        },
+        {
+          "position": 10,
+          "domain": "envoy.com",
+          "title": "Desk booking software & reservation system"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "plumbing business management software",
+      "volume": 210,
+      "cpc": 507.45,
+      "difficulty": 10,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.getjobber.com",
+          "title": "Plumbing Business Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Need some software for my small plumbing & electric ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.housecallpro.com",
+          "title": "Plumbing Business Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "fieldedge.com",
+          "title": "The Plumbing Software That Scales Multi-Truck Operations"
+        },
+        {
+          "position": 6,
+          "domain": "www.dataforma.com",
+          "title": "Grow Your Plumbing Company With Field Management ..."
+        },
+        {
+          "position": 8,
+          "domain": "pro.houzz.com",
+          "title": "Plumber Business Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.fieldpulse.com",
+          "title": "7 Best Software for Small Plumbing Businesses in 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.ecisolutions.com",
+          "title": "Bolt Software for Plumbing Contractors and Homebuilders"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "crm field service management",
+      "volume": 70,
+      "cpc": 497.57,
+      "difficulty": 12,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.microsoft.com",
+          "title": "Dynamics 365 Field Service"
+        },
+        {
+          "position": 3,
+          "domain": "learn.microsoft.com",
+          "title": "Overview of Dynamics 365 Field Service"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Trying to choose a CRM + field service setup but ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.randgroup.com",
+          "title": "What is Microsoft Dynamics 365 Field Service?"
+        },
+        {
+          "position": 6,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 8,
+          "domain": "www.pipedrive.com",
+          "title": "Best CRM for Field Service Management"
+        },
+        {
+          "position": 9,
+          "domain": "www.fieldpulse.com",
+          "title": "CRM Software for Field Service Teams"
+        },
+        {
+          "position": 10,
+          "domain": "play.google.com",
+          "title": "Dynamics 365 Field Service - Apps on Google Play"
+        }
+      ],
+      "serpSignals": {
+        "authority": 3,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management crm",
+      "volume": 70,
+      "cpc": 497.57,
+      "difficulty": 12,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 3,
+          "domain": "www.pipedrive.com",
+          "title": "Best CRM for Field Service Management"
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 5,
+          "domain": "www.servicenow.com",
+          "title": "Field Service Management (FSM) - Service Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.fieldpulse.com",
+          "title": "CRM Software for Field Service Teams"
+        },
+        {
+          "position": 7,
+          "domain": "www.capterra.com",
+          "title": "Best Field Service Management Software 2026"
+        },
+        {
+          "position": 8,
+          "domain": "buildops.com",
+          "title": "Field Service CRM Software: Features, FAQs, & Benefits"
+        },
+        {
+          "position": 9,
+          "domain": "fieldworkhq.com",
+          "title": "Field Service CRM Software - Fieldwork"
+        },
+        {
+          "position": 10,
+          "domain": "www.servicetitan.com",
+          "title": "7 Best Field Service CRMs: Benefits & Key Features to ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "pms systems for small hotels",
+      "volume": 70,
+      "cpc": 450.02,
+      "difficulty": 11,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.mews.com",
+          "title": "Best Hotel Management Software for small properties"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "independent hotel software recommendations for 40 room ..."
+        },
+        {
+          "position": 4,
+          "domain": "hoteltechreport.com",
+          "title": "Top 10 Best Hotel Property Management Systems 2026"
+        },
+        {
+          "position": 6,
+          "domain": "minihotel.io",
+          "title": "Mini Hotel PMS - All-In-One Hotel System - 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.oracle.com",
+          "title": "What is a Hotel Property Management System (PMS)?"
+        },
+        {
+          "position": 8,
+          "domain": "blog.hotelogix.com",
+          "title": "Top 10 Hotel Management Software for 2026"
+        },
+        {
+          "position": 10,
+          "domain": "www.innroad.com",
+          "title": "What Is the Best PMS For Small Hotels? | innRoad"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "property management system for small hotels",
+      "volume": 70,
+      "cpc": 450.02,
+      "difficulty": 11,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.mews.com",
+          "title": "Best Hotel Management Software for small properties"
+        },
+        {
+          "position": 3,
+          "domain": "hoteltechreport.com",
+          "title": "Top 10 Best Hotel Property Management Systems 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "independent hotel software recommendations for 40 room ..."
+        },
+        {
+          "position": 5,
+          "domain": "minihotel.io",
+          "title": "Mini Hotel PMS - All-In-One Hotel System - 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.littlehotelier.com",
+          "title": "Little Hotelier | The easy all-in-one software for small properties"
+        },
+        {
+          "position": 7,
+          "domain": "www.canarytechnologies.com",
+          "title": "Hospitality Property Management System"
+        },
+        {
+          "position": 9,
+          "domain": "blog.hotelogix.com",
+          "title": "Top 10 Hotel Management Software for 2026"
+        },
+        {
+          "position": 10,
+          "domain": "www.innroad.com",
+          "title": "What Is the Best PMS For Small Hotels? | innRoad"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "ap workflow software",
+      "volume": 50,
+      "cpc": 403.74,
+      "difficulty": 6,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.concur.com",
+          "title": "AP Automation Software: Accounts Payable Processing ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.zoneandco.com",
+          "title": "Top 12 AP automation software solutions in 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.avidxchange.com",
+          "title": "AP Workflow Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.adobe.com",
+          "title": "Why automate accounts payable workflows? - Acrobat"
+        },
+        {
+          "position": 6,
+          "domain": "www.stampli.com",
+          "title": "AP Automation: Accounts Payable Software Powered by AI"
+        },
+        {
+          "position": 7,
+          "domain": "www.gartner.com",
+          "title": "Best Accounts Payable Applications Reviews 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.sage.com",
+          "title": "Accounts Payable Software for AP Automation | Sage US"
+        },
+        {
+          "position": 10,
+          "domain": "www.medius.com",
+          "title": "accounts payable (AP) automation"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "med spa scheduling software",
+      "volume": 70,
+      "cpc": 324.99,
+      "difficulty": 31,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.patientnow.com",
+          "title": "Med Spa Management EMR Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.com",
+          "title": "Best Medical Spa Software 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 7,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 8,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.podium.com",
+          "title": "10 Best Med Spa Software Tools for 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.joinblvd.com",
+          "title": "Medspa EMR Software for Med Spas"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "medical spa scheduling software",
+      "volume": 70,
+      "cpc": 324.99,
+      "difficulty": 31,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.patientnow.com",
+          "title": "Med Spa Management EMR Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 4,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.com",
+          "title": "Best Medical Spa Software 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 7,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 9,
+          "domain": "www.podium.com",
+          "title": "10 Best Med Spa Software Tools for 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.joinblvd.com",
+          "title": "Medspa EMR Software for Med Spas"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "crm development",
+      "volume": 320,
+      "cpc": 300.79,
+      "difficulty": 26,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.itransition.com",
+          "title": "CRM Development Company: Our Expertise and Services"
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "What Is CRM (Customer Relationship Management)?"
+        },
+        {
+          "position": 5,
+          "domain": "softwarehut.com",
+          "title": "CRM Software Development"
+        },
+        {
+          "position": 6,
+          "domain": "www.chetu.com",
+          "title": "Custom CRM Development Services"
+        },
+        {
+          "position": 7,
+          "domain": "devsdata.com",
+          "title": "What Is CRM Development and Why Do You Need It | 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.n-ix.com",
+          "title": "CRM development: Complete implementation guide"
+        },
+        {
+          "position": 10,
+          "domain": "appinventiv.com",
+          "title": "Custom CRM Software Development"
+        },
+        {
+          "position": 11,
+          "domain": "codeit.us",
+          "title": "Custom CRM software development services - CodeIT"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service applications",
+      "volume": 50,
+      "cpc": 295.09,
+      "difficulty": 39,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 3,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 5,
+          "domain": "www.servicefusion.com",
+          "title": "Field Service Management Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.getapp.com",
+          "title": "Field Service Management Software - GetApp"
+        },
+        {
+          "position": 7,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "learn.g2.com",
+          "title": "I Found the Best Field Service Management Software of 2026"
+        },
+        {
+          "position": 9,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 10,
+          "domain": "fieldservicesoftware.io",
+          "title": "Field Service Mobile Apps"
+        },
+        {
+          "position": 11,
+          "domain": "fieldcamp.ai",
+          "title": "10 Best Field Service Management Software in 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "applicant tracking system for recruiting agencies",
+      "volume": 110,
+      "cpc": 277.08,
+      "difficulty": 24,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "technologyadvice.com",
+          "title": "Top Applicant Tracking Systems (ATS)"
+        },
+        {
+          "position": 3,
+          "domain": "peoplemanagingpeople.com",
+          "title": "10 Best Applicant Tracking Systems (ATS) of 2026"
+        },
+        {
+          "position": 4,
+          "domain": "recruiterflow.com",
+          "title": "Recruiterflow - Best AI-Native ATS & CRM for Executive ..."
+        },
+        {
+          "position": 5,
+          "domain": "vendordirectory.shrm.org",
+          "title": "Top Applicant Tracking Systems (ATS) Providers"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "Ultimate list of ATS recruiting software"
+        },
+        {
+          "position": 7,
+          "domain": "www.zoho.com",
+          "title": "Applicant Tracking Software (ATS) for Simplified Hiring ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.sap.com",
+          "title": "What is an Applicant Tracking System (ATS)?"
+        },
+        {
+          "position": 9,
+          "domain": "www.loxo.co",
+          "title": "Applicant Tracking System For Staffing Agencies"
+        },
+        {
+          "position": 10,
+          "domain": "gohire.io",
+          "title": "Applicant Tracking System for Staffing Agencies"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "applicant tracking system for staffing agencies",
+      "volume": 110,
+      "cpc": 277.08,
+      "difficulty": 24,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.ceipal.com",
+          "title": "Best ATS for Staffing Agencies | Applicant Tracking System"
+        },
+        {
+          "position": 3,
+          "domain": "recruiterflow.com",
+          "title": "Recruiterflow - Best AI-Native ATS & CRM for Executive ..."
+        },
+        {
+          "position": 4,
+          "domain": "technologyadvice.com",
+          "title": "Top Applicant Tracking Systems (ATS)"
+        },
+        {
+          "position": 5,
+          "domain": "vendordirectory.shrm.org",
+          "title": "Top Applicant Tracking Systems (ATS) Providers"
+        },
+        {
+          "position": 7,
+          "domain": "www.loxo.co",
+          "title": "Applicant Tracking System For Staffing Agencies"
+        },
+        {
+          "position": 8,
+          "domain": "www.avionte.com",
+          "title": "Applicant Tracking System (ATS) for Staffing Agencies"
+        },
+        {
+          "position": 9,
+          "domain": "www.reddit.com",
+          "title": "Ultimate list of ATS recruiting software"
+        },
+        {
+          "position": 10,
+          "domain": "www.selectsoftwarereviews.com",
+          "title": "10 Best Staffing Agency Software for Recruitment Firms in ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.bullhorn.com",
+          "title": "Applicant Tracking Systems: A Complete Guide | Blog"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "applicant tracking software for staffing agencies",
+      "volume": 110,
+      "cpc": 277.08,
+      "difficulty": 24,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.ceipal.com",
+          "title": "Best ATS for Staffing Agencies | Applicant Tracking System"
+        },
+        {
+          "position": 3,
+          "domain": "recruiterflow.com",
+          "title": "Recruiterflow - Best AI-Native ATS & CRM for Executive ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.zoho.com",
+          "title": "Applicant Tracking Software (ATS) for Simplified Hiring ..."
+        },
+        {
+          "position": 5,
+          "domain": "vendordirectory.shrm.org",
+          "title": "Top Applicant Tracking Systems (ATS) Providers"
+        },
+        {
+          "position": 7,
+          "domain": "thedigitalprojectmanager.com",
+          "title": "10 Best Staffing Agency Software Reviewed In 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.reddit.com",
+          "title": "Ultimate list of ATS recruiting software"
+        },
+        {
+          "position": 9,
+          "domain": "www.avionte.com",
+          "title": "Applicant Tracking System (ATS) for Staffing Agencies"
+        },
+        {
+          "position": 10,
+          "domain": "technologyadvice.com",
+          "title": "Top Applicant Tracking Systems (ATS)"
+        },
+        {
+          "position": 11,
+          "domain": "peoplemanagingpeople.com",
+          "title": "10 Best Applicant Tracking Systems (ATS) of 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service business software",
+      "volume": 170,
+      "cpc": 249.07,
+      "difficulty": 24,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 6,
+          "domain": "fieldpoint.net",
+          "title": "Fieldpoint: Field Service Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 8,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 10,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa online booking system",
+      "volume": 90,
+      "cpc": 247.42,
+      "difficulty": 8,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 3,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 4,
+          "domain": "simplybook.me",
+          "title": "Online Booking system for Spa salons"
+        },
+        {
+          "position": 5,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 6,
+          "domain": "www.booker.com",
+          "title": "Booker: Powerful Spa & Salon Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.mindbodyonline.com",
+          "title": "Booking and Scheduling Software for Spas"
+        },
+        {
+          "position": 8,
+          "domain": "www.simplespa.com",
+          "title": "Appointment Booking Software by SimpleSpa"
+        },
+        {
+          "position": 9,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 10,
+          "domain": "www.reddit.com",
+          "title": "Booking system for a spa : r/smallbusiness"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa online booking software",
+      "volume": 90,
+      "cpc": 247.42,
+      "difficulty": 8,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 4,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 6,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 7,
+          "domain": "www.zoho.com",
+          "title": "Best spa booking software for beauty businesses (Free trial)"
+        },
+        {
+          "position": 8,
+          "domain": "www.setmore.com",
+          "title": "Free Online Spa Booking Software"
+        },
+        {
+          "position": 9,
+          "domain": "connecteam.com",
+          "title": "4 Best Spa Booking Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.reservio.com",
+          "title": "Spa booking & management software | Reservio Business"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac field service software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.getjobber.com",
+          "title": "HVAC Service Software | Dispatch, Scheduling & Invoicing"
+        },
+        {
+          "position": 4,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "HVAC Field Management Software Recommendations!"
+        },
+        {
+          "position": 7,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 9,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        },
+        {
+          "position": 10,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac field service management software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 4,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 10,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.fieldforcetracker.com",
+          "title": "Best Field Service Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service software for hvac",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "What CRM or project management software actually works ..."
+        },
+        {
+          "position": 3,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 6,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 7,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 8,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        },
+        {
+          "position": 9,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac field management software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Software & prices for new HVAC company & 6 techs"
+        },
+        {
+          "position": 5,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.inflowinventory.com",
+          "title": "8 HVAC Business Software for Contractors in 2026"
+        },
+        {
+          "position": 8,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 9,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management software for hvac",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "What CRM or project management software actually works ..."
+        },
+        {
+          "position": 7,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 8,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 10,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management software hvac",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "What CRM or project management software actually works ..."
+        },
+        {
+          "position": 4,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 6,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 11,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service hvac software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 3,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 4,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        },
+        {
+          "position": 5,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 11,
+          "domain": "field-ascend.com",
+          "title": "Commercial HVAC Field Service Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service system",
+      "volume": 50,
+      "cpc": 238.76,
+      "difficulty": 18,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.microsoft.com",
+          "title": "How field service management software works"
+        },
+        {
+          "position": 3,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 5,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 6,
+          "domain": "fieldpoint.net",
+          "title": "What is Field Service Management?"
+        },
+        {
+          "position": 7,
+          "domain": "www.zendesk.com",
+          "title": "9 best field service management software of 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.servicepower.com",
+          "title": "Field Service Management Software Guide"
+        },
+        {
+          "position": 10,
+          "domain": "www.softwarereviews.com",
+          "title": "Field Service Management (FSM) Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.fieldservicely.com",
+          "title": "Field Service Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 3,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "crm for hvac companies",
+      "volume": 70,
+      "cpc": 230.44,
+      "difficulty": 29,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "myquoteiq.com",
+          "title": "BEST CRM For HVAC Contractors 2026"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "What CRM are most of your HVAC companies using?"
+        },
+        {
+          "position": 5,
+          "domain": "www.fieldboss.com",
+          "title": "HVAC Business Management Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.webfx.com",
+          "title": "5 Best HVAC CRMs of 2026 You Should Consider"
+        },
+        {
+          "position": 7,
+          "domain": "www.fieldpulse.com",
+          "title": "HVAC Software - CRM, Job Management, Reporting"
+        },
+        {
+          "position": 8,
+          "domain": "servicetrade.com",
+          "title": "Commercial HVAC CRM Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.simprogroup.com",
+          "title": "Best HVAC CRM Software for Contractors"
+        },
+        {
+          "position": 10,
+          "domain": "fieldcamp.ai",
+          "title": "Best HVAC CRM Software in 2026 | 10 Platforms Ranked"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "custom crm software development company",
+      "volume": 90,
+      "cpc": 225.9,
+      "difficulty": 9,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "kanhasoft.com",
+          "title": "Custom CRM Development Company | AI CRM Experts"
+        },
+        {
+          "position": 3,
+          "domain": "www.chetu.com",
+          "title": "Custom CRM Development Services"
+        },
+        {
+          "position": 4,
+          "domain": "watkyn.com",
+          "title": "Custom CRM Software Development | Reliable Solutions"
+        },
+        {
+          "position": 5,
+          "domain": "www.euvic.com",
+          "title": "The Top 10 Leading CRM Development Firms For Custom ..."
+        },
+        {
+          "position": 6,
+          "domain": "coaxsoft.com",
+          "title": "Custom CRM development services"
+        },
+        {
+          "position": 7,
+          "domain": "www.knack.com",
+          "title": "Custom CRM Software Made Easy — Build No-Code with Knack"
+        },
+        {
+          "position": 8,
+          "domain": "www.rapidops.com",
+          "title": "Top 5 Custom CRM Development Companies in 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.brainvire.com",
+          "title": "CRM Software Development Company"
+        },
+        {
+          "position": 10,
+          "domain": "softaims.com",
+          "title": "Top 13 Custom CRM Development Companies Globally ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "smart recruiters ats",
+      "volume": 110,
+      "cpc": 223.04,
+      "difficulty": 37,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.smartrecruiters.com",
+          "title": "All-in-one applicant tracking (ATS) software, from hello to hire"
+        },
+        {
+          "position": 3,
+          "domain": "www.smartrecruiters.com",
+          "title": "SmartRecruiters"
+        },
+        {
+          "position": 4,
+          "domain": "www.smartrecruiters.com",
+          "title": "What is an Applicant Tracking System (ATS) and How Do ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "Smart Recruiters ATS"
+        },
+        {
+          "position": 7,
+          "domain": "www.smartrecruiters.com",
+          "title": "SmartRecruiters Unveils AI-Powered Platform to End ATS Era"
+        },
+        {
+          "position": 8,
+          "domain": "reqcore.com",
+          "title": "SmartRecruiters ATS Review"
+        },
+        {
+          "position": 9,
+          "domain": "www.smartrecruiters.com",
+          "title": "The Best Choice for Your ATS Integration"
+        },
+        {
+          "position": 10,
+          "domain": "www.smartrecruiters.com",
+          "title": "Professional Hiring"
+        },
+        {
+          "position": 11,
+          "domain": "matchr.com",
+          "title": "SmartRecruiters ATS Software - Free Demo and Review | Matchr"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac crm software",
+      "volume": 170,
+      "cpc": 217.57,
+      "difficulty": 19,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.fieldpulse.com",
+          "title": "HVAC Software - CRM, Job Management, Reporting"
+        },
+        {
+          "position": 3,
+          "domain": "fieldcamp.ai",
+          "title": "Best HVAC CRM Software in 2026 | 10 Platforms Ranked"
+        },
+        {
+          "position": 4,
+          "domain": "servicetrade.com",
+          "title": "Commercial HVAC CRM Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.fieldinsight.com",
+          "title": "HVAC CRM Software for Field Service Teams"
+        },
+        {
+          "position": 8,
+          "domain": "www.webfx.com",
+          "title": "5 Best HVAC CRMs of 2026 You Should Consider"
+        },
+        {
+          "position": 9,
+          "domain": "www.simprogroup.com",
+          "title": "Best HVAC CRM Software for Contractors"
+        },
+        {
+          "position": 10,
+          "domain": "www.housecallpro.com",
+          "title": "7 Best HVAC CRM Software to Improve Customer Loyalty"
+        },
+        {
+          "position": 11,
+          "domain": "www.joblogic.com",
+          "title": "HVAC CRM Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac customer management software",
+      "volume": 170,
+      "cpc": 217.57,
+      "difficulty": 19,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.fieldboss.com",
+          "title": "HVAC Business Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Recommendation for client CRM software for HVAC : r/msp"
+        },
+        {
+          "position": 4,
+          "domain": "fieldcamp.ai",
+          "title": "Best HVAC CRM Software in 2026 | 10 Platforms Ranked"
+        },
+        {
+          "position": 5,
+          "domain": "www.fieldpulse.com",
+          "title": "HVAC Software - CRM, Job Management, Reporting"
+        },
+        {
+          "position": 6,
+          "domain": "servicetrade.com",
+          "title": "Commercial HVAC CRM Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.webfx.com",
+          "title": "5 Best HVAC CRMs of 2026 You Should Consider"
+        },
+        {
+          "position": 8,
+          "domain": "www.simprogroup.com",
+          "title": "Best HVAC CRM Software for Contractors"
+        },
+        {
+          "position": 10,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "medspa booking software",
+      "volume": 50,
+      "cpc": 204.2,
+      "difficulty": 38,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 3,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.com",
+          "title": "Best Medical Spa Software 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 8,
+          "domain": "www.mangomint.com",
+          "title": "Best HIPAA-Compliant Medical Spa Software for Booking ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.skininc.com",
+          "title": "The Best Value Software for Med Spa Management in 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.portraitcare.com",
+          "title": "7 Best Medical Spa Software Systems (2026) — Compared"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "service call management software",
+      "volume": 90,
+      "cpc": 203.22,
+      "difficulty": 52,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.msidata.com",
+          "title": "Service Call Management Software System"
+        },
+        {
+          "position": 3,
+          "domain": "www.custify.com",
+          "title": "Choosing the best call management software"
+        },
+        {
+          "position": 4,
+          "domain": "www.goto.com",
+          "title": "Call Management System for Small Businesses"
+        },
+        {
+          "position": 5,
+          "domain": "aircall.io",
+          "title": "Call Management Software for Small Businesses"
+        },
+        {
+          "position": 6,
+          "domain": "www.fieldpulse.com",
+          "title": "Service Call Software for Growing Field Service Businesses"
+        },
+        {
+          "position": 7,
+          "domain": "getvoip.com",
+          "title": "Best Call Center Software (2026)"
+        },
+        {
+          "position": 8,
+          "domain": "www.servicecrmindia.com",
+          "title": "Customer Service Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "fitsmallbusiness.com",
+          "title": "Best Call Management Systems (Ranked & Reviewed)"
+        },
+        {
+          "position": 10,
+          "domain": "www.capterra.com",
+          "title": "Call of Service Software Pricing, Alternatives & More 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa booking software",
+      "volume": 170,
+      "cpc": 195.76,
+      "difficulty": 30,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 4,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 7,
+          "domain": "www.getweave.com",
+          "title": "Spa Booking Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.zenoti.com",
+          "title": "Spa Management Software: All-in-One for Spas"
+        },
+        {
+          "position": 9,
+          "domain": "connecteam.com",
+          "title": "4 Best Spa Booking Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.setmore.com",
+          "title": "Free Online Spa Booking Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.guideflow.com",
+          "title": "8 Best spa booking software tools for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa reservation software",
+      "volume": 170,
+      "cpc": 195.76,
+      "difficulty": 30,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 4,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 6,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 7,
+          "domain": "www.setmore.com",
+          "title": "Free Online Spa Booking Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "connecteam.com",
+          "title": "4 Best Spa Booking Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.zenoti.com",
+          "title": "Spa Management Software: All-in-One for Spas"
+        },
+        {
+          "position": 11,
+          "domain": "www.guideflow.com",
+          "title": "8 Best spa booking software tools for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "cloud based pms",
+      "volume": 90,
+      "cpc": 182.25,
+      "difficulty": 51,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.cloudbeds.com",
+          "title": "#1 Top-Rated Hotel Property Management System 2026"
+        },
+        {
+          "position": 4,
+          "domain": "hoteltechreport.com",
+          "title": "Top 10 Best Hotel Property Management Systems 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.oracle.com",
+          "title": "Hotel Cloud Property Management System (PMS)"
+        },
+        {
+          "position": 7,
+          "domain": "www.rmscloud.com",
+          "title": "What is a cloud-based PMS?"
+        },
+        {
+          "position": 8,
+          "domain": "www.gracesoft.com",
+          "title": "The Future of Hotel Management: Why Cloud-Based PMS ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.stayntouch.com",
+          "title": "9 Best Cloud-Based Hotel PMS (2026 Guide)"
+        },
+        {
+          "position": 10,
+          "domain": "zuzuhospitality.com",
+          "title": "What is Cloud PMS? The Ultimate Guide for Independent ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "cloud based hotel management software",
+      "volume": 70,
+      "cpc": 179.86,
+      "difficulty": 20,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.cloudbeds.com",
+          "title": "Cloudbeds: #1 Award-Winning Hospitality Management System"
+        },
+        {
+          "position": 3,
+          "domain": "www.hotelogix.com",
+          "title": "Best Hotel Management Software | Hotelogix Hotel Software ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "independent hotel software recommendations for 40 room ..."
+        },
+        {
+          "position": 5,
+          "domain": "hoteltechreport.com",
+          "title": "Top 10 Best Hotel Property Management Systems 2026"
+        },
+        {
+          "position": 6,
+          "domain": "cloudhotelerp.com",
+          "title": "Cloud Hotel ERP | Hotel Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.oracle.com",
+          "title": "Hotel Cloud Property Management System (PMS)"
+        },
+        {
+          "position": 8,
+          "domain": "www.stayntouch.com",
+          "title": "SaaS For Hotels: Going From In-House Software To The ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.visitor.de",
+          "title": "The Power of Cloud-Based Hotel Management Software - Visitor"
+        },
+        {
+          "position": 10,
+          "domain": "www.gracesoft.com",
+          "title": "#1 Hotel Management Software 2025 | Cloud based PMS"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hotel management software cloud based",
+      "volume": 70,
+      "cpc": 179.86,
+      "difficulty": 20,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "cloudhotelerp.com",
+          "title": "Cloud Hotel ERP | Hotel Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "hoteltechreport.com",
+          "title": "10 Best Hotel Management Software 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.cloudbeds.com",
+          "title": "Cloudbeds: #1 Award-Winning Hospitality Management System"
+        },
+        {
+          "position": 5,
+          "domain": "www.hotelogix.com",
+          "title": "Best Hotel Management Software | Hotelogix Hotel Software ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.visitor.de",
+          "title": "The Power of Cloud-Based Hotel Management Software - Visitor"
+        },
+        {
+          "position": 8,
+          "domain": "www.mycloudhospitality.com",
+          "title": "Hotel Software: A Complete Cloud Based Hotel Management ..."
+        },
+        {
+          "position": 9,
+          "domain": "nobeds.com",
+          "title": "Nobeds | Free Cloud Hotel Management Software & PMS"
+        },
+        {
+          "position": 10,
+          "domain": "thehotelgm.com",
+          "title": "10 Best Hotel Management Software Reviewed in 2026"
+        },
+        {
+          "position": 11,
+          "domain": "beonx.com",
+          "title": "Cloud-based hotel management software definition and ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "cloudbeds channel manager",
+      "volume": 90,
+      "cpc": 177.83,
+      "difficulty": 20,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.cloudbeds.com",
+          "title": "The Highest-Rated Hotel Channel Manager | 450+ OTAs"
+        },
+        {
+          "position": 2,
+          "domain": "www.cloudbeds.com",
+          "title": "Hotel Channel Management: Top Channel Managers 2025"
+        },
+        {
+          "position": 3,
+          "domain": "hoteltechreport.com",
+          "title": "Cloudbeds Reviews & Product Details"
+        },
+        {
+          "position": 4,
+          "domain": "www.cloudbeds.com",
+          "title": "What is a channel manager? All you need to know"
+        },
+        {
+          "position": 6,
+          "domain": "www.youtube.com",
+          "title": "What Is a Hotel Channel Manager? (2026 Guide)"
+        },
+        {
+          "position": 7,
+          "domain": "www.cloudbeds.com",
+          "title": "Choosing a Channel Manager: Buyer's Guide for 2025"
+        },
+        {
+          "position": 8,
+          "domain": "www.cloudbeds.com",
+          "title": "Cloudbeds: #1 Award-Winning Hospitality Management System"
+        },
+        {
+          "position": 9,
+          "domain": "myfrontdesk.cloudbeds.com",
+          "title": "Connect a distribution channel to Cloudbeds PMS"
+        },
+        {
+          "position": 10,
+          "domain": "www.cloudbeds.com",
+          "title": "2-Way Inventory Synchronisation to 300+ OTAs"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "med spa software",
+      "volume": 110,
+      "cpc": 176.43,
+      "difficulty": 41,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.patientnow.com",
+          "title": "Med Spa Management EMR Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 5,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 6,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 7,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 8,
+          "domain": "www.wellnessliving.com",
+          "title": "What's the Best Med Spa Software Management Platform ..."
+        },
+        {
+          "position": 9,
+          "domain": "mdware.com",
+          "title": "5 Best Med Spa Software Solutions [Reviewed and Ranked]"
+        },
+        {
+          "position": 11,
+          "domain": "www.joinblvd.com",
+          "title": "Medspa EMR Software for Med Spas"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    }
+  ]
+}

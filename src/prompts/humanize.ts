@@ -1,4 +1,5 @@
 import { type AuthorKnowledge, formatKnowledgeForPrompt } from '../knowledge/authorKnowledge.js';
+import { getBrandVoiceSummary, BRAND_VOCABULARY_BLOCKLIST } from '../knowledge/brandKnowledge.js';
 import { getHumanizationGuidelines } from './conversionCopy.js';
 import { getReadingLevelGuidelines } from './readingLevel.js';
 import type { BlogPostStructure } from './blogGeneration.js';
@@ -19,11 +20,13 @@ CRITICAL FORMATTING RULES:
 - Remove ALL markdown formatting like asterisks, hashtags, underscores
 - Output must be plain, natural-sounding text only
 
+${getBrandVoiceSummary()}
+
 VOICE TARGET:
-- Senior engineer explaining to a peer not teaching a student
+- Senior engineer explaining to a business owner as a trusted partner, not teaching a student
 - Confident but not arrogant
-- Occasionally funny, never trying too hard
-- Willing to express frustration with industry nonsense
+- Warm and plain-spoken, never trying too hard, never flashy
+- Willing to state direct opinions and honest warnings, never snarky or fear-mongering
 - Uses contractions naturally like don't, won't, it's, can't
 
 THE UNCANNY VALLEY TEST:
@@ -83,6 +86,10 @@ Tier 2 words to remove:
 - "underscore" becomes "show", "highlight"
 - "endeavor" becomes "try", "effort"
 - "multifaceted" becomes "complex" or list the facets
+
+Brand-banned flashy words to remove (the brand is never flashy — replace with the plain, specific benefit):
+${BRAND_VOCABULARY_BLOCKLIST.map((w) => `- "${w}"`).join('\n')}
+Also: if the author is ever called a "freelancer", "coder", or "programmer", reframe as partner or engineer. If a sentence leads with a technology name, restructure it to lead with the business problem or outcome.
 
 Tier 3 hedge words to remove or commit:
 - "can potentially" becomes "can" or "will"

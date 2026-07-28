@@ -2,11 +2,11 @@
   "identity": {
     "name": "Abdul Rehman",
     "location": "Pakistan",
-    "role": "Senior Full-Stack Developer / AI Engineer",
-    "experience_years": 5,
-    "projects_delivered": 30,
+    "role": "Trusted Technology Partner | AI Infrastructure Engineer | Senior Full-Stack Engineer",
+    "experience_years": 6,
+    "projects_delivered": 60,
     "website": "https://theabdulrehman.com",
-    "positioning": "Product-focused senior engineer who builds scalable SaaS, AI-powered systems, and modernizes complex legacy platforms end-to-end."
+    "positioning": "Partners with growing businesses to improve every digital interaction their customers and teams have with the business, through modern software and intelligent automation, removing friction to improve experiences and support sustainable growth."
   },
 
   "core_skills": {
@@ -30,7 +30,7 @@
 
   "career_highlights": [
     {
-      "company": "SmashCloud",
+      "company": "A large SaaS e-commerce platform (NDA — never name the client in content)",
       "role": "MERN / Full-Stack Developer",
       "summary": "Led migration of a large legacy .NET MVC e-commerce platform to Next.js with reverse proxy setup and analytics continuity.",
       "achievements": [
@@ -44,7 +44,7 @@
       "tech_stack": ["Next.js", "Node.js", "PostgreSQL", "Strapi", "Reverse Proxy", "Analytics"]
     },
     {
-      "company": "DashCam.io",
+      "company": "A desktop screen-recording and replay product (NDA — never name the client in content)",
       "role": "Electron / Vue Developer",
       "summary": "Built and optimized a desktop replay and video streaming system with cloud sync and Jira integrations.",
       "achievements": [
@@ -57,13 +57,13 @@
       "tech_stack": ["Electron.js", "Vue", "Video Streaming", "Cloud Sync"]
     },
     {
-      "company": "CarefordCorp",
+      "company": "An e-commerce store for a surgical instruments seller (NDA — never name the client in content)",
       "role": "Laravel Contractor",
       "summary": "Built a COD-based e-commerce store for surgical instruments.",
       "tech_stack": ["Laravel", "JavaScript", "E-commerce"]
     },
     {
-      "company": "Sermask Inc",
+      "company": "A SaaS support platform (NDA — never name the client in content)",
       "role": "Laravel QA Engineer",
       "summary": "Wrote feature tests and mocked third-party services.",
       "tech_stack": ["Laravel 7.x", "PHPUnit", "Zendesk", "Stripe"]
@@ -142,10 +142,10 @@
   ],
 
   "writing_tone": {
-    "style": "Professional, senior-level, practical",
-    "voice": "Engineering-focused with business impact",
-    "avoid": ["Buzzwords", "Generic marketing fluff"],
-    "focus": ["Outcomes", "Architecture decisions", "Performance", "Reliability"]
+    "style": "Business advisor. Simple, clear, calm, warm, educational, outcome-oriented, never flashy",
+    "voice": "Business-first. Talk about business problems before technology. Senior engineer who advises like a trusted partner",
+    "avoid": ["Buzzwords", "Generic marketing fluff", "Fear-mongering hype", "Leading with technology names", "Freelancer/coder identity framing"],
+    "focus": ["Business outcomes", "Customer experience", "Removing friction", "Operational efficiency", "Trust and clear communication"]
   },
 
   "seo_focus_keywords": [
@@ -169,6 +169,6 @@
     "primary_cta": "Book a Free Strategy Call",
     "secondary_ctas": ["View Case Studies", "Contact Me"],
     "lead_magnet": "Free Project Roadmap Session",
-    "positioning": "Fast, reliable senior engineer who ships complex products without excuses"
+    "positioning": "A trusted technology partner who combines senior engineering expertise with clear communication, honest advice, and accountability from start to finish"
   }
 }

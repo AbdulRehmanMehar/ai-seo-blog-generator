@@ -4,64 +4,64 @@
  */
 
 /**
- * Sell Money, Not Services.
- * From the "Content to Win High-Paying Clients" framework (Chris Do):
- *
- * "Your client desires something beyond the thing that you make."
- * "You need to sell money. You're selling services. You're selling time."
- * "Every time you can dollarize the value, it's an easy sale."
- * "There is a direct correlation to size of problem to size of budget."
- * "Motivation = degree of pain felt + how clear the outcome is."
- * "We need to be problem seekers, not just problem solvers."
+ * Remove Friction, Promise the Experience.
+ * Replaces the old "Sell Money, Not Services" dollarization framework.
+ * Per the Brand Operating System: we never promise revenue or dollar savings —
+ * those outcomes depend on factors beyond our work. We name the friction the
+ * reader's customers and team feel daily, and we promise what we control.
  */
-export const SELL_MONEY_NOT_SERVICES = `
-Sell Money, Not Services (Core Framework)
+export const REMOVE_FRICTION_FIRST = `
+Remove Friction, Promise the Experience (Core Framework)
 
-PRINCIPLE: Your client doesn't want a website, an API, or an AI integration.
-They want revenue, risk reduction, or time they can't get back.
-Every piece of content must frame your work in the client's desired outcome, not your deliverable.
+PRINCIPLE: Your reader doesn't want a website, an API, or an AI integration.
+They want their staff to stop fighting the tools, their customers to stop feeling
+the friction, and their own evenings back. Every piece of content must frame your
+work as removing specific, recognizable friction — not as a revenue machine.
 
 WRONG: "I build Next.js applications."
-RIGHT: "I help logistics firms cut dashboard load time from 8 seconds to 400ms, before their peak season costs them $2M in abandoned carts."
+WRONG: "This system will save you $180k a year." (a promise we cannot make)
+RIGHT: "The front desk retypes every booking into three systems. That's the kind
+of friction we remove, so the team's time goes to guests instead of data entry."
 
-THE DOLLARIZATION FORMULA:
-To make any benefit feel real, run it through this formula:
-  [Your Work] → [Specific Outcome] → [Dollar Value to the Client]
+THE FRICTION FORMULA:
+  [Recognizable daily friction] → [What smooth looks like] → [What we build to get there]
 
 Examples (derive from author knowledge and ICP context):
-- "Migrating from .NET to Next.js" → "developers ship features 3x faster" → "saves ~$180k in engineering time per year"
-- "A real-time inventory dashboard" → "catches shortages before peak season" → "prevents $500k in lost sales"
-- "Cleaning up legacy auth code" → "removes a critical security gap" → "avoids a $2M compliance fine"
+- "Your staff copy-paste between the CRM and the scheduler" → "one intake flow that updates both" → "a small integration layer we build in weeks"
+- "Customers give up halfway through your booking form on mobile" → "a two-minute booking that works on any phone" → "a rebuilt booking flow"
+- "Your Monday report takes half a day to assemble" → "a dashboard that's already up to date on Monday morning" → "reporting automation on top of your existing tools"
 
-SIZE OF PROBLEM = SIZE OF BUDGET:
-Target BUSINESS problems, not service problems.
-A client with a $200k/year "technical debt" problem has budget for a $50k engagement.
-A client with a "$10M revenue at risk" problem has budget for a $300k engagement.
+NO DOLLAR PROMISES (non-negotiable):
+- NEVER write "this will save you $X" or "worth $X a year" or promise ROI, payback, or revenue.
+  Revenue and cost depend on many factors beyond what we build, and pretending otherwise breaks trust.
+- Consequences of friction are stated OPERATIONALLY: hours of rework, abandoned bookings,
+  slow replies, staff burnout, onboarding that takes weeks. The reader can verify these
+  in their own business today — that is what makes them persuasive.
+- Real measured outcomes from the author's real projects are EVIDENCE, stated in past
+  tense about that project ("one project cut manual processing by 70%"). Evidence is
+  never converted into a prediction for the reader.
 
-CONTENT MUST ADDRESS THE COST OF INACTION:
-Every post should answer the question "Why not just do nothing?"
-If the reader can't feel the cost of inaction, they have no urgency.
-Frame the cost of inaction as a specific dollar figure, time loss, or competitive disadvantage.
-
-Cost of Inaction formula:
-  "If you don't solve [specific problem], you face [specific consequence] which costs [dollar figure or time/risk]."
-
-Real examples of cost-of-inaction framing:
-- "Every month you keep the .NET monolith, you lose 2 sprints of velocity. That is roughly $30k of engineering time."
-- "A single data breach from an unvetted LLM integration costs an average of $4.5M in regulatory fines."
-- "Each week a slow checkout page costs a $10M e-commerce company roughly $50k in abandoned revenue."
+COST OF INACTION — FRICTION EDITION:
+Every post should still answer "why not just do nothing?" — honestly.
+  "If nothing changes, [the friction] keeps taxing [who feels it] every [day/week/season], and [growth/busy season] makes it worse, never better."
+Examples:
+- "Every busy season, the manual workload doubles and your best admin gets closer to quitting."
+- "Every customer who abandons the booking form goes somewhere smoother, and you never hear about it."
+- "Every new hire takes weeks to learn the workarounds, because the process lives in people's heads."
 
 PROBLEM SEEKER, NOT JUST PROBLEM SOLVER:
 Don't write about "how to build a better API."
-Write about "why your Series B is delayed", where the answer happens to be a better API.
-The topic must be the BUSINESS PROBLEM. The content reveals your service as the logical answer.
+Write about the friction the reader recognizes, where the answer happens to be what you build.
 
-Wrong topic angle: "How to Migrate from .NET to Next.js"
-Right topic angle: "Why Your Engineering Team Keeps Missing Deadlines" (answer is the legacy stack)
+Wrong topic angle: "How to Build a Booking System"
+Right topic angle: "Why Customers Abandon Your Booking Halfway" (answer is a better flow)
 
-Wrong topic angle: "Building Real-Time Dashboards"
-Right topic angle: "Why Your Ops Team Is Always the Last to Know" (answer is real-time tooling)
+Wrong topic angle: "Workflow Automation Services"
+Right topic angle: "Your Team Isn't Slow. Your Tools Are." (answer is integration + automation)
 `;
+
+/** @deprecated Old dollarization framework — kept as an alias so stale imports fail loudly in review, not silently. */
+export const SELL_MONEY_NOT_SERVICES = REMOVE_FRICTION_FIRST;
 
 export const HEADLINE_FORMULAS = `
 Headline Formula (REQUIRED: Pain + Outcome + Curiosity)
@@ -74,21 +74,24 @@ Every headline MUST include:
 FORMULA: [Pain] + [Outcome] + [Curiosity]
 
 GOOD examples:
-- "Technical Debt Is Costing You Thousands (Here's How to Fix It)"
-  (Pain: losing money, Outcome: fix it, Curiosity: how?)
-- "7 Database Mistakes That Cost Startups $100K+"
-  (Pain: mistakes, Outcome: avoid $100K loss, Curiosity: 7 mistakes)
-- "Why Your Engineering Team Keeps Missing Deadlines"
-  (Pain: missed deadlines, Outcome: understand why, Curiosity: the real reason)
-- "I Lost $50K on Bad Hires (Here's the System That Fixed It)"
-  (Pain: lost $50K, Outcome: fixed system, Curiosity: what system?)
+- "Why Customers Abandon Your Booking Halfway (And What Smooth Looks Like)"
+  (Pain: lost bookings, Outcome: fix the flow, Curiosity: why?)
+- "Your Team Isn't Slow. Your Tools Are."
+  (Pain: slow operations, Outcome: understand the real cause, Curiosity: contrarian claim)
+- "7 Signs Your Systems Don't Talk to Each Other"
+  (Pain: disconnected tools, Outcome: diagnose it, Curiosity: 7 signs)
+- "The Monday Report Your Ops Manager Shouldn't Be Building by Hand"
+  (Pain: manual reporting, Outcome: automate it, Curiosity: what instead?)
 
 BAD examples:
 - "Technical Debt in Software" (no pain, no outcome, no curiosity)
 - "Building Teams: A Complete Guide" (colon, generic, no emotional hook)
+- "7 Mistakes That Cost Startups $100K+" (dollar-scare framing — we don't promise or threaten dollars)
 - "Software Development Best Practices" (boring, no stakes)
 
-Power words to use: Hidden, Proven, Secret, Ultimate, Insider, Surprising, Cost, Mistakes, Fix
+Power words to use: Cost, Mistakes, Fix, Losing, Failing, Wrong, Actually
+NEVER use clickbait words: Hidden, Secret, Shocking, Ultimate, Insider — Google refuses to index
+formulaic clickbait titles, and the brand is never flashy. Specificity does the selling.
 
 IMPORTANT: Never use colons in titles. Write flowing titles without colons or em dashes.
 `;
@@ -142,14 +145,17 @@ Only reference your own direct experience from the author knowledge.
 Do NOT make up clients, customers, or companies you "helped".
 
 1. First-Person Experience. Share YOUR direct experience, not invented client stories.
+   NDA RULE: never name a client or employer — describe the work anonymously.
    Good: "After building 5 production APIs, I've found that..."
-   Good: "In my SmashCloud migration project, we reduced load time from 4.2s to 0.8s"
+   Good: "On a large e-commerce migration I led, we reduced load time from 4.2s to 0.8s"
+   BAD: "In my SmashCloud migration project..." (NDA violation — client name)
    BAD: "I helped a client reduce their load time..." (unless specifically mentioned in author knowledge)
    BAD: "My clients see 50% improvement..." (fabrication)
-   
-2. Authority from Real Projects. Reference actual projects from author knowledge.
+
+2. Authority from Real Projects. Reference actual projects from author knowledge, anonymously.
    Good: "After migrating a legacy .NET MVC platform to Next.js..."
-   Good: "While building the DashCam.io desktop app..."
+   Good: "While building a desktop screen-recording product..."
+   BAD: "While building the DashCam.io desktop app..." (NDA violation — client name)
    BAD: "I worked with 3 Series A startups..." (unless true and documented)
 
 3. Specificity. Vague fails. Specific converts. But be truthful.
@@ -172,19 +178,19 @@ export const CTA_GUIDELINES = `
 CTA Strategy
 
 Formula is Verb plus Value plus Optional Urgency.
-Bad examples are "Contact us" or "Learn more"
-Good examples are "Get Your Free Architecture Review" or "See How We Cut Costs 60%"
+Bad examples are "Contact us" or "Learn more" or "Schedule a call"
+Good examples are "Send Me Your Booking Flow and I'll Show You Where Customers Drop Off"
 
 Placement:
 1. Soft CTA after intro for high-intent readers. Offer a related resource or quick win.
 2. Contextual mid-article CTAs. Naturally mention services where relevant.
 3. Primary CTA before conclusion. Place it after delivering value.
 
-B2B CTAs that work:
-- "Book a Free Specific Review"
-- "Get the Resource Checklist"
-- "Schedule a Technical Discovery Call"
-- "Let's Discuss Your Project"
+CTAs that work (calm, specific, low-friction diagnostic offers):
+- "Send me a screen recording of the double entry your team does. I'll show you what can be automated."
+- "Describe your booking flow in one email. I'll point out where customers give up."
+- "Get the workflow audit checklist."
+- "Send me your current setup. I'll map the friction and what I'd fix first."
 
 Tone. CTA should feel like the natural next step, not a sales pitch.
 
@@ -227,10 +233,10 @@ B2B Writing Guidelines
    - Mention similar companies and use cases
    - Address common concerns proactively
 
-3. Shareable Stats:
-   - Include quotable numbers
-   - Make ROI clear
-   - Executive-friendly summary points
+3. Shareable Insights:
+   - Include quotable, verifiable observations (from real experience only)
+   - Make the friction and the fix concrete enough to forward to a colleague
+   - Owner-friendly summary points, no invented ROI figures
 
 IMPORTANT: All content must be plain text. No colons for labels. No em dashes. No markdown.
 `;
@@ -248,7 +254,7 @@ CRITICAL FORMATTING RULES:
 - Never use markdown formatting like asterisks or hashtags
 - Write plain, natural-sounding prose throughout
 
-${SELL_MONEY_NOT_SERVICES}
+${REMOVE_FRICTION_FIRST}
 
 ${HEADLINE_FORMULAS}
 
@@ -273,7 +279,7 @@ export function getHeadlineGuidelines(): string {
   return `
 HEADLINE AND TOPIC GUIDELINES
 
-${SELL_MONEY_NOT_SERVICES}
+${REMOVE_FRICTION_FIRST}
 
 ${HEADLINE_FORMULAS}
 
@@ -402,7 +408,7 @@ Add these naturally throughout:
 - Honest uncertainty like \"I might be wrong, but\" or \"The data isn't clear on\"
 
 AUTHORITY SIGNALS TO WEAVE IN (MUST BE AUTHENTIC)
-- Specific years or project counts like \"After 5 years building full-stack systems...\"\n- Named companies from YOUR actual experience like \"At SmashCloud, we migrated...\" or \"While building DashCam.io...\"\n- Concrete results from YOUR real projects, not fabricated client stories\n- Lessons from YOUR actual failures, not made-up scenarios\n- NEVER claim to have \"clients\" unless the author knowledge explicitly lists them\n- NEVER make up company names or specific metrics for unnamed clients
+- Specific years or project counts like \"After 5 years building full-stack systems...\"\n- Anonymous descriptions of YOUR actual work like \"On a large e-commerce migration I led...\" or \"While building a desktop replay product...\" — NEVER client or employer names (NDA)\n- Concrete results from YOUR real projects, not fabricated client stories\n- Lessons from YOUR actual failures, not made-up scenarios\n- NEVER claim to have \"clients\" unless the author knowledge explicitly lists them\n- NEVER make up company names or specific metrics for unnamed clients
 
 TRANSITION PHRASES THAT FEEL HUMAN
 - \"Here's where it gets interesting...\"

@@ -1,0 +1,229 @@
+{
+  "_source": "Distilled from Abdul's Upwork profile export (July 2026), aligned to the Brand Operating System: NDA-safe (no client names), friction-first framing, outcomes as past-tense evidence only. This is the REAL evidence pool for content generation — the writer uses ONLY these, never invented stories.",
+
+  "usage_rules": [
+    "These are the ONLY client stories content may reference. Never invent others.",
+    "Never name clients or employers. Use the anonymized titles and business types exactly as written here.",
+    "Outcomes are past-tense evidence about that project ('one project cut...'), never predictions or promises for the reader.",
+    "Own products and public POCs (marked source: 'own product') may be described freely; they are Abdul's public work.",
+    "Third-party platforms and tools (Stripe, Bullhorn, OpenAI, Electron) may be named — they are technologies, not clients."
+  ],
+
+  "case_studies": [
+    {
+      "id": "legacy-ecommerce-migration",
+      "title": "Legacy e-commerce platform migration (.NET to Next.js)",
+      "business_type": "an established e-commerce brand",
+      "icp_fit": "Owner Omar / Founder Nadia — aging platform friction",
+      "friction_before": "A years-old .NET platform the team worked around rather than in. Slow pages, hard-to-ship changes, and a customer experience falling behind competitors.",
+      "what_changed": "Led the full migration to Next.js with zero downtime: OAuth authentication, dual payment processor integration, a referral and commissions engine, admin dashboard, and CMS migration.",
+      "evidence": ["50% faster user experience after migration", "Zero downtime during the switch", "Shipped in under 6 months with full feature parity"],
+      "tech": "Next.js, Node.js, PostgreSQL, Strapi",
+      "source": "client work"
+    },
+    {
+      "id": "job-discovery-platform",
+      "title": "AI-powered job discovery platform",
+      "business_type": "a recruiting business replacing a fragile manual scraping workflow",
+      "icp_fit": "Owner Omar / Ops-Lead Olivia — manual workflow replaced by automation",
+      "friction_before": "The team relied on a Chrome extension to scrape listings from other platforms. Manual, fragile, one update away from breaking completely.",
+      "what_changed": "Architected a pipeline that automatically discovers and ingests 10,000+ listings daily, scores each against user profiles with AI, and serves recommendations through a fast API.",
+      "evidence": ["1.27 million requests served per day six months after launch", "10,000+ listings ingested daily without manual work"],
+      "tech": "Node.js, OpenAI API, REST APIs, caching",
+      "source": "client work"
+    },
+    {
+      "id": "recruitment-ai-workflows",
+      "title": "AI recruitment workflows for a SaaS",
+      "business_type": "a recruiting SaaS",
+      "icp_fit": "Founder Nadia — AI that serves the product",
+      "friction_before": "Manual resume tailoring and outreach limited how many candidates and clients the team could serve.",
+      "what_changed": "Built AI-driven workflows for resume tailoring and outreach automation, integrating enrichment APIs with OpenAI.",
+      "evidence": ["70% sales increase after the workflows went live"],
+      "tech": "OpenAI API, Node.js, third-party enrichment APIs",
+      "source": "client work"
+    },
+    {
+      "id": "dental-group-internal-app",
+      "title": "Unified internal desktop app for a dental group",
+      "business_type": "a dental group (multi-location clinic business)",
+      "icp_fit": "Owner Omar / Ops-Lead Olivia — the flagship service-business story",
+      "friction_before": "Staff juggled several disconnected internal tools every day; switching and re-entering data ate hours across the group.",
+      "what_changed": "Built an Electron desktop app that unified the internal tools into one place.",
+      "evidence": ["50% productivity boost reported by the group after adoption"],
+      "tech": "Electron, Node.js",
+      "source": "client work"
+    },
+    {
+      "id": "nextjs-performance-overhaul",
+      "title": "Next.js performance overhaul",
+      "business_type": "an e-commerce site",
+      "icp_fit": "Owner Omar — slow site quietly costing customers",
+      "friction_before": "Slow loading pages frustrating customers and the team alike.",
+      "what_changed": "Led a full-stack performance overhaul: rendering strategy, caching, and query optimization.",
+      "evidence": ["80% reduction in loading times (client's own words: 'He's now easily in the top tier of developers who understand full-stack performance deeply')"],
+      "tech": "Next.js, caching, Core Web Vitals work",
+      "source": "client work"
+    },
+    {
+      "id": "screen-recording-devtool",
+      "title": "Screen-recording bug capture tool",
+      "business_type": "a developer-tools SaaS",
+      "icp_fit": "Founder Nadia — deep product engineering proof",
+      "friction_before": "Intermittent bugs were nearly impossible to reproduce; recording tools distorted the very performance being debugged.",
+      "what_changed": "Built a background-thread screen recorder that captures 60 FPS video with under 2% CPU overhead, so recording doesn't change what it observes.",
+      "evidence": ["50% faster bug reproduction via instant video context sharing", "60 FPS capture at under 2% CPU overhead"],
+      "tech": "Electron, Vue, Node.js",
+      "source": "client work"
+    },
+    {
+      "id": "seo-job-board-ats",
+      "title": "SEO-optimized job board integrated with the client's ATS (Bullhorn)",
+      "business_type": "a staffing agency",
+      "icp_fit": "Owner Omar — repeat-client trust story",
+      "friction_before": "Job listings lived only in the agency's ATS, invisible to search engines and job seekers.",
+      "what_changed": "Built a server-side-rendered job board with real-time ATS syncing, structured data for Google indexing, and high-performance caching.",
+      "evidence": ["Client returned for a third project: 'we interview developers for every project, yet we've gone back to Abdul for the third time'"],
+      "tech": "Next.js SSR, Bullhorn API, JSON-LD, Couchbase, Vercel",
+      "source": "client work"
+    },
+    {
+      "id": "hrm-db-optimization",
+      "title": "Database optimization for an HR management platform",
+      "business_type": "an HR management platform",
+      "icp_fit": "Ops-Lead Olivia — slow internal tools",
+      "friction_before": "Slow server responses made everyday HR tasks drag.",
+      "what_changed": "PostgreSQL query optimization and schema normalization.",
+      "evidence": ["35% faster server response times"],
+      "tech": "PostgreSQL, Node.js",
+      "source": "client work"
+    },
+    {
+      "id": "hotel-booking-engine",
+      "title": "Hotel booking engine improvements",
+      "business_type": "a hotel booking platform",
+      "icp_fit": "Owner Omar — hospitality booking friction",
+      "friction_before": "A booking flow that needed UX and reliability improvements to stop losing guests mid-booking.",
+      "what_changed": "Improved the booking engine's flow and front-end reliability.",
+      "evidence": ["Delivered on deadline; client: 'good quality and respected the defined deadlines'"],
+      "tech": "Vue.js, TailwindCSS",
+      "source": "client work"
+    },
+    {
+      "id": "real-estate-map-tool",
+      "title": "Map-based territory and contact tool for real estate agents",
+      "business_type": "a real estate business in the UK and Ireland",
+      "icp_fit": "Owner Omar — real estate vertical proof",
+      "friction_before": "Agents had no shared, visual way to manage territories and contacts across a national grid.",
+      "what_changed": "Built a tile-based map tool on a 50m grid where agents add contacts and claim territories, with AI-assisted search.",
+      "evidence": ["5.0 rating; client: 'incredibly responsive, detail-oriented, completes work exceptionally quickly'"],
+      "tech": "WordPress, mapping APIs, AI integration",
+      "source": "client work"
+    },
+    {
+      "id": "ai-content-pipeline",
+      "title": "AI content production pipeline",
+      "business_type": "a marketing team",
+      "icp_fit": "Ops-Lead Olivia — manual work automated",
+      "friction_before": "The team spent 3 days a week manually creating social posts.",
+      "what_changed": "Built an AI pipeline generating multi-frame content with templates and scheduling, integrated with their CMS.",
+      "evidence": ["Creation time reduced 70%", "Publish frequency tripled"],
+      "tech": "React, Next.js, Node, OpenAI API, MongoDB, Redis",
+      "source": "client work"
+    },
+    {
+      "id": "ops-platform-spreadsheets",
+      "title": "Operations platform replacing spreadsheet workflows",
+      "business_type": "a surgical instruments manufacturer",
+      "icp_fit": "Ops-Lead Olivia — the anti-spreadsheet story",
+      "friction_before": "Cost, production, sales, profit, and payroll all tracked in manual spreadsheets.",
+      "what_changed": "Built an operations management platform replacing the spreadsheet workflows end to end, plus a product showcase site that opened the catalogue to international buyers.",
+      "evidence": ["Manual spreadsheet workflow eliminated across cost, production, sales, and payroll tracking"],
+      "tech": "PHP, JavaScript, MySQL; later React and Node.js",
+      "source": "client work"
+    },
+    {
+      "id": "urgent-weekend-integration",
+      "title": "Urgent serverless middleware delivered over a weekend",
+      "business_type": "a staffing agency (ATS integration)",
+      "icp_fit": "Trust/reliability proof for any ICP",
+      "friction_before": "An integration had to be live between Friday and Monday afternoon, with no room for quality shortcuts.",
+      "what_changed": "Built and shipped the serverless middleware over the weekend.",
+      "evidence": ["Client: 'Meeting this strict deadline was top priority without compromising the work. Abdul delivered.'"],
+      "tech": "Serverless, Node.js, Bullhorn API",
+      "source": "client work"
+    },
+    {
+      "id": "pos-loyalty-mvp",
+      "title": "POS and loyalty platform MVP for premium venues",
+      "business_type": "premium nightlife venues",
+      "icp_fit": "Founder Nadia — MVP proof",
+      "friction_before": "No unified point-of-sale and loyalty system fit the venues' premium experience.",
+      "what_changed": "Designed and built a POS flow with cart, tax, and loyalty points, plus an analytics dashboard for revenue and customer insight, on a production-ready architecture.",
+      "evidence": ["Production-ready MVP with a roadmap to payments, auth, and multi-venue support"],
+      "tech": "Next.js, React, real-time state management",
+      "source": "client work"
+    },
+    {
+      "id": "ai-meeting-assistant",
+      "title": "AI meeting assistant (own product, public)",
+      "business_type": "Abdul's own product",
+      "icp_fit": "Practical-AI credibility",
+      "friction_before": "Meeting notes and coaching feedback are manual and lossy.",
+      "what_changed": "Built a live-deployed assistant that captures screen, system audio, and microphone simultaneously, transcribes in real time, and generates AI coaching summaries.",
+      "evidence": ["Live public deployment and open GitHub repository"],
+      "tech": "Next.js, Web Audio API, OpenAI Whisper + GPT, real-time streaming",
+      "source": "own product"
+    },
+    {
+      "id": "ai-legacy-planning-agent",
+      "title": "AI legacy-planning agent for 19 countries (own product, public)",
+      "business_type": "Abdul's own product",
+      "icp_fit": "Practical-AI credibility; privacy-first design proof",
+      "friction_before": "Personalized legal guidance across 19 jurisdictions normally requires expensive manual work.",
+      "what_changed": "Built a bilingual system generating personalized will drafts and risk assessments through country-specific legal prompts, delivering formatted PDF reports by email. Privacy-first: no database, all processing in memory.",
+      "evidence": ["19 country-specific legal modules; fully bilingual UI, prompts, PDF, and email pipeline"],
+      "tech": "Next.js 15, TypeScript, OpenAI GPT-4, jsPDF, Vercel",
+      "source": "own product"
+    },
+    {
+      "id": "ai-legal-doc-analyzer",
+      "title": "AI legal document analyzer (own product, public)",
+      "business_type": "Abdul's own product",
+      "icp_fit": "Practical-AI credibility; privacy-first design proof",
+      "friction_before": "Contract review is slow and expensive; uploading sensitive documents to servers is a trust barrier.",
+      "what_changed": "Built a paralegal assistant where all document parsing happens client-side in the browser; only extracted text goes to the LLM for clause-by-clause review across 13 contract sections.",
+      "evidence": ["Client-side privacy architecture; structured clause review with Present/Missing/Ambiguous status"],
+      "tech": "Next.js 15, OpenAI GPT-4o, PDF.js, Mammoth",
+      "source": "own product"
+    }
+  ],
+
+  "client_validation": [
+    {
+      "quote": "We reduced loading times by 80% after Abdul led a Next.js performance overhaul. He's now easily in the top tier of developers who understand full-stack performance deeply.",
+      "attribution": "e-commerce client"
+    },
+    {
+      "quote": "Every time we release a new project, we have many developers apply, and we conduct interviews for each. Yet we've gone back to Abdul for the third time. What's different is his communication. He is always responsive and sets expectations clear. He asks thoughtful questions and provides his insights and recommendations.",
+      "attribution": "repeat client, staffing agency"
+    },
+    {
+      "quote": "Abdul is an exceptional full-stack developer with a rare ability to break down complex problems and turn them into clean, scalable solutions. His speed is genuinely a superpower, backed by outstanding work ethics and ownership.",
+      "attribution": "project manager who mentored Abdul early in his career"
+    },
+    {
+      "quote": "Abdul has a high customer focus and was really patient. He is really reliable and always fast in delivering. He documents everything to our absolute expectation. If you're looking for high quality and someone who challenges the process and helps you improve it, this is the one to work with.",
+      "attribution": "payment-API client"
+    },
+    {
+      "quote": "I had an urgent request that started on Friday and needed to finish by Monday afternoon. Meeting this strict deadline was top priority without compromising the work. Abdul delivered.",
+      "attribution": "staffing agency client"
+    }
+  ],
+
+  "platform_track_record": {
+    "facts": ["100% Job Success on Upwork", "Top Rated on Upwork", "18 jobs completed with repeat clients", "Merged pull requests into Microsoft Fluent UI (public open source)"],
+    "usage": "Public platform facts — usable as evidence of reliability. Never pair them with client names."
+  }
+}

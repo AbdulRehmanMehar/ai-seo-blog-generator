@@ -96,6 +96,29 @@ export class BlogGenerator {
 
     // Determine website - use passed ID, then topic's website_id, then null
     const effectiveWebsiteId = websiteId ?? row.website_id;
+
+    // ── CANNIBALIZATION GUARD (hard, deterministic) ──────────────────────────
+    // One published post per keyword per site. A second post targeting the same
+    // keyword competes with the first in Google and both lose. If a live post
+    // already targets this keyword, refuse to create a competitor — the existing
+    // post gets refreshed instead (GSC refresh detectors handle that).
+    const [existing] = await this.deps.pool.query<RowDataPacket[]>(
+      `SELECT slug FROM posts
+        WHERE LOWER(TRIM(primary_keyword)) = LOWER(TRIM(?))
+          AND status IN ('published', 'draft', 'pending_review')
+          ${effectiveWebsiteId ? 'AND website_id = ?' : ''}
+        LIMIT 1`,
+      effectiveWebsiteId ? [row.keyword, effectiveWebsiteId] : [row.keyword]
+    );
+    if ((existing as any[]).length > 0) {
+      const slug = (existing as any[])[0].slug;
+      console.log(`   🛑 Cannibalization guard: "${row.keyword}" already has a live post (/${slug}) — skipping generation, marking keyword used.`);
+      await this.deps.pool.query(
+        `UPDATE keywords k JOIN topics t ON t.keyword_id = k.id SET k.status = 'used' WHERE t.id = ?`,
+        [topicId]
+      );
+      throw new Error(`Cannibalization guard: keyword "${row.keyword}" already targeted by /${slug}`);
+    }
     let website: Website | null = null;
     if (effectiveWebsiteId) {
       website = await this.websiteService.getById(effectiveWebsiteId);
@@ -189,9 +212,25 @@ export class BlogGenerator {
       maxOutputTokens: 8192
     });
 
+    // Repair mechanical omissions before validation — cheap models sometimes
+    // drop derivable fields (empty internalLinks, reading time, hero wrapper)
+    // even when the substantive content is complete.
+    const repairShape = (p: any): any => {
+      if (!p || typeof p !== 'object') return p;
+      if (!Array.isArray(p.internalLinks)) p.internalLinks = [];
+      if (typeof p.estimatedReadingMinutes !== 'number' && Array.isArray(p.sections)) {
+        const words = p.sections.reduce((n: number, s: any) => n + String(s?.content ?? '').split(/\s+/).length, 0);
+        p.estimatedReadingMinutes = Math.max(3, Math.round(words / 200));
+      }
+      if ((!p.hero || typeof p.hero.hook !== 'string') && (typeof p.hook === 'string' || typeof p.subtitle === 'string')) {
+        p.hero = { hook: String(p.hook ?? ''), subtitle: String(p.subtitle ?? '') };
+      }
+      return p;
+    };
+
     let blog: BlogPostStructure;
     try {
-      const parsedJson = safeJsonParse(raw);
+      const parsedJson = repairShape(safeJsonParse(raw));
       blog = blogJsonSchema.parse(parsedJson);
     } catch (parseError) {
       // Retry with stricter instructions
@@ -201,7 +240,7 @@ export class BlogGenerator {
         temperature: 0.3,
         maxOutputTokens: 8192
       });
-      const parsedJson = safeJsonParse(raw2);
+      const parsedJson = repairShape(safeJsonParse(raw2));
       blog = blogJsonSchema.parse(parsedJson);
     }
 
@@ -259,8 +298,14 @@ export class BlogGenerator {
       ]
     );
 
-    const embedding = await this.deps.gemini.embedText(`${blog.title}\n${blog.meta.description}\n${blog.hero.hook}`);
-    await this.deps.embeddings.upsert({ entityType: 'post', entityId: postId, embedding });
+    // Embedding is best-effort: it powers related-links/dedup, but its failure
+    // (e.g., the vector DB being unreachable) must never kill a finished post.
+    try {
+      const embedding = await this.deps.gemini.embedText(`${blog.title}\n${blog.meta.description}\n${blog.hero.hook}`);
+      await this.deps.embeddings.upsert({ entityType: 'post', entityId: postId, embedding });
+    } catch (err) {
+      console.log(`   ⚠️ Embedding skipped (non-fatal): ${err instanceof Error ? err.message.slice(0, 100) : String(err)}`);
+    }
     return postId;
   }
 }

@@ -1,0 +1,4297 @@
+{
+  "generated_for": "wave-1 rewrite + phantom remap",
+  "verdicts": [
+    {
+      "keyword": "plumbing business management software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Buyer intent is present (service business owner looking for management software) but we lack proven work in this specific vertical; would need custom content positioning us as an integrator/developer.",
+      "content_angle": "Explain how off-the-shelf plumbing software creates friction and how a custom-built workflow unlocks real efficiency.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "crm field service management",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "High authority SERP (Microsoft, Salesforce, ServiceNow) is unwinnable for us; query is broad and leads to enterprise vendor comparison rather than custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management crm",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same high-authority SERP as sibling keyword; dominated by enterprise vendors; no realistic path to ranking for our site.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "med spa scheduling software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Med spa scheduling is an adjacent vertical to dental groups (where we have proof) but no direct proof; buy intent exists but we need stronger positioning.",
+      "content_angle": "Position custom scheduling as the fix for med spa friction—offline waitlists, double bookings, and disjoint systems.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "medical spa scheduling software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Duplicate of 'med spa scheduling software' with same signals; no additional value.",
+      "content_angle": "Same as med spa scheduling software—highlight fragmentation in multi-location spa operations.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "mindbody gym management software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Minimal authority SERP but dominated by Mindbody review/comparison sites; opportunity is adjacent but not our core—could work if tied to integration/custom development for gyms.",
+      "content_angle": "Show how custom integration with Mindbody or moving away from it solves gym operational friction.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service business software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Moderate CPC and volume; SERP has authority sites (Salesforce, Gartner) but they are ranking with thin pages; opportunity exists but proof is limited.",
+      "content_angle": "Target field service business owners frustrated with generic tools; position custom software as the way to escape spreadsheet-sprawl.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa online booking system",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Low authority SERP but dominated by booking platform vendors (Appointy, Square, Mindbody); need to differentiate as custom development partner rather than SaaS.",
+      "content_angle": "Highlight how generic booking systems break at scale; custom workflows eliminate double-booking and manual sync.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa online booking software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Same as 'spa online booking system'—duplicate keyword; no additional signal.",
+      "content_angle": "Same as spa online booking system—custom booking vs off-the-shelf friction.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac field service software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "High volume and CPC but SERP dominated by well-known HVAC software vendors (Housecall Pro, Jobber); no concrete proof in HVAC vertical.",
+      "content_angle": "Discuss the gap between off-the-shelf HVAC tools and what growing multi-truck companies actually need; position custom solutions.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac field service management software",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Duplicate of 'hvac field service software' with identical signals; limited differentiation.",
+      "content_angle": "Same as hvac field service software—emphasize complexity of scheduling, dispatching, and inventory that generic software misses.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service software for hvac",
+      "verdict": "secondary",
+      "lead_value": "medium",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Third variant of HVAC field service; same SERP and signals; no incremental value.",
+      "content_angle": "Same as hvac field service software—focus on scalability and integration pain points.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac field management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for HVAC vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management software for hvac",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for HVAC vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management software hvac",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for HVAC vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service hvac software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for HVAC vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service system",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP dominated by authority sites (Microsoft, Gartner, Salesforce); no proof for field service vertical.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "crm for hvac companies",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for HVAC vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac crm software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for HVAC vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac customer management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for HVAC vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "medspa booking software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for medspa vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "service call management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for service call management vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa booking software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for spa vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa reservation software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "No proof for spa vertical; product-purchase intent not aligned with custom development services.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "med spa software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by SaaS vendors and comparison lists; no proof we serve med spas specifically, and buyer intent is software selection, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "hvac service management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP filled with SaaS comparison lists and vendor pages; no proof of HVAC-specific work, and buyer is looking for off-the-shelf software, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service dispatch software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by SaaS vendors and comparison sites; buyer intent is software selection, not custom development, and we lack proof in field service dispatch.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "dispatch software field service",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "Same intent as 'field service dispatch software' with SERP dominated by SaaS vendors; no proof fit and buyer seeks off-the-shelf software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "scheduling software for service company",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP filled with SaaS scheduling tools and comparison lists; buyer intent is software selection, not custom development, and no proof of scheduling work.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best appointment scheduling software for small business",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by SaaS scheduling apps and comparison content; buyer is looking for off-the-shelf software, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa appointment booking software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP filled with SaaS booking platforms for spas; no proof of spa-specific work, and buyer intent is software selection.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "service company software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by field service management SaaS vendors; buyer is looking for off-the-shelf software, not custom development, and no proof fit.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "intuit field service management",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP entirely about Intuit's own product; buyer is looking for support or login for an existing Intuit tool, not custom development.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa softwares",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP filled with SaaS spa management platforms and comparison lists; no proof of spa work, and buyer intent is software selection.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "gym software systems",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by SaaS gym management platforms; no proof of gym-specific work, and buyer is looking for off-the-shelf software.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best gym software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP filled with SaaS gym management platforms and comparison lists; buyer intent is software selection, not custom development, and no proof fit.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "best field service management software for small business",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Comparison-shopping intent for off-the-shelf software, not custom development; no proof we serve this niche.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "automated document processing",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "awareness",
+      "reason": "SERP dominated by enterprise vendors (Microsoft, IBM, AWS) and definitions; unwinnable for a small consultancy.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "dental membership software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Buyers want packaged software, not custom dev; no proof we build dental membership platforms.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "gym membership management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Comparison-shopping for SaaS products; directories present; no proof we serve gyms.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service crm",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP locked by enterprise platforms (Salesforce, Microsoft) and comparison content; no proof fit.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "legal document automation software",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Buyers seek packaged legal software; SERP has strong vendors and directories; no proof we serve law firms.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service scheduling software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Comparison-shopping for SaaS; directories present; no proof we build scheduling software for field service.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "gym crm software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Buyers want packaged CRM; SERP has strong competitors and comparison content; no proof fit.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "gym client management software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Comparison-shopping for SaaS; directories present; no proof we serve gyms.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "service management software",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Broad term dominated by field service SaaS and enterprise vendors; no proof we serve this category.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "service business management software",
+      "verdict": "reject",
+      "lead_value": "medium",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Buyers seeking packaged software; SERP full of SaaS comparisons; no proof fit.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "electrical contractor estimating software",
+      "verdict": "reject",
+      "lead_value": "low",
+      "icp_fit": "none",
+      "buyer_journey_stage": "consideration",
+      "reason": "Niche software comparison; high ads difficulty; no proof we build estimating tools for electrical contractors.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "client onboarding tools",
+      "verdict": "reject",
+      "lead_value": "high",
+      "icp_fit": "growing-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Searcher wants to buy a ready-made tool, not custom development; no direct proof of client onboarding work.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa scheduling software",
+      "verdict": "secondary",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Potential fit with hotel booking engine proof, but SERP dominated by SaaS products; no direct spa proof.",
+      "content_angle": "Why off-the-shelf spa scheduling software fails for multi-location spas—and how custom development solves it.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa appointment software",
+      "verdict": "secondary",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Same as spa scheduling software; intent is tool purchase, but custom angle possible.",
+      "content_angle": "Custom spa appointment software that integrates with your existing systems and scales with your business.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "spa appointment scheduling software",
+      "verdict": "secondary",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Same as above; low authority SERP but product-heavy.",
+      "content_angle": "Build vs. buy: When custom spa appointment scheduling software beats off-the-shelf.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management app",
+      "verdict": "reject",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP locked by authority sites (Salesforce, Gartner); no direct field service proof.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service application software",
+      "verdict": "reject",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Same as above; authority sites dominate.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management application",
+      "verdict": "reject",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP includes Salesforce, Gartner; unwinnable for new domain.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field management apps",
+      "verdict": "secondary",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Lower authority SERP; ops-platform-spreadsheets proof is tangentially relevant.",
+      "content_angle": "Custom field management apps that replace spreadsheets and integrate with your existing tools.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field management application",
+      "verdict": "secondary",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP has one authority site (Gartner) but still accessible; similar proof angle.",
+      "content_angle": "Why generic field management applications fail for growing service businesses—and how custom development delivers.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service scheduling app",
+      "verdict": "secondary",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "Lower volume, moderate authority (Salesforce); proof from ops-platform-spreadsheets could apply.",
+      "content_angle": "Custom field service scheduling apps that adapt to your unique dispatching rules and workflows.",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field service management tools",
+      "verdict": "reject",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP dominated by Gartner, Salesforce, ServiceNow; authority-locked.",
+      "content_angle": "",
+      "canonical_slug": null
+    },
+    {
+      "keyword": "field management tool",
+      "verdict": "reject",
+      "lead_value": "high",
+      "icp_fit": "service-business-owner",
+      "buyer_journey_stage": "consideration",
+      "reason": "SERP includes Salesforce, Gartner, Microsoft; unwinnable.",
+      "content_angle": "",
+      "canonical_slug": null
+    }
+  ],
+  "evidence": [
+    {
+      "keyword": "plumbing business management software",
+      "volume": 210,
+      "cpc": 507.45,
+      "difficulty": 10,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.getjobber.com",
+          "title": "Plumbing Business Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Need some software for my small plumbing & electric ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.housecallpro.com",
+          "title": "Plumbing Business Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "fieldedge.com",
+          "title": "The Plumbing Software That Scales Multi-Truck Operations"
+        },
+        {
+          "position": 6,
+          "domain": "www.dataforma.com",
+          "title": "Grow Your Plumbing Company With Field Management ..."
+        },
+        {
+          "position": 8,
+          "domain": "pro.houzz.com",
+          "title": "Plumber Business Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.fieldpulse.com",
+          "title": "7 Best Software for Small Plumbing Businesses in 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.reddit.com",
+          "title": "I am trying to figure out the which software is best for ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 2,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "crm field service management",
+      "volume": 70,
+      "cpc": 497.57,
+      "difficulty": 12,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.microsoft.com",
+          "title": "Dynamics 365 Field Service"
+        },
+        {
+          "position": 3,
+          "domain": "learn.microsoft.com",
+          "title": "Overview of Dynamics 365 Field Service"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Trying to choose a CRM + field service setup but ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.randgroup.com",
+          "title": "What is Microsoft Dynamics 365 Field Service?"
+        },
+        {
+          "position": 9,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 10,
+          "domain": "www.velosio.com",
+          "title": "Microsoft Dynamics 365 Field Service"
+        },
+        {
+          "position": 11,
+          "domain": "www.servicenow.com",
+          "title": "Field Service Management (FSM) - Service Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 4,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management crm",
+      "volume": 70,
+      "cpc": 497.57,
+      "difficulty": 12,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 3,
+          "domain": "www.pipedrive.com",
+          "title": "Best CRM for Field Service Management"
+        },
+        {
+          "position": 4,
+          "domain": "www.totalmobile.com",
+          "title": "Field Service Management vs. CRM"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "Anyone here using CRM tools specifically for field service ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        },
+        {
+          "position": 7,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 8,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 9,
+          "domain": "www.oracle.com",
+          "title": "What is field service management software?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 3,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "med spa scheduling software",
+      "volume": 70,
+      "cpc": 324.99,
+      "difficulty": 31,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.patientnow.com",
+          "title": "Med Spa Management EMR Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 4,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.com",
+          "title": "Best Medical Spa Software 2026"
+        },
+        {
+          "position": 6,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 7,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 8,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.podium.com",
+          "title": "10 Best Med Spa Software Tools for 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.joinblvd.com",
+          "title": "Medspa EMR Software for Med Spas"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "medical spa scheduling software",
+      "volume": 70,
+      "cpc": 324.99,
+      "difficulty": 31,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.patientnow.com",
+          "title": "Med Spa Management EMR Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 4,
+          "domain": "www.capterra.com",
+          "title": "Best Medical Spa Software 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 6,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 8,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 9,
+          "domain": "www.podium.com",
+          "title": "10 Best Med Spa Software Tools for 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.joinblvd.com",
+          "title": "Medspa EMR Software for Med Spas"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "mindbody gym management software",
+      "volume": 210,
+      "cpc": 269.15,
+      "difficulty": 4,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.mindbodyonline.com",
+          "title": "Gym Management Software"
+        },
+        {
+          "position": 2,
+          "domain": "www.mindbodyonline.com",
+          "title": "Fitness Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.mindbodyonline.com",
+          "title": "Mindbody: Best Fitness & Wellness Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Gym owners/trainers: what do you dislike about Mindbody ..."
+        },
+        {
+          "position": 7,
+          "domain": "gymmanagement-software.com",
+          "title": "A Thorough Evaluation of Mindbody Gym Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.mindbodyonline.com",
+          "title": "How to Select Fitness Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.activeblueprint.com",
+          "title": "Mindbody Review: Does This Gym Software Work?"
+        },
+        {
+          "position": 10,
+          "domain": "www.softwareadvice.com",
+          "title": "Mindbody Software Reviews, Demo & Pricing - 2026"
+        },
+        {
+          "position": 11,
+          "domain": "gymdesk.com",
+          "title": "Mindbody Review 2026: What It Costs (and Whether It's ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service business software",
+      "volume": 170,
+      "cpc": 249.07,
+      "difficulty": 24,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 6,
+          "domain": "fieldpoint.net",
+          "title": "Fieldpoint: Field Service Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 8,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa online booking system",
+      "volume": 90,
+      "cpc": 247.42,
+      "difficulty": 8,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 4,
+          "domain": "simplybook.me",
+          "title": "Online Booking system for Spa salons"
+        },
+        {
+          "position": 6,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 7,
+          "domain": "www.booker.com",
+          "title": "Booker: Powerful Spa & Salon Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.mindbodyonline.com",
+          "title": "Booking and Scheduling Software for Spas"
+        },
+        {
+          "position": 9,
+          "domain": "www.simplespa.com",
+          "title": "Appointment Booking Software by SimpleSpa"
+        },
+        {
+          "position": 10,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 11,
+          "domain": "www.setmore.com",
+          "title": "Free Online Spa Booking Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa online booking software",
+      "volume": 90,
+      "cpc": 247.42,
+      "difficulty": 8,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 4,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 5,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.mindbodyonline.com",
+          "title": "Booking and Scheduling Software for Spas"
+        },
+        {
+          "position": 7,
+          "domain": "www.booker.com",
+          "title": "Booker: Powerful Spa & Salon Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.reddit.com",
+          "title": "Booking system for a spa : r/smallbusiness"
+        },
+        {
+          "position": 9,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 10,
+          "domain": "www.simplespa.com",
+          "title": "Appointment Booking Software by SimpleSpa"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac field service software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 2,
+          "domain": "www.getjobber.com",
+          "title": "HVAC Service Software | Dispatch, Scheduling & Invoicing"
+        },
+        {
+          "position": 3,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "HVAC Field Management Software Recommendations!"
+        },
+        {
+          "position": 8,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 9,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        },
+        {
+          "position": 10,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac field service management software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 3,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.airmatchpro.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service software for hvac",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        },
+        {
+          "position": 6,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 8,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 10,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        },
+        {
+          "position": 11,
+          "domain": "www.workyard.com",
+          "title": "7 Best HVAC Software for Contractors 2026 | Compared"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac field management software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "Best Software & prices for new HVAC company & 6 techs"
+        },
+        {
+          "position": 6,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.inflowinventory.com",
+          "title": "8 HVAC Business Software for Contractors in 2026"
+        },
+        {
+          "position": 9,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 10,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 11,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management software for hvac",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "What CRM or project management software actually works ..."
+        },
+        {
+          "position": 6,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 7,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        },
+        {
+          "position": 11,
+          "domain": "klipboard.io",
+          "title": "HVAC Field Service Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management software hvac",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 5,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 7,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.reddit.com",
+          "title": "HVAC Field Management Software Recommendations!"
+        },
+        {
+          "position": 9,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        },
+        {
+          "position": 10,
+          "domain": "klipboard.io",
+          "title": "HVAC Field Service Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service hvac software",
+      "volume": 720,
+      "cpc": 243.23,
+      "difficulty": 15,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 3,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        },
+        {
+          "position": 4,
+          "domain": "fieldedge.com",
+          "title": "HVAC Service Software & Mobile App"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "HVAC Field Management Software Recommendations!"
+        },
+        {
+          "position": 6,
+          "domain": "www.dataforma.com",
+          "title": "HVAC Field Service Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.servicefusion.com",
+          "title": "HVAC Service Software | Schedule, Dispatch, Invoice"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service system",
+      "volume": 50,
+      "cpc": 238.76,
+      "difficulty": 18,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.microsoft.com",
+          "title": "How field service management software works"
+        },
+        {
+          "position": 3,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 6,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Best Field Service Management Tool? : r/lowvoltage"
+        },
+        {
+          "position": 8,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 9,
+          "domain": "en.wikipedia.org",
+          "title": "Field service management"
+        },
+        {
+          "position": 11,
+          "domain": "www.arrivy.com",
+          "title": "What Is Field Service Management Software? A Complete ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 4,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "crm for hvac companies",
+      "volume": 70,
+      "cpc": 230.44,
+      "difficulty": 29,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "myquoteiq.com",
+          "title": "BEST CRM For HVAC Contractors 2026"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "What CRM are most of your HVAC companies using?"
+        },
+        {
+          "position": 4,
+          "domain": "www.fieldboss.com",
+          "title": "HVAC Business Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.webfx.com",
+          "title": "5 Best HVAC CRMs of 2026 You Should Consider"
+        },
+        {
+          "position": 6,
+          "domain": "www.fieldpulse.com",
+          "title": "HVAC Software - CRM, Job Management, Reporting"
+        },
+        {
+          "position": 8,
+          "domain": "servicetrade.com",
+          "title": "Commercial HVAC CRM Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.simprogroup.com",
+          "title": "Best HVAC CRM Software for Contractors"
+        },
+        {
+          "position": 10,
+          "domain": "www.bdrco.com",
+          "title": "The Best HVAC CRM Software In 2026: A Profit- ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac crm software",
+      "volume": 170,
+      "cpc": 217.57,
+      "difficulty": 19,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.fieldboss.com",
+          "title": "HVAC Business Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "What CRM or project management software actually works ..."
+        },
+        {
+          "position": 4,
+          "domain": "myquoteiq.com",
+          "title": "BEST CRM For HVAC Contractors 2026"
+        },
+        {
+          "position": 5,
+          "domain": "www.fieldpulse.com",
+          "title": "HVAC Software - CRM, Job Management, Reporting"
+        },
+        {
+          "position": 6,
+          "domain": "www.webfx.com",
+          "title": "5 Best HVAC CRMs of 2026 You Should Consider"
+        },
+        {
+          "position": 9,
+          "domain": "servicetrade.com",
+          "title": "Commercial HVAC CRM Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.simprogroup.com",
+          "title": "Best HVAC CRM Software for Contractors"
+        },
+        {
+          "position": 11,
+          "domain": "www.fieldinsight.com",
+          "title": "HVAC CRM Software for Field Service Teams"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac customer management software",
+      "volume": 170,
+      "cpc": 217.57,
+      "difficulty": 19,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.fieldboss.com",
+          "title": "HVAC Business Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Recommendation for client CRM software for HVAC : r/msp"
+        },
+        {
+          "position": 4,
+          "domain": "www.fieldpulse.com",
+          "title": "HVAC Software - CRM, Job Management, Reporting"
+        },
+        {
+          "position": 5,
+          "domain": "www.simprogroup.com",
+          "title": "Best HVAC CRM Software for Contractors"
+        },
+        {
+          "position": 6,
+          "domain": "servicetrade.com",
+          "title": "Commercial HVAC CRM Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.webfx.com",
+          "title": "5 Best HVAC CRMs of 2026 You Should Consider"
+        },
+        {
+          "position": 8,
+          "domain": "relayfi.com",
+          "title": "Best HVAC CRM Software 2026: Features, Pricing & ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "medspa booking software",
+      "volume": 50,
+      "cpc": 204.2,
+      "difficulty": 38,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 3,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 5,
+          "domain": "www.capterra.com",
+          "title": "Best Medical Spa Software 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 8,
+          "domain": "www.mangomint.com",
+          "title": "Best HIPAA-Compliant Medical Spa Software for Booking ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.skininc.com",
+          "title": "The Best Value Software for Med Spa Management in 2025"
+        },
+        {
+          "position": 10,
+          "domain": "www.portraitcare.com",
+          "title": "7 Best Medical Spa Software Systems (2026) — Compared"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "service call management software",
+      "volume": 90,
+      "cpc": 203.22,
+      "difficulty": 52,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.msidata.com",
+          "title": "Service Call Management Software System"
+        },
+        {
+          "position": 3,
+          "domain": "www.custify.com",
+          "title": "Choosing the best call management software"
+        },
+        {
+          "position": 5,
+          "domain": "www.dialpad.com",
+          "title": "Call Management Systems: A Guide on What to Look For"
+        },
+        {
+          "position": 6,
+          "domain": "www.ringcentral.com",
+          "title": "What is Call Management? Guide, Features & Tools"
+        },
+        {
+          "position": 7,
+          "domain": "www.fieldpulse.com",
+          "title": "Service Call Software for Growing Field Service Businesses"
+        },
+        {
+          "position": 8,
+          "domain": "www.onpage.com",
+          "title": "IT On-Call Management System"
+        },
+        {
+          "position": 9,
+          "domain": "www.pipedrive.com",
+          "title": "9 Key Call Management Software Features for SMBs"
+        },
+        {
+          "position": 10,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa booking software",
+      "volume": 170,
+      "cpc": 195.76,
+      "difficulty": 30,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "Spa owners—what software are you actually happy with?"
+        },
+        {
+          "position": 4,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 6,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 8,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.booker.com",
+          "title": "Booker: Powerful Spa & Salon Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "hoteltechreport.com",
+          "title": "Best 10 Spa Management Software Solutions 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa reservation software",
+      "volume": 170,
+      "cpc": 195.76,
+      "difficulty": 30,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 4,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 6,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 7,
+          "domain": "hoteltechreport.com",
+          "title": "Best 10 Spa Management Software Solutions 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.setmore.com",
+          "title": "Free Online Spa Booking Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.zenoti.com",
+          "title": "Spa Management Software: All-in-One for Spas"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "med spa software",
+      "volume": 110,
+      "cpc": 176.43,
+      "difficulty": 41,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.patientnow.com",
+          "title": "Med Spa Management EMR Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.vagaro.com",
+          "title": "Medical Spa EMR Software | HIPAA, Scheduling & Booking"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best All-In-One Software Medspa Software?"
+        },
+        {
+          "position": 5,
+          "domain": "squareup.com",
+          "title": "Med Spa Software: Streamline Your Spa Management"
+        },
+        {
+          "position": 6,
+          "domain": "www.aestheticspro.com",
+          "title": "Medical Spa Software | Spa Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.zenoti.com",
+          "title": "Medical Spa Software: Purpose-Built for Growing Medspas"
+        },
+        {
+          "position": 8,
+          "domain": "www.wellnessliving.com",
+          "title": "What's the Best Med Spa Software Management Platform ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.joinblvd.com",
+          "title": "Medspa EMR Software for Med Spas"
+        },
+        {
+          "position": 11,
+          "domain": "mdware.com",
+          "title": "5 Best Med Spa Software Solutions [Reviewed and Ranked]"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "hvac service management software",
+      "volume": 90,
+      "cpc": 175.09,
+      "difficulty": 6,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "servicetrade.com",
+          "title": "HVAC Service Management Software For Commercial ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.fieldboss.com",
+          "title": "5 Best HVAC Field Service Software Solutions for 2026"
+        },
+        {
+          "position": 4,
+          "domain": "fieldpoint.net",
+          "title": "Commercial HVAC Field Service Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.workyard.com",
+          "title": "The 6 Best HVAC Service Software Solutions for 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "Best Software & prices for new HVAC company & 6 techs"
+        },
+        {
+          "position": 7,
+          "domain": "www.housecallpro.com",
+          "title": "HVAC Business Management Software | Scheduling & ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.fieldproxy.ai",
+          "title": "HVAC Service Management Software: Features & Setup ..."
+        },
+        {
+          "position": 10,
+          "domain": "fieldservicesoftware.io",
+          "title": "Best Software for HVAC Field Service Companies"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service dispatch software",
+      "volume": 320,
+      "cpc": 174.17,
+      "difficulty": 11,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.servicepower.com",
+          "title": "Field Service Dispatch Software"
+        },
+        {
+          "position": 3,
+          "domain": "dispatch.me",
+          "title": "Field Service Dispatch Software | Dispatch"
+        },
+        {
+          "position": 4,
+          "domain": "fieldedge.com",
+          "title": "Scheduling and Dispatching Software"
+        },
+        {
+          "position": 5,
+          "domain": "servicetrade.com",
+          "title": "Commercial Field Service Dispatch Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.capterra.com",
+          "title": "Best Service Dispatch Software 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.fieldpulse.com",
+          "title": "Field Service Scheduling and Dispatch Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.servicetitan.com",
+          "title": "7 Best Field Service Dispatch Apps to Streamline ..."
+        },
+        {
+          "position": 9,
+          "domain": "sera.tech",
+          "title": "Field Service Dispatch Software: 6 Tips for Successful ..."
+        },
+        {
+          "position": 10,
+          "domain": "buildops.com",
+          "title": "A Guide to Less Chaotic Field Service Dispatching"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "dispatch software field service",
+      "volume": 320,
+      "cpc": 174.17,
+      "difficulty": 11,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "dispatch.me",
+          "title": "Field Service Dispatch Software | Dispatch"
+        },
+        {
+          "position": 3,
+          "domain": "www.servicepower.com",
+          "title": "Field Service Dispatch Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "What is Dispatch Management Software? 10 Best Tools"
+        },
+        {
+          "position": 5,
+          "domain": "servicetrade.com",
+          "title": "Commercial Field Service Dispatch Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Dispatch Software for Tech Management"
+        },
+        {
+          "position": 7,
+          "domain": "www.netsuite.com",
+          "title": "What Is Field Service Dispatching?"
+        },
+        {
+          "position": 8,
+          "domain": "connecteam.com",
+          "title": "6 Best Service Dispatch Software of 2026 (In-Depth ..."
+        },
+        {
+          "position": 9,
+          "domain": "rentman.io",
+          "title": "Field Service Dispatch Software for the Event Industry"
+        },
+        {
+          "position": 10,
+          "domain": "www.fieldpulse.com",
+          "title": "What Is Dispatch Software for Field Service Businesses?"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "scheduling software for service company",
+      "volume": 110,
+      "cpc": 167.03,
+      "difficulty": 57,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.servicetitan.com",
+          "title": "Service Scheduling Software For Tech Management"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Scheduling software for small service business"
+        },
+        {
+          "position": 4,
+          "domain": "peoplemanagingpeople.com",
+          "title": "10 Best Employee Scheduling Software For Small Business"
+        },
+        {
+          "position": 5,
+          "domain": "www.appointy.com",
+          "title": "Appointment Scheduling Software | Online Scheduler Software"
+        },
+        {
+          "position": 6,
+          "domain": "zenbooker.com",
+          "title": "Zenbooker: Online Booking & Scheduling Software for Home ..."
+        },
+        {
+          "position": 7,
+          "domain": "monday.com",
+          "title": "Service Scheduling Software: Top 10 Solutions for ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.emailtooltester.com",
+          "title": "Best Scheduling App for Online Bookings: 12 Easy Options"
+        },
+        {
+          "position": 9,
+          "domain": "www.salesforce.com",
+          "title": "The Best Scheduling Tools for Small Businesses"
+        },
+        {
+          "position": 10,
+          "domain": "calendly.com",
+          "title": "Scheduling software for small businesses"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best appointment scheduling software for small business",
+      "volume": 50,
+      "cpc": 165.81,
+      "difficulty": 32,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Free Online Booking and Scheduling Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.emailtooltester.com",
+          "title": "Best Scheduling App for Online Bookings: 12 Easy Options"
+        },
+        {
+          "position": 5,
+          "domain": "www.reddit.com",
+          "title": "Best Appointment Scheduling App with specific needs"
+        },
+        {
+          "position": 6,
+          "domain": "youcanbook.me",
+          "title": "9 Best Appointment Scheduling Apps to Try in 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.appointy.com",
+          "title": "Appointment Scheduling Software | Online Scheduler Software"
+        },
+        {
+          "position": 8,
+          "domain": "calendly.com",
+          "title": "Scheduling software for small businesses"
+        },
+        {
+          "position": 10,
+          "domain": "lunacal.ai",
+          "title": "Best appointment scheduling software in 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.youtube.com",
+          "title": "Best Appointment Booking & Scheduling App! (Calendly ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.reservio.com",
+          "title": "Reservio | Free Online Appointment Scheduling Software"
+        },
+        {
+          "position": 13,
+          "domain": "schedly.io",
+          "title": "The Top Free Appointment Scheduling Apps for Small ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa appointment booking software",
+      "volume": 50,
+      "cpc": 164.1,
+      "difficulty": 11,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 4,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 5,
+          "domain": "www.simplespa.com",
+          "title": "Appointment Booking Software by SimpleSpa"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "Booking system for a spa : r/smallbusiness"
+        },
+        {
+          "position": 7,
+          "domain": "www.mindbodyonline.com",
+          "title": "Booking and Scheduling Software for Spas"
+        },
+        {
+          "position": 8,
+          "domain": "www.booker.com",
+          "title": "Booker: Powerful Spa & Salon Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 10,
+          "domain": "simplybook.me",
+          "title": "Online Booking system for Spa salons"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "service company software",
+      "volume": 480,
+      "cpc": 157.25,
+      "difficulty": 21,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.simprogroup.com",
+          "title": "Best Field Service Management Software: 14 Tools for 2026"
+        },
+        {
+          "position": 4,
+          "domain": "servicetrade.com",
+          "title": "ServiceTrade: Field Service Management Software For ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.msidata.com",
+          "title": "Repair and Service Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.servicepower.com",
+          "title": "Top Field Service Management Software Solutions 2025"
+        },
+        {
+          "position": 8,
+          "domain": "www.teamengine.io",
+          "title": "Service Business Software: Top Platforms, Features & ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.servicefusion.com",
+          "title": "Service Fusion: Field Service Management Made Easy"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "intuit field service management",
+      "volume": 480,
+      "cpc": 153.64,
+      "difficulty": 50,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "quickbooks.intuit.com",
+          "title": "Intuit Field Service Management for QuickBooks Desktop"
+        },
+        {
+          "position": 2,
+          "domain": "quickbooks.corrigo.com",
+          "title": "Login to QuickBooks Field Service Management"
+        },
+        {
+          "position": 3,
+          "domain": "quickbooks.intuit.com",
+          "title": "Intuit Field Service Management setup and support"
+        },
+        {
+          "position": 4,
+          "domain": "apps.apple.com",
+          "title": "Intuit Field Service Mgnt - App Store"
+        },
+        {
+          "position": 6,
+          "domain": "appcenter.intuit.com",
+          "title": "Intuit Field Service Management Pricing"
+        },
+        {
+          "position": 9,
+          "domain": "play.google.com",
+          "title": "Intuit Field Service - Apps on Google Play"
+        },
+        {
+          "position": 10,
+          "domain": "quickbooks.corrigo.com",
+          "title": "Work Order Scheduling & Dispatching for QuickBooks"
+        },
+        {
+          "position": 11,
+          "domain": "technologyadvice.com",
+          "title": "The Best Field Service (FSM) Software for Intuit Quickbooks"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa softwares",
+      "volume": 480,
+      "cpc": 152.37,
+      "difficulty": 22,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 3,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Spa owners—what software are you actually happy with?"
+        },
+        {
+          "position": 5,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 6,
+          "domain": "hoteltechreport.com",
+          "title": "Best 10 Spa Management Software Solutions 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.zenoti.com",
+          "title": "Spa Management Software: All-in-One for Spas"
+        },
+        {
+          "position": 10,
+          "domain": "www.pxier.com",
+          "title": "SPA Management Software"
+        },
+        {
+          "position": 11,
+          "domain": "www.mindbodyonline.com",
+          "title": "Day Spa Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "gym software systems",
+      "volume": 140,
+      "cpc": 150.2,
+      "difficulty": 38,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "gymdesk.com",
+          "title": "Gym Management Software | Gymdesk - Try Free 30 Days"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "To all Owners ! What GYM management software should I ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.pushpress.com",
+          "title": "Gym Management Software | PushPress Top-rated gym software"
+        },
+        {
+          "position": 5,
+          "domain": "www.gymmaster.com",
+          "title": "Gym Management Software - GymMaster Member Management"
+        },
+        {
+          "position": 6,
+          "domain": "coastapp.com",
+          "title": "6 Best Gym Management Software in 2026 (In-Depth Reviews)"
+        },
+        {
+          "position": 7,
+          "domain": "www.startwoven.com",
+          "title": "Best Gym Management Software Solutions Compared - Woven"
+        },
+        {
+          "position": 8,
+          "domain": "gymflow.io",
+          "title": "Gym Owners Guide: My 5 Best Gym Software Solutions"
+        },
+        {
+          "position": 10,
+          "domain": "www.getkisi.com",
+          "title": "The 19 Best Gym Management Software for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "best gym software",
+      "volume": 210,
+      "cpc": 146.93,
+      "difficulty": 18,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.pushpress.com",
+          "title": "Gym Management Software | PushPress Top-rated gym software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "To all Owners ! What GYM management software should I ..."
+        },
+        {
+          "position": 4,
+          "domain": "gymdesk.com",
+          "title": "Gym Management Software | Gymdesk - Try Free 30 Days"
+        },
+        {
+          "position": 5,
+          "domain": "www.gymmaster.com",
+          "title": "Gym Management Software - GymMaster Member Management"
+        },
+        {
+          "position": 7,
+          "domain": "coastapp.com",
+          "title": "6 Best Gym Management Software in 2026 (In-Depth Reviews)"
+        },
+        {
+          "position": 8,
+          "domain": "www.startwoven.com",
+          "title": "Best Gym Management Software Solutions Compared - Woven"
+        },
+        {
+          "position": 9,
+          "domain": "gymflow.io",
+          "title": "Effortless Gym & Studio Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "learn.g2.com",
+          "title": "My Evaluation of the 8 Best Gym Management Software ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "best field service management software for small business",
+      "volume": 110,
+      "cpc": 146.46,
+      "difficulty": 9,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.kickserv.com",
+          "title": "Best field service management software for small business"
+        },
+        {
+          "position": 3,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Field Service Management Tool? : r/lowvoltage"
+        },
+        {
+          "position": 7,
+          "domain": "www.zendesk.com",
+          "title": "9 best field service management software of 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.servicefusion.com",
+          "title": "Field Service Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.vcita.com",
+          "title": "Field service management software for small business"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "automated document processing",
+      "volume": 260,
+      "cpc": 144.88,
+      "difficulty": 8,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.microsoft.com",
+          "title": "What is Document Processing | Microsoft Power Automate"
+        },
+        {
+          "position": 3,
+          "domain": "www.ibm.com",
+          "title": "IBM Automation Document Processing"
+        },
+        {
+          "position": 4,
+          "domain": "www.docsumo.com",
+          "title": "Automated Document Processing Platforms"
+        },
+        {
+          "position": 7,
+          "domain": "www.automationanywhere.com",
+          "title": "What is Intelligent Document Processing (IDP)?"
+        },
+        {
+          "position": 9,
+          "domain": "www.gartner.com",
+          "title": "Intelligent Document Processing Solutions (Transitioning to ..."
+        },
+        {
+          "position": 11,
+          "domain": "aws.amazon.com",
+          "title": "Intelligent Document Processing - Generative AI"
+        }
+      ],
+      "serpSignals": {
+        "authority": 4,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "dental membership software",
+      "volume": 90,
+      "cpc": 143.43,
+      "difficulty": 21,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.pearly.co",
+          "title": "In-House Dental Membership Plan Software"
+        },
+        {
+          "position": 3,
+          "domain": "bento.net",
+          "title": "In-Office Dental Membership Plans"
+        },
+        {
+          "position": 4,
+          "domain": "carestack.com",
+          "title": "Dental Membership Plan Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.dentalmenu.com",
+          "title": "What to Look for in a Dental Membership Plan Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.illumitrac.com",
+          "title": "illumitrac: Dental Membership Plan Software & Club Automation"
+        },
+        {
+          "position": 8,
+          "domain": "www.planforward.io",
+          "title": "How to Choose Dental Membership Software in 2026"
+        },
+        {
+          "position": 9,
+          "domain": "dentalhq.com",
+          "title": "What is dental membership plan software?"
+        },
+        {
+          "position": 10,
+          "domain": "www.dentaltown.com",
+          "title": "The Ultimate Guide to Transforming Your Dental Practice ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.planrise.com",
+          "title": "Planrise | Automated in-house dental membership plans"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "gym membership management software",
+      "volume": 110,
+      "cpc": 141.11,
+      "difficulty": 18,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "gymdesk.com",
+          "title": "Gym Management Software | Gymdesk - Try Free 30 Days"
+        },
+        {
+          "position": 3,
+          "domain": "www.gymmaster.com",
+          "title": "Gym Management Software - GymMaster Member Management"
+        },
+        {
+          "position": 4,
+          "domain": "www.getkisi.com",
+          "title": "The 19 Best Gym Management Software for 2026"
+        },
+        {
+          "position": 5,
+          "domain": "wod.guru",
+          "title": "Free Gym Membership Software: Choose and Test The ..."
+        },
+        {
+          "position": 8,
+          "domain": "gymflow.io",
+          "title": "Gym Owners Guide: My 5 Best Gym Software Solutions"
+        },
+        {
+          "position": 9,
+          "domain": "learn.g2.com",
+          "title": "My Evaluation of the 8 Best Gym Management Software ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.reddit.com",
+          "title": "To all Owners ! What GYM management software should I ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.pushpress.com",
+          "title": "Gym Management Software | PushPress Top-rated gym software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "field service crm",
+      "volume": 320,
+      "cpc": 138.63,
+      "difficulty": 19,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.reddit.com",
+          "title": "Anyone here using CRM tools specifically for field service ..."
+        },
+        {
+          "position": 3,
+          "domain": "www.microsoft.com",
+          "title": "Dynamics 365 Field Service"
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 5,
+          "domain": "www.fieldpulse.com",
+          "title": "CRM Software for Field Service Teams"
+        },
+        {
+          "position": 6,
+          "domain": "fieldworkhq.com",
+          "title": "Field Service CRM Software - Fieldwork"
+        },
+        {
+          "position": 7,
+          "domain": "learn.microsoft.com",
+          "title": "Overview of Dynamics 365 Field Service"
+        },
+        {
+          "position": 8,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.method.me",
+          "title": "Top Field Service CRM for QuickBooks"
+        }
+      ],
+      "serpSignals": {
+        "authority": 4,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "legal document automation software",
+      "volume": 140,
+      "cpc": 137.88,
+      "difficulty": 14,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "mitratech.com",
+          "title": "Document Automation for Law Firms | Mitratech HotDocs"
+        },
+        {
+          "position": 3,
+          "domain": "www.xakiatech.com",
+          "title": "The Best Legal Document Automation Software 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.gavel.io",
+          "title": "Gavel | AI Contract Review & Document Automation"
+        },
+        {
+          "position": 5,
+          "domain": "legal.thomsonreuters.com",
+          "title": "Document automation solutions from Thomson Reuters"
+        },
+        {
+          "position": 6,
+          "domain": "www.legaltechnologyhub.com",
+          "title": "Document Automation"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Which legal doc automation tools are actually working in ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.netdocuments.com",
+          "title": "Legal Document Automation & Assembly Software"
+        },
+        {
+          "position": 10,
+          "domain": "directory.lawnext.com",
+          "title": "Document Automation and Assembly"
+        },
+        {
+          "position": 11,
+          "domain": "www.gartner.com",
+          "title": "Best Legal Document Drafting Software Reviews 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service scheduling software",
+      "volume": 390,
+      "cpc": 137.14,
+      "difficulty": 14,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 3,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 5,
+          "domain": "www.servicepower.com",
+          "title": "Field Service Scheduling Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Best Field Service Management Tool? : r/lowvoltage"
+        },
+        {
+          "position": 8,
+          "domain": "monday.com",
+          "title": "Field Service Scheduling Software: Top 10 Solutions for 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "learn.g2.com",
+          "title": "I Found the Best Field Service Management Software of 2026"
+        },
+        {
+          "position": 11,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "gym crm software",
+      "volume": 140,
+      "cpc": 134.93,
+      "difficulty": 22,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "www.gymmaster.com",
+          "title": "Gym CRM Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "What CRM are you using for your gym? Looking ..."
+        },
+        {
+          "position": 4,
+          "domain": "monday.com",
+          "title": "CRM for gym"
+        },
+        {
+          "position": 5,
+          "domain": "croclub.com",
+          "title": "10 Best Gym CRM Software Reviewed In 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.getkisi.com",
+          "title": "The 19 Best Gym Management Software for 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.pushpress.com",
+          "title": "Gym Management Software | PushPress Top-rated gym software"
+        },
+        {
+          "position": 9,
+          "domain": "www.vagaro.com",
+          "title": "Gym CRM Software | Gym Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "gymflow.io",
+          "title": "Gym Owners Guide: My 5 Best Gym Software Solutions"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "gym client management software",
+      "volume": 140,
+      "cpc": 134.93,
+      "difficulty": 22,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.gymmaster.com",
+          "title": "Gym Management Software - GymMaster Member Management"
+        },
+        {
+          "position": 3,
+          "domain": "gymdesk.com",
+          "title": "Gym Management Software | Gymdesk - Try Free 30 Days"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "To all Owners ! What GYM management software should I ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.getkisi.com",
+          "title": "The 19 Best Gym Management Software for 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.pushpress.com",
+          "title": "Gym Management Software | PushPress Top-rated gym software"
+        },
+        {
+          "position": 7,
+          "domain": "learn.g2.com",
+          "title": "My Evaluation of the 8 Best Gym Management Software ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.zoho.com",
+          "title": "Free Gym Fitness Management Software | Zoho Creator"
+        },
+        {
+          "position": 9,
+          "domain": "croclub.com",
+          "title": "10 Best Gym CRM Software Reviewed In 2026"
+        },
+        {
+          "position": 10,
+          "domain": "gymflow.io",
+          "title": "Gym Owners Guide: My 5 Best Gym Software Solutions"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": true
+      }
+    },
+    {
+      "keyword": "service management software",
+      "volume": 720,
+      "cpc": 134.68,
+      "difficulty": 34,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 3,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "Best Field Service Management Tool? : r/lowvoltage"
+        },
+        {
+          "position": 5,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 6,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.servicefusion.com",
+          "title": "Field Service Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        },
+        {
+          "position": 10,
+          "domain": "service.works",
+          "title": "Service Works: BPM & Field Management Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "service business management software",
+      "volume": 720,
+      "cpc": 134.68,
+      "difficulty": 34,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 3,
+          "domain": "www.simprogroup.com",
+          "title": "Best Field Service Management Software: 14 Tools for 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        },
+        {
+          "position": 7,
+          "domain": "service.works",
+          "title": "Service Works: BPM & Field Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.teamengine.io",
+          "title": "Service Business Software: Top Platforms, Features & ..."
+        },
+        {
+          "position": 9,
+          "domain": "www.servicefusion.com",
+          "title": "Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "buildops.com",
+          "title": "Field Service Management Software for Small Business"
+        },
+        {
+          "position": 11,
+          "domain": "agilityportal.io",
+          "title": "Top 10 All-in-One Business Management Software Tools ..."
+        },
+        {
+          "position": 12,
+          "domain": "www.fieldpulse.com",
+          "title": "Business Management Software for Service Businesses"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "electrical contractor estimating software",
+      "volume": 110,
+      "cpc": 128.24,
+      "difficulty": 58,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "Best estimating program for a small electrical contractor?"
+        },
+        {
+          "position": 3,
+          "domain": "www.mccormicksys.com",
+          "title": "Electrical Estimating Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.planswift.com",
+          "title": "Electrical Estimating Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.mikeholt.com",
+          "title": "Estimating Software."
+        },
+        {
+          "position": 7,
+          "domain": "www.turbobid.com",
+          "title": "TurboBid: Electrical Estimating Software & Plumbing ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.permitflow.com",
+          "title": "Best Electrical Estimating Software in 2025"
+        },
+        {
+          "position": 9,
+          "domain": "www.countfire.com",
+          "title": "Best Electrical Estimating Software 2026"
+        },
+        {
+          "position": 10,
+          "domain": "www.getapp.com",
+          "title": "Top Rated Electrical Estimating Software with Free - GetApp"
+        },
+        {
+          "position": 11,
+          "domain": "www.visioninfosoft.com",
+          "title": "Electrical Estimating Software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "client onboarding tools",
+      "volume": 50,
+      "cpc": 127.92,
+      "difficulty": 43,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.reddit.com",
+          "title": "What tools are people using for customer onboarding?"
+        },
+        {
+          "position": 3,
+          "domain": "www.guidecx.com",
+          "title": "GUIDEcx – The Best Client Onboarding Software for New ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.dock.us",
+          "title": "Customer Onboarding Software - Dock.us"
+        },
+        {
+          "position": 5,
+          "domain": "clustdoc.com",
+          "title": "Clustdoc: Client onboarding Software for Businesses"
+        },
+        {
+          "position": 6,
+          "domain": "userpilot.com",
+          "title": "My Customer Onboarding Software Recommendations for ..."
+        },
+        {
+          "position": 7,
+          "domain": "scribe.com",
+          "title": "Client Onboarding Tool — Smooth Starts, Happy Clients"
+        },
+        {
+          "position": 8,
+          "domain": "www.softr.io",
+          "title": "10 best free client onboarding software in 2026"
+        },
+        {
+          "position": 10,
+          "domain": "wise.com",
+          "title": "Best Client Onboarding Tools"
+        },
+        {
+          "position": 11,
+          "domain": "www.rocketlane.com",
+          "title": "Best customer onboarding tools for 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa scheduling software",
+      "volume": 320,
+      "cpc": 125.45,
+      "difficulty": 30,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "www.reddit.com",
+          "title": "Spa owners—what software are you actually happy with?"
+        },
+        {
+          "position": 4,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 6,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 7,
+          "domain": "www.zenoti.com",
+          "title": "Spa Management Software: All-in-One for Spas"
+        },
+        {
+          "position": 8,
+          "domain": "hoteltechreport.com",
+          "title": "Best 10 Spa Management Software Solutions 2026"
+        },
+        {
+          "position": 10,
+          "domain": "smartscheduling.com",
+          "title": "Free Scheduling Software | Salon Software | Spa Software ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa appointment software",
+      "volume": 320,
+      "cpc": 125.45,
+      "difficulty": 30,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 3,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 4,
+          "domain": "www.booker.com",
+          "title": "Booker: Powerful Spa & Salon Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.simplespa.com",
+          "title": "Appointment Booking Software by SimpleSpa"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "Booking system for a spa : r/smallbusiness"
+        },
+        {
+          "position": 7,
+          "domain": "www.vagaro.com",
+          "title": "Spa Scheduling Software | Spa Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "www.setmore.com",
+          "title": "Free Online Spa Booking Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "spa appointment scheduling software",
+      "volume": 320,
+      "cpc": 125.45,
+      "difficulty": 30,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.appointy.com",
+          "title": "Spa Scheduling Software | Online Booking System"
+        },
+        {
+          "position": 3,
+          "domain": "squareup.com",
+          "title": "Spa Software by Square: Your All-In One Solution"
+        },
+        {
+          "position": 4,
+          "domain": "www.supersaas.com",
+          "title": "Free spa & wellness booking system software"
+        },
+        {
+          "position": 5,
+          "domain": "www.booker.com",
+          "title": "Booker: Powerful Spa & Salon Management Software"
+        },
+        {
+          "position": 6,
+          "domain": "www.mindbodyonline.com",
+          "title": "Booking and Scheduling Software for Spas"
+        },
+        {
+          "position": 7,
+          "domain": "www.reddit.com",
+          "title": "Booking system for a spa : r/smallbusiness"
+        },
+        {
+          "position": 8,
+          "domain": "www.simplespa.com",
+          "title": "Appointment Booking Software by SimpleSpa"
+        },
+        {
+          "position": 9,
+          "domain": "thesalonbusiness.com",
+          "title": "8 Best Spa Software in 2026: The Ultimate Guide"
+        },
+        {
+          "position": 10,
+          "domain": "simplybook.me",
+          "title": "Online Booking system for Spa salons"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management app",
+      "volume": 1000,
+      "cpc": 124.07,
+      "difficulty": 13,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 3,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 5,
+          "domain": "play.google.com",
+          "title": "SAP Field Service Management - Apps on Google Play"
+        },
+        {
+          "position": 6,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service application software",
+      "volume": 1000,
+      "cpc": 124.07,
+      "difficulty": 13,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 3,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 4,
+          "domain": "fieldpoint.net",
+          "title": "Fieldpoint: Field Service Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 6,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 7,
+          "domain": "www.servicepower.com",
+          "title": "Field Service Management Software Guide"
+        },
+        {
+          "position": 8,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 10,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management application",
+      "volume": 1000,
+      "cpc": 124.07,
+      "difficulty": 13,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 3,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 5,
+          "domain": "www.servicepower.com",
+          "title": "Field Service Management Software Guide"
+        },
+        {
+          "position": 6,
+          "domain": "www.reddit.com",
+          "title": "What FSM software do you use to manage your team?"
+        },
+        {
+          "position": 7,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 8,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 9,
+          "domain": "play.google.com",
+          "title": "Field Service Management(FSM) - Apps on Google Play"
+        },
+        {
+          "position": 10,
+          "domain": "www.servicenow.com",
+          "title": "Field Service Management (FSM) - Service Software"
+        },
+        {
+          "position": 11,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field management apps",
+      "volume": 1000,
+      "cpc": 124.07,
+      "difficulty": 13,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 3,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 4,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 5,
+          "domain": "www.fieldservicely.com",
+          "title": "FieldServicely"
+        },
+        {
+          "position": 6,
+          "domain": "buildbite.com",
+          "title": "Best field management app: Top 5 picks in 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "www.knack.com",
+          "title": "No-Code Field Service Management Software - Knack"
+        }
+      ],
+      "serpSignals": {
+        "authority": 0,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field management application",
+      "volume": 1000,
+      "cpc": 124.07,
+      "difficulty": 13,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 3,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 4,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 5,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.knack.com",
+          "title": "No-Code Field Service Management Software - Knack"
+        },
+        {
+          "position": 8,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 9,
+          "domain": "www.servicefusion.com",
+          "title": "Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "www.youtube.com",
+          "title": "+9 Best Field Service Management Software for 2026 (Full ..."
+        },
+        {
+          "position": 11,
+          "domain": "buildbite.com",
+          "title": "Best field management app: Top 5 picks in 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service scheduling app",
+      "volume": 140,
+      "cpc": 123.75,
+      "difficulty": 20,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 1,
+          "domain": "fieldworkhq.com",
+          "title": "Field Service Scheduling Software with Calendar & Dispatching"
+        },
+        {
+          "position": 3,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 4,
+          "domain": "www.servicepower.com",
+          "title": "Field Service Scheduling Software"
+        },
+        {
+          "position": 5,
+          "domain": "monday.com",
+          "title": "Field Service Scheduling Software: Top 10 Solutions for 2026"
+        },
+        {
+          "position": 6,
+          "domain": "appexchange.salesforce.com",
+          "title": "Field Service, Technician Scheduling, Mobile App, Video- ..."
+        },
+        {
+          "position": 7,
+          "domain": "www.scheduleit.com",
+          "title": "Field Service Management and Scheduling Software"
+        },
+        {
+          "position": 8,
+          "domain": "buildops.com",
+          "title": "Why Contractors Switch Field Service Scheduling Apps"
+        },
+        {
+          "position": 9,
+          "domain": "www.synchroteam.com",
+          "title": "Field Service Scheduling Apps: top features"
+        },
+        {
+          "position": 11,
+          "domain": "www.workyard.com",
+          "title": "7 Best Field Service Scheduling Software in 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 1,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field service management tools",
+      "volume": 210,
+      "cpc": 122.56,
+      "difficulty": 33,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 4,
+          "domain": "www.reddit.com",
+          "title": "What FSM software do you use to manage your team?"
+        },
+        {
+          "position": 5,
+          "domain": "www.servicetitan.com",
+          "title": "Field Service Management Software | All-In-One FSM ..."
+        },
+        {
+          "position": 6,
+          "domain": "www.servicenow.com",
+          "title": "Field Service Management (FSM) - Service Software"
+        },
+        {
+          "position": 7,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 8,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 9,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 10,
+          "domain": "blog.ifs.com",
+          "title": "Best Field Service Management Software for Enhancing ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.zendesk.com",
+          "title": "9 best field service management software of 2026"
+        }
+      ],
+      "serpSignals": {
+        "authority": 2,
+        "weak": 1,
+        "jobBoards": false,
+        "directories": false
+      }
+    },
+    {
+      "keyword": "field management tool",
+      "volume": 210,
+      "cpc": 122.56,
+      "difficulty": 33,
+      "source": "idea",
+      "ourSlugs": [],
+      "gsc": {
+        "position": null,
+        "impressions": 0
+      },
+      "serp": [
+        {
+          "position": 2,
+          "domain": "www.workiz.com",
+          "title": "Workiz: Field Service Management (FSM) Software"
+        },
+        {
+          "position": 3,
+          "domain": "coastapp.com",
+          "title": "5 Best Field Service Management Software in 2026 (Reviews)"
+        },
+        {
+          "position": 4,
+          "domain": "www.salesforce.com",
+          "title": "Agentforce Field Service and Operations"
+        },
+        {
+          "position": 6,
+          "domain": "www.gartner.com",
+          "title": "Best Field Service Management Reviews 2026"
+        },
+        {
+          "position": 7,
+          "domain": "www.fieldpulse.com",
+          "title": "FieldPulse | #1 Field Service Management Software"
+        },
+        {
+          "position": 8,
+          "domain": "connecteam.com",
+          "title": "6 Best Free Field Service Management Software ..."
+        },
+        {
+          "position": 11,
+          "domain": "www.microsoft.com",
+          "title": "How field service management software works"
+        }
+      ],
+      "serpSignals": {
+        "authority": 3,
+        "weak": 0,
+        "jobBoards": false,
+        "directories": false
+      }
+    }
+  ]
+}
