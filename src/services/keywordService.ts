@@ -195,22 +195,41 @@ export class KeywordService {
 
       const parsed = safeJsonParse(raw);
       const validated = schema.parse(parsed);
+      const candidates = validated.keywords.filter((k) => !usedKeywords.includes(k.keyword.toLowerCase()));
+
+      // REAL-DEMAND VALIDATION GATE — this is a last-resort fallback (GSC and SERP
+      // expansion both came up empty), so the LLM's volume/cpc/difficulty here are
+      // pure guesses, not measurements. Treat them as SEED IDEAS ONLY: every one must
+      // clear a live DataForSEO check before it's allowed into the keywords table,
+      // same gate the primary discoverKeywords() path already enforces. Without this,
+      // a fabricated-looking-real number (e.g. "volume: 320") is indistinguishable
+      // from genuine DataForSEO data once it's in the table — exactly the contamination
+      // that caused ~64% of the historic corpus to target zero-volume phantom demand.
+      if (!this.dataForSeoEnabled()) {
+        // eslint-disable-next-line no-console
+        console.log(`[KeywordService] ⚠️ DataForSEO not configured — refusing to insert ${candidates.length} unverified AI-guessed keyword(s) (fail closed, not open).`);
+        return 0;
+      }
+      const realMetrics = await this.dataForSeoSearchVolume(candidates.map((k) => k.keyword));
+      const realCandidates = candidates
+        .map((k) => ({ ...k, real: realMetrics.get(k.keyword.toLowerCase()) }))
+        .filter((k) => k.real && (k.real.volume ?? 0) > 0);
+      // eslint-disable-next-line no-console
+      console.log(`[KeywordService] ✅ Real-demand gate on AI-only fallback: ${realCandidates.length}/${candidates.length} kept (rest had zero/unknown real search volume — LLM guess only, discarded)`);
 
       let inserted = 0;
-      for (const k of validated.keywords) {
-        if (usedKeywords.includes(k.keyword.toLowerCase())) continue;
-        
+      for (const k of realCandidates) {
         const id = crypto.randomUUID();
         const [res] = await this.deps.pool.query<ResultSetHeader>(
           `INSERT IGNORE INTO keywords(id, keyword, volume, difficulty, cpc, intent, status)
-           VALUES (?, ?, ?, 30, ?, ?, 'new')`,
-          [id, k.keyword, k.volume, k.cpc, k.intent]
+           VALUES (?, ?, ?, ?, ?, ?, 'new')`,
+          [id, k.keyword, k.real!.volume, k.real!.difficulty ?? 30, k.real!.cpc ?? k.cpc, k.intent]
         );
         inserted += res.affectedRows ?? 0;
       }
 
       // eslint-disable-next-line no-console
-      console.log(`[KeywordService] ✅ AI-only generation inserted ${inserted} new keywords`);
+      console.log(`[KeywordService] ✅ AI-only fallback inserted ${inserted} DataForSEO-verified keywords`);
       return inserted;
     } catch (err) {
       // eslint-disable-next-line no-console

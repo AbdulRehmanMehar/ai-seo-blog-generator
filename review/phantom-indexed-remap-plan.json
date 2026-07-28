@@ -1,0 +1,359 @@
+{
+  "totalIndexedCandidates": 75,
+  "alreadyReal": [
+    {
+      "slug": "defense-tech-stack-liability",
+      "keyword": "secure code review"
+    }
+  ],
+  "retarget": [
+    {
+      "slug": "support-tech-churn-delay",
+      "action": "retarget",
+      "keyword": "legacy software modernization",
+      "lead_value": "high",
+      "reason": "The current post on delaying refactoring pre-exit naturally extends to legacy software modernization (similarity 0.652), and the SERP shows consultancies, not just vendors, making it winnable for a custom dev partner targeting growing businesses.",
+      "content_angle": "Most legacy modernization guides focus on tools, not the hidden cost of delay. Show how postponing modernization compounds technical debt and kills exit value, using a real case from a service business that lost a buyer due to a brittle .NET system."
+    },
+    {
+      "slug": "insurance-legacy-system-hidden-liability",
+      "action": "retarget",
+      "keyword": "legacy system modernization",
+      "lead_value": "high",
+      "reason": "The post on technical debt cleanup for acquisition valuation is a strong fit for legacy system modernization (similarity 0.65), and the SERP includes consultancies, not just product vendors, offering a winnable path for a custom dev partner.",
+      "content_angle": "Insurance firms often treat legacy systems as 'good enough' until a buyer walks. Use a real example of a mid-market insurer whose outdated system slashed their valuation by 30%, then show how targeted modernization reversed that."
+    },
+    {
+      "slug": "rapid-clean-mvp-development-secret",
+      "action": "retarget",
+      "keyword": "mvp development for startups",
+      "lead_value": "high",
+      "reason": "The current post on rapid MVP for HealthTech founders is a natural fit for MVP development for startups (similarity 0.681), and the SERP includes consultancies and guides, making it winnable for a custom dev partner targeting growing businesses.",
+      "content_angle": "Most MVP guides skip the real friction: founders waste months on the wrong features. Use a case from a HealthTech startup that cut MVP time by 40% by focusing on the riskiest assumption first, not the flashiest feature."
+    },
+    {
+      "slug": "legacy-dotnet-ai-security-gaps-bank",
+      "action": "retarget",
+      "keyword": "legacy software modernization services",
+      "lead_value": "high",
+      "reason": "The current post on .NET to Next.js migration is a direct fit for legacy software modernization services (similarity 0.648), and the SERP includes consultancies and service providers, making it highly winnable for a custom dev partner.",
+      "content_angle": "Most legacy modernization services pitch tools, not outcomes. Show how a .NET-to-Next.js migration for a bank cut page load times by 60% and eliminated a security gap that had worried auditors for years."
+    },
+    {
+      "slug": "ai-support-sounds-robotic-human-connections",
+      "action": "retarget",
+      "keyword": "fractional cto",
+      "lead_value": "high",
+      "reason": "The post already positions Abdul as a CTO consultant; pivoting to the broader 'fractional CTO' keyword captures a larger, high-intent audience while staying within the same service category.",
+      "content_angle": "Growing businesses lose momentum when they lack seasoned tech leadership. A fractional CTO brings calm, evidence-based strategy—like the AI implementation that saved a recruiting SaaS from a fragile scraping workflow—without the overhead of a full-time hire."
+    },
+    {
+      "slug": "exit-value-drop-replatforming-legacy-tech",
+      "action": "retarget",
+      "keyword": "legacy app modernization",
+      "lead_value": "medium",
+      "reason": "The post already addresses technical re-platforming for acquisition valuation; pivoting to the broader 'legacy app modernization' keyword captures a larger audience of businesses needing to modernize for exit value.",
+      "content_angle": "Legacy app modernization isn't just about tech debt—it's about protecting your company's valuation. One client's .NET-to-Next.js migration directly increased their acquisition offer by eliminating scalability risks."
+    },
+    {
+      "slug": "build-20-year-enterprise-system-boosts-valuation",
+      "action": "retarget",
+      "keyword": "legacy system modernization strategies",
+      "lead_value": "medium",
+      "reason": "The post directly connects system longevity to valuation; pivoting to 'legacy system modernization strategies' aligns perfectly with existing content and targets strategic buyers.",
+      "content_angle": "A 20-year enterprise system doesn't happen by accident. It requires a deliberate modernization strategy that balances technical debt with business value—exactly what we delivered for a dental group's internal platform."
+    },
+    {
+      "slug": "smart-building-ai-legacy-modernization",
+      "action": "retarget",
+      "keyword": "legacy modernization",
+      "lead_value": "high",
+      "reason": "High-volume (880), high-CPC ($22.4) keyword with strong topical overlap (0.659) and a SERP dominated by vendor-agnostic guides, making it winnable for a custom development firm.",
+      "content_angle": "Most legacy modernization guides sell you a platform. Here's the friction: your .NET monolith is a black box that slows every AI initiative. We'll show you the evidence-based approach to untangle it without a full rewrite—starting with the data layer that actually blocks velocity."
+    },
+    {
+      "slug": "board-mandated-ai-project-legacy-data-silos",
+      "action": "retarget",
+      "keyword": "legacy modernization approach",
+      "lead_value": "medium",
+      "reason": "Moderate volume (50) but very high CPC ($43.57) with good topical fit (0.632) and a SERP of consultative guides, suitable for a custom development firm.",
+      "content_angle": "Retailers rush to AI but hit a wall: legacy data silos that make every model unreliable. The real approach isn't a rip-and-replace—it's a phased modernization that preserves what works while unlocking the data your AI actually needs. Here's the playbook."
+    },
+    {
+      "slug": "outdated-support-tech-churn-stop",
+      "action": "retarget",
+      "keyword": "crm consulting firms",
+      "lead_value": "medium",
+      "reason": "Moderate volume (90) with high CPC ($20.8) and strong topical similarity (0.672) to the current post about enterprise software consulting, and the SERP includes consulting firms, not just software vendors.",
+      "content_angle": "Most CRM consulting firms sell you a configuration and disappear. The hidden cost? Your support team still churns because the system doesn't adapt to your actual workflows. We build custom CRM solutions that reduce churn—not just log tickets."
+    },
+    {
+      "slug": "3-mvp-mistakes-property-directors-lose-ai-advantage",
+      "action": "retarget",
+      "keyword": "mvp for startup",
+      "lead_value": "high",
+      "reason": "High volume (480) with good CPC ($15.58) and strong topical similarity (0.629), and the SERP includes educational content that a custom development firm can compete in with a practical, evidence-based guide.",
+      "content_angle": "Most MVP advice is generic theory. The real friction: startups waste months building features nobody uses. We'll show you the evidence-based approach to scope an MVP that actually validates demand—using real case studies from property tech and beyond."
+    },
+    {
+      "slug": "net-monolith-ai-migration-mistake",
+      "action": "retarget",
+      "keyword": "legacy application modernization strategies",
+      "lead_value": "medium",
+      "reason": "The post already discusses migrating monolithic systems, and the candidate keyword is a natural, low-risk extension that targets growing businesses with legacy tech debt.",
+      "content_angle": "Most legacy modernization guides are vendor fluff. Here's the friction: your monolithic system is a silent value killer, and the real strategy isn't a rip-and-replace—it's a surgical, AI-augmented migration that preserves uptime while unlocking agility."
+    },
+    {
+      "slug": "digital-flagship-luxury-performance-brand-vibe",
+      "action": "retarget",
+      "keyword": "website performance optimisation",
+      "lead_value": "high",
+      "reason": "The post already covers digital product strategy for luxury brands, and the candidate keyword is a natural, high-volume pivot that directly addresses a core pain point for growing businesses.",
+      "content_angle": "Luxury brands lose customers not because of bad design, but because of slow load times. Here's how to optimize performance without sacrificing the brand experience—using real-world data, not guesswork."
+    },
+    {
+      "slug": "unlock-clinical-data-insights-without-disruption",
+      "action": "retarget",
+      "keyword": "legacy modernization services",
+      "lead_value": "high",
+      "reason": "The post already discusses technical re-platforming for acquisition valuation, and the candidate keyword is a high-volume, direct extension that targets growing businesses with legacy systems.",
+      "content_angle": "Legacy modernization isn't about replacing tech—it's about removing friction that's costing you valuation. Here's a framework to modernize without disrupting operations, backed by real migration outcomes."
+    },
+    {
+      "slug": "luxury-ecommerce-frontend-modernization-exit-value",
+      "action": "retarget",
+      "keyword": "legacy application modernization",
+      "lead_value": "medium",
+      "reason": "The post already covers modernization for exit value; pivoting to the broader legacy application modernization term aligns with buyer intent for consulting services and has commercial intent.",
+      "content_angle": "Most legacy modernization advice comes from vendors selling tools. Here's the founder's perspective: how to prioritize modernization work specifically to increase your company's exit valuation, not just to reduce technical debt."
+    },
+    {
+      "slug": "pre-exit-tech-stack-overhaul-valuation",
+      "action": "retarget",
+      "keyword": "legacy system modernization services",
+      "lead_value": "high",
+      "reason": "The post's pre-exit tech stack overhaul topic is a direct match for legacy system modernization services, with high similarity and strong buyer intent from growing businesses preparing for sale.",
+      "content_angle": "When you're preparing for an exit, every modernization dollar must be justified by valuation impact. This post shows how to evaluate legacy system modernization services through the lens of acquirer due diligence, not just IT hygiene."
+    },
+    {
+      "slug": "legacy-system-time-bomb-hidden-debt",
+      "action": "retarget",
+      "keyword": "legacy system modernisation",
+      "lead_value": "high",
+      "reason": "Tech debt reduction for acquisition valuation is essentially legacy system modernisation; the pivot is natural and the SERP shows service-oriented results with commercial intent.",
+      "content_angle": "Acquirers don't just see technical debt—they see risk. This post explains how to frame legacy system modernisation as a risk-reduction investment that directly improves your acquisition valuation, with real examples from our client work."
+    }
+  ],
+  "noGood": [
+    {
+      "slug": "pharma-supply-chain-risk-ai",
+      "action": "no_good_candidate",
+      "reason": "The pivot from pharma supply chain risk to generic AI document processing is a large topic jump (similarity 0.599) and the SERP is dominated by established vendors and Gartner, making it unwinnable for a small consultancy."
+    },
+    {
+      "slug": "hidden-ai-compliance-risks-pharma",
+      "action": "no_good_candidate",
+      "reason": "The pivot from pharma AI compliance to dental AI software is a drastic topic change (similarity 0.581) and the SERP is locked by specialized dental AI platforms like Overjet and Pearl, with no buyer intent for a custom dev partner."
+    },
+    {
+      "slug": "stop-wasting-money-generic-software-rfps-attract-bespoke-ai-solution",
+      "action": "no_good_candidate",
+      "reason": "The pivot from an RFP example to 'how to choose a software development partner' is a moderate shift (similarity 0.655), but the SERP is filled with generic agency advice and low volume (70), lacking clear buyer intent for a custom dev partner."
+    },
+    {
+      "slug": "kyc-aml-automation-strategy-bank-failure",
+      "action": "no_good_candidate",
+      "reason": "The pivot from large bank KYC AML strategy to KYC onboarding software is a moderate shift (similarity 0.635), but the SERP is dominated by product vendors like Alloy and Quantexa, not custom dev partners, and the volume is low (90)."
+    },
+    {
+      "slug": "ai-kyc-aml-compliance-fines-insurance",
+      "action": "no_good_candidate",
+      "reason": "The pivot from AI KYC AML compliance to insurance CRM systems is a large topic jump (similarity 0.633) and the SERP is dominated by CRM product vendors like Salesforce and HubSpot, with no room for a custom dev partner."
+    },
+    {
+      "slug": "robotic-ai-support-churn-fix",
+      "action": "no_good_candidate",
+      "reason": "The pivot from AI development companies in Saudi Arabia to AI assistant for small business is a large topic jump (similarity 0.608) and the SERP is filled with product reviews and tool lists, not custom dev partners, making it unwinnable."
+    },
+    {
+      "slug": "higher-lease-rates-smart-building-secret",
+      "action": "no_good_candidate",
+      "reason": "The SERP is dominated by property management software products, not consulting services, and the pivot from smart building valuation to a software app is a topic jump that risks confusing existing rankings."
+    },
+    {
+      "slug": "luxury-brands-ai-inventory-mistakes",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword targets dental inventory software buyers, not custom development clients, and the industry shift from luxury retail to dental is too large for a safe pivot."
+    },
+    {
+      "slug": "hidden-architectural-debt-m-and-a-value",
+      "action": "no_good_candidate",
+      "reason": "The SERP is locked by large vendors (IBM, Google) and the low volume with no CPC indicates weak buyer intent for a consulting service."
+    },
+    {
+      "slug": "ai-banking-compliance-failures-millions",
+      "action": "no_good_candidate",
+      "reason": "The pivot from banking AI compliance to dental AI software is a drastic topic change with low similarity, and the SERP is filled with product listings, not service opportunities."
+    },
+    {
+      "slug": "legacy-stack-ai-velocity",
+      "action": "no_good_candidate",
+      "reason": "The SERP is dominated by legacy modernization software vendors and large consultancies, making it unwinnable for a custom development service, and the keyword implies a tool rather than a service."
+    },
+    {
+      "slug": "telecom-customer-churn-it-strategy-mistake",
+      "action": "no_good_candidate",
+      "reason": "The SERP is a software comparison list for ITSM tools, not a consulting service, and the pivot from IT transformation leadership to software selection is a poor fit for Abdul's offering."
+    },
+    {
+      "slug": "secure-ai-project-national-security-breach-safeguards",
+      "action": "no_good_candidate",
+      "reason": "The pivot from defense AI compliance to automated contract management is a large topic jump with low similarity, and the SERP is dominated by contract management software products."
+    },
+    {
+      "slug": "ai-logistics-peak-season-reliability",
+      "action": "no_good_candidate",
+      "reason": "The pivot from AI logistics optimization to invoice data extraction software is a significant topic jump (similarity 0.583) and the SERP is dominated by niche tool vendors, not service buyers looking for custom development."
+    },
+    {
+      "slug": "stop-hiring-generic-ai-dev-teams-hidden-cost-robotic-support-churn",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'best customer service software small business' targets SaaS buyers, not service business owners seeking custom development, and the SERP is locked by established software vendors."
+    },
+    {
+      "slug": "logistics-operations-bleeding-millions-ai-integration-mistakes",
+      "action": "no_good_candidate",
+      "reason": "The pivot from logistics cost reduction to web performance optimization is a major topic shift (similarity 0.608) and the SERP is dominated by developer documentation and tooling, not service buyers."
+    },
+    {
+      "slug": "property-tech-5-million-dollar-mistake-exit-value",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'software for property management company' targets SaaS buyers, not technical due diligence services, and the SERP is dominated by established software vendors with no room for a custom development firm."
+    },
+    {
+      "slug": "bank-ai-security-owasp-safeguards",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'code review guide owasp' is dominated by OWASP's own documentation and tooling sites, making it unwinnable for a service firm, despite topical overlap."
+    },
+    {
+      "slug": "insurance-company-valuation-risk-technical-debt-traps",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'salesforce for insurance agency' is dominated by Salesforce's own pages and resellers, making it unwinnable for a custom development firm, despite moderate topical overlap."
+    },
+    {
+      "slug": "cloud-kyc-aml-automation-trap-defense-contractors-millions",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'legal document automation software' is a large topic pivot from KYC/AML automation, and the SERP is dominated by established legal-tech vendors and directories, making it unwinnable for this page."
+    },
+    {
+      "slug": "property-portfolio-value-stalls",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'estates management software' targets a different buyer (estate managers, not growing businesses), and the SERP is filled with product pages and directories, not consultative content."
+    },
+    {
+      "slug": "2-million-mistake-internal-dev-team-managed-services-churn",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'service management systems' has a SERP dominated by company profiles, social media, and a cleaning service, indicating no buyer intent and an unwinnable landscape."
+    },
+    {
+      "slug": "property-portfolio-valuation-custom-ai-premium",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'yardi commercial real estate software' is a branded term with a SERP entirely owned by Yardi's own pages, making it impossible to rank for as a third-party consultant."
+    },
+    {
+      "slug": "why-enterprise-support-tech-feels-1990s",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'service tech software' targets field service management, which is a different buyer and use case than the post's focus on enterprise support tech for churn reduction."
+    },
+    {
+      "slug": "enterprise-churn-human-like-ai-support",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'enterprise customer relationship management' is a broad, vendor-dominated term with a SERP filled with CRM platform pages, making it unwinnable for a consulting post."
+    },
+    {
+      "slug": "enterprise-exit-valuation-risk-nextjs-migration",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'enterprise document automation' is a large topic pivot from Next.js migration, and the low volume combined with a SERP full of product pages makes it a poor fit."
+    },
+    {
+      "slug": "logistics-software-bleeding-millions-peak-season",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'gym software' targets product buyers, not consulting services, and the topic pivot from logistics to gym software is too large and unwinnable."
+    },
+    {
+      "slug": "why-bank-kyc-aml-spend-not-ai-problem",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'bank statement extraction software' is a product search with low volume and no CPC, and the pivot from KYC/AML automation to extraction software is not a natural fit for consulting services."
+    },
+    {
+      "slug": "pharma-ai-data-overload-operational-costs",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'legal document automation' targets software buyers, not service engagements, and the pivot from bank compliance to legal document automation is a significant topic jump."
+    },
+    {
+      "slug": "secure-software-project-deadlines-cost-budget",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'mainframe legacy modernization' has low volume and targets large enterprises, not growing-business buyers, and the pivot from defense tech velocity to mainframe modernization is a stretch."
+    },
+    {
+      "slug": "legacy-telecom-support-bleeding-millions",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'system modernization' is too broad with low volume and no commercial intent, and the pivot from .NET telecom replatforming to generic system modernization is not winnable."
+    },
+    {
+      "slug": "nextjs-migration-property-portfolio-exit-value",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'improve page performance' is a generic, low-intent term with no commercial angle, and the pivot from Next.js migration for exit to general performance tips is not buyer-aligned."
+    },
+    {
+      "slug": "api-first-secure-ai-intelligence-data",
+      "action": "no_good_candidate",
+      "reason": "The candidate keyword 'field service software cloud' is a product search dominated by vendors, and the pivot from API-first AI security to field service software is a complete topic change with no credible connection."
+    },
+    {
+      "slug": "luxury-site-slowness-costing-millions",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "cut-compliance-fines-ai-automation",
+      "action": "no_good_candidate",
+      "keyword": "document processing automation",
+      "lead_value": null,
+      "reason": "The SERP is dominated by enterprise vendors (IBM, AWS, UiPath) with high authority, making it unwinnable for a smaller player. The intent is too broad and tool-shopper focused, not a specific buyer pain point for $20k-$50k engagements."
+    },
+    {
+      "slug": "cloud-migration-resistance-defense-security",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "legacy-system-ai-cost-blockade",
+      "action": "no_good_candidate",
+      "keyword": "mainframe modernization strategy",
+      "lead_value": null,
+      "reason": "The SERP is locked by enterprise consultancies and cloud providers (AWS, Kyndryl, OpenLegacy) targeting large corporations. The keyword implies mainframes, which is off-topic for a cost-of-delay post and risks confusing both Google and readers."
+    }
+  ],
+  "noCandidateSlugs": [
+    "logistics-inventory-peak-season-failure-not-just-data",
+    "ai-project-security-breach-risk-defense-tech",
+    "inventory-stockouts-bleeding-millions-realtime-ai-mission-control",
+    "custom-ai-research-tool-development-traps",
+    "telecom-internal-dev-churn-mistake",
+    "ai-inventory-predictions-data-traps",
+    "pharma-ai-data-platform-stalls-unlock-breakthroughs",
+    "luxury-brand-digital-vibe-strategic-hire",
+    "software-engineer-hourly-rate-sri-lanka-value",
+    "2m-security-blind-spot-logistics-breach-close-fast",
+    "prevent-stockout-losses-ai-supply-chain",
+    "why-1990s-support-tech-burns-2m-churn",
+    "generic-software-vendors-defense-tech-risk",
+    "bank-ai-data-leak-governance",
+    "hidden-security-flaws-precision-code-review-banking",
+    "stop-wasting-millions-ai-pharma-breakthroughs",
+    "hidden-logistics-costs-realtime-ai",
+    "saas-dev-partner-acquisition-valuation",
+    "pharma-ai-stalls-beyond-data",
+    "enterprise-ai-tools-hidden-financial-risk-vetting"
+  ],
+  "noEmbeddingSlugs": []
+}

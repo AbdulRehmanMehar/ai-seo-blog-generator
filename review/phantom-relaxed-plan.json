@@ -1,0 +1,278 @@
+{
+  "requested": 57,
+  "stillIndexedPhantom": 57,
+  "winners": [
+    {
+      "slug": "legacy-stack-ai-velocity",
+      "action": "retarget",
+      "keyword": "nearshore developer",
+      "lead_value": "high",
+      "reason": "Real commercial demand for nearshore development services; SERP shows service providers, not authority-locked; business can credibly offer this service.",
+      "content_angle": "Pivot to a guide on how to choose a nearshore developer or the benefits of nearshore development, positioning the firm as a provider."
+    },
+    {
+      "slug": "logistics-software-bleeding-millions-peak-season",
+      "action": "retarget",
+      "keyword": "dedicated software developer",
+      "lead_value": "high",
+      "reason": "Keyword has real demand for dedicated software development teams, which the business can offer as a service, and the SERP includes software development companies, making it winnable.",
+      "content_angle": "Show how to hire dedicated software developers effectively, positioning the business as a reliable partner that provides dedicated teams with proven expertise in complex projects like logistics and AI."
+    },
+    {
+      "slug": "pharma-ai-data-overload-operational-costs",
+      "action": "retarget",
+      "keyword": "offshore web development",
+      "lead_value": "medium",
+      "reason": "Keyword has real demand for offshore web development services, which the business can provide, and the SERP includes development companies, making it winnable with a strong content strategy.",
+      "content_angle": "Write a guide on offshore web development best practices, emphasizing quality control, communication, and how to choose a partner, with proof points from past projects."
+    },
+    {
+      "slug": "pharma-supply-chain-risk-ai",
+      "action": "retarget",
+      "keyword": "web application custom development",
+      "lead_value": "high",
+      "reason": "The keyword directly matches the business's core service, has solid search volume, and the empty SERP suggests an opportunity to own the space with high-quality content.",
+      "content_angle": "Create a comprehensive guide on custom web application development, covering benefits, process, technology choices, and case studies, targeting businesses looking for bespoke solutions."
+    }
+  ],
+  "deferred": [],
+  "noGood": [
+    {
+      "slug": "2-million-mistake-internal-dev-team-managed-services-churn",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "2m-security-blind-spot-logistics-breach-close-fast",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "ai-banking-compliance-failures-millions",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "ai-inventory-predictions-data-traps",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "ai-kyc-aml-compliance-fines-insurance",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "ai-logistics-peak-season-reliability",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "ai-project-security-breach-risk-defense-tech",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "api-first-secure-ai-intelligence-data",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "bank-ai-data-leak-governance",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "bank-ai-security-owasp-safeguards",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "cloud-kyc-aml-automation-trap-defense-contractors-millions",
+      "keyword": "hire developer offshore",
+      "lead_value": null,
+      "reason": "SERP dominated by hiring platforms (Upwork, Toptal) that serve as marketplaces, not service providers; low winnability for a service business.",
+      "content_angle": null,
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "cloud-migration-resistance-defense-security",
+      "keyword": "plumbing business management software",
+      "lead_value": null,
+      "reason": "SERP dominated by established plumbing software vendors; no plausible service angle for a custom development firm.",
+      "content_angle": null,
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "custom-ai-research-tool-development-traps",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "cut-compliance-fines-ai-automation",
+      "keyword": "software for property management company",
+      "lead_value": null,
+      "reason": "SERP dominated by property management SaaS products; no plausible service angle for a dev agency.",
+      "content_angle": null,
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "enterprise-ai-tools-hidden-financial-risk-vetting",
+      "keyword": "hire offshore programmers",
+      "lead_value": null,
+      "reason": "SERP dominated by hiring platforms, similar to 'hire developer offshore'; low winnability for a service business.",
+      "content_angle": null,
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "enterprise-churn-human-like-ai-support",
+      "keyword": "property management maintenance software",
+      "lead_value": null,
+      "reason": "SERP dominated by property maintenance software vendors; no plausible service angle.",
+      "content_angle": null,
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "enterprise-exit-valuation-risk-nextjs-migration",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "generic-software-vendors-defense-tech-risk",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "hidden-ai-compliance-risks-pharma",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "hidden-architectural-debt-m-and-a-value",
+      "keyword": "hire offshore developers",
+      "lead_value": null,
+      "reason": "SERP dominated by hiring platforms (Upwork, Toptal); low winnability for a service business.",
+      "content_angle": null,
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "hidden-logistics-costs-realtime-ai",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "hidden-security-flaws-precision-code-review-banking",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "higher-lease-rates-smart-building-secret",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "insurance-company-valuation-risk-technical-debt-traps",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "inventory-stockouts-bleeding-millions-realtime-ai-mission-control",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "kyc-aml-automation-strategy-bank-failure",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "legacy-system-ai-cost-blockade",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "legacy-telecom-support-bleeding-millions",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "logistics-inventory-peak-season-failure-not-just-data",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "logistics-operations-bleeding-millions-ai-integration-mistakes",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "luxury-brand-digital-vibe-strategic-hire",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "luxury-brands-ai-inventory-mistakes",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "luxury-site-slowness-costing-millions",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "nextjs-migration-property-portfolio-exit-value",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "pharma-ai-data-platform-stalls-unlock-breakthroughs",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "pharma-ai-stalls-beyond-data",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "prevent-stockout-losses-ai-supply-chain",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "property-portfolio-valuation-custom-ai-premium",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "property-portfolio-value-stalls",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "property-tech-5-million-dollar-mistake-exit-value",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "robotic-ai-support-churn-fix",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "saas-dev-partner-acquisition-valuation",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "secure-ai-project-national-security-breach-safeguards",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "secure-software-project-deadlines-cost-budget",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "software-engineer-hourly-rate-sri-lanka-value",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "stop-hiring-generic-ai-dev-teams-hidden-cost-robotic-support-churn",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "stop-wasting-millions-ai-pharma-breakthroughs",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "stop-wasting-money-generic-software-rfps-attract-bespoke-ai-solution",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "telecom-customer-churn-it-strategy-mistake",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "telecom-internal-dev-churn-mistake",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "why-1990s-support-tech-burns-2m-churn",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "why-bank-kyc-aml-spend-not-ai-problem",
+      "action": "no_good_candidate"
+    },
+    {
+      "slug": "why-enterprise-support-tech-feels-1990s",
+      "action": "no_good_candidate"
+    }
+  ],
+  "noCandidateSlugs": []
+}

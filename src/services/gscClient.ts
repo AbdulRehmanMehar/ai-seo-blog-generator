@@ -130,6 +130,29 @@ export class GscClient {
       coverageState: indexStatus?.coverageState ?? undefined,
     };
   }
+
+  /**
+   * Sitemap-reported submitted/indexed counts per content type. This is the closest
+   * API equivalent to the "Page indexing" report shown in the GSC UI (that report
+   * itself has no public API) — still an aggregate, still can lag the UI by a few
+   * days, but it's Google's own rollup rather than a per-URL spot check.
+   */
+  async getSitemapCoverage(siteUrl: string): Promise<Array<{ path: string; type: string; submitted: number; indexed: number }>> {
+    const webmasters = google.webmasters({ version: 'v3', auth: this.auth });
+    const response = await webmasters.sitemaps.list({ siteUrl });
+    const out: Array<{ path: string; type: string; submitted: number; indexed: number }> = [];
+    for (const sm of response.data.sitemap ?? []) {
+      for (const c of sm.contents ?? []) {
+        out.push({
+          path: sm.path ?? '',
+          type: c.type ?? '',
+          submitted: Number(c.submitted ?? 0),
+          indexed: Number(c.indexed ?? 0),
+        });
+      }
+    }
+    return out;
+  }
 }
 
 /**
