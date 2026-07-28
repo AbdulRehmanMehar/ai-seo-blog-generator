@@ -27,11 +27,11 @@
   },
 
   "target_market": {
-    "who_we_serve": "Growing businesses that feel digital friction every day: service businesses (hospitality, clinics, real estate, recruiting, e-commerce, home services) with roughly 10-200 staff, and founders of digital products who need a senior partner to own delivery end to end.",
+    "who_we_serve": "Growing businesses that feel digital friction every day: service businesses (hospitality, veterinary and med spa practices, real estate, recruiting and staffing, e-commerce, small manufacturers and distributors, construction and renovation firms, management and business consulting firms) with roughly 10-200 staff, and founders of digital products who need a senior partner to own delivery end to end.",
     "buyer": "The owner, founder, or operations lead. They decide directly, without procurement cycles, and they buy trust and direct senior access, not vendor decks.",
-    "engagement_range": "Mid-term to long-term projects in the $20k-$50k range, often phased so the first phase proves the partnership.",
+    "engagement_range": "Projects from $3k-$50k depending on scope. Focused point solutions and fixes (a booking-and-reminder integration, a client portal, an intake automation) run $3k-$15k, often approved on a single call. Larger platform, automation, or multi-system work runs $20k-$50k, usually phased so the first phase proves the partnership.",
     "sweet_spot_problems": ["Booking, scheduling, and intake flows that lose customers", "Disconnected tools and double data entry", "Manual workflows ready for automation or AI assistants", "Slow or aging websites and web apps", "Customer portals and internal dashboards", "Systems that don't talk to each other"],
-    "who_we_do_not_target": "Enterprise buyers: Fortune 500, defense contractors, bank compliance programs, pharma R&D, or anyone with multi-million budgets and procurement committees. They require enterprise references we do not claim, so content written for them attracts readers who will never hire us. Never write topics, stakes, or dollar figures at enterprise scale."
+    "who_we_do_not_target": "Enterprise buyers: Fortune 500, defense contractors, bank compliance programs, pharma R&D, or anyone with multi-million budgets and procurement committees. They require enterprise references we do not claim, so content written for them attracts readers who will never hire us. Also excluded: home services trades (HVAC, plumbing, electrical, landscaping, roofing) and any other vertical already locked in by a dominant SaaS ecosystem (e.g. ServiceTitan, Housecall Pro) with no realistic room to rank or compete, confirmed via real search-demand data, not assumption. Never write topics, stakes, or dollar figures at enterprise scale."
   },
 
   "promise_architecture": {

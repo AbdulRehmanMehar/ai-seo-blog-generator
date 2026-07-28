@@ -175,7 +175,7 @@ export class TopicPlanner {
     try {
       targetIcp = await getIcpByIndex(topicCount);
       // eslint-disable-next-line no-console
-      console.log(`TopicPlanner: targeting ICP "${targetIcp.persona_name}" (index ${topicCount % 2})`);
+      console.log(`TopicPlanner: targeting ICP "${targetIcp.persona_name}" (topic #${topicCount})`);
     } catch (err) {
       // eslint-disable-next-line no-console
       console.warn('TopicPlanner: could not load ICP, proceeding without ICP targeting', err);

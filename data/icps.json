@@ -97,5 +97,37 @@
       "The owner came back from a conference asking what they're doing about AI, and she needs a practical answer."
     ],
     "hiring_threshold": "1. FRICTION IS FELT DAILY: she can list the manual bridges and the hours they eat without opening a document. 2. TRUST IS ESTABLISHED: the partner explains things clearly enough for her to relay to the owner, shows real similar work, and gives her direct access to the person building. 3. THE FIRST STEP IS SMALL: one workflow automated end to end, visible to the whole team, before the broader engagement."
+  },
+  {
+    "persona_name": "Proprietor Priya",
+    "biographics": {
+      "age": 44,
+      "title": "Owner-operator of a single-location or small service business (restaurant, veterinary clinic, med spa, salon, or a solo-to-small law or accounting practice) with 5-30 staff",
+      "status": "Runs the business hands-on, day to day; usually the only decision-maker on anything she buys",
+      "location": "US, UK, UAE, or EU. One location, occasionally two.",
+      "education": "Came up through the trade or profession itself (chef, vet, attorney, stylist, accountant). Not technical, not interested in becoming technical.",
+      "personal_income": "$60k-$180k depending on the year; the business does $500k-$3M in revenue"
+    },
+    "psychographics": {
+      "values": "Speed and low risk. She wants a decision she can make on one call, not a process she has to defend to anyone.",
+      "belief_system": "Software should just work. She isn't looking to overhaul the business, she wants the one specific thing that keeps breaking to stop breaking.",
+      "fears": "Paying for a 'project' that turns into scope creep, or hiring someone who takes the deposit and goes quiet before it's actually working. She's watched a peer get burned this way.",
+      "spending_logic": "Will approve $3k-$15k on the spot, sometimes on the first call, if the scope is tight, the price is fixed up front, and the payoff is obvious within weeks, not quarters. No ROI spreadsheet, no committee, just her judgment."
+    },
+    "the_crap_he_deals_with": "Reminder texts don't talk to the booking system, so no-shows still cost real money most weeks. A repeat customer or client looks like a stranger every time because the front-desk tool, the accounting software, and the marketing list don't share the same data. Requests come in over email, text, and a contact form, and something falls through every few weeks without anyone noticing until a customer complains. She's watched a competitor roll out online booking or a client portal and heard people mention it. She priced out a full platform rebuild once and the quote made her laugh; she just wants the one thing fixed.",
+    "the_hunger": "A tightly scoped, fast fix from someone who explains it in plain language, gives her a real fixed price up front, ships it in weeks not months, and is still answering her texts a month after launch. She isn't shopping for a five-year partner today. She wants proof this person actually delivers before she'll ever consider anything bigger.",
+    "trifecta_alignment": {
+      "joy": "A single, well-scoped build: reminders wired to the booking system, a client or patient portal, an intake form that routes correctly the first time, a dashboard that replaces the Friday-afternoon spreadsheet.",
+      "money": "A $3k-$15k fixed-scope project she approves herself within days, occasionally on the first call, with no internal approval chain.",
+      "mission": "Removing the one specific annoyance her staff or customers complain about most, without asking her to rethink how the whole business runs."
+    },
+    "cost_of_inaction": "Every week without the fix is another week of the same missed booking, the same manual re-entry, the same customer who quietly books elsewhere instead of calling to complain. It's small enough that she's lived with it for months, sometimes years, but it adds up to real, countable money, and a staff that's a little more worn down every week the workaround stays a workaround.",
+    "trigger_events": [
+      "A specific, nameable moment: a bad no-show week, a competitor's new booking widget, a bounced client email, a staff member who finally said something out loud.",
+      "A cheap off-the-shelf plugin or widget she tried broke, didn't integrate with what she already runs, or got abandoned by the vendor.",
+      "A slow month made the manual workaround's real cost impossible to keep ignoring.",
+      "A trusted peer in the same trade mentioned they'd fixed this exact problem, and named what it cost."
+    ],
+    "hiring_threshold": "1. FRICTION IS FELT DAILY: she can name the specific annoyance in one sentence, no warm-up needed. 2. TRUST IS ESTABLISHED: a clear fixed price, a plain-language explanation, and proof this exact kind of fix has worked for someone like her before. 3. THE ASK IS SMALL: one scoped project she can approve herself on the spot, not a multi-phase engagement she has to justify to anyone."
   }
 ]

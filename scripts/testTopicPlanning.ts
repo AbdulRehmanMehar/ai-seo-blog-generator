@@ -8,7 +8,7 @@
  *   npm run testTopicPlanning
  *
  * What it checks:
- *   ✓ ICP data loads correctly (2 personas, correct fields)
+ *   ✓ ICP data loads correctly (4 personas, correct fields)
  *   ✓ Topic planner only selects niche-relevant keywords
  *   ✓ Topics are distributed across all 4 buyer journey stages
  *   ✓ No colons or em dashes in any headline
@@ -63,7 +63,7 @@ async function main() {
   // ── 1. Validate ICPs ───────────────────────────────────────────────────────
   console.log('\n[ 1/4 ] Validating ICP data...');
   const icps = await loadIcps();
-  grade('Exactly 2 ICPs loaded', icps.length === 2, `found ${icps.length}`);
+  grade('Exactly 4 ICPs loaded', icps.length === 4, `found ${icps.length}`);
   for (const icp of icps) {
     grade(`"${icp.persona_name}" has trigger_events`, Array.isArray(icp.trigger_events) && icp.trigger_events.length > 0);
     grade(`"${icp.persona_name}" has hiring_threshold`, typeof icp.hiring_threshold === 'string' && icp.hiring_threshold.length > 50);

@@ -4,17 +4,26 @@ import { getHeadlineGuidelines } from './conversionCopy.js';
 
 // ─── NICHE DEFINITION ────────────────────────────────────────────────────────
 //
-// SINGLE TARGET NICHE (from the Brand Operating System, July 2026):
+// SINGLE TARGET NICHE (from the Brand Operating System, July 2026; industries
+// re-validated via deep market research, July 28 2026 — see data/brand.json
+// target_market for the current canonical list):
 //   Removing digital friction for GROWING BUSINESSES — service businesses
-//   (hospitality, clinics, real estate, recruiting, e-commerce, home services)
-//   and small digital-product companies whose systems grew slower than the
-//   business: clunky booking/intake flows, disconnected tools, manual
+//   (hospitality, veterinary and med spa practices, real estate, recruiting
+//   and staffing, e-commerce, small manufacturers and distributors,
+//   construction and renovation firms, management and business consulting
+//   firms) and small digital-product companies whose systems grew slower than
+//   the business: clunky booking/intake flows, disconnected tools, manual
 //   workflows, aging websites, and repetitive work ready for automation/AI.
+//   Explicitly excluded: home services trades (HVAC/plumbing/electrical/
+//   landscaping/roofing) — confirmed NO-GO via real search-demand data, the
+//   ServiceTitan/Housecall Pro ecosystem already owns that space.
 //
-// THREE BUYER PROFILES ($20k–$50k engagements, direct decision makers):
-//   1. Owner Omar      — owner of a growing service business (15–150 staff)
-//   2. Founder Nadia   — non-technical founder of a digital product
-//   3. Ops-Lead Olivia — operations/GM who champions the project to the owner
+// FOUR BUYER PROFILES ($3k–$50k engagements, direct decision makers, no
+// procurement cycle):
+//   1. Owner Omar        — owner of a growing service business (15–150 staff), $20k-$50k
+//   2. Founder Nadia      — non-technical founder of a digital product, $20k-$60k
+//   3. Ops-Lead Olivia    — operations/GM who champions the project to the owner, $20k-$50k
+//   4. Proprietor Priya   — owner-operator of a single-location business (5-30 staff), $3k-$15k
 //
 // FOUR BUYER JOURNEY STAGES (with target content distribution):
 //   Stage 1 — AWARENESS     (40%): Problem-framing, diagnostic, "you might have this"
