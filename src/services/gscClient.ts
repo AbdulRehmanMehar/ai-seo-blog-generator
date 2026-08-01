@@ -153,6 +153,18 @@ export class GscClient {
     }
     return out;
   }
+
+  /**
+   * (Re)submit a sitemap for a property — the one crawl-nudge the Search Console
+   * API offers: Google re-fetches the submitted sitemap and queues its new or
+   * changed URLs for crawling on its own schedule. (Google's separate "Indexing
+   * API" is restricted to job postings/livestreams and is NOT part of this
+   * integration; the anonymous sitemap-ping endpoint was retired in 2023.)
+   */
+  async submitSitemap(siteUrl: string, feedpath: string): Promise<void> {
+    const webmasters = google.webmasters({ version: 'v3', auth: this.auth });
+    await webmasters.sitemaps.submit({ siteUrl, feedpath });
+  }
 }
 
 /**

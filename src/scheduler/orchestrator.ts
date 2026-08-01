@@ -19,6 +19,7 @@ import { Ga4EngagementRefreshDetector } from '../services/ga4EngagementRefreshDe
 import { ContentRefreshService } from '../services/contentRefreshService.js';
 import { SitemapService } from '../services/sitemapService.js';
 import { IndexNowService } from '../services/indexNowService.js';
+import { GoogleIndexingService } from '../services/googleIndexingService.js';
 import { TaxonomyService } from '../services/taxonomyService.js';
 
 function log(message: string) {
@@ -35,7 +36,7 @@ function log(message: string) {
 async function runIndexingStep(taxonomy: TaxonomyService) {
   log('');
   log('──────────────────────────────────────────────────────────────────────────');
-  log('STEP: TAXONOMY + SITEMAP GENERATION + INDEXNOW SUBMISSION');
+  log('STEP: TAXONOMY + SITEMAP + GOOGLE INDEXING API + INDEXNOW');
   log('──────────────────────────────────────────────────────────────────────────');
 
   // 0) Refresh taxonomy: backfill any uncategorized published posts, recompute
@@ -71,7 +72,40 @@ async function runIndexingStep(taxonomy: TaxonomyService) {
     log(`⚠️  Sitemap generation failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // 2) IndexNow — notifies Bing/Yandex/Seznam (NOT Google). Gated on INDEXNOW_KEY.
+  // 2) Google Indexing API — pings Google directly for recently published/updated
+  //    posts (URL_UPDATED). Quota-safe: a ledger (google_indexing_pings) ensures a
+  //    URL is only re-pinged when its content changed since the last ping, capped
+  //    per run. Best-effort — a setup error (service account not yet an OWNER of
+  //    the GSC property, API disabled) aborts the batch with one log line and
+  //    never blocks the pipeline. Runs BEFORE IndexNow deliberately: the IndexNow
+  //    block exits this function early when INDEXNOW_KEY is unset.
+  try {
+    const googleIndexing = env.GOOGLE_INDEXING_PING_ENABLED ? GoogleIndexingService.build() : null;
+    if (!env.GOOGLE_INDEXING_PING_ENABLED) {
+      log('🔔 Google Indexing API: skipped (GOOGLE_INDEXING_PING_ENABLED=false)');
+    } else if (!googleIndexing) {
+      log('🔔 Google Indexing API: skipped (no Google service account configured)');
+    } else {
+      const sitemap = new SitemapService(mysqlPool);
+      const recent = await sitemap.getRecentlyPublishedUrls(env.INDEXING_LOOKBACK_DAYS);
+      if (recent.length > 0) {
+        const result = await googleIndexing.pingUpdatedUrls(
+          mysqlPool,
+          recent.map((u) => ({ url: u.url, lastmod: u.lastmod })),
+          env.GOOGLE_INDEXING_PINGS_PER_RUN
+        );
+        if (result.abortReason) {
+          log(`⚠️  Google Indexing API: aborted after ${result.pinged} ping(s) — ${result.abortReason}`);
+        } else {
+          log(`🔔 Google Indexing API: ${result.pinged} pinged, ${result.skipped} already announced, ${result.failed} failed`);
+        }
+      }
+    }
+  } catch (err) {
+    log(`⚠️  Google Indexing API ping failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // 3) IndexNow — notifies Bing/Yandex/Seznam (NOT Google). Gated on INDEXNOW_KEY.
   try {
     const indexNow = new IndexNowService();
     if (!indexNow.isEnabled()) {

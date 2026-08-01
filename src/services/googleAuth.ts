@@ -18,8 +18,12 @@ import { env } from '../config/env.js';
  */
 
 // Both scopes on one credential so a single JWT serves GSC and GA4.
+// GSC uses the FULL webmasters scope (not .readonly): sitemap re-submission
+// (gscClient.submitSitemap — the post-publish crawl nudge) is a write call.
+// The scope only affects what the token may do; what it CAN touch is still
+// bounded by which properties the service-account user was added to in GSC.
 const GOOGLE_SCOPES = [
-  'https://www.googleapis.com/auth/webmasters.readonly',
+  'https://www.googleapis.com/auth/webmasters',
   'https://www.googleapis.com/auth/analytics.readonly',
 ];
 

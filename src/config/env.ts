@@ -184,6 +184,16 @@ const envSchema = z.object({
   INDEXNOW_KEY: z.string().optional(),
   // Submit URLs published/updated within this many days on each run (default: 2).
   INDEXING_LOOKBACK_DAYS: z.coerce.number().int().positive().default(2),
+  // Google Indexing API pings on publish/update (2026-08-01). Default on —
+  // fails soft (logged, never blocks the pipeline) until the Cloud-side setup
+  // is complete (API enabled + service account as OWNER of each GSC property).
+  GOOGLE_INDEXING_PING_ENABLED: z
+    .string()
+    .default('true')
+    .transform((v) => v.toLowerCase() === 'true'),
+  // Max Indexing API pings per pipeline run — headroom under the API's default
+  // 200-requests/day project quota even across several cron runs a day.
+  GOOGLE_INDEXING_PINGS_PER_RUN: z.coerce.number().int().positive().default(50),
 
   // GitHub integration for knowledge sync
   GITHUB_PAT: z.string().optional(),
