@@ -335,8 +335,17 @@ export async function runPipelineOnce() {
 
       log('   🧹 Humanizing content...');
       const humanStart = Date.now();
-      await humanizer.humanizePost(postId);
-      log(`   ✓ Humanization complete (${elapsed(humanStart)})`);
+      try {
+        await humanizer.humanizePost(postId);
+        log(`   ✓ Humanization complete (${elapsed(humanStart)})`);
+      } catch (humanErr) {
+        // Matches the generateDraftPost error-handling pattern above — a rare
+        // humanizer failure (e.g. its own double-parse-failure path) must not abort
+        // the whole pipeline run. The post already exists with valid, ≥minWords
+        // content from generateDraftPost; proceeding to review as-is is safe.
+        const msg = humanErr instanceof Error ? humanErr.message : String(humanErr);
+        log(`   ⚠️  Humanization failed (keeping pre-humanization draft): ${msg}`);
+      }
 
       log('   📋 Running quality review...');
       const reviewStart = Date.now();

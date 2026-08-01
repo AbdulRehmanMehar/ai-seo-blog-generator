@@ -34,6 +34,30 @@ export function buildTagUrl(domain: string, slug: string, pattern: string = env.
   return pattern.replace('{domain}', domain).replace('{slug}', slug);
 }
 
+/** Solutions pages are keyed by TWO slugs (service, niche), unlike the single-slug builders above. */
+export function buildSolutionUrl(
+  domain: string,
+  serviceSlug: string,
+  nicheSlug: string,
+  pattern: string = env.SOLUTIONS_URL_PATTERN
+): string {
+  return pattern.replace('{domain}', domain).replace('{serviceSlug}', serviceSlug).replace('{nicheSlug}', nicheSlug);
+}
+
+/** Service-level solutions page (one per service, niche-independent). */
+export function buildServicePageUrl(
+  domain: string,
+  serviceSlug: string,
+  pattern: string = env.SOLUTIONS_SERVICE_URL_PATTERN
+): string {
+  return pattern.replace('{domain}', domain).replace('{serviceSlug}', serviceSlug);
+}
+
+/** The /solutions hub index for a domain. */
+export function buildSolutionsHubUrl(domain: string, pattern: string = env.SOLUTIONS_HUB_URL_PATTERN): string {
+  return pattern.replace('{domain}', domain);
+}
+
 function xmlEscape(value: string): string {
   return value
     .replace(/&/g, '&amp;')
@@ -162,13 +186,83 @@ export class SitemapService {
     return out;
   }
 
+  /** Published solutions pages (service x niche). Reuses PublishedPostUrl's shape for a non-post entity, same as getTaxonomyUrls() already does for categories/tags. */
+  async getSolutionUrls(): Promise<PublishedPostUrl[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT s.slug AS service_slug, n.slug AS niche_slug, sol.updated_at, sol.website_id, w.domain
+         FROM solutions sol
+         JOIN services s ON s.id = sol.service_id
+         JOIN niches n ON n.id = sol.niche_id
+         JOIN websites w ON w.id = sol.website_id
+        WHERE sol.status = 'published' AND w.domain IS NOT NULL`
+    );
+    return (rows as any[]).map((r) => {
+      const domain = String(r.domain);
+      const serviceSlug = String(r.service_slug);
+      const nicheSlug = String(r.niche_slug);
+      return {
+        websiteId: String(r.website_id),
+        domain,
+        slug: `${serviceSlug}/${nicheSlug}`,
+        url: buildSolutionUrl(domain, serviceSlug, nicheSlug),
+        lastmod: toIsoDate(r.updated_at)
+      };
+    });
+  }
+
+  /**
+   * Published service-level pages, plus one /solutions hub entry per domain that
+   * has at least one published solutions URL of either tier (a hub with nothing
+   * under it stays out of the sitemap — no indexable empty index page).
+   */
+  async getServicePageUrls(): Promise<PublishedPostUrl[]> {
+    const [rows] = await this.pool.query<RowDataPacket[]>(
+      `SELECT s.slug AS service_slug, s.website_id, w.domain
+         FROM services s
+         JOIN websites w ON w.id = s.website_id
+        WHERE s.page_status = 'published' AND s.content_json IS NOT NULL AND w.domain IS NOT NULL`
+    );
+    const today = new Date().toISOString().slice(0, 10);
+    return (rows as any[]).map((r) => {
+      const domain = String(r.domain);
+      const serviceSlug = String(r.service_slug);
+      return {
+        websiteId: String(r.website_id),
+        domain,
+        slug: serviceSlug,
+        url: buildServicePageUrl(domain, serviceSlug),
+        lastmod: today
+      };
+    });
+  }
+
   /** Generate one sitemap.xml file per website. Returns a summary per website. */
   async generateAll(): Promise<SitemapResult[]> {
-    const [postUrls, taxonomyUrls] = await Promise.all([
+    const [postUrls, taxonomyUrls, solutionUrls, servicePageUrls] = await Promise.all([
       this.getPublishedUrls(),
-      this.getTaxonomyUrls()
+      this.getTaxonomyUrls(),
+      this.getSolutionUrls(),
+      this.getServicePageUrls()
     ]);
-    const urls = [...postUrls, ...taxonomyUrls];
+
+    // One /solutions hub entry per domain — keyed off published SERVICE-level pages
+    // only: the hub is an index of services, so it ships to the sitemap together
+    // with the first service page (and the frontend ships those two routes
+    // together), never off a lone niche page while the hub route may not exist.
+    const hubDomains = new Map<string, PublishedPostUrl>();
+    for (const u of servicePageUrls) {
+      if (!hubDomains.has(u.domain)) {
+        hubDomains.set(u.domain, {
+          websiteId: u.websiteId,
+          domain: u.domain,
+          slug: 'solutions',
+          url: buildSolutionsHubUrl(u.domain),
+          lastmod: new Date().toISOString().slice(0, 10)
+        });
+      }
+    }
+
+    const urls = [...postUrls, ...taxonomyUrls, ...solutionUrls, ...servicePageUrls, ...hubDomains.values()];
     if (urls.length === 0) return [];
 
     await fs.mkdir(this.outDir, { recursive: true });

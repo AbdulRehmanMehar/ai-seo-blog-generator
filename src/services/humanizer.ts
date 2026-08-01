@@ -77,15 +77,19 @@ export class Humanizer {
     
     const wordCount = allContent.split(/\s+/).filter(Boolean).length;
     if (wordCount < this.deps.minWords) {
+      // The pre-humanization content already cleared blogGenerator's minWords floor —
+      // humanization is a polish pass, not a content guarantee, so if it regresses
+      // length below the floor, keep the original rather than silently writing thin
+      // content over good content. No retry here: reverting is the safe fallback.
       // eslint-disable-next-line no-console
-      console.log(`   ⚠️  Word count after humanization: ${wordCount} (below min: ${this.deps.minWords})`);
-    } else {
-      // eslint-disable-next-line no-console
-      console.log(`   📝 Word count after humanization: ${wordCount}`);
+      console.log(`   ⚠️  Humanization dropped word count to ${wordCount} (below min: ${this.deps.minWords}) — keeping original content, skipping this update`);
+      return;
     }
+    // eslint-disable-next-line no-console
+    console.log(`   📝 Word count after humanization: ${wordCount}`);
 
     await this.deps.pool.query(
-      'UPDATE posts SET content_json = ? WHERE id = ?', 
+      'UPDATE posts SET content_json = ? WHERE id = ?',
       [JSON.stringify(humanizedContent), postId]
     );
   }

@@ -198,6 +198,41 @@ ${quotes.join('\n')}
 Brand proof summary: ${b.proof_points.measurable_outcomes.join('; ')}.`;
 }
 
+export interface NicheCaseStudy {
+  id: string;
+  title: string;
+  businessType: string;
+  frictionBefore: string;
+  whatChanged: string;
+  evidence: string[];
+  tech: string;
+}
+
+/**
+ * Case studies whose niche_fit (curated in data/case_studies.json) includes the
+ * given niche slug. This is the PROOF GATE for solutions pages (2026-08-01):
+ * a service x niche page only generates when at least one real story matches
+ * the niche — replacing the retired DataForSEO keyword gate, which structurally
+ * couldn't see the long-tail demand these pages serve (every niche-qualified
+ * phrasing measured zero Ads volume across a full-matrix scan). Deterministic,
+ * free, and auditable: the mapping lives in the data file, not in model output.
+ */
+export function getCaseStudiesForNiche(nicheSlug: string): NicheCaseStudy[] {
+  const cs = getCaseStudies();
+  if (!cs) return [];
+  return (cs.case_studies ?? [])
+    .filter((c: any) => Array.isArray(c.niche_fit) && c.niche_fit.includes(nicheSlug))
+    .map((c: any) => ({
+      id: String(c.id),
+      title: String(c.title),
+      businessType: String(c.business_type),
+      frictionBefore: String(c.friction_before),
+      whatChanged: String(c.what_changed),
+      evidence: (c.evidence ?? []).map(String),
+      tech: String(c.tech ?? '')
+    }));
+}
+
 /**
  * Numeric outcome claims (percentages / multipliers) that are backed by real
  * evidence. The tier-2 screen rejects any % or Nx claim not in this set —

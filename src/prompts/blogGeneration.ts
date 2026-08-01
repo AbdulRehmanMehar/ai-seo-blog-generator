@@ -62,6 +62,8 @@ export function blogGenerationPrompt(args: {
    * Controls tone, CTA urgency, and content depth expectations.
    */
   buyerJourneyStage?: string;
+  /** Set on a retry after the previous attempt came back too thin — states exactly how short it was and what to expand, the same way solutionsService.ts feeds shortfall feedback back into a regeneration. */
+  retryFeedback?: string;
 }) {
   const formattedKnowledge = formatKnowledgeForPrompt(args.knowledge);
   const conversionGuidelines = getConversionGuidelines();
@@ -127,9 +129,12 @@ This reader has decided to hire someone and is evaluating whether you specifical
   const stageBanner = args.buyerJourneyStage
     ? `\n\n${stageGuidance[args.buyerJourneyStage] ?? ''}\n`
     : '';
+  const retryBanner = args.retryFeedback
+    ? `\n\nRETRY FEEDBACK (fix this)\n${args.retryFeedback}\n`
+    : '';
 
   return {
-    system: `CRITICAL PRE-GENERATION CHECKLIST - READ FIRST${stageBanner}
+    system: `CRITICAL PRE-GENERATION CHECKLIST - READ FIRST${stageBanner}${retryBanner}
 ${readingLevelGuidelines}
 
 ${brandVoiceGuidelines}

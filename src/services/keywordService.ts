@@ -15,7 +15,7 @@ export interface KeywordServiceDeps {
   gemini: GeminiClient;
 }
 
-interface DiscoveredKeyword {
+export interface DiscoveredKeyword {
   keyword: string;
   volume: number | null;
   difficulty: number | null;
@@ -114,12 +114,19 @@ export class KeywordService {
     let inserted = 0;
     for (const k of filtered) {
       const id = crypto.randomUUID();
+      // Normalize case/whitespace before insert — the UNIQUE KEY on keyword is
+      // case-sensitive (utf8mb4_bin) but every read-time check (cannibalization
+      // guard, recycle guard) compares via LOWER(TRIM()). Without normalizing here,
+      // "AI integration" and "ai integration" both pass the UNIQUE check as distinct
+      // rows, both get picked into separate topics, and one is doomed to die at the
+      // cannibalization guard after already paying for topic planning + embedding.
+      const normalizedKeyword = k.keyword.trim().toLowerCase();
       const [res] = await this.deps.pool.query<ResultSetHeader>(
         `
         INSERT IGNORE INTO keywords(id, keyword, volume, difficulty, cpc, intent, status)
         VALUES (?, ?, ?, ?, ?, ?, 'new')
         `,
-        [id, k.keyword, k.volume, k.difficulty, k.cpc, k.intent]
+        [id, normalizedKeyword, k.volume, k.difficulty, k.cpc, k.intent]
       );
       inserted += res.affectedRows ?? 0;
     }
@@ -220,10 +227,14 @@ export class KeywordService {
       let inserted = 0;
       for (const k of realCandidates) {
         const id = crypto.randomUUID();
+        // Normalize case/whitespace before insert — see comment at the SERP-expansion
+        // insert site above; this LLM-generated path is the more frequent source of
+        // acronym-casing duplicates ("AI" vs "ai", "CRM" vs "crm", ".NET" vs ".net").
+        const normalizedKeyword = k.keyword.trim().toLowerCase();
         const [res] = await this.deps.pool.query<ResultSetHeader>(
           `INSERT IGNORE INTO keywords(id, keyword, volume, difficulty, cpc, intent, status)
            VALUES (?, ?, ?, ?, ?, ?, 'new')`,
-          [id, k.keyword, k.real!.volume, k.real!.difficulty ?? 30, k.real!.cpc ?? k.cpc, k.intent]
+          [id, normalizedKeyword, k.real!.volume, k.real!.difficulty ?? 30, k.real!.cpc ?? k.cpc, k.intent]
         );
         inserted += res.affectedRows ?? 0;
       }
@@ -890,9 +901,10 @@ Return JSON:
   /**
    * Keyword IDEAS with real metrics for a set of seeds. Google Ads allows up to
    * 20 seed keywords per task, so seeds are chunked — one task fee per chunk,
-   * not per seed.
+   * not per seed. Public so other services (e.g. SolutionsService) can reuse it
+   * to ground non-blog pages in real search demand.
    */
-  private async dataForSeoKeywordsForKeywords(seeds: string[]): Promise<DiscoveredKeyword[]> {
+  async dataForSeoKeywordsForKeywords(seeds: string[]): Promise<DiscoveredKeyword[]> {
     if (!this.dataForSeoEnabled() || seeds.length === 0) return [];
     const clean = dedupeStrings(seeds.map((s) => s.trim()).filter(Boolean));
     const chunks: string[][] = [];

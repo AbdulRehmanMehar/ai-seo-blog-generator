@@ -110,6 +110,42 @@ const envSchema = z.object({
   EXPORT_DIR: z.string().default('./out/posts'),
   POST_MIN_WORDS: z.coerce.number().int().positive().default(1200),
   DUPLICATE_SIMILARITY_THRESHOLD: z.coerce.number().min(0).max(1).default(0.85),
+  // Solutions pages share a rigid JSON structure across every niche (same FAQ phrasing
+  // patterns, same CTA style), so the baseline similarity between two genuinely different
+  // niche pages runs higher than between two free-form blog posts — stricter than the
+  // blog's topic-level threshold above, matching ConsolidationService's "same finished
+  // asset" bar instead.
+  SOLUTIONS_DUPLICATE_SIMILARITY_THRESHOLD: z.coerce.number().min(0).max(1).default(0.90),
+  // Minimum total word count across a solutions page's text fields (headline through
+  // cta). Landing pages don't need blog's 1200-word bar, but the first two generated
+  // pages (463 and 686 words) read as thin for a page meant to be indexed and ranked —
+  // this is a deterministic floor, not just a prompt suggestion the model can ignore.
+  SOLUTIONS_MIN_WORDS: z.coerce.number().int().positive().default(900),
+  // Reuse a solution's stored SEO research (target_keywords_json) when regenerating its
+  // copy, instead of re-querying DataForSEO every time — the underlying search demand
+  // doesn't change from one content regeneration to the next. Only re-research when it's
+  // this many days old (rankings/volume can genuinely shift), or the pair is brand new.
+  SOLUTIONS_SEO_RESEARCH_MAX_AGE_DAYS: z.coerce.number().int().positive().default(30),
+  // PIPELINE SWITCH (2026-08-01): the curated solutions matrix is fully written and
+  // published (8 niche pages — every pairing the case-study evidence honestly
+  // supports), so generation is parked. Approving, publishing, listing, and the
+  // sitemap all keep working — only NEW content generation refuses. Set to 'true'
+  // when new case studies/niches/services make more pages worth writing.
+  SOLUTIONS_GENERATION_ENABLED: z
+    .string()
+    .default('false')
+    .transform((v) => v.toLowerCase() === 'true'),
+  // KILL SWITCH (2026-08-01): solutions pages no longer use DataForSEO at all —
+  // a full-matrix live test proved keyword research structurally can't see the
+  // long-tail demand these pages serve (every niche-qualified phrasing measured
+  // zero Ads volume; every measurable category term was shopping-intent). The
+  // proof gate (case_studies.json niche_fit) + retroactive GSC validation
+  // replaced it. researchNicheSeo() refuses to run unless this is explicitly
+  // 'true', so no future code path can silently re-introduce paid research here.
+  SOLUTIONS_SEO_RESEARCH_ENABLED: z
+    .string()
+    .default('false')
+    .transform((v) => v.toLowerCase() === 'true'),
 
   // Target CEFR reading level for generated content. 'A2' (elementary, simple short
   // sentences, ~1500-word vocabulary) is enforced via prompt guidance + deterministic
@@ -126,6 +162,13 @@ const envSchema = z.object({
   // Hub-page URL patterns. Placeholders: {domain} and {slug}.
   CATEGORY_URL_PATTERN: z.string().default('https://{domain}/blog/category/{slug}'),
   TAG_URL_PATTERN: z.string().default('https://{domain}/blog/tag/{slug}'),
+  // Solutions pages (service x niche landing pages) use a two-slug URL, unlike the
+  // single-{slug} patterns above. Placeholders: {domain}, {serviceSlug}, {nicheSlug}.
+  SOLUTIONS_URL_PATTERN: z.string().default('https://{domain}/solutions/{serviceSlug}/{nicheSlug}'),
+  // Service-level solutions pages (one per service, niche-independent) and the
+  // /solutions hub index. Placeholders: {domain}, {serviceSlug}.
+  SOLUTIONS_SERVICE_URL_PATTERN: z.string().default('https://{domain}/solutions/{serviceSlug}'),
+  SOLUTIONS_HUB_URL_PATTERN: z.string().default('https://{domain}/solutions'),
   // A tag page only becomes indexable / enters the sitemap once it has this many
   // published posts (prevents thin 1-post archive pages). Default: 3.
   TAG_INDEX_MIN_POSTS: z.coerce.number().int().positive().default(3),

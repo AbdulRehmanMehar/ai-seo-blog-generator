@@ -11,7 +11,7 @@ export interface CategoryOption {
   description: string | null;
 }
 
-const FORBIDDEN_WORDS = [
+export const FORBIDDEN_WORDS = [
   'leverage', 'utilize', 'robust', 'seamless', 'cutting-edge', 'delve', 'paramount',
   'pivotal', 'foster', 'bolster', 'myriad', 'plethora', 'comprehensive', 'innovative',
   'synergy', 'streamline', 'tangible'

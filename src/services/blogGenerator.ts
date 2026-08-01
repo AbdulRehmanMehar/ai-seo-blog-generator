@@ -193,25 +193,6 @@ export class BlogGenerator {
       } catch { /* non-fatal: GSC data may not exist yet */ }
     }
 
-    const prompt = blogGenerationPrompt({
-      knowledge: this.deps.knowledge,
-      keyword: String(row.keyword),
-      topic: String(row.topic),
-      outline,
-      learnedRules,
-      websiteVoice,
-      targetIcp,
-      gscKeywordContext,
-      buyerJourneyStage
-    });
-
-    const raw = await this.deps.gemini.generateText({
-      systemInstruction: prompt.system,
-      userPrompt: prompt.user,
-      temperature: 0.7,
-      maxOutputTokens: 8192
-    });
-
     // Repair mechanical omissions before validation — cheap models sometimes
     // drop derivable fields (empty internalLinks, reading time, hero wrapper)
     // even when the substantive content is complete.
@@ -228,53 +209,92 @@ export class BlogGenerator {
       return p;
     };
 
-    let blog: BlogPostStructure;
-    try {
-      const parsedJson = repairShape(safeJsonParse(raw));
-      blog = blogJsonSchema.parse(parsedJson);
-    } catch (parseError) {
-      // Retry with stricter instructions
-      const raw2 = await this.deps.gemini.generateText({
+    // Retry loop: a bare "1200 words minimum" instruction in the prompt alone doesn't
+    // reliably get followed (confirmed live, 2026-08-01 — this mirrors the same
+    // retry-with-explicit-shortfall-feedback pattern already proven in
+    // solutionsService.ts). Only thinness is retried; a JSON-parse failure keeps its
+    // existing one-shot stricter-retry, nested inside each attempt, unchanged.
+    const MAX_ATTEMPTS = 3;
+    let blog: BlogPostStructure | null = null;
+    let retryFeedback: string | undefined;
+    for (let attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
+      const prompt = blogGenerationPrompt({
+        knowledge: this.deps.knowledge,
+        keyword: String(row.keyword),
+        topic: String(row.topic),
+        outline,
+        learnedRules,
+        websiteVoice,
+        targetIcp,
+        gscKeywordContext,
+        buyerJourneyStage,
+        retryFeedback
+      });
+
+      const raw = await this.deps.gemini.generateText({
         systemInstruction: prompt.system,
-        userPrompt: `${prompt.user}\n\nPREVIOUS ATTEMPT FAILED TO PARSE. CRITICAL RULES:\n- Return ONLY valid JSON matching the exact schema\n- Escape all newlines in strings as \\n\n- Escape all quotes in strings as \\"\n- No trailing commas\n- No comments`,
-        temperature: 0.3,
+        userPrompt: prompt.user,
+        temperature: 0.7,
         maxOutputTokens: 8192
       });
-      const parsedJson = repairShape(safeJsonParse(raw2));
-      blog = blogJsonSchema.parse(parsedJson);
-    }
 
-    // Post-processing: Humanize the content to clean AI patterns
-    // This is a SEPARATE pass to reduce cognitive load on the generation model
-    const { post: humanizedBlog, changes } = postHumanizer.humanize(blog);
-    blog = humanizedBlog;
-    if (changes.length > 0) {
-      console.log(`   🧹 Post-humanization: ${changes.join(', ')}`);
+      let attemptBlog: BlogPostStructure;
+      try {
+        const parsedJson = repairShape(safeJsonParse(raw));
+        attemptBlog = blogJsonSchema.parse(parsedJson);
+      } catch (parseError) {
+        // Retry with stricter instructions
+        const raw2 = await this.deps.gemini.generateText({
+          systemInstruction: prompt.system,
+          userPrompt: `${prompt.user}\n\nPREVIOUS ATTEMPT FAILED TO PARSE. CRITICAL RULES:\n- Return ONLY valid JSON matching the exact schema\n- Escape all newlines in strings as \\n\n- Escape all quotes in strings as \\"\n- No trailing commas\n- No comments`,
+          temperature: 0.3,
+          maxOutputTokens: 8192
+        });
+        const parsedJson = repairShape(safeJsonParse(raw2));
+        attemptBlog = blogJsonSchema.parse(parsedJson);
+      }
+
+      // Post-processing: Humanize the content to clean AI patterns
+      // This is a SEPARATE pass to reduce cognitive load on the generation model
+      const { post: humanizedBlog, changes } = postHumanizer.humanize(attemptBlog);
+      attemptBlog = humanizedBlog;
+      if (changes.length > 0) {
+        console.log(`   🧹 Post-humanization: ${changes.join(', ')}`);
+      }
+
+      // Calculate word count from all content fields
+      const allContent = [
+        attemptBlog.hero.hook,
+        attemptBlog.hero.subtitle,
+        ...attemptBlog.sections.map(s => s.content),
+        ...attemptBlog.faq.map(f => `${f.question} ${f.answer}`),
+        attemptBlog.conclusion.summary,
+        attemptBlog.conclusion.cta.text
+      ].join(' ');
+      const wordCount = allContent.split(/\s+/).filter(Boolean).length;
+
+      if (wordCount >= this.deps.minWords) {
+        // eslint-disable-next-line no-console
+        console.log(`   📝 Word count: ${wordCount}`);
+        blog = attemptBlog;
+        break;
+      }
+
+      if (attempt === MAX_ATTEMPTS) {
+        throw new Error(
+          `Thin content rejected: ${wordCount} words (minimum is ${this.deps.minWords}). ` +
+          `Sections averaged ${Math.round(wordCount / attemptBlog.sections.length)} words each — ` +
+          `Google will not index posts below this threshold.`
+        );
+      }
+      const shortfall = this.deps.minWords - wordCount;
+      retryFeedback = `Your last attempt was only ${wordCount} words, ${shortfall} short of the ${this.deps.minWords}-word minimum. Expand each section with more specific detail, examples, or context — do not just add filler.`;
+      // eslint-disable-next-line no-console
+      console.log(`   ↻ attempt ${attempt} too thin (${wordCount} words) — retrying with explicit feedback`);
     }
+    if (!blog) throw new Error('BlogGenerator: unreachable — retry loop exited without content or a throw');
 
     const finalSlug = toSlug(blog.slug || blog.title);
-
-    // Calculate word count from all content fields
-    const allContent = [
-      blog.hero.hook,
-      blog.hero.subtitle,
-      ...blog.sections.map(s => s.content),
-      ...blog.faq.map(f => `${f.question} ${f.answer}`),
-      blog.conclusion.summary,
-      blog.conclusion.cta.text
-    ].join(' ');
-    
-    const wordCount = allContent.split(/\s+/).filter(Boolean).length;
-    if (wordCount < this.deps.minWords) {
-      throw new Error(
-        `Thin content rejected: ${wordCount} words (minimum is ${this.deps.minWords}). ` +
-        `Sections averaged ${Math.round(wordCount / blog.sections.length)} words each — ` +
-        `Google will not index posts below this threshold.`
-      );
-    }
-    // eslint-disable-next-line no-console
-    console.log(`   📝 Word count: ${wordCount}`);
-
     const postId = crypto.randomUUID();
     
     // Store as structured JSON instead of markdown

@@ -16,7 +16,7 @@ import { AI_VOCABULARY_BLOCKLIST, FORBIDDEN_OPENINGS, FORBIDDEN_TRANSITIONS } fr
 import { env } from '../config/env.js';
 
 // Natural replacements for AI vocabulary
-const VOCABULARY_REPLACEMENTS: Record<string, string[]> = {
+export const VOCABULARY_REPLACEMENTS: Record<string, string[]> = {
   'leverage': ['use', 'apply', 'tap into', 'make use of'],
   'leveraging': ['using', 'applying', 'tapping into'],
   'leveraged': ['used', 'applied', 'tapped into'],
