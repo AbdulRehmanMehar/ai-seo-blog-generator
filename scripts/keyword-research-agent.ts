@@ -21,6 +21,7 @@
  *   review/keyword-research-plan.md      — human-readable writing queue
  *   review/keyword-research-verdicts.json — machine-readable (feeds the rewrite waves)
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

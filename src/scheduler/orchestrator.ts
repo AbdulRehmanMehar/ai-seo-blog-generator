@@ -20,6 +20,15 @@ import { ContentRefreshService } from '../services/contentRefreshService.js';
 import { SitemapService } from '../services/sitemapService.js';
 import { IndexNowService } from '../services/indexNowService.js';
 import { GoogleIndexingService } from '../services/googleIndexingService.js';
+import { RedirectRecrawlService } from '../services/redirectRecrawlService.js';
+
+/**
+ * Re-crawl pings per run for consolidated posts' old URLs. Deliberately a constant, not
+ * an env var: this is always-on backlog drainage. Kept below GOOGLE_INDEXING_PINGS_PER_RUN
+ * so it can never crowd out pings for newly published posts under the Indexing API's
+ * ~200/day project quota.
+ */
+const REDIRECT_RECRAWL_PINGS_PER_RUN = 25;
 import { TaxonomyService } from '../services/taxonomyService.js';
 
 function log(message: string) {
@@ -103,6 +112,49 @@ async function runIndexingStep(taxonomy: TaxonomyService) {
     }
   } catch (err) {
     log(`⚠️  Google Indexing API ping failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // 2b) Re-crawl pings for CONSOLIDATED posts' old URLs. After a consolidation run these
+  //     are usually the biggest block of "crawled - not indexed" in Search Console, and
+  //     nothing else in the pipeline reaches them: the sitemap excludes redirected URLs
+  //     by design, and getRecentlyPublishedUrls() only returns published rows. Runs AFTER
+  //     the new-post pings above so fresh content always gets the quota first, and only
+  //     pings URLs already serving a 3xx (see RedirectRecrawlService). Best-effort.
+  try {
+    const googleIndexing = env.GOOGLE_INDEXING_PING_ENABLED ? GoogleIndexingService.build() : null;
+    if (!env.GOOGLE_INDEXING_PING_ENABLED) {
+      log('🔁 Redirect re-crawl: skipped (GOOGLE_INDEXING_PING_ENABLED=false)');
+    } else if (!googleIndexing) {
+      log('🔁 Redirect re-crawl: skipped (no Google service account configured)');
+    } else {
+      const recrawl = new RedirectRecrawlService(mysqlPool);
+      const batch = await recrawl.findLiveBatch(REDIRECT_RECRAWL_PINGS_PER_RUN);
+      if (batch.length === 0) {
+        log('🔁 Redirect re-crawl: no redirected URLs awaiting a re-crawl');
+      } else {
+        const result = await googleIndexing.pingUpdatedUrls(
+          mysqlPool,
+          batch.map((u) => ({ url: u.url, lastmod: u.lastmod })),
+          REDIRECT_RECRAWL_PINGS_PER_RUN
+        );
+        if (result.abortReason) {
+          log(`⚠️  Redirect re-crawl: aborted after ${result.pinged} ping(s) — ${result.abortReason}`);
+        } else {
+          log(`🔁 Redirect re-crawl: ${result.pinged} pinged, ${result.skipped} already announced, ${result.failed} failed`);
+        }
+        // Free, unlimited, and covers Bing/Yandex too — worth doing for the same batch.
+        try {
+          const indexNowRedirects = new IndexNowService();
+          if (indexNowRedirects.isEnabled()) {
+            for (const s of await indexNowRedirects.submitUrls(batch)) {
+              if (s.ok) log(`📨 IndexNow (redirects): submitted ${s.submitted} URL(s) for ${s.domain} (HTTP ${s.status})`);
+            }
+          }
+        } catch { /* secondary signal — never worth failing the step */ }
+      }
+    }
+  } catch (err) {
+    log(`⚠️  Redirect re-crawl ping failed (continuing): ${err instanceof Error ? err.message : String(err)}`);
   }
 
   // 3) IndexNow — notifies Bing/Yandex/Seznam (NOT Google). Gated on INDEXNOW_KEY.

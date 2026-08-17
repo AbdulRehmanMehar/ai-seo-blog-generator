@@ -11,6 +11,7 @@
  * Merged posts get status='merged' + redirect_to_slug=<survivor>; the Next.js app 301s
  * them, and they drop out of the sitemap / internal links automatically.
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

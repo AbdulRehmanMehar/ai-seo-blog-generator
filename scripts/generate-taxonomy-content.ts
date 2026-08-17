@@ -6,6 +6,7 @@
  *   npx tsx scripts/generate-taxonomy-content.ts          # default 20 (≈ all categories)
  *   npx tsx scripts/generate-taxonomy-content.ts 120      # categories + tags
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

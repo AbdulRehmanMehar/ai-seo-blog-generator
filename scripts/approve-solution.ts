@@ -6,6 +6,7 @@
  *
  *   npx tsx scripts/approve-solution.ts booking-scheduling-intake recruiting-staffing "Abdul Rehman"
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

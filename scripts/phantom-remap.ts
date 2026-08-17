@@ -9,6 +9,7 @@
  *   npx tsx scripts/phantom-remap.ts            # full run
  *   npx tsx scripts/phantom-remap.ts 20         # cap posts (test)
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

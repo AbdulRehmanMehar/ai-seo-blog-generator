@@ -204,7 +204,10 @@ const envSchema = z.object({
 
   // Postgres keep-alive heartbeat schedule (default: hourly). Lower it (e.g. '*/30 * * * *')
   // if the provider suspends the DB on a shorter inactivity window.
-  CRON_PG_KEEPALIVE: z.string().default('0 * * * *'),
+  // Every 30 minutes rather than hourly: the ping is a single tiny write + read, and
+  // halving the idle window is cheap insurance against a provider suspending the
+  // instance for inactivity. Still honours an explicit CRON_PG_KEEPALIVE if set.
+  CRON_PG_KEEPALIVE: z.string().default('*/30 * * * *'),
 
   // Google service account (PREFERRED for GSC + GA4 — headless, never expires).
   // Three ways to provide it (first one found wins):

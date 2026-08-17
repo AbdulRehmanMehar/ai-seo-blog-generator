@@ -456,15 +456,30 @@ export function startScheduler() {
   // eslint-disable-next-line no-console
   console.log('Scheduler starting...');
 
-  // Blog generation pipeline
-  cron.schedule(env.CRON_SCHEDULE_1, async () => {
-    await runPipelineOnce();
-  });
+  // Blog generation pipeline.
+  //
+  // The try/catch is load-bearing. runPipelineOnce() can throw (missing API keys,
+  // author-knowledge load failure, an unreachable Postgres, an LLM call that escapes
+  // the inner handlers). An async cron callback that rejects produces an unhandled
+  // promise rejection, and Node's default since v15 is to TERMINATE the process — so a
+  // single bad run killed the whole scheduler. Docker restarted it, cron re-registered,
+  // and the next attempt was hours later, hitting the same error: a scheduler that looks
+  // healthy while producing nothing, and a Postgres keep-alive that stops ticking with it.
+  // Every other scheduled task here already had this guard; the pipeline did not.
+  const runPipelineGuarded = async (label: string) => {
+    const ts = new Date().toISOString();
+    try {
+      await runPipelineOnce();
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(`[${ts}] ❌ Pipeline run (${label}) failed — scheduler stays up:`, err);
+    }
+  };
+
+  cron.schedule(env.CRON_SCHEDULE_1, () => { void runPipelineGuarded('schedule-1'); });
 
   if (env.CRON_SCHEDULE_2) {
-    cron.schedule(env.CRON_SCHEDULE_2, async () => {
-      await runPipelineOnce();
-    });
+    cron.schedule(env.CRON_SCHEDULE_2, () => { void runPipelineGuarded('schedule-2'); });
   }
 
   // Knowledge base sync (GitHub repos)
@@ -492,10 +507,30 @@ export function startScheduler() {
   // inactivity (write + read a heartbeat row). Runs once now and on a schedule.
   const pgKeepAliveTick = async () => {
     const ts = new Date().toISOString();
-    const r = await pgKeepAlive();
-    // eslint-disable-next-line no-console
-    if (r.ok) console.log(`[${ts}] 💓 Postgres keep-alive ok (last_ping=${r.lastPing})`);
-    else console.error(`[${ts}] 💔 Postgres keep-alive failed: ${r.error}`);
+    try {
+      const r = await pgKeepAlive();
+      if (r.ok) {
+        // ping_count is the evidence that matters: a number climbing steadily proves the
+        // loop is alive. A stalled count in the logs localises the problem immediately.
+        // eslint-disable-next-line no-console
+        console.log(
+          `[${ts}] 💓 Postgres keep-alive ok | ping #${r.pingCount} | last_ping=${r.lastPing}` +
+            `${r.embeddingsSeen !== undefined ? ` | embeddings=${r.embeddingsSeen}` : ''}` +
+            `${r.attempts && r.attempts > 1 ? ` | recovered on attempt ${r.attempts}` : ''}`
+        );
+      } else {
+        // eslint-disable-next-line no-console
+        console.error(
+          `[${ts}] 💔 Postgres keep-alive FAILED after ${r.attempts} attempts ` +
+            `(${r.consecutiveFailures} consecutive): ${r.error}`
+        );
+      }
+    } catch (err) {
+      // pgKeepAlive is documented never to throw; guard anyway so a surprise here can
+      // never take down the scheduler.
+      // eslint-disable-next-line no-console
+      console.error(`[${ts}] 💔 Postgres keep-alive threw unexpectedly:`, err);
+    }
   };
   void pgKeepAliveTick();
   cron.schedule(env.CRON_PG_KEEPALIVE, () => { void pgKeepAliveTick(); });

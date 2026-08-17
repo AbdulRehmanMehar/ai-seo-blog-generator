@@ -8,6 +8,7 @@
  *
  * Run: npx tsx scripts/tag-backfill.ts
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

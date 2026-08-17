@@ -8,6 +8,7 @@
  * Oldest-remediated first. Preserves the slug. Re-humanizes (A2 + no em dash), re-embeds,
  * and clears index_state so the next census re-checks whether Google indexed it.
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

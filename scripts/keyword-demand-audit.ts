@@ -11,6 +11,7 @@
  * Also writes real volume/cpc/difficulty back onto matching `keywords` rows so
  * future topic planning stops trusting LLM-estimated numbers.
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

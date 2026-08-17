@@ -6,6 +6,7 @@
  *   npx tsx scripts/list-solutions-for-review.ts
  *   npx tsx scripts/list-solutions-for-review.ts primestrides.com
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

@@ -11,6 +11,7 @@
  *   npx tsx scripts/google-indexing-ping.ts              # last 7 days, cap 190
  *   npx tsx scripts/google-indexing-ping.ts 3 100        # last 3 days, cap 100
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

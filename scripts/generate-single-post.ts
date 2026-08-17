@@ -6,6 +6,7 @@
  *
  *   npx tsx scripts/generate-single-post.ts <domain> "<keyword>" "<topic angle>" [buyer_journey_stage]
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

@@ -18,6 +18,7 @@
  *   npx tsx scripts/brand-realign-corpus.ts            # runs until the corpus is done
  *   npx tsx scripts/brand-realign-corpus.ts 50         # cap this run to 50 posts
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

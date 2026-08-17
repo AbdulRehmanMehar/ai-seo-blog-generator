@@ -13,6 +13,7 @@
  * Titles/meta titles are NEVER auto-changed: posts whose TITLE contains an NDA
  * name or violation are listed in the report for deliberate per-post handling.
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

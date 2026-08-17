@@ -5,6 +5,7 @@
  *
  *   npx tsx scripts/publish-service-page.ts booking-scheduling-intake
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

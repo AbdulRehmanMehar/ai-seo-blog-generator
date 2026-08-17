@@ -7,6 +7,7 @@
  *   npx tsx scripts/generate-solutions-content.ts          # default: 3 pending combos
  *   npx tsx scripts/generate-solutions-content.ts 5        # up to 5 pending combos
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');

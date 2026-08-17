@@ -15,6 +15,7 @@
  * Oldest-updated first, so re-running continues where the last batch stopped.
  * After the batch, refreshed URLs are pinged via IndexNow to prompt a re-crawl.
  */
+import '../src/config/forceIpv4.js'; // side-effect: patches dns.lookup to family:4 — must precede any network call
 import 'dotenv/config';
 import dns from 'node:dns';
 dns.setDefaultResultOrder('ipv4first');
